@@ -1,0 +1,13 @@
+# Indian Anime Club clean article URLs.
+# Apache/LiteSpeed hosting can serve flat articles/slug.html files at /slug/.
+RewriteEngine On
+
+# Redirect explicit article .html URLs to the established clean root URL.
+RewriteCond %{THE_REQUEST} \s/+articles/([^/?]+)\.html(?:[\s?]) [NC]
+RewriteRule ^articles/([^/]+)\.html$ /$1/ [R=301,L,NE]
+
+# Serve a flat article source file for a clean root-level article URL.
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{DOCUMENT_ROOT}/articles/$1.html -f
+RewriteRule ^([^/]+)/?$ articles/$1.html [L]
