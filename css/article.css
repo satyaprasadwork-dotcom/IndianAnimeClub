@@ -121,3 +121,18 @@ nav[aria-label="Main navigation"] ul a:hover{color:#ff5a1f!important}
 nav[aria-label="Main navigation"] .logo b{background:#ff5a1f!important;color:#07182b!important}
 nav[aria-label="Main navigation"] .btn{background:#ffd23f!important;color:#07182b!important;border-color:#fff7ec!important;box-shadow:4px 4px 0 #ff5a1f!important}
 nav[aria-label="Main navigation"] .menu{background:#ffd23f!important;color:#07182b!important;border-color:#fff7ec!important}
+
+
+/* Final alignment pass, following Ninth Post's article-column structure. */
+html,body{width:100%;max-width:100%;overflow-x:clip}
+body>main.wrap,main.wrap{display:block;width:100%;max-width:none;margin:0;padding:0;min-width:0}
+main.wrap>article.article,main>article.article,article.article{display:block;float:none;clear:both;box-sizing:border-box;width:min(900px,calc(100% - 40px));max-width:900px;min-width:0;margin:clamp(28px,5vw,56px) auto 72px;padding:0;overflow-wrap:anywhere}
+article.article>.body{display:block;float:none;clear:both;width:100%;max-width:760px;min-width:0;margin:0 auto;padding:0}
+article.article>.meta,article.article>h1,article.article>.dek,article.article>.author-box,article.article>.hero-art{width:100%;max-width:100%;min-width:0}
+article.article h1{max-width:13em;line-height:1.04;text-wrap:balance;overflow-wrap:anywhere}
+article.article .hero-art{box-sizing:border-box;min-height:clamp(200px,30vw,280px);margin:28px 0 34px}
+article.article img,article.article svg,article.article table{max-width:100%}
+article.article table{display:block;overflow-x:auto}
+article.article .article-toc,article.article .visual-explainer,article.article .original-analysis,article.article .quick-answer,article.article .key-takeaways{width:100%;max-width:100%;min-width:0}
+footer.iac-footer{display:block;float:none;clear:both;width:100%;max-width:none;margin:48px 0 0}
+@media(max-width:760px){main.wrap>article.article,main>article.article,article.article{width:calc(100% - 32px);margin:30px auto 48px}article.article>.body{width:100%}article.article .hero-art{min-height:200px}}
