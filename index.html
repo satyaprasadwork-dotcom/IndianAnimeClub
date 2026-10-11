@@ -3,6 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="canonical" href="https://indiananimeclub.com/">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-M4738D1ZND"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date());gtag("config","G-M4738D1ZND");</script>
 <title>Indian Anime Club | indiananimeclub.com</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Ctext y=%27.9em%27 font-size=%2790%27%3E%F0%9F%8C%B8%3C/text%3E%3C/svg%3E">
 <meta property="og:title" content="Indian Anime Club">
@@ -142,7 +145,7 @@ footer .row{display:flex;justify-content:center;gap:22px;margin-bottom:12px;flex
 <div id="bar" aria-hidden="true"></div>
 <nav aria-label="Main navigation"><div class="wrap">
   <a class="logo" href="#top"><b>IAC</b> <span class="ln">Indian Anime Club</span></a>
-  <ul id="site-links"><li><a href="#about">About</a></li><li><a href="#worlds">Worlds</a></li><li><a href="#events">Events</a></li><li><a href="#chapters">Chapters</a></li></ul>
+  <ul id="site-links"><li><a href="#about">About</a></li><li><a href="#worlds">Worlds</a></li><li><a href="#events">Events</a></li><li><a href="#chapters">Chapters</a></li><li><a href="articles.html">Articles</a></li></ul>
   <a class="btn" href="#join" style="padding:8px 16px;font-size:14px;box-shadow:4px 4px 0 var(--accent)">Join us</a>
   <button class="menu" id="menu" type="button" aria-label="Toggle navigation" aria-controls="site-links" aria-expanded="false">&#9776;</button>
 </div></nav>
@@ -290,8 +293,7 @@ let wi=0,ci=0,del=false;
   if(del&&ci==0){del=false;wi=(wi+1)%W.length}
   ci+=del?-1:1;setTimeout(t,del?30:70)})();
 const pp=$('#pp'),sv=$('#sv');
-addEventListener('pointermove',e=>{const r=sv.getBoundingClientRect(),dx=e.clientX-(r.left+r.width/2),dy=e.clientY-(r.top+r.height*.5),d=Math.hypot(dx,dy)||1,m=Math.min(7,d/40);
-  pp.setAttribute('transform',`translate(${dx/d*m},${dy/d*m})`)});
+if(sv&&pp)addEventListener('pointermove',e=>{const r=sv.getBoundingClientRect(),dx=e.clientX-(r.left+r.width/2),dy=e.clientY-(r.top+r.height*.5),d=Math.hypot(dx,dy)||1,m=Math.min(7,d/40);pp.setAttribute('transform',`translate(${dx/d*m},${dy/d*m})`)});
 const L=['Yoroshiku!','Snacks included!','Sub or dub? Both!','Watch the opening. Always.','Join the WhatsApp group!','Is that a cosplay? Yes.'];let li=0;
 $('#mb').onclick=()=>{li=(li+1)%L.length;$('#say').textContent=L[li]};
 const fx=$('#fx'),K='ア イ ウ エ オ ナ 星 夢 桜 力 友 道'.split(' '),C=['#22e4ff','#ffd23f','#b6ff3b','#ff8a1f'];
@@ -303,9 +305,9 @@ const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return
   e.target.classList.add('in');io.unobserve(e.target)}),{threshold:.2});
 document.documentElement.classList.add('js');
 document.querySelectorAll('.rv').forEach((el,i)=>{el.style.transitionDelay=(i%5)*70+'ms';io.observe(el)});
-const rail=$('#rail');$('#nx').onclick=()=>rail.scrollBy({left:280,behavior:'smooth'});$('#pv').onclick=()=>rail.scrollBy({left:-280,behavior:'smooth'});
+const rail=$('#rail'),nx=$('#nx'),pv=$('#pv');if(rail&&nx&&pv){nx.onclick=()=>rail.scrollBy({left:280,behavior:RM?'auto':'smooth'});pv.onclick=()=>rail.scrollBy({left:-280,behavior:RM?'auto':'smooth'});}
 const O=['Mecha night + pani puri','Cosplay couch-watch','Shonen marathon, 3 episodes','Slice-of-life with chai','Isekai bingo night','Sports anime hype hour','Horror with the lights off','Studio classics double bill'],sl=$('#slot');
-$('#spin').onclick=()=>{let n=0;sl.classList.add('spin');
+if($('#spin')&&sl)$('#spin').onclick=()=>{let n=0;sl.classList.add('spin');
   (function go(){sl.textContent=O[Math.floor(Math.random()*O.length)];if(++n<(RM?1:16))setTimeout(go,60+n*8);else sl.classList.remove('spin')})()};
 </script>
 </body>
