@@ -131,6 +131,17 @@ h2{font-size:clamp(34px,6vw,64px);text-transform:uppercase;margin-bottom:12px}
 .join .ctas{justify-content:center}
 .join .btn{border-color:var(--dk);box-shadow:6px 6px 0 var(--dk)}
 .mail{display:inline-block;margin-top:34px;font-family:var(--display);font-size:clamp(18px,3.4vw,30px);word-break:break-all}
+/* Prevent card copy from being clipped or split by fixed grid tracks. */
+.panel,.card,.ev,.city{min-width:0}
+.panel h3,.panel p,.card h3,.card p,.ev h3,.ev p,.ev .tag,.city b,.city span{min-width:0;overflow-wrap:anywhere;word-break:normal;hyphens:auto}
+.panel h3,.ev h3{line-height:1.18}
+.panel p,.ev p{line-height:1.55}
+.ev{grid-template-columns:minmax(76px,110px) minmax(0,1fr) auto}
+.ev>.date,.ev>.tag{max-width:100%}
+.ev .tag{white-space:normal;text-align:center}
+@media(max-width:760px){.ev{grid-template-columns:72px minmax(0,1fr);gap:14px}.ev>.tag{grid-column:2;justify-self:start}.date b{font-size:clamp(24px,7vw,38px)}}
+@media(max-width:420px){.panel{padding:18px}.panel h3{font-size:clamp(19px,6vw,24px)}.panel p,.ev p{font-size:15px}.ev{grid-template-columns:58px minmax(0,1fr);gap:10px}.ev h3{font-size:20px}}
+
 footer{padding:36px 0 48px;text-align:center;color:var(--mute);font-size:15px}
 footer .row{display:flex;justify-content:center;gap:22px;margin-bottom:12px;flex-wrap:wrap}
 
@@ -162,7 +173,7 @@ footer .row{display:flex;justify-content:center;gap:22px;margin-bottom:12px;flex
 <div id="bar" aria-hidden="true"></div>
 <nav aria-label="Main navigation"><div class="wrap">
   <a class="logo" href="#top"><b>IAC</b> <span class="ln">Indian Anime Club</span></a>
-  <ul id="site-links"><li><a href="#about">About</a></li><li><a href="#worlds">Worlds</a></li><li><a href="#events">Events</a></li><li><a href="#chapters">Chapters</a></li><li><a href="articles.html">Articles</a></li></ul>
+  <ul id="site-links"><li><a href="#about">About</a></li><li><a href="#worlds">Worlds</a></li><li><a href="#events">Events</a></li><li><a href="#chapters">Chapters</a></li><li><a href="/articles/">Articles</a></li></ul>
   <a class="btn" href="#join" style="padding:8px 16px;font-size:14px;box-shadow:4px 4px 0 var(--accent)">Join us</a>
   <button class="menu" id="menu" type="button" aria-label="Toggle navigation" aria-controls="site-links" aria-expanded="false">&#9776;</button>
 </div></nav>
@@ -257,11 +268,11 @@ footer .row{display:flex;justify-content:center;gap:22px;margin-bottom:12px;flex
 
 <section class="worlds" id="events"><div class="wrap">
   <h2 class="rv">What's next</h2>
-  <p class="lead rv">We're focused on building the community and its content first. These are ideas we may explore in the future, not scheduled or confirmed events.</p>
-  <div class="ev rv"><div class="date"><b>IDEA</b>01</div><div><h3>Group watch picks</h3><p>Share suggestions for anime episodes or films the community might enjoy watching together someday.</p></div><span class="tag">Future idea</span></div>
-  <div class="ev rv"><div class="date"><b>IDEA</b>02</div><div><h3>Cosplay and fan creativity</h3><p>Celebrate character looks, fan art, edits, collections, and the people who make them.</p></div><span class="tag">Community</span></div>
-  <div class="ev rv"><div class="date"><b>IDEA</b>03</div><div><h3>Anime quizzes and discussions</h3><p>Explore trivia, theories, character debates, and opening-theme challenges as future community activities.</p></div><span class="tag">Future idea</span></div>
-  <div class="ev rv"><div class="date"><b>IDEA</b>04</div><div><h3>Fan meetups, someday</h3><p>If the community grows and plans come together, local meetups or screenings may be considered later.</p></div><span class="tag">Not scheduled</span></div>
+  <p class="lead rv">Your next anime rabbit hole starts here. Explore thoughtful character breakdowns, find a new series to try, or dive into rankings and anime culture. These links take you to our article library, not event listings.</p>
+  <a class="ev rv" href="/articles/?category=character-studies"><div class="date"><b>01</b>DEEP DIVE</div><div><h3>Get to know the characters</h3><p>Explore character psychology, motivations, rivalries, turning points, and the choices that make a character memorable.</p></div><span class="tag">Character studies ↗</span></a>
+  <a class="ev rv" href="/articles/?category=recommendations"><div class="date"><b>02</b>FIND A SHOW</div><div><h3>Find your next favourite</h3><p>Browse recommendations and discover what to watch based on the stories, moods, and genres you enjoy.</p></div><span class="tag">Recommendations ↗</span></a>
+  <a class="ev rv" href="/articles/?category=rankings"><div class="date"><b>03</b>MAKE THE CASE</div><div><h3>Rankings worth debating</h3><p>Compare standout characters, story arcs, memorable moments, and the reasons fans put them at the top.</p></div><span class="tag">Rankings ↗</span></a>
+  <a class="ev rv" href="/articles/?category=anime-analysis"><div class="date"><b>04</b>LOOK CLOSER</div><div><h3>See anime from a new angle</h3><p>Dig into storytelling, visual choices, fan culture, and the details that make anime resonate beyond the screen.</p></div><span class="tag">Anime analysis ↗</span></a>
 </div></section>
 
 <section id="chapters"><div class="wrap">
@@ -295,7 +306,7 @@ footer .row{display:flex;justify-content:center;gap:22px;margin-bottom:12px;flex
       <a href="mailto:prasad@indiananimeclub.com">Email</a>
     </nav>
     <nav class="iac-footer-site" aria-label="Website information">
-      <a href="/about.html">About</a><a href="/contact.html">Contact</a><a href="/community-guidelines.html">Community guidelines</a><a href="/editorial-policy.html">Editorial policy</a><a href="/privacy-policy.html">Privacy</a><a href="/terms.html">Terms</a><a href="/disclaimer.html">Disclaimer</a>
+      <a href="/about/">About</a><a href="/contact/">Contact</a><a href="/community-guidelines/">Community guidelines</a><a href="/editorial-policy/">Editorial policy</a><a href="/privacy-policy/">Privacy</a><a href="/terms/">Terms</a><a href="/disclaimer/">Disclaimer</a>
     </nav>
     <p class="iac-footer-copy">© 2026 Indian Anime Club · indiananimeclub.com · Independent fan community, not affiliated with anime studios or rights holders.</p>
   </div>
