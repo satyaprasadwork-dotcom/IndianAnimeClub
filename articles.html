@@ -186,4 +186,12 @@ main{padding:14px 0 80px}.count{color:var(--muted);margin:18px 0;font-weight:700
 })();
 </script>
 
+<script>
+(function(){
+  var path=window.location.pathname;
+  if(path==="/articles.html"){
+    window.location.replace("/articles/"+window.location.search+window.location.hash);
+  }
+})();
+</script>
 </body></html>
