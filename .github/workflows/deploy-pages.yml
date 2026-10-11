@@ -45,6 +45,18 @@ jobs:
               sed -i "s#</body>#<script src=\"/site-shell.js?v=${GITHUB_SHA}\" defer></script></body>#I" "$file"
             fi
           done
+          # Remove the homepage-style news ticker from every article source page.
+          # Do this at build time so it cannot reappear due to delayed JavaScript or CSS.
+          python3 - <<'PY'
+          from pathlib import Path
+          import re
+          for page in Path("articles").glob("*.html"):
+              if page.name == "index.html":
+                  continue
+              html = page.read_text(encoding="utf-8")
+              html = re.sub(r'<div class="tick"[^>]*>.*?</div>\\s*</div>', '', html, flags=re.S)
+              page.write_text(html, encoding="utf-8")
+          PY
           # Flat article sources remain canonical; create clean URL folders from
           # the updated source pages after cache-busting their asset URLs.
           shopt -s nullglob
