@@ -56,4 +56,12 @@
 </footer>
 <script>
 (()=>{const h=document.querySelector('.site-header'),b=document.querySelector('.menu-toggle');if(!h||!b)return;b.addEventListener('click',()=>{const open=h.classList.toggle('open');b.setAttribute('aria-expanded',String(open));b.textContent=open?'Close':'Menu'});h.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>{h.classList.remove('open');b.setAttribute('aria-expanded','false');b.textContent='Menu'}));document.addEventListener('keydown',e=>{if(e.key==='Escape'&&h.classList.contains('open')){h.classList.remove('open');b.setAttribute('aria-expanded','false');b.textContent='Menu';b.focus()}})})();
-</script></body></html>
+</script><script>
+(function(){
+  var path=window.location.pathname;
+  if(path==="/community-guidelines.html"){
+    window.location.replace("/community-guidelines/"+window.location.search+window.location.hash);
+  }
+})();
+</script>
+</body></html>
