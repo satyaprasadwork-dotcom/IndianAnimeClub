@@ -158,3 +158,59 @@ main{display:block;width:100%;min-width:0}
  .article-toc ol{grid-template-columns:1fr}
  .visual-grid,.related-links{grid-template-columns:1fr}
 }
+
+
+/* Alignment hotfix: an old body max-width rule was constraining the entire page to 760px. */
+html,body{
+  width:100%!important;
+  max-width:none!important;
+  min-width:320px;
+  margin:0!important;
+}
+body{
+  display:block!important;
+  float:none!important;
+  clear:both!important;
+  overflow-x:hidden;
+}
+body>nav[aria-label="Main navigation"]{
+  display:block;
+  width:100%!important;
+  max-width:none!important;
+  margin:0!important;
+}
+main#main{
+  display:block;
+  width:100%!important;
+  max-width:none!important;
+  margin:0!important;
+  padding:0;
+}
+article.article{
+  display:block;
+  float:none!important;
+  clear:both;
+  width:min(900px,calc(100% - 40px))!important;
+  max-width:900px!important;
+  margin:48px auto 72px!important;
+}
+article.article>.body{
+  display:block;
+  float:none!important;
+  clear:both;
+  width:100%!important;
+  max-width:760px!important;
+  margin:0 auto!important;
+}
+footer.iac-footer{
+  display:block;
+  float:none!important;
+  clear:both;
+  width:100%!important;
+  max-width:none!important;
+  margin:48px 0 0!important;
+}
+@media(max-width:760px){
+  article.article{width:calc(100% - 30px)!important;margin:32px auto 48px!important}
+  article.article>.body{width:100%!important}
+}
