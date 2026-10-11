@@ -1,6 +1,6 @@
 :root{--bg:#06182c;--bg2:#0c2a4a;--ink:#fff7ec;--mute:#a9c4e0;--dk:#07182b;--fire:#ff5a1f;--cyan:#22e4ff;--sun:#ffd23f;--lime:#b6ff3b;--accent:var(--fire);--tc:var(--cyan);--ts:var(--sun);--display:'Dela Gothic One','Impact','Arial Black',sans-serif;--body:'Space Grotesk','Segoe UI',system-ui,sans-serif}
-@media(prefers-color-scheme:light){:root:not([data-theme=dark]){--bg:#fff3e0;--bg2:#ffe3c2;--ink:#07182b;--mute:#3d5f85;--tc:#006f94;--ts:#8a5200}}
-:root[data-theme=light]{--bg:#fff3e0;--bg2:#ffe3c2;--ink:#07182b;--mute:#3d5f85;--tc:#006f94;--ts:#8a5200}
+/* Indian Anime Club uses one consistent dark brand palette on every page. */
+:root[data-theme=light]{--bg:#06182c;--bg2:#0c2a4a;--ink:#fff7ec;--mute:#a9c4e0;--tc:#22e4ff;--ts:#ffd23f}
 *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:80px}body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.55 var(--body);overflow-x:clip}a{color:inherit;text-underline-offset:4px}a:hover{color:var(--ts)}:focus-visible{outline:3px solid var(--sun);outline-offset:4px}.wrap{max-width:1120px;margin:0 auto;padding:0 20px}.skip-link{position:absolute;left:12px;top:-100px;z-index:100;background:var(--sun);color:var(--dk);padding:10px 14px;border:3px solid var(--dk);font-weight:700}.skip-link:focus{top:12px}
 #reading-progress{position:fixed;top:0;left:0;right:0;height:5px;z-index:999;background:linear-gradient(90deg,var(--fire),var(--sun),var(--lime),var(--cyan));transform:scaleX(0);transform-origin:left}
 .site-nav{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(10px);border-bottom:3px solid var(--accent)}.site-nav .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}.logo{font:400 19px/1.1 var(--display);text-decoration:none;display:flex;gap:8px;align-items:center;white-space:nowrap}.logo b{background:var(--accent);color:var(--dk);padding:2px 8px;transform:rotate(-4deg);display:inline-block;font-weight:400}.logo span{color:var(--ink)}.nav-links{display:flex;gap:22px;list-style:none;margin:0;padding:0;font-weight:500}.nav-links a{text-decoration:none;color:var(--ink);font-size:14px}.nav-links a:hover,.nav-links a[aria-current=page]{color:var(--accent)}.btn{display:inline-flex;align-items:center;gap:10px;font:400 16px var(--display);text-decoration:none;border:3px solid var(--ink);background:var(--sun);color:var(--dk);padding:12px 22px;box-shadow:6px 6px 0 var(--accent);cursor:pointer;transition:transform .15s,box-shadow .15s}.btn:hover{transform:translate(3px,3px);box-shadow:3px 3px 0 var(--accent)}.menu{display:none;font:400 20px var(--display);background:var(--sun);color:var(--dk);border:3px solid var(--ink);width:44px;height:44px;cursor:pointer}
@@ -109,3 +109,22 @@ body>nav[aria-label="Main navigation"] .menu{display:none}
 .iac-footer-social a:hover{background:#163753!important;color:#ffd23f!important;border-color:#ffd23f!important}
 .iac-footer-copy{width:100%;max-width:1000px;margin:22px auto 0!important;padding:18px 0 0!important;border-top:1px solid #29425b!important;color:#b8cce0!important;line-height:1.7!important}
 @media(max-width:760px){body>nav[aria-label="Main navigation"] .menu{display:block}body>nav[aria-label="Main navigation"] ul{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:0;background:var(--bg);border-bottom:3px solid var(--accent);padding:8px 20px}body>nav[aria-label="Main navigation"].open ul{display:flex}body>nav[aria-label="Main navigation"] ul a{display:block;padding:12px 0}body>nav[aria-label="Main navigation"] .btn{display:none}.iac-footer{margin-top:44px!important;padding:32px 16px 24px!important}.iac-footer-brand{flex-wrap:wrap;gap:6px}.iac-footer-brand span{font-size:16px}.iac-footer nav.iac-footer-social{gap:8px!important}.iac-footer-social a{padding:8px 11px!important}.iac-footer nav.iac-footer-site{gap:10px 14px!important}}
+
+
+/* Consistency patch: prevent legacy article rules from shifting shared site chrome. */
+html{background:#06182c;color-scheme:dark}
+body{background:#06182c;color:#fff7ec}
+body>nav[aria-label="Main navigation"]{width:100%;margin:0;padding:0;left:0;right:0}
+body>nav[aria-label="Main navigation"]>.wrap{width:100%;max-width:1120px;margin:0 auto;padding:0 20px;min-height:64px}
+body>nav[aria-label="Main navigation"] ul{list-style:none}
+body>nav[aria-label="Main navigation"] li{margin:0;padding:0}
+body>nav[aria-label="Main navigation"] .logo span{color:#fff7ec}
+.article{display:block;clear:both;float:none;position:relative}
+.article .body{display:block;float:none;clear:both}
+.iac-footer{float:none;clear:both;position:relative;left:auto;right:auto}
+@media(max-width:760px){
+  body>nav[aria-label="Main navigation"]>.wrap{gap:10px;padding-inline:15px}
+  body>nav[aria-label="Main navigation"] .logo{font-size:16px;white-space:normal}
+  body>nav[aria-label="Main navigation"] .logo .ln{display:none}
+  body>nav[aria-label="Main navigation"] ul{width:100%;box-sizing:border-box}
+}
