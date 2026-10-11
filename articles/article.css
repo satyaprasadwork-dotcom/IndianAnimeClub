@@ -10,3 +10,38 @@
 .body{max-width:760px;margin:0 auto}.body p{margin:0 0 24px}.body h2{font:400 clamp(25px,3.4vw,34px)/1.2 var(--display);text-transform:uppercase;letter-spacing:-.02em;margin:42px 0 14px;scroll-margin-top:85px}.body h3{font-size:22px;line-height:1.3;margin:28px 0 10px}.body ul,.body ol{padding-left:24px;margin:0 0 28px}.body li{margin:9px 0}.body strong{color:var(--ts)}.body blockquote{margin:30px 0;padding:18px 22px;border-left:5px solid var(--sun);background:var(--bg2)}.body a{color:var(--tc)}.eyebrow{font-size:12px!important;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ts);margin:0 0 8px!important}.visual-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.visual-grid>div{padding:16px;background:var(--bg);border:2px solid var(--ink);border-top:5px solid var(--fire);min-width:0}.visual-grid b,.visual-grid span{display:block}.visual-grid b{font-family:var(--display);font-size:16px;margin-bottom:7px}.visual-grid span{font-size:14px;line-height:1.5;color:var(--mute)}.note{background:var(--cyan);color:var(--dk);box-shadow:5px 5px 0 var(--fire)}.sources,.related{border-top:3px solid var(--accent);margin-top:48px;padding-top:16px}.sources h2,.related h2{font:400 27px/1.2 var(--display);text-transform:uppercase}.sources p{color:var(--mute)}.sources a,.related a{font-weight:700;color:var(--tc)}.related-links{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.related-links a{display:block;padding:18px;background:var(--bg2);border:3px solid var(--ink);box-shadow:4px 4px 0 var(--cyan);text-decoration:none;color:var(--ink);font:400 16px/1.35 var(--display)}.related-links a:hover{color:var(--ts);transform:translateY(-2px)}.back{display:inline-flex;margin-top:32px;background:var(--sun);color:var(--dk);border:3px solid var(--ink);box-shadow:4px 4px 0 var(--fire);padding:10px 16px;font:400 14px var(--display);text-decoration:none}.site-footer{border-top:3px solid var(--fire);padding:30px 0 38px;background:var(--dk);color:var(--mute);font-size:14px}.footer-links{display:flex;flex-wrap:wrap;gap:12px 22px;margin-bottom:14px}.footer-links a{color:var(--tc)}.footer-note{margin:0}
 @media(max-width:760px){.menu{display:block}.nav-links{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:0;background:var(--bg);border-bottom:3px solid var(--accent);padding:8px 20px}.site-nav.open .nav-links{display:flex}.nav-links a{display:block;padding:12px 0}.nav-cta{display:none}.article{margin:38px auto 54px}.article h1{font-size:clamp(35px,9vw,54px)}.hero-art{min-height:210px;padding:20px}.hero-art:before{font-size:120px;top:12px}.hero-art strong{font-size:20px}.body h2{margin-top:34px}.article-toc ol{columns:1}.visual-grid,.related-links{grid-template-columns:1fr}.article-toc,.quick-answer,.key-takeaways,.visual-explainer,.original-analysis,.note{padding:18px}.ticker-track{animation-duration:46s}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.ticker-track{animation:none}*{transition:none!important}}
+
+
+/* Article layout follows the reference editorial template while retaining Indian Anime Club branding. */
+.article{max-width:900px;width:calc(100% - 40px);margin:56px auto 76px;overflow-wrap:anywhere}
+.article h1{font:400 clamp(40px,6.6vw,72px)/1.02 var(--display);letter-spacing:-.035em;text-transform:none;max-width:13em}
+.dek{font-size:clamp(18px,2.2vw,21px);line-height:1.6;max-width:760px;margin:24px 0 0}
+.meta{margin-bottom:18px}.tag{border-radius:999px;transform:none;padding:6px 13px;font-size:13px}
+.author-box{margin:28px 0 24px;border-left:5px solid var(--fire);border-radius:0 16px 16px 0;background:var(--bg2);padding:16px 20px}
+.hero-art{margin:28px 0 36px;border:0;border-radius:28px;box-shadow:none;min-height:270px;background:var(--fire);color:var(--dk);padding:clamp(26px,5vw,40px)}
+.hero-art:before{content:'IAC';right:-18px;top:-68px;font:400 clamp(170px,30vw,330px)/1 var(--display);color:var(--sun);opacity:.95;transform:rotate(-8deg)}
+.hero-art:after{content:'';width:150px;height:150px;border-radius:50%;right:8%;left:auto;top:22px;bottom:auto;background:var(--cyan);opacity:.8;mix-blend-mode:screen;text-shadow:none}
+.hero-art strong{max-width:660px;background:var(--bg);color:var(--ink);border:0;border-radius:18px;box-shadow:6px 6px 0 var(--dk);font:400 clamp(21px,3vw,30px)/1.18 var(--display);text-transform:none;padding:20px 22px}
+.ticker{transform:none;margin:0;border-block:2px solid var(--dk);position:relative;z-index:2}
+.ticker-track span{font:700 15px var(--body);padding:10px 22px}
+.article-toc,.quick-answer,.key-takeaways,.visual-explainer,.original-analysis,.note{border-radius:20px;box-shadow:none}
+.article-toc{border-color:rgba(34,228,255,.45)}
+.article-toc h2,.key-takeaways h2,.visual-explainer h2,.original-analysis h2{font:400 clamp(23px,3vw,29px)/1.12 var(--display);text-transform:none;letter-spacing:-.02em}
+.article-toc li{font-size:15px}
+.quick-answer{border:2px solid var(--sun);font-size:18px;line-height:1.65}
+.key-takeaways{border:2px solid rgba(182,255,59,.45);background:rgba(182,255,59,.08)}
+.visual-explainer,.original-analysis{border:2px solid var(--ink);background:var(--bg2);margin:38px 0;padding:24px}
+.visual-grid>div{border-radius:14px;background:var(--bg);border:1px solid rgba(169,196,224,.22);border-top:4px solid var(--fire);padding:16px}
+.visual-grid b{font-family:var(--display);font-weight:400}
+.body h2{font:400 clamp(26px,3.4vw,34px)/1.12 var(--display);text-transform:none;letter-spacing:-.025em;margin:44px 0 14px}
+.body h3{font-size:22px;line-height:1.3}
+.body strong{color:var(--ts)}
+.body a,.sources a,.related a{color:var(--tc);text-underline-offset:3px}
+.note{border-radius:20px;font-weight:600}
+.sources,.related{border-top:2px solid var(--accent);margin-top:48px;padding-top:8px}
+.sources h2,.related h2{font:400 29px/1.15 var(--display);text-transform:none}
+.related-links{grid-template-columns:repeat(2,minmax(0,1fr))}
+.related-links a{border-radius:16px;background:var(--bg2);box-shadow:4px 4px 0 var(--fire);font:400 16px/1.4 var(--display);padding:18px}
+.back{border-radius:999px;box-shadow:none;padding:12px 20px}
+.site-footer{margin-top:0}
+@media(max-width:760px){.article{margin:38px auto 54px}.article h1{font-size:clamp(36px,9vw,52px)}.hero-art{min-height:220px;border-radius:20px;padding:20px}.hero-art:before{font-size:160px;top:-10px}.hero-art:after{width:100px;height:100px;right:5%;top:20px}.hero-art strong{font-size:20px;padding:16px}.visual-grid,.related-links{grid-template-columns:1fr}.article-toc,.quick-answer,.key-takeaways,.visual-explainer,.original-analysis,.note{padding:18px}}
