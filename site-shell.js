@@ -6,4 +6,7 @@ if(!document.querySelector('link[data-iac-shell-css]')){const l=document.createE
 let n=document.querySelector('nav[aria-label="Main navigation"]');if(n)n.outerHTML=header;else{const m=document.querySelector('main');if(m)m.insertAdjacentHTML('beforebegin',header)}
 const f=document.querySelector('footer');if(f)f.outerHTML=footer;else document.body.insertAdjacentHTML('beforeend',footer);
 n=document.querySelector('nav.legacy-site-nav');const b=n&&n.querySelector('#menu');if(b&&!b.dataset.shellBound){b.dataset.shellBound='true';const close=()=>{n.classList.remove('open');b.setAttribute('aria-expanded','false');b.setAttribute('aria-label','Toggle navigation')};b.addEventListener('click',()=>{const o=n.classList.toggle('open');b.setAttribute('aria-expanded',String(o));b.setAttribute('aria-label',o?'Close navigation':'Toggle navigation')});n.querySelectorAll('ul a').forEach(a=>a.addEventListener('click',close));document.addEventListener('keydown',e=>{if(e.key==='Escape'&&n.classList.contains('open')){close();b.focus()}})}
+/* Article pages do not display the homepage news ticker/scroller. */
+document.querySelectorAll('.tick,.news-scroller,#news-scroller,.news-ticker,#news-ticker,[data-news-scroller]').forEach(el=>el.remove());
+
 })();
