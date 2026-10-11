@@ -20,3 +20,16 @@
 @media(max-width:760px){.iac-site-nav .iac-nav-inner{min-height:60px;flex-wrap:wrap}.iac-site-nav .iac-menu{display:block;order:3}.iac-site-nav .iac-join{margin-left:auto;order:2}.iac-site-nav .iac-links{display:none;position:static;order:4;width:100%;flex-direction:column;gap:0;background:transparent;border:0;padding:4px 0 10px!important}.iac-site-nav.iac-open .iac-links{display:flex}.iac-site-nav .iac-links li{width:100%}.iac-site-nav .iac-links a{display:block;padding:12px 0;border-top:1px solid #29425b}.iac-site-nav .iac-logo{order:1;font-size:19px}.iac-site-nav .iac-join{padding:8px 12px;font-size:14px}}
 @media(max-width:480px){.iac-site-nav .iac-logo>span:last-child{display:none}}
 @media(max-width:600px){.iac-footer{margin-top:44px!important;padding:32px 16px 24px!important}.iac-footer-brand{flex-wrap:wrap;gap:6px}.iac-footer nav.iac-footer-social{gap:8px!important}.iac-footer nav.iac-footer-site{gap:10px 14px!important}}
+
+/* Original IAC navigation, shared across landing, information and article-list pages. */
+nav.legacy-site-nav{position:sticky!important;top:env(safe-area-inset-top,0px)!important;z-index:1000!important;background:color-mix(in srgb,var(--bg,#06182c) 88%,transparent)!important;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:3px solid var(--accent,#ff5a1f)!important;color:var(--ink,#fff7ec)!important;font-family:var(--body,"Space Grotesk",system-ui,sans-serif)!important}
+nav.legacy-site-nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px;max-width:1120px;margin:0 auto;padding:0 20px}
+nav.legacy-site-nav .logo{font-family:var(--display,"Dela Gothic One","Impact",sans-serif);font-size:19px;text-decoration:none;display:flex;gap:8px;align-items:center;white-space:nowrap}
+nav.legacy-site-nav .logo b{background:var(--accent,#ff5a1f);color:var(--dk,#07182b);padding:2px 8px;transform:rotate(-4deg);display:inline-block;font-weight:400}
+nav.legacy-site-nav ul{display:flex;gap:22px;list-style:none;margin:0;padding:0;font-weight:500}
+nav.legacy-site-nav ul a{text-decoration:none;color:inherit}
+nav.legacy-site-nav ul a:hover{color:var(--accent,#ff5a1f)}
+nav.legacy-site-nav .btn{display:inline-flex;align-items:center;font-family:var(--display,"Dela Gothic One","Impact",sans-serif);font-size:14px;text-decoration:none;border:3px solid var(--ink,#fff7ec);background:var(--sun,#ffd23f);color:var(--dk,#07182b);padding:8px 16px;box-shadow:4px 4px 0 var(--accent,#ff5a1f);white-space:nowrap}
+nav.legacy-site-nav .menu{display:none;font:400 20px var(--display,"Dela Gothic One","Impact",sans-serif);background:var(--sun,#ffd23f);color:var(--dk,#07182b);border:3px solid var(--ink,#fff7ec);width:44px;height:44px;cursor:pointer}
+@media(max-width:760px){nav.legacy-site-nav .wrap{height:auto;min-height:60px;flex-wrap:wrap}nav.legacy-site-nav .menu{display:block;order:3}nav.legacy-site-nav .btn{margin-left:auto;order:2}nav.legacy-site-nav ul{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:0;background:var(--bg,#06182c);border-bottom:3px solid var(--accent,#ff5a1f);padding:8px 20px;order:4;width:100%}nav.legacy-site-nav ul a{display:block;padding:12px 0}nav.legacy-site-nav.open ul{display:flex}}
+@media(max-width:480px){nav.legacy-site-nav .logo .ln{display:none}}
