@@ -38,3 +38,41 @@ html,body{background:#06182c!important;color:#fff7ec!important}
 .article .key-takeaways h2,.article .eyebrow{color:#b6ff3b!important}
 .article a,.article .author-box a,.article .body a,.article .sources a,.article .related a{color:#22e4ff!important}
 .tick{display:none!important}
+
+/* Article pages: use the landing page's light cream palette without changing layout. */
+:root{
+  color-scheme:light!important;
+  --bg:#fff3e0!important;--bg2:#ffe3c2!important;--ink:#07182b!important;
+  --mute:#3d5f85!important;--mut:#3d5f85!important;--dk:#07182b!important;
+  --fire:#ff5a1f!important;--accent:#ff5a1f!important;--cyan:#006f94!important;
+  --tc:#006f94!important;--sun:#8a5200!important;--ts:#8a5200!important;
+  --lime:#477b00!important;--blue:#1f6fff!important;--card:#ffe3c2!important;
+  --violet:#ff5a1f!important;--pink:#006f94!important;
+}
+html,body{background:#fff3e0!important;color:#07182b!important}
+body>nav[aria-label="Main navigation"]{background:rgba(255,243,224,.96)!important;color:#07182b!important}
+body>nav[aria-label="Main navigation"] .logo,
+#site-links a{color:#07182b!important}
+body>nav[aria-label="Main navigation"] .btn,
+body>nav[aria-label="Main navigation"] .menu{border-color:#07182b!important}
+#site-links{background:#fff3e0!important}
+.article h1,.body h2,.body h3,.sources h2,.related h2{color:#07182b!important}
+.meta span:last-child,.meta .date,.dek,.author-box span,.sources p,.article-cover figcaption{color:#3d5f85!important}
+.author-box,.article-toc,.visual-explainer,.original-analysis,.key-takeaways{background:#ffe3c2!important;color:#07182b!important}
+.article-toc,.visual-explainer,.original-analysis,.key-takeaways{border-color:rgba(7,24,43,.2)!important;box-shadow:none!important}
+.article-toc a,.body a,.sources a,.related a,.author-box a{color:#006f94!important}
+.body strong,.article-toc .toc-kicker,.article-toc li::marker,.eyebrow{color:#8a5200!important}
+.article-toc .toc-count{color:#3d5f85!important}
+.visual-grid>div{background:#fff3e0!important;border-color:rgba(7,24,43,.18)!important}
+.visual-grid b{color:#07182b!important}
+.visual-grid span{color:#3d5f85!important}
+.body blockquote{background:#ffe3c2!important;color:#07182b!important}
+.article-cover{background:#ffe3c2!important}
+.article .key-takeaways h2{color:#477b00!important}
+.article .quick-answer{background:#ffd23f!important;color:#07182b!important}
+.article .note{background:#22e4ff!important;color:#07182b!important}
+.back{border-color:#07182b!important}
+footer.iac-footer{background:#ffe3c2!important;color:#07182b!important;border-top-color:#ff5a1f!important}
+.iac-footer-brand,.iac-footer a{color:#006f94!important}
+.iac-footer-tagline,.iac-footer .iac-footer-copy{color:#3d5f85!important}
+.tick,.news-scroller,#news-scroller,.news-ticker,#news-ticker,[data-news-scroller]{display:none!important}
