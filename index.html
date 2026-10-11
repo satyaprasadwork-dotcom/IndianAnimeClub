@@ -131,6 +131,11 @@ h2{font-size:clamp(34px,6vw,64px);text-transform:uppercase;margin-bottom:12px}
 .join .ctas{justify-content:center}
 .join .btn{border-color:var(--dk);box-shadow:6px 6px 0 var(--dk)}
 .mail{display:inline-block;margin-top:34px;font-family:var(--display);font-size:clamp(18px,3.4vw,30px);word-break:break-all}
+/* Keep the What’s next discovery rows clickable without default link underlines. */
+#events a.ev,#events a.ev:visited,#events a.ev:hover,#events a.ev:focus{text-decoration:none;color:inherit}
+#events a.ev h3,#events a.ev p,#events a.ev .tag{text-decoration:none}
+#events a.ev:hover h3{color:var(--accent)}
+
 /* Prevent card copy from being clipped or split by fixed grid tracks. */
 .panel,.card,.ev,.city{min-width:0}
 .panel h3,.panel p,.card h3,.card p,.ev h3,.ev p,.ev .tag,.city b,.city span{min-width:0;overflow-wrap:anywhere;word-break:normal;hyphens:auto}
