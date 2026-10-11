@@ -128,3 +128,33 @@ body>nav[aria-label="Main navigation"] .logo span{color:#fff7ec}
   body>nav[aria-label="Main navigation"] .logo .ln{display:none}
   body>nav[aria-label="Main navigation"] ul{width:100%;box-sizing:border-box}
 }
+
+
+/* Final article-page fixes: full-width shell, reliable responsive navigation and stable content layout. */
+html,body{width:100%;max-width:none!important;min-width:320px;margin:0}
+body{overflow-x:hidden}
+body>nav[aria-label="Main navigation"]{width:100%;max-width:none}
+body>nav[aria-label="Main navigation"]>.wrap{width:100%;max-width:1120px;margin:0 auto;padding:0 20px}
+main{display:block;width:100%;min-width:0}
+.article{display:block;float:none;position:relative;width:min(900px,calc(100% - 40px));max-width:900px;margin:48px auto 72px}
+.article .body{display:block;float:none;clear:both;width:100%;max-width:760px;margin:0 auto}
+.article .body>*{max-width:100%;min-width:0}
+.article .body p,.article .body li{overflow-wrap:anywhere}
+.iac-footer{display:block;float:none;clear:both;position:relative;left:auto;right:auto;width:100%;max-width:none;margin:48px 0 0!important}
+.iac-footer-inner{width:100%;max-width:1120px;margin:0 auto}
+.article-toc ol{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 24px;columns:initial}
+.article-toc li{min-width:0;break-inside:avoid}
+.article-toc a{overflow-wrap:anywhere}
+@media(max-width:760px){
+ body>nav[aria-label="Main navigation"]{position:sticky;top:0}
+ body>nav[aria-label="Main navigation"]>.wrap{height:auto;min-height:64px;flex-wrap:wrap;position:relative}
+ body>nav[aria-label="Main navigation"] .menu{display:block!important;flex:0 0 44px}
+ body>nav[aria-label="Main navigation"] ul{display:none!important;position:absolute;top:100%;left:0;right:0;z-index:60;flex-direction:column;gap:0;padding:8px 20px!important;margin:0!important;background:var(--bg)!important;border-bottom:3px solid var(--accent)}
+ body>nav[aria-label="Main navigation"].open ul{display:flex!important}
+ body>nav[aria-label="Main navigation"] ul li{width:100%}
+ body>nav[aria-label="Main navigation"] ul a{display:block;padding:12px 0}
+ body>nav[aria-label="Main navigation"]>.wrap>.btn{display:none}
+ .article{width:calc(100% - 30px);margin:32px auto 48px}
+ .article-toc ol{grid-template-columns:1fr}
+ .visual-grid,.related-links{grid-template-columns:1fr}
+}
