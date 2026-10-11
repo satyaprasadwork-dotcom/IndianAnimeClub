@@ -303,7 +303,32 @@ const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return
   e.target.classList.add('in');io.unobserve(e.target)}),{threshold:.2});
 document.documentElement.classList.add('js');
 document.querySelectorAll('.rv').forEach((el,i)=>{el.style.transitionDelay=(i%5)*70+'ms';io.observe(el)});
-const rail=$('#rail');$('#nx').onclick=()=>rail.scrollBy({left:280,behavior:'smooth'});$('#pv').onclick=()=>rail.scrollBy({left:-280,behavior:'smooth'});
+const rail=$('#rail');
+$('#nx').onclick=()=>rail.scrollBy({left:280,behavior:RM?'auto':'smooth'});
+$('#pv').onclick=()=>rail.scrollBy({left:-280,behavior:RM?'auto':'smooth'});
+// Duplicate cards for a seamless loop; cloned content is decorative to assistive tech.
+const originals=[...rail.children];
+originals.forEach(card=>{const clone=card.cloneNode(true);clone.setAttribute('aria-hidden','true');clone.querySelectorAll('a,button,input,select,textarea,[tabindex]').forEach(el=>el.setAttribute('tabindex','-1'));rail.appendChild(clone)});
+let autoPaused=RM||false,autoFrame=null,lastAuto=0;
+const pauseAuto=()=>{autoPaused=true;if(autoFrame!==null){cancelAnimationFrame(autoFrame);autoFrame=null}lastAuto=0};
+const resumeAuto=()=>{if(!RM){autoPaused=false;if(autoFrame===null)autoFrame=requestAnimationFrame(moveRail)}};
+function moveRail(now){
+  autoFrame=null;
+  if(autoPaused||document.hidden)return;
+  if(lastAuto===0)lastAuto=now;
+  const elapsed=Math.min(now-lastAuto,40);lastAuto=now;
+  const loopWidth=rail.scrollWidth/2;
+  if(loopWidth>0){rail.scrollLeft+=elapsed*0.025;if(rail.scrollLeft>=loopWidth)rail.scrollLeft-=loopWidth}
+  autoFrame=requestAnimationFrame(moveRail);
+}
+rail.addEventListener('pointerenter',pauseAuto);
+rail.addEventListener('pointerleave',resumeAuto);
+rail.addEventListener('focusin',pauseAuto);
+rail.addEventListener('focusout',e=>{if(!rail.contains(e.relatedTarget))resumeAuto()});
+rail.addEventListener('touchstart',pauseAuto,{passive:true});
+rail.addEventListener('touchend',()=>{if(!RM)resumeAuto()},{passive:true});
+document.addEventListener('visibilitychange',()=>{if(document.hidden){if(autoFrame!==null)cancelAnimationFrame(autoFrame);autoFrame=null;lastAuto=0}else if(!autoPaused&&autoFrame===null)autoFrame=requestAnimationFrame(moveRail)});
+if(!RM)autoFrame=requestAnimationFrame(moveRail);
 const O=['Mecha night + pani puri','Cosplay couch-watch','Shonen marathon, 3 episodes','Slice-of-life with chai','Isekai bingo night','Sports anime hype hour','Horror with the lights off','Studio classics double bill'],sl=$('#slot');
 $('#spin').onclick=()=>{let n=0;sl.classList.add('spin');
   (function go(){sl.textContent=O[Math.floor(Math.random()*O.length)];if(++n<(RM?1:16))setTimeout(go,60+n*8);else sl.classList.remove('spin')})()};
