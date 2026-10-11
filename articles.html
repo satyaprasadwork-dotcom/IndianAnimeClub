@@ -91,17 +91,26 @@ main{padding:14px 0 80px}.count{color:var(--muted);margin:18px 0;font-weight:700
 <script>
 const items=[...document.querySelectorAll('#article-grid .card')];
 const filters=[...document.querySelectorAll('[data-filter]')];
-const count=document.getElementById('count'),empty=document.getElementById('empty');
+const empty=document.getElementById('empty');
 const pagination=document.getElementById('pagination');
 const perPage=15;
 let category='all',currentPage=1,filteredItems=items;
 function render(){
- filteredItems=items.filter(card=>category==='all'||card.dataset.category===category);
+ const categoryMap={
+  all:null,
+  'anime analysis':['anime analysis','anime & life','anime trends'],
+  'character studies':['character studies'],
+  rankings:['rankings'],
+  recommendations:['recommendations'],
+  'anime guides':['anime guides'],
+  'anime industry':['anime industry','community']
+};
+ const accepted=categoryMap[category];
+ filteredItems=items.filter(card=>!accepted||accepted.includes(card.dataset.category));
  const pages=Math.max(1,Math.ceil(filteredItems.length/perPage));
  currentPage=Math.min(currentPage,pages);
  items.forEach(card=>card.hidden=true);
  filteredItems.forEach((card,index)=>{card.hidden=index<(currentPage-1)*perPage||index>=currentPage*perPage});
- count.textContent='';
  empty.style.display=filteredItems.length?'none':'block';
  renderPagination(pages);
 }
