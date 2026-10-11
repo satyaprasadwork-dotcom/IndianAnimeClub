@@ -25,12 +25,19 @@ jobs:
         uses: actions/checkout@v6
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
-      - name: Build clean article routes from flat source files
+      - name: Refresh shared article assets and build clean routes
         shell: bash
         run: |
-          # Keep article source files flat in articles/*.html, like Ninth Post.
-          # GitHub Pages does not process .htaccess, so create route folders only
-          # in the deployment artifact to preserve the site's existing clean URLs.
+          # Cache-bust shared assets on every deploy so browsers cannot keep an
+          # older article shell after the canonical header/footer is updated.
+          find . -type f -name '*.html' -not -path './.git/*' -print0 | while IFS= read -r -d '' file; do
+            sed -i -E \
+              -e "s#article\.css\?v=[^\"']+#article.css?v=\${GITHUB_SHA}#g" \
+              -e "s#article-enhancements\.js\?v=[^\"']+#article-enhancements.js?v=\${GITHUB_SHA}#g" \
+              "$file"
+          done
+          # Flat article sources remain canonical; create clean URL folders from
+          # the updated source pages after cache-busting their asset URLs.
           shopt -s nullglob
           for file in articles/*.html; do
             [ "${file##*/}" = "index.html" ] && continue
