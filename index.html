@@ -139,6 +139,23 @@ footer .row{display:flex;justify-content:center;gap:22px;margin-bottom:12px;flex
 @keyframes pulse{0%{box-shadow:4px 4px 0 var(--dk),0 0 0 0 rgba(182,255,59,.7)}70%,100%{box-shadow:4px 4px 0 var(--dk),0 0 0 22px rgba(182,255,59,0)}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}.js .rv{opacity:1;clip-path:none;transform:none}.fx{display:none}}
 </style>
+<style id="iac-shared-footer">
+.iac-footer{display:block!important;clear:both;width:100%;margin:64px 0 0!important;padding:34px 20px 40px!important;background:var(--bg,#06182c)!important;color:var(--ink,#fff7ec)!important;border-top:3px solid var(--fire,#ff5a1f)!important;text-align:center!important;font-family:var(--body,"Space Grotesk",system-ui,sans-serif)!important;font-size:14px!important;box-sizing:border-box!important}
+.iac-footer *{box-sizing:border-box}
+.iac-footer-inner{max-width:1120px;margin:0 auto}
+.iac-footer-brand{display:inline-flex;align-items:center;gap:10px;text-decoration:none!important;color:var(--ink,#fff7ec)!important;font-family:var(--display,"Dela Gothic One",sans-serif);font-weight:900;font-size:19px}
+.iac-footer-brand:first-letter{color:var(--fire,#ff5a1f)}
+.iac-footer-brand span{font-size:16px}
+.iac-footer-tagline{margin:12px 0 20px!important;color:var(--muted,#a9c4e0)!important}
+.iac-footer-social,.iac-footer-site{display:flex;justify-content:center;align-items:center;gap:10px 20px;flex-wrap:wrap;margin:16px 0!important}
+.iac-footer a{color:var(--sun,#ffd23f)!important;text-decoration:none!important}
+.iac-footer a:hover{text-decoration:underline!important}
+.iac-footer-social a{display:inline-block;border:2px solid var(--muted,#a9c4e0);border-radius:999px;padding:8px 14px;font-weight:700}
+.iac-footer-social a:hover{background:var(--sun,#ffd23f)!important;color:var(--dk,#07182b)!important;border-color:var(--sun,#ffd23f)}
+.iac-footer-site{gap:8px 16px;font-size:13px}
+.iac-footer-copy{max-width:900px;margin:20px auto 0!important;padding-top:16px;border-top:1px solid rgba(169,196,224,.3);color:var(--muted,#a9c4e0)!important;line-height:1.7}
+@media(max-width:600px){.iac-footer{margin-top:44px!important;padding:28px 16px 32px!important}.iac-footer-brand{flex-direction:column;gap:4px}.iac-footer-social{gap:8px}.iac-footer-social a{padding:7px 11px}}
+</style>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -268,9 +285,21 @@ footer .row{display:flex;justify-content:center;gap:22px;margin-bottom:12px;flex
   <a class="mail" href="mailto:prasad@indiananimeclub.com">prasad@indiananimeclub.com</a>
 </div></section>
 
-<footer>
-  <div class="row"><a href="https://www.instagram.com/indiananime.club/" target="_blank" rel="noopener">Instagram</a><a href="https://chat.whatsapp.com/IOR7VBI25dW9ltnofX6Frz" target="_blank" rel="noopener">WhatsApp</a><a href="mailto:prasad@indiananimeclub.com">Email</a></div>
-  © 2026 Indian Anime Club · indiananimeclub.com · Fan-run, made with love
+<footer class="iac-footer">
+  <div class="iac-footer-inner">
+    <a class="iac-footer-brand" href="/" aria-label="Indian Anime Club home">IAC <span>Indian Anime Club</span></a>
+    <p class="iac-footer-tagline">A community, not a sales pitch. Made for India's anime community.</p>
+    <nav class="iac-footer-social" aria-label="Social and contact links">
+      <a href="https://chat.whatsapp.com/IOR7VBI25dW9ltnofX6Frz" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+      <a href="https://instagram.com/indiananime.club" target="_blank" rel="noopener noreferrer">Instagram</a>
+      <a href="https://www.facebook.com/people/indiananimeclub/61582607151767/" target="_blank" rel="noopener noreferrer">Facebook</a>
+      <a href="mailto:prasad@indiananimeclub.com">Email</a>
+    </nav>
+    <nav class="iac-footer-site" aria-label="Website information">
+      <a href="/about.html">About</a><a href="/contact.html">Contact</a><a href="/community-guidelines.html">Community guidelines</a><a href="/editorial-policy.html">Editorial policy</a><a href="/privacy-policy.html">Privacy</a><a href="/terms.html">Terms</a><a href="/disclaimer.html">Disclaimer</a>
+    </nav>
+    <p class="iac-footer-copy">© 2026 Indian Anime Club · indiananimeclub.com · Independent fan community, not affiliated with anime studios or rights holders.</p>
+  </div>
 </footer>
 
 <a class="float" href="https://chat.whatsapp.com/IOR7VBI25dW9ltnofX6Frz" target="_blank" rel="noopener" aria-label="Join our WhatsApp group"><svg viewBox="0 0 24 24"><path d="M3 21l1.6-4.6A8.5 8.5 0 1 1 8 19.6z"/><path d="M9 8.5c0 3 2.5 5.5 5.5 5.5l1-1.500-2-1-.8.8c-.8-.4-1.500-1.100-1.900-1.900l.8-.8-1-2z"/></svg></a>
