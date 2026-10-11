@@ -96,8 +96,8 @@ body:has(article.article) article.article .hero-art strong{background:#06182c!im
  --bg:#fff3e0!important;--bg2:#ffe3c2!important;--ink:#07182b!important;
  --mute:#3d5f85!important;--muted:#3d5f85!important;--mut:#3d5f85!important;
  --dk:#07182b!important;--fire:#ff5a1f!important;--accent:#ff5a1f!important;
- --cyan:#006f94!important;--tc:#006f94!important;--sun:#8a5200!important;
- --ts:#8a5200!important;--lime:#477b00!important;--blue:#1f6fff!important;
+ --cyan:#22e4ff!important;--tc:#006f94!important;--sun:#ffd23f!important;
+ --ts:#8a5200!important;--lime:#b6ff3b!important;--blue:#1f6fff!important;
  --card:#ffe3c2!important;--surface:#ffe3c2!important;--line:#e5c9a8!important;
  --yellow:#ffd23f!important;--violet:#ff5a1f!important;--pink:#006f94!important;
 }
@@ -134,10 +134,17 @@ body:not(:has(article.article)) :is(.hero,.about,.chapters,#about,#worlds,#event
  background-color:#fff3e0!important;
  color:#07182b!important;
 }
-body:not(:has(article.article)) :is(.panel,.oracle,.city,.slot,.iac-footer){
+body:not(:has(article.article)) :is(.oracle,.city,.slot,.iac-footer){
  background-color:#ffe3c2!important;
  color:#07182b!important;
 }
+/* Restore the original colorful landing-page feature cards. */
+body:not(:has(article.article)) .panel.p1{background:#ff5a1f!important;color:#07182b!important}
+body:not(:has(article.article)) .panel.p2{background:#22e4ff!important;color:#07182b!important}
+body:not(:has(article.article)) .panel.p3{background:#b6ff3b!important;color:#07182b!important}
+body:not(:has(article.article)) .panel.p4{background:#ffd23f!important;color:#07182b!important}
+body:not(:has(article.article)) .panel.p5{background:#1f6fff!important;color:#fff!important}
+body:not(:has(article.article)) .panel.p5 :is(h3,p){color:#fff!important}
 body:not(:has(article.article)) :is(h1,h2,h3,h4,p,li,label,figcaption,.lead,.hero p,.city span){
  color:#07182b!important;
 }
