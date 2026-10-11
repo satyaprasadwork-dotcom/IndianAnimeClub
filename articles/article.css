@@ -45,3 +45,41 @@
 .back{border-radius:999px;box-shadow:none;padding:12px 20px}
 .site-footer{margin-top:0}
 @media(max-width:760px){.article{margin:38px auto 54px}.article h1{font-size:clamp(36px,9vw,52px)}.hero-art{min-height:220px;border-radius:20px;padding:20px}.hero-art:before{font-size:160px;top:-10px}.hero-art:after{width:100px;height:100px;right:5%;top:20px}.hero-art strong{font-size:20px;padding:16px}.visual-grid,.related-links{grid-template-columns:1fr}.article-toc,.quick-answer,.key-takeaways,.visual-explainer,.original-analysis,.note{padding:18px}}
+
+
+/* Final rendering fixes: keep the IAC article theme stable and prevent layout collisions. */
+:root{color-scheme:dark;--bg:#06182c;--bg2:#0c2a4a;--ink:#fff7ec;--mute:#a9c4e0;--dk:#07182b;--fire:#ff5a1f;--cyan:#22e4ff;--sun:#ffd23f;--lime:#b6ff3b;--accent:var(--fire);--tc:var(--cyan);--ts:var(--sun)}
+:root[data-theme=light]{color-scheme:dark;--bg:#06182c;--bg2:#0c2a4a;--ink:#fff7ec;--mute:#a9c4e0;--dk:#07182b;--fire:#ff5a1f;--cyan:#22e4ff;--sun:#ffd23f;--lime:#b6ff3b;--accent:var(--fire);--tc:var(--cyan);--ts:var(--sun)}
+body{background:var(--bg);color:var(--ink);min-width:320px}
+.article{width:min(900px,calc(100% - 40px));max-width:900px}
+.article .body{width:100%;max-width:760px;margin-inline:auto}
+.article .body>*{min-width:0}
+.article .body p,.article .body li{overflow-wrap:break-word}
+.article .body img,.article .body figure,.article .body table{max-width:100%}
+.article .body table{display:block;overflow-x:auto}
+.article-toc{scroll-margin-top:90px}
+.article-toc ol{padding-left:24px}
+.article-toc a{text-decoration-thickness:1px;text-underline-offset:3px}
+.article-toc a:hover{color:var(--sun)}
+.article .visual-explainer{width:100%}
+.article .hero-art{isolation:isolate}
+.article .hero-art:after{pointer-events:none;z-index:0}
+.article .hero-art strong{z-index:2}
+.article .author-box{line-height:1.5}
+.article .body h2,.article .body h3{overflow-wrap:anywhere}
+.article .sources,.article .related{overflow-wrap:anywhere}
+@media(max-width:600px){
+  .article{width:calc(100% - 30px)}
+  .site-nav .nav-inner{gap:10px}
+  .logo{font-size:16px}
+  .logo span{white-space:normal}
+  .ticker-track span{padding:10px 14px;font-size:13px}
+  .article .meta{align-items:flex-start}
+  .article .dek{font-size:18px}
+  .article .hero-art{min-height:200px}
+  .article .body{font-size:16px;line-height:1.7}
+  .article .body h2{font-size:25px}
+  .article .body h3{font-size:20px}
+  .article-toc li{font-size:14px}
+  .site-footer .footer-links{gap:10px 16px}
+}
