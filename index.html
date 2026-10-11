@@ -174,7 +174,7 @@ footer .row{display:flex;justify-content:center;gap:22px;margin-bottom:12px;flex
  --bg:#fff3e0!important;--bg2:#ffe3c2!important;--ink:#07182b!important;
  --mute:#3d5f85!important;--tc:#006f94!important;--ts:#8a5200!important;
  --dk:#07182b!important;--fire:#ff5a1f!important;--accent:#ff5a1f!important;
- --cyan:#006f94!important;--sun:#8a5200!important;--lime:#477b00!important;
+ --cyan:#22e4ff!important;--sun:#ffd23f!important;--lime:#b6ff3b!important;--blue:#1f6fff!important;
 }
 html,body{background:#fff3e0!important;color:#07182b!important;color-scheme:light!important}
 body>nav.legacy-site-nav{background:rgba(255,243,224,.97)!important;color:#07182b!important;border-bottom-color:#ff5a1f!important}
@@ -195,6 +195,13 @@ body .hero-art,body .mascot{color:#07182b}
 body .iac-footer{background:#ffe3c2!important;color:#07182b!important;border-top-color:#ff5a1f!important}
 body .iac-footer a,body .iac-footer-brand{color:#006f94!important}
 body .iac-footer-tagline,body .iac-footer-copy{color:#3d5f85!important}
+/* Keep the original vivid genre/article card colors instead of flattening them. */
+body article.card{background:initial}
+body article.card[style*="--fire"]{background:#ff5a1f!important;color:#07182b!important}
+body article.card[style*="--cyan"]{background:#22e4ff!important;color:#07182b!important}
+body article.card[style*="--lime"]{background:#b6ff3b!important;color:#07182b!important}
+body article.card[style*="--sun"]{background:#ffd23f!important;color:#07182b!important}
+body article.card[style*="--blue"]{background:#1f6fff!important;color:#fff!important}
 </style>
 <meta name="description" content="India">
 <link rel="canonical" href="https://indiananimeclub.com/">
