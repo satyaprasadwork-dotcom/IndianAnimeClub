@@ -54,7 +54,7 @@ jobs:
               if page.name == "index.html":
                   continue
               html = page.read_text(encoding="utf-8")
-              html = re.sub(r'<div class="tick"[^>]*>.*?</div>\\s*</div>', '', html, flags=re.S)
+              html = re.sub(r'<div class="tick"[^>]*>.*?</div>\s*</div>', '', html, flags=re.S)
               page.write_text(html, encoding="utf-8")
           PY
           # Flat article sources remain canonical; create clean URL folders from
