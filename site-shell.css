@@ -33,3 +33,21 @@ nav.legacy-site-nav .btn{display:inline-flex;align-items:center;font-family:var(
 nav.legacy-site-nav .menu{display:none;font:400 20px var(--display,"Dela Gothic One","Impact",sans-serif);background:var(--sun,#ffd23f);color:var(--dk,#07182b);border:3px solid var(--ink,#fff7ec);width:44px;height:44px;cursor:pointer}
 @media(max-width:760px){nav.legacy-site-nav .wrap{height:auto;min-height:60px;flex-wrap:wrap}nav.legacy-site-nav .menu{display:block;order:3}nav.legacy-site-nav .btn{margin-left:auto;order:2}nav.legacy-site-nav ul{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:0;background:var(--bg,#06182c);border-bottom:3px solid var(--accent,#ff5a1f);padding:8px 20px;order:4;width:100%}nav.legacy-site-nav ul a{display:block;padding:12px 0}nav.legacy-site-nav.open ul{display:flex}}
 @media(max-width:480px){nav.legacy-site-nav .logo .ln{display:none}}
+
+/* Global IAC theme lock: every route follows the landing-page palette. */
+:root,:root[data-theme="light"],:root[data-theme="dark"]{
+ color-scheme:dark!important;
+ --bg:#06182c!important;--bg2:#0c2a4a!important;--ink:#fff7ec!important;
+ --mute:#a9c4e0!important;--muted:#a9c4e0!important;--mut:#a9c4e0!important;
+ --dk:#07182b!important;--fire:#ff5a1f!important;--accent:#ff5a1f!important;
+ --cyan:#22e4ff!important;--tc:#22e4ff!important;--sun:#ffd23f!important;
+ --ts:#ffd23f!important;--lime:#b6ff3b!important;--blue:#1f6fff!important;
+ --card:#0c2a4a!important;--surface:#0c2a4a!important;--line:#29425b!important;
+ --yellow:#ffd23f!important;--violet:#ff5a1f!important;--pink:#22e4ff!important;
+}
+html{color-scheme:dark!important;background:#06182c!important}
+body{background:#06182c!important;color:#fff7ec!important}
+body a:not(.btn):not(.iac-logo){text-underline-offset:3px}
+body :is(h1,h2,h3,h4){color:inherit}
+body :is(.site-header,.nav,.legacy-site-nav,nav[aria-label="Main navigation"]){background-color:rgba(6,24,44,.96)!important;border-bottom-color:#ff5a1f!important}
+body :is(.site-footer,footer.iac-footer){background:#06182c!important;color:#fff7ec!important;border-top-color:#ff5a1f!important}
