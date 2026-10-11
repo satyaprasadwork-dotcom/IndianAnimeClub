@@ -119,3 +119,27 @@ body :is(.body a,.sources a,.related a,.article-toc a,.author-box a){color:#006f
 body :is(.tag,.back){background:#ffd23f!important;color:#07182b!important}
 body .hero-art{background:#ff5a1f!important;color:#07182b!important}
 body .hero-art strong{background:#06182c!important;color:#fff7ec!important}
+
+/* Final background normalization: use the article pages' exact light canvas site-wide. */
+html,body{background-color:#fff3e0!important;color-scheme:light!important}
+body:not(:has(article.article)) main,
+body:not(:has(article.article)) main section,
+body:not(:has(article.article)) section,
+body:not(:has(article.article)) .worlds,
+body:not(:has(article.article)) .join{
+ background:#fff3e0!important;
+ color:#07182b!important;
+}
+body:not(:has(article.article)) :is(.hero,.about,.chapters,#about,#worlds,#events,#chapters,#join){
+ background-color:#fff3e0!important;
+ color:#07182b!important;
+}
+body:not(:has(article.article)) :is(.panel,.oracle,.city,.slot,.iac-footer){
+ background-color:#ffe3c2!important;
+ color:#07182b!important;
+}
+body:not(:has(article.article)) :is(h1,h2,h3,h4,p,li,label,figcaption,.lead,.hero p,.city span){
+ color:#07182b!important;
+}
+body:not(:has(article.article)) .iac-footer :is(a,.iac-footer-brand){color:#006f94!important}
+body:not(:has(article.article)) .iac-footer :is(.iac-footer-tagline,.iac-footer-copy){color:#3d5f85!important}
