@@ -30,11 +30,18 @@ jobs:
         run: |
           # Cache-bust shared assets on every deploy so browsers cannot keep an
           # older article shell after the canonical header/footer is updated.
+          # Keep shared assets fresh on every deploy.
+          sed -i -E "s#site-shell\.css\?v=[^\"']+#site-shell.css?v=${GITHUB_SHA}#g" site-shell.js
           find . -type f -name '*.html' -not -path './.git/*' -print0 | while IFS= read -r -d '' file; do
             sed -i -E \
-              -e "s#article\.css\?v=[^\"']+#article.css?v=${GITHUB_SHA}#g" \
+              -e "s#href=\"[^\"]*css/article\.css[^\"]*\"#href=\"/css/article.css?v=${GITHUB_SHA}\"#g" \
               -e "s#article-enhancements\.js\?v=[^\"']+#article-enhancements.js?v=${GITHUB_SHA}#g" \
+              -e "s#site-shell\.js\?v=[^\"']+#site-shell.js?v=${GITHUB_SHA}#g" \
               "$file"
+            # Every route gets the same canonical homepage header and footer.
+            if ! grep -q 'src="/site-shell.js' "$file"; then
+              sed -i "s#</body>#<script src=\"/site-shell.js?v=${GITHUB_SHA}\" defer></script></body>#I" "$file"
+            fi
           done
           # Flat article sources remain canonical; create clean URL folders from
           # the updated source pages after cache-busting their asset URLs.
