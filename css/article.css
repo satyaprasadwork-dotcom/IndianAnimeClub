@@ -111,3 +111,13 @@ nav[aria-label="Main navigation"] ul{list-style:none}
  .article .hero-art strong{font-size:1.4rem}
  .article .visual-grid{grid-template-columns:1fr}
 }
+
+/* Keep the article-page header visually identical to the original dark homepage header,
+   regardless of the visitor's system light/dark preference. */
+nav[aria-label="Main navigation"]{background:color-mix(in srgb,#06182c 88%,transparent)!important;border-bottom-color:#ff5a1f!important;color:#fff7ec!important}
+nav[aria-label="Main navigation"] .logo{color:#fff7ec!important}
+nav[aria-label="Main navigation"] ul a{color:#fff7ec!important}
+nav[aria-label="Main navigation"] ul a:hover{color:#ff5a1f!important}
+nav[aria-label="Main navigation"] .logo b{background:#ff5a1f!important;color:#07182b!important}
+nav[aria-label="Main navigation"] .btn{background:#ffd23f!important;color:#07182b!important;border-color:#fff7ec!important;box-shadow:4px 4px 0 #ff5a1f!important}
+nav[aria-label="Main navigation"] .menu{background:#ffd23f!important;color:#07182b!important;border-color:#fff7ec!important}
