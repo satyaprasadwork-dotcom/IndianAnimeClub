@@ -76,3 +76,31 @@ footer.iac-footer{background:#ffe3c2!important;color:#07182b!important;border-to
 .iac-footer-brand,.iac-footer a{color:#006f94!important}
 .iac-footer-tagline,.iac-footer .iac-footer-copy{color:#3d5f85!important}
 .tick,.news-scroller,#news-scroller,.news-ticker,#news-ticker,[data-news-scroller]{display:none!important}
+
+/* Final article-page override: force the light landing-page palette across the full page. */
+html:has(body article.article),
+html:has(body article.article) body,
+html:has(body article.article) body main,
+html:has(body article.article) body main.wrap,
+html:has(body article.article) body article.article,
+html:has(body article.article) body article.article>.body{
+  background:#fff3e0!important;
+  color:#07182b!important;
+  color-scheme:light!important;
+}
+html:has(body article.article) body article.article :is(p,li,span:not(.tag),h1,h2,h3,h4,strong,blockquote,figcaption){
+  color:#07182b!important;
+}
+html:has(body article.article) body article.article :is(.dek,.date,.author-box span,.sources p,.article-cover figcaption,.visual-grid span,.article-toc .toc-count){
+  color:#3d5f85!important;
+}
+html:has(body article.article) body article.article :is(.author-box,.article-toc,.visual-explainer,.original-analysis,.key-takeaways,.body blockquote,.visual-grid>div){
+  background:#ffe3c2!important;
+}
+html:has(body article.article) body article.article :is(.body a,.sources a,.related a,.article-toc a,.author-box a){
+  color:#006f94!important;
+}
+html:has(body article.article) body article.article .hero-art,
+html:has(body article.article) body article.article .hero-art strong{color:#fff7ec!important}
+html:has(body article.article) body article.article .hero-art strong{background:#06182c!important}
+html:has(body article.article) body .tick{display:none!important;visibility:hidden!important;height:0!important;overflow:hidden!important}
