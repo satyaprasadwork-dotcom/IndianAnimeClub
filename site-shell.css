@@ -51,3 +51,39 @@ body a:not(.btn):not(.iac-logo){text-underline-offset:3px}
 body :is(h1,h2,h3,h4){color:inherit}
 body :is(.site-header,.nav,.legacy-site-nav,nav[aria-label="Main navigation"]){background-color:rgba(6,24,44,.96)!important;border-bottom-color:#ff5a1f!important}
 body :is(.site-footer,footer.iac-footer){background:#06182c!important;color:#fff7ec!important;border-top-color:#ff5a1f!important}
+
+
+/* Article pages: match the landing page's light palette without changing layout. */
+:root:has(article.article){
+  color-scheme:light!important;
+  --bg:#fff3e0!important;
+  --bg2:#ffe3c2!important;
+  --ink:#07182b!important;
+  --mute:#3d5f85!important;
+  --muted:#3d5f85!important;
+  --mut:#3d5f85!important;
+  --dk:#07182b!important;
+  --card:#ffe3c2!important;
+  --surface:#ffe3c2!important;
+}
+html:has(article.article){background:#fff3e0!important;color-scheme:light!important}
+body:has(article.article){background:#fff3e0!important;color:#07182b!important}
+body:has(article.article) article.article,
+body:has(article.article) article.article .body,
+body:has(article.article) article.article .body p,
+body:has(article.article) article.article .body li,
+body:has(article.article) article.article .article h1,
+body:has(article.article) article.article h1,
+body:has(article.article) article.article h2,
+body:has(article.article) article.article h3,
+body:has(article.article) article.article h4{color:#07182b!important}
+body:has(article.article) article.article .dek,
+body:has(article.article) article.article .meta span:last-child,
+body:has(article.article) article.article .meta .date,
+body:has(article.article) article.article .author-box span{color:#3d5f85!important}
+body:has(article.article) article.article :is(.author-box,.article-toc,.quick-answer,.key-takeaways,.visual-explainer,.original-analysis,.note,.body blockquote,.sources,.related,.decision-framework,.reading-time,.share-box){background:#ffe3c2!important;color:#07182b!important}
+body:has(article.article) article.article :is(.article-toc,.quick-answer,.key-takeaways,.visual-explainer,.original-analysis,.note,.body blockquote,.sources,.related,.decision-framework,.share-box){border-color:#ff5a1f!important}
+body:has(article.article) article.article .body strong{color:#9a3a00!important}
+body:has(article.article) article.article :is(.body a,.sources a,.related a,.article-toc a,.author-box a){color:#005d7a!important}
+body:has(article.article) article.article :is(.article-toc .toc-kicker,.article-toc .toc-count){color:#3d5f85!important}
+body:has(article.article) article.article .hero-art strong{background:#06182c!important;color:#fff7ec!important}
