@@ -40,8 +40,8 @@ nav.legacy-site-nav .menu{display:none;font:400 20px var(--display,"Dela Gothic 
  --bg:#fff3e0!important;--bg2:#ffe3c2!important;--ink:#07182b!important;
  --mute:#3d5f85!important;--muted:#3d5f85!important;--mut:#3d5f85!important;
  --dk:#07182b!important;--fire:#ff5a1f!important;--accent:#ff5a1f!important;
- --cyan:#006f94!important;--tc:#006f94!important;--sun:#8a5200!important;
- --ts:#8a5200!important;--lime:#477b00!important;--blue:#1f6fff!important;
+ --cyan:#22e4ff!important;--tc:#006f94!important;--sun:#ffd23f!important;
+ --ts:#8a5200!important;--lime:#b6ff3b!important;--blue:#1f6fff!important;
  --card:#ffe3c2!important;--surface:#ffe3c2!important;--line:#e5c9a8!important;
  --yellow:#ffd23f!important;--violet:#ff5a1f!important;--pink:#006f94!important;
 }
@@ -110,7 +110,7 @@ body :is(.site-header a,.nav a,.legacy-site-nav a,nav[aria-label="Main navigatio
 body :is(.site-footer,footer.iac-footer,.iac-footer){background:#ffe3c2!important;color:#07182b!important;border-top-color:#ff5a1f!important}
 body :is(.iac-footer a,.iac-footer-brand){color:#006f94!important}
 body :is(.iac-footer-tagline,.iac-footer-copy){color:#3d5f85!important}
-body :is(.card,.article-card,.feature-card,.post-card,.panel,.box,.author-box,.article-toc,.quick-answer,.key-takeaways,.visual-explainer,.original-analysis,.note,.decision-framework,.reading-time,.share-box,.body blockquote,.sources,.related){
+body :is(.article-card,.feature-card,.post-card,.panel,.box,.author-box,.article-toc,.quick-answer,.key-takeaways,.visual-explainer,.original-analysis,.note,.decision-framework,.reading-time,.share-box,.body blockquote,.sources,.related){
  background:#ffe3c2!important;color:#07182b!important;
 }
 body :is(.dek,.muted,.meta,.date,.author-box span,.article-toc .toc-count,.sources p,.iac-footer-tagline,.iac-footer-copy){color:#3d5f85!important}
