@@ -39,7 +39,15 @@ main{padding:14px 0 80px}.count{color:var(--muted);margin:18px 0;font-weight:700
 </div></nav>
 
 
-<main id="main"><div class="wrap"><p id="count" class="count" aria-live="polite">31 articles</p><section class="grid" id="article-grid" aria-label="Anime articles">
+<main id="main"><div class="wrap"><div class="filters article-category-filters" aria-label="Filter articles by category">
+<button type="button" data-filter="all" aria-pressed="true">All articles</button>
+<button type="button" data-filter="anime analysis" aria-pressed="false">Analysis</button>
+<button type="button" data-filter="character studies" aria-pressed="false">Characters</button>
+<button type="button" data-filter="rankings" aria-pressed="false">Rankings</button>
+<button type="button" data-filter="recommendations" aria-pressed="false">Recommendations</button>
+<button type="button" data-filter="anime guides" aria-pressed="false">Guides</button>
+<button type="button" data-filter="anime industry" aria-pressed="false">Industry</button>
+</div><section class="grid" id="article-grid" aria-label="Anime articles">
 <!-- ARTICLE ORDER: newest first. Add each new article card directly after this comment, before older cards. Pagination follows this order. --><article class="card" data-category="anime analysis" data-title="this anime scene changed how fans look at life"><span class="tag">Anime Analysis</span><h2><a href="https://indiananimeclub.com/this-anime-scene-changed-how-fans-look-at-life/">This Anime Scene Changed How Fans Look at Life</a></h2><p>A closer look at the moments that make anime feel personal, memorable, and unexpectedly meaningful.</p><a class="read" href="https://indiananimeclub.com/this-anime-scene-changed-how-fans-look-at-life/" aria-label="Read This Anime Scene Changed How Fans Look at Life">Read article <span aria-hidden="true">↗</span></a></article>
 <article class="card" data-category="character studies" data-title="why anya forger became so popular: character psychology"><span class="tag">Character Studies</span><h2><a href="https://indiananimeclub.com/why-anya-forger-became-so-popular-character-psychology/">Why Anya Forger Became So Popular: Character Psychology</a></h2><p>How expressive reactions, emotional intelligence, and comic timing shaped Anya’s appeal.</p><a class="read" href="https://indiananimeclub.com/why-anya-forger-became-so-popular-character-psychology/" aria-label="Read Why Anya Forger Became So Popular: Character Psychology">Read article <span aria-hidden="true">↗</span></a></article>
 <article class="card" data-category="anime analysis" data-title="why anime feels more emotional than movies: science of storytelling"><span class="tag">Anime Analysis</span><h2><a href="https://indiananimeclub.com/why-anime-feels-more-emotional-than-movies-science-of-storytelling/">Why Anime Feels More Emotional Than Movies: Science of Storytelling</a></h2><p>Explore how pacing, music, visual language, and long-form character arcs create emotional impact.</p><a class="read" href="https://indiananimeclub.com/why-anime-feels-more-emotional-than-movies-science-of-storytelling/" aria-label="Read Why Anime Feels More Emotional Than Movies: Science of Storytelling">Read article <span aria-hidden="true">↗</span></a></article>
@@ -79,7 +87,6 @@ main{padding:14px 0 80px}.count{color:var(--muted);margin:18px 0;font-weight:700
 <a class="float" href="https://chat.whatsapp.com/IOR7VBI25dW9ltnofX6Frz" target="_blank" rel="noopener" aria-label="Join our WhatsApp group"><svg viewBox="0 0 24 24"><path d="M3 21l1.6-4.6A8.5 8.5 0 1 1 8 19.6z"/><path d="M9 8.5c0 3 2.5 5.5 5.5 5.5l1-1.500-2-1-.8.8c-.8-.4-1.500-1.100-1.900-1.900l.8-.8-1-2z"/></svg></a>
 
 <script>
-const input=document.getElementById('search');
 const items=[...document.querySelectorAll('#article-grid .card')];
 const filters=[...document.querySelectorAll('[data-filter]')];
 const count=document.getElementById('count'),empty=document.getElementById('empty');
@@ -87,8 +94,7 @@ const pagination=document.getElementById('pagination');
 const perPage=15;
 let category='all',currentPage=1,filteredItems=items;
 function render(){
- const q=input.value.trim().toLowerCase();
- filteredItems=items.filter(card=>(category==='all'||card.dataset.category===category)&&(card.dataset.title+' '+card.textContent).toLowerCase().includes(q));
+ filteredItems=items.filter(card=>category==='all'||card.dataset.category===category);
  const pages=Math.max(1,Math.ceil(filteredItems.length/perPage));
  currentPage=Math.min(currentPage,pages);
  items.forEach(card=>card.hidden=true);
@@ -111,7 +117,6 @@ function renderPagination(pages){
  for(let p=1;p<=pages;p++)add(String(p),p,false,p===currentPage);
  add('Next →',currentPage+1,currentPage===pages);
 }
-input.addEventListener('input',()=>{currentPage=1;render()});
 filters.forEach(button=>button.addEventListener('click',()=>{category=button.dataset.filter;currentPage=1;filters.forEach(b=>b.setAttribute('aria-pressed',String(b===button)));render()}));
 const nav=document.querySelector('nav'),menu=document.getElementById('menu');
 menu.addEventListener('click',()=>{const open=nav.classList.toggle('open');menu.setAttribute('aria-expanded',String(open));menu.setAttribute('aria-label',open?'Close navigation':'Toggle navigation');menu.textContent=open?'×':'☰'});
