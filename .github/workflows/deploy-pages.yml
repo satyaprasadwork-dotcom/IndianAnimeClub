@@ -37,6 +37,7 @@ jobs:
           find . -type f -name '*.html' -not -path './.git/*' -print0 | while IFS= read -r -d '' file; do
             sed -i -E \
               -e "s#href=\"[^\"]*css/article\.css[^\"]*\"#href=\"/css/article.css?v=${GITHUB_SHA}\"#g" \
+              -e "s#href=\"[^\"]*site-shell\.css[^\"]*\"#href=\"/site-shell.css?v=${GITHUB_SHA}\"#g" \
               -e "s#article-enhancements\.js\?v=[^\"']+#article-enhancements.js?v=${GITHUB_SHA}#g" \
               -e "s#site-shell\.js\?v=[^\"']+#site-shell.js?v=${GITHUB_SHA}#g" \
               "$file"
