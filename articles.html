@@ -4,7 +4,7 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Anime Articles & Analysis | Indian Anime Club</title>
 <meta name="description" content="Explore anime analysis, character studies, rankings, recommendations, and anime industry stories for fans in India.">
-<link rel="canonical" href="https://indiananimeclub.com/articles.html">
+<link rel="canonical" href="https://indiananimeclub.com/articles/">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-M4738D1ZND"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date());gtag("config","G-M4738D1ZND");</script>
@@ -54,7 +54,7 @@ main{padding:14px 0 80px}.count{color:var(--muted);margin:18px 0;font-weight:700
 <div id="bar" aria-hidden="true"></div>
 <nav aria-label="Main navigation"><div class="wrap">
   <a class="logo" href="/" aria-label="Indian Anime Club home"><b>IAC</b> <span class="ln">Indian Anime Club</span></a>
-  <ul id="site-links"><li><a href="/#about">About</a></li><li><a href="/#worlds">Worlds</a></li><li><a href="/#events">Events</a></li><li><a href="/#chapters">Chapters</a></li><li><a href="/articles.html" aria-current="page">Articles</a></li></ul>
+  <ul id="site-links"><li><a href="/#about">About</a></li><li><a href="/#worlds">Worlds</a></li><li><a href="/#events">Events</a></li><li><a href="/#chapters">Chapters</a></li><li><a href="/articles/" aria-current="page">Articles</a></li></ul>
   <a class="btn" href="/#join" style="padding:8px 16px;font-size:14px;box-shadow:4px 4px 0 var(--accent)">Join us</a>
   <button class="menu" id="menu" type="button" aria-label="Toggle navigation" aria-controls="site-links" aria-expanded="false">&#9776;</button>
 </div></nav>
@@ -111,7 +111,7 @@ main{padding:14px 0 80px}.count{color:var(--muted);margin:18px 0;font-weight:700
       <a href="mailto:prasad@indiananimeclub.com">Email</a>
     </nav>
     <nav class="iac-footer-site" aria-label="Website information">
-      <a href="/about.html">About</a><a href="/contact.html">Contact</a><a href="/community-guidelines.html">Community guidelines</a><a href="/editorial-policy.html">Editorial policy</a><a href="/privacy-policy.html">Privacy</a><a href="/terms.html">Terms</a><a href="/disclaimer.html">Disclaimer</a>
+      <a href="/about/">About</a><a href="/contact/">Contact</a><a href="/community-guidelines/">Community guidelines</a><a href="/editorial-policy/">Editorial policy</a><a href="/privacy-policy/">Privacy</a><a href="/terms/">Terms</a><a href="/disclaimer/">Disclaimer</a>
     </nav>
     <p class="iac-footer-copy">© 2026 Indian Anime Club · indiananimeclub.com · Independent fan community, not affiliated with anime studios or rights holders.</p>
   </div>
@@ -136,7 +136,8 @@ main{padding:14px 0 80px}.count{color:var(--muted);margin:18px 0;font-weight:700
   'anime guides':['anime guides'],
   'anime industry':['anime industry','community']
  };
- let selected='all';
+ const requestedCategory=(new URLSearchParams(window.location.search).get('category')||'all').toLowerCase().replace(/-/g,' ');
+ let selected=Object.prototype.hasOwnProperty.call(categoryMap,requestedCategory)?requestedCategory:'all';
  let page=1;
  let matching=cards.slice();
  function draw(){
@@ -168,6 +169,7 @@ main{padding:14px 0 80px}.count{color:var(--muted);margin:18px 0;font-weight:700
   for(let n=1;n<=totalPages;n++)add(String(n),n,false,n===page);
   add('Next →',page+1,page===totalPages,false);
  }
+ filters.forEach(button=>{button.setAttribute('aria-pressed',String((button.dataset.filter||'all')===selected));});
  filters.forEach(button=>button.addEventListener('click',function(){
   selected=button.dataset.filter||'all';page=1;
   filters.forEach(item=>{item.setAttribute('aria-pressed',String(item===button));});
