@@ -7,17 +7,6 @@ let n=document.querySelector('nav[aria-label="Main navigation"]');if(n)n.outerHT
 const f=document.querySelector('footer');if(f)f.outerHTML=footer;else document.body.insertAdjacentHTML('beforeend',footer);
 n=document.querySelector('nav.legacy-site-nav');const b=n&&n.querySelector('#menu');if(b&&!b.dataset.shellBound){b.dataset.shellBound='true';const close=()=>{n.classList.remove('open');b.setAttribute('aria-expanded','false');b.setAttribute('aria-label','Toggle navigation')};b.addEventListener('click',()=>{const o=n.classList.toggle('open');b.setAttribute('aria-expanded',String(o));b.setAttribute('aria-label',o?'Close navigation':'Toggle navigation')});n.querySelectorAll('ul a').forEach(a=>a.addEventListener('click',close));document.addEventListener('keydown',e=>{if(e.key==='Escape'&&n.classList.contains('open')){close();b.focus()}})}
 
-/* Remove legacy Decision Framework cards by their visible heading, even when markup differs. */
-document.querySelectorAll('article.article h1,article.article h2,article.article h3,article.article h4,article.article [role="heading"]').forEach(heading=>{
- if((heading.textContent||'').trim().replace(/\s+/g,' ').toLowerCase()!=='decision framework')return;
- let card=heading.closest('.decision-framework,[class*="decision-framework" i],[id*="decision-framework" i],.card,.panel,.callout,.framework,aside,section');
- if(!card){
-  card=heading.parentElement;
-  while(card&&card!==document.body&&card!==document.querySelector('article.article')&&!/^(SECTION|ASIDE|DIV)$/.test(card.tagName))card=card.parentElement;
- }
- if(card&&card!==document.body&&card!==document.querySelector('article.article')&&card!==document.querySelector('main'))card.remove();
-});
-
 /* Build one consistent, linked table of contents for every article body. */
 const articleBody=document.querySelector('article.article .body');
 if(articleBody){
