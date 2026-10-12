@@ -72,9 +72,9 @@ body>nav[aria-label="Main navigation"] .menu{border-color:#07182b!important}
 .article .quick-answer{background:#ffd23f!important;color:#07182b!important}
 .article .note{background:#22e4ff!important;color:#07182b!important}
 .back{border-color:#07182b!important}
-footer.iac-footer{background:#ffe3c2!important;color:#07182b!important;border-top-color:#ff5a1f!important}
-.iac-footer-brand,.iac-footer a{color:#006f94!important}
-.iac-footer-tagline,.iac-footer .iac-footer-copy{color:#3d5f85!important}
+footer.iac-footer{background:#06182c!important;color:#fff7ec!important;border-top-color:#ff5a1f!important}
+.iac-footer-brand,.iac-footer a{color:#22e4ff!important}
+.iac-footer-tagline,.iac-footer .iac-footer-copy{color:#b8cce0!important}
 .tick,.news-scroller,#news-scroller,.news-ticker,#news-ticker,[data-news-scroller]{display:none!important}
 
 /* Final article-page override: force the light landing-page palette across the full page. */
