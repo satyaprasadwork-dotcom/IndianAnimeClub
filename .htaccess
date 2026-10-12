@@ -12,3 +12,14 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_URI} ^/([^/]+)/?$
 RewriteCond %{DOCUMENT_ROOT}/articles/%1.html -f
 RewriteRule ^([^/]+)/?$ articles/$1.html [L]
+
+# Keep shared behaviour and search-index files fresh after GitHub deployments.
+# LiteSpeed/Apache honours these headers when mod_headers is enabled.
+<IfModule mod_headers.c>
+  <FilesMatch "^(site-shell|site-fixes)\\.js$">
+    Header set Cache-Control "no-cache, must-revalidate, max-age=0"
+  </FilesMatch>
+  <FilesMatch "^(sitemap|sitemap_index)\\.xml$">
+    Header set Cache-Control "no-cache, must-revalidate, max-age=0"
+  </FilesMatch>
+</IfModule>
