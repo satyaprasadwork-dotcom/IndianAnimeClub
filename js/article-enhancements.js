@@ -80,16 +80,16 @@ return '<svg class="topic-diagram-svg" width="100%" height="'+height+'" viewBox=
 function enhance(){
 const body=document.querySelector('.body');if(!body)return;
 const slug=(location.pathname.replace(/\/+$/,'').split('/').pop()||'').replace(/\.html$/i,'').toLowerCase();
-let visual=body.querySelector('.visual-explainer');
 const d=D[slug];
-if(!visual){
-  visual=document.createElement('section');visual.className='visual-explainer';
-  visual.innerHTML='<p class="eyebrow">Decision framework</p><h2></h2>';
-  const anchor=body.querySelector('.quick-answer')||body.querySelector('.key-takeaways')||body.firstElementChild;
-  if(anchor)anchor.insertAdjacentElement('beforebegin',visual);else body.prepend(visual);
-}
-const h=visual.querySelector('h2'),e=visual.querySelector('.eyebrow');
+let visual=body.querySelector('.visual-explainer');
 if(d){
+  if(!visual){
+    visual=document.createElement('section');visual.className='visual-explainer';
+    visual.innerHTML='<p class="eyebrow">Topic diagram</p><h2></h2>';
+    const anchor=body.querySelector('.quick-answer')||body.querySelector('.key-takeaways')||body.firstElementChild;
+    if(anchor)anchor.insertAdjacentElement('beforebegin',visual);else body.prepend(visual);
+  }
+  const h=visual.querySelector('h2'),e=visual.querySelector('.eyebrow');
   if(h)h.textContent=d[1];if(e)e.textContent='Topic diagram';
   const svg=diagram(slug);
   if(svg){visual.querySelectorAll('.visual-grid,.topic-diagram-svg').forEach(n=>n.remove());visual.insertAdjacentHTML('beforeend',svg)}
@@ -97,12 +97,8 @@ if(d){
     const fallback=document.createElement('div');fallback.className='visual-grid';
     d[2].slice(0,3).forEach((label,i)=>{const card=document.createElement('div'),b=document.createElement('b'),span=document.createElement('span');b.textContent=label;span.textContent=['Define the requirement and constraints','Evaluate evidence and trade-offs','Choose controls and review the outcome'][i];card.append(b,span);fallback.appendChild(card)});visual.appendChild(fallback);
   }
-}else{
-  if(h)h.textContent='A practical decision path';if(e)e.textContent='Decision framework';
-  if(!visual.querySelector('.visual-grid,.topic-diagram-svg')){
-    const fallback=document.createElement('div');fallback.className='visual-grid';
-    [['Define','State the goal, user and constraints'],['Evaluate','Compare evidence, risks and alternatives'],['Decide','Choose an action, owner and review point']].forEach(([label,desc])=>{const card=document.createElement('div'),b=document.createElement('b'),span=document.createElement('span');b.textContent=label;span.textContent=desc;card.append(b,span);fallback.appendChild(card)});visual.appendChild(fallback);
-  }
+}else if(visual && /decision framework|a practical decision path/i.test(visual.textContent||'')){
+  visual.remove();
 }
 body.querySelectorAll('.article-toc,[aria-label="Table of contents"],.table-of-contents,.toc-container').forEach(n=>n.remove());
 body.querySelectorAll('h2').forEach(h=>{if(/^in this article$/i.test(h.textContent.trim())&&!h.closest('.visual-explainer,.original-analysis,.sources,.related,.key-takeaways'))h.remove()});
