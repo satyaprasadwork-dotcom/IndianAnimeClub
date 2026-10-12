@@ -366,13 +366,6 @@ body:has(article.article) article.article .related li{
 body:has(article.article) article.article .sources li:last-child,
 body:has(article.article) article.article .related li:last-child{margin-bottom:0!important}
 
-/* The Decision Framework card is not part of the new article template. */
-body:has(article.article) article.article .decision-framework,
-body:has(article.article) article.article [class*="decision-framework"],
-body:has(article.article) article.article [id*="decision-framework"]{
-  display:none!important;
-}
-
 /* The footer intentionally uses the site's dark navy with vivid orange/cyan accents. */
 html body footer.iac-footer,
 html body .iac-footer{
@@ -438,8 +431,6 @@ body:has(article.article) article.article .body table{color:#07182b!important}
 body:has(article.article) article.article .body :is(th,td){color:#07182b!important;border-color:#c6a77f!important}
 body:has(article.article) article.article .body th{background:#ffd23f!important}
 body:has(article.article) article.article .body tr:nth-child(even) td{background:#fff3e0!important}
-/* Remove Decision Framework sections regardless of legacy wrapper class. */
-body:has(article.article) article.article :is(.decision-framework,[class*="decision-framework" i],[id*="decision-framework" i]){display:none!important}
 @media(max-width:600px){
  body:has(article.article) article.article :is(.author-box,.article-toc,.quick-answer,.key-takeaways,.visual-explainer,.original-analysis,.note,.body blockquote,.sources,.related,.reading-time,.share-box){margin-block:14px!important;padding:14px!important}
 }
