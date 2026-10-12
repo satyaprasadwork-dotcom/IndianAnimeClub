@@ -251,3 +251,16 @@ body:has(#article-grid) main{padding-bottom:0!important}
 .iac-footer-site a:hover,.iac-footer a:hover{color:#ffd23f!important}
 .iac-footer-copy{border-top:1px solid #29425b!important}
 @media(max-width:600px){footer.iac-footer,.iac-footer{margin-top:0!important}}
+
+
+/* Final layout fix: remove stacked content-bottom padding and footer top margin.
+   This applies to article listing pages and long-form article pages. */
+body:has(#article-grid) main#main,
+body:has(article.article) main{
+  padding-bottom:0!important;
+  margin-bottom:0!important;
+}
+body:has(#article-grid) #main>.wrap{padding-bottom:0!important}
+body:has(#article-grid) #pagination{padding-bottom:0!important;margin-bottom:0!important}
+body:has(article.article) article.article{margin-bottom:0!important}
+footer.iac-footer,.iac-footer{margin-top:0!important}
