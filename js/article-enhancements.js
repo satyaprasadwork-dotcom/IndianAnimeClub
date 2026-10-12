@@ -113,6 +113,99 @@ if(heads.length>=3){
   const anchor=body.querySelector('.quick-answer')||body.querySelector('.key-takeaways')||body.querySelector(':scope > p')||body.firstElementChild;
   if(anchor)anchor.insertAdjacentElement('afterend',nav);else body.prepend(nav);
 }
+
+/* Ninth Post-style end matter: sources first, then related articles. */
+const endMatterBySlug={
+"this-anime-scene-changed-how-fans-look-at-life":["beyond-power-levels-how-to-analyse-anime-writing-worldbuilding-and-character-growth","when-the-hero-makes-the-wrong-choice-understanding-moral-dilemmas-in-anime-stories"],
+"when-anime-became-a-family-debate-how-indian-viewers-explain-their-favourite-shows-at-home":["hindi-tamil-telugu-or-japanese-audio-how-language-changes-the-indian-anime-experience","new-to-anime-in-india-a-beginners-roadmap-based-on-your-interests-not-just-rankings"],
+"hindi-tamil-telugu-or-japanese-audio-how-language-changes-the-indian-anime-experience":["where-to-watch-anime-legally-in-india-a-practical-guide-to-platforms-languages-and-availability","subtitles-vs-dubs-how-indian-anime-viewers-can-choose-what-works-for-them"],
+"anime-between-lectures-and-chai-breaks-inside-indias-college-fan-culture":["how-to-start-an-anime-club-at-your-college-a-practical-plan-for-indian-student-communities","how-anime-communities-are-taking-shape-across-indian-cities-online-fandom-to-local-meetups"],
+"beyond-watching-how-indian-anime-fans-turn-their-favourite-stories-into-art-edits-and-cosplay":["how-to-start-drawing-anime-characters-a-beginners-practice-plan-for-indian-students","your-first-cosplay-on-a-budget-planning-a-costume-with-materials-available-in-india"],
+"where-to-watch-anime-legally-in-india-a-practical-guide-to-platforms-languages-and-availability":["anime-watch-orders-explained-how-to-navigate-seasons-films-specials-and-spin-offs","subtitles-vs-dubs-how-indian-anime-viewers-can-choose-what-works-for-them"],
+"new-to-anime-in-india-a-beginners-roadmap-based-on-your-interests-not-just-rankings":["where-to-watch-anime-legally-in-india-a-practical-guide-to-platforms-languages-and-availability","building-an-anime-watchlist-on-a-student-budget-a-smarter-guide-for-indian-fans"],
+"anime-watch-orders-explained-how-to-navigate-seasons-films-specials-and-spin-offs":["new-to-anime-in-india-a-beginners-roadmap-based-on-your-interests-not-just-rankings","subtitles-vs-dubs-how-indian-anime-viewers-can-choose-what-works-for-them"],
+"subtitles-vs-dubs-how-indian-anime-viewers-can-choose-what-works-for-them":["where-to-watch-anime-legally-in-india-a-practical-guide-to-platforms-languages-and-availability","building-an-anime-watchlist-on-a-student-budget-a-smarter-guide-for-indian-fans"],
+"building-an-anime-watchlist-on-a-student-budget-a-smarter-guide-for-indian-fans":["where-to-watch-anime-legally-in-india-a-practical-guide-to-platforms-languages-and-availability","new-to-anime-in-india-a-beginners-roadmap-based-on-your-interests-not-just-rankings"],
+"why-anime-underdogs-resonate-with-indian-audiences-effort-family-expectations-and-ambition":["the-mentor-the-student-and-the-journey-what-anime-training-arcs-reveal-about-learning","why-the-supporting-cast-matters-how-anime-builds-friendships-beyond-the-main-hero"],
+"festivals-food-and-family-exploring-everyday-cultural-details-in-anime-and-indian-life":["when-anime-became-a-family-debate-how-indian-viewers-explain-their-favourite-shows-at-home","beyond-power-levels-how-to-analyse-anime-writing-worldbuilding-and-character-growth"],
+"the-mentor-the-student-and-the-journey-what-anime-training-arcs-reveal-about-learning":["why-anime-underdogs-resonate-with-indian-audiences-effort-family-expectations-and-ambition","why-the-supporting-cast-matters-how-anime-builds-friendships-beyond-the-main-hero"],
+"why-the-supporting-cast-matters-how-anime-builds-friendships-beyond-the-main-hero":["beyond-power-levels-how-to-analyse-anime-writing-worldbuilding-and-character-growth","when-the-hero-makes-the-wrong-choice-understanding-moral-dilemmas-in-anime-stories"],
+"when-the-hero-makes-the-wrong-choice-understanding-moral-dilemmas-in-anime-stories":["this-anime-scene-changed-how-fans-look-at-life","beyond-power-levels-how-to-analyse-anime-writing-worldbuilding-and-character-growth"],
+"how-to-start-drawing-anime-characters-a-beginners-practice-plan-for-indian-students":["beyond-watching-how-indian-anime-fans-turn-their-favourite-stories-into-art-edits-and-cosplay","your-first-cosplay-on-a-budget-planning-a-costume-with-materials-available-in-india"],
+"your-first-cosplay-on-a-budget-planning-a-costume-with-materials-available-in-india":["how-to-start-drawing-anime-characters-a-beginners-practice-plan-for-indian-students","your-first-anime-convention-in-india-what-to-plan-before-you-go"],
+"from-fan-idea-to-finished-edit-a-beginners-guide-to-making-anime-inspired-videos":["fan-art-screenshots-and-copyright-what-indian-anime-creators-should-understand-before-publishing","how-to-start-drawing-anime-characters-a-beginners-practice-plan-for-indian-students"],
+"how-to-start-an-anime-club-at-your-college-a-practical-plan-for-indian-student-communities":["anime-between-lectures-and-chai-breaks-inside-indias-college-fan-culture","how-anime-communities-are-taking-shape-across-indian-cities-online-fandom-to-local-meetups"],
+"your-first-anime-convention-in-india-what-to-plan-before-you-go":["your-first-cosplay-on-a-budget-planning-a-costume-with-materials-available-in-india","how-anime-communities-are-taking-shape-across-indian-cities-online-fandom-to-local-meetups"],
+"how-anime-communities-are-taking-shape-across-indian-cities-online-fandom-to-local-meetups":["how-to-start-an-anime-club-at-your-college-a-practical-plan-for-indian-student-communities","what-makes-an-anime-community-last-lessons-in-belonging-participation-and-local-leadership"],
+"anime-merchandise-in-india-how-to-check-authenticity-pricing-and-seller-credibility":["manga-vs-anime-for-indian-readers-cost-availability-and-what-each-format-offers","your-first-anime-convention-in-india-what-to-plan-before-you-go"],
+"manga-vs-anime-for-indian-readers-cost-availability-and-what-each-format-offers":["where-to-watch-anime-legally-in-india-a-practical-guide-to-platforms-languages-and-availability","new-to-anime-in-india-a-beginners-roadmap-based-on-your-interests-not-just-rankings"],
+"could-india-build-a-bigger-animation-to-anime-pipeline-talent-training-and-industry-challenges":["learning-animation-in-india-skills-software-and-portfolio-projects-for-beginners","hand-drawn-frames-to-digital-pipelines-how-anime-production-techniques-have-evolved"],
+"learning-animation-in-india-skills-software-and-portfolio-projects-for-beginners":["hand-drawn-frames-to-digital-pipelines-how-anime-production-techniques-have-evolved","could-india-build-a-bigger-animation-to-anime-pipeline-talent-training-and-industry-challenges"],
+"hand-drawn-frames-to-digital-pipelines-how-anime-production-techniques-have-evolved":["learning-animation-in-india-skills-software-and-portfolio-projects-for-beginners","could-india-build-a-bigger-animation-to-anime-pipeline-talent-training-and-industry-challenges"],
+"spoilers-fan-theories-and-online-debates-how-to-keep-anime-communities-welcoming":["what-makes-an-anime-community-last-lessons-in-belonging-participation-and-local-leadership","how-to-start-an-anime-club-at-your-college-a-practical-plan-for-indian-student-communities"],
+"beyond-power-levels-how-to-analyse-anime-writing-worldbuilding-and-character-growth":["this-anime-scene-changed-how-fans-look-at-life","why-the-supporting-cast-matters-how-anime-builds-friendships-beyond-the-main-hero"],
+"fan-art-screenshots-and-copyright-what-indian-anime-creators-should-understand-before-publishing":["from-fan-idea-to-finished-edit-a-beginners-guide-to-making-anime-inspired-videos","how-to-start-drawing-anime-characters-a-beginners-practice-plan-for-indian-students"],
+"what-makes-an-anime-community-last-lessons-in-belonging-participation-and-local-leadership":["how-anime-communities-are-taking-shape-across-indian-cities-online-fandom-to-local-meetups","spoilers-fan-theories-and-online-debates-how-to-keep-anime-communities-welcoming"],
+"the-next-chapter-of-anime-in-india-language-access-local-creators-and-community-growth":["could-india-build-a-bigger-animation-to-anime-pipeline-talent-training-and-industry-challenges","how-anime-communities-are-taking-shape-across-indian-cities-online-fandom-to-local-meetups"]
+};
+const articleTitles={
+"this-anime-scene-changed-how-fans-look-at-life":"How to Explain Why an Anime Scene Stayed With You",
+"when-anime-became-a-family-debate-how-indian-viewers-explain-their-favourite-shows-at-home":"Explaining Anime at Home: How Indian Fans Navigate Family Assumptions",
+"hindi-tamil-telugu-or-japanese-audio-how-language-changes-the-indian-anime-experience":"Hindi, Tamil, Telugu or Japanese Audio? Choosing an Anime Language Track",
+"anime-between-lectures-and-chai-breaks-inside-indias-college-fan-culture":"Anime on Campus in India: How Students Turn Shared Interests into Community",
+"beyond-watching-how-indian-anime-fans-turn-their-favourite-stories-into-art-edits-and-cosplay":"Beyond Watching: A Beginner's Guide to Anime-Inspired Creative Projects",
+"where-to-watch-anime-legally-in-india-a-practical-guide-to-platforms-languages-and-availability":"Where to Watch Anime Legally in India: A Practical Availability Checklist",
+"new-to-anime-in-india-a-beginners-roadmap-based-on-your-interests-not-just-rankings":"New to Anime in India: A Beginner's Roadmap",
+"anime-watch-orders-explained-how-to-navigate-seasons-films-specials-and-spin-offs":"Anime Watch Orders Explained: Seasons, Movies, Specials and Spin-Offs",
+"subtitles-vs-dubs-how-indian-anime-viewers-can-choose-what-works-for-them":"Hindi, Tamil, Telugu or Japanese Audio? Choosing an Anime Language Track",
+"building-an-anime-watchlist-on-a-student-budget-a-smarter-guide-for-indian-fans":"Building an Anime Watchlist on a Student Budget",
+"why-anime-underdogs-resonate-with-indian-audiences-effort-family-expectations-and-ambition":"Why Anime Underdogs Resonate with Indian Audiences",
+"festivals-food-and-family-exploring-everyday-cultural-details-in-anime-and-indian-life":"Festivals, Food and Family: Cultural Details in Anime and Indian Life",
+"the-mentor-the-student-and-the-journey-what-anime-training-arcs-reveal-about-learning":"The Mentor, the Student and the Journey: Anime Training Arcs",
+"why-the-supporting-cast-matters-how-anime-builds-friendships-beyond-the-main-hero":"Why the Supporting Cast Matters in Anime",
+"when-the-hero-makes-the-wrong-choice-understanding-moral-dilemmas-in-anime-stories":"When the Hero Makes the Wrong Choice: Understanding Moral Dilemmas in Anime Stories",
+"how-to-start-drawing-anime-characters-a-beginners-practice-plan-for-indian-students":"How to Start Drawing Anime Characters",
+"your-first-cosplay-on-a-budget-planning-a-costume-with-materials-available-in-india":"Your First Cosplay on a Budget",
+"from-fan-idea-to-finished-edit-a-beginners-guide-to-making-anime-inspired-videos":"From Fan Idea to Finished Edit: A Beginner's Guide",
+"how-to-start-an-anime-club-at-your-college-a-practical-plan-for-indian-student-communities":"How to Start an Anime Club at Your College",
+"your-first-anime-convention-in-india-what-to-plan-before-you-go":"Your First Anime Convention in India",
+"how-anime-communities-are-taking-shape-across-indian-cities-online-fandom-to-local-meetups":"How Anime Communities Are Taking Shape Across Indian Cities",
+"anime-merchandise-in-india-how-to-check-authenticity-pricing-and-seller-credibility":"Anime Merchandise in India: Authenticity, Pricing and Seller Credibility",
+"manga-vs-anime-for-indian-readers-cost-availability-and-what-each-format-offers":"Manga vs Anime for Indian Readers",
+"could-india-build-a-bigger-animation-to-anime-pipeline-talent-training-and-industry-challenges":"Could India Build a Bigger Animation-to-Anime Pipeline?",
+"learning-animation-in-india-skills-software-and-portfolio-projects-for-beginners":"Learning Animation in India: Skills, Software and Portfolio Projects",
+"hand-drawn-frames-to-digital-pipelines-how-anime-production-techniques-have-evolved":"How Anime Production Techniques Have Evolved",
+"spoilers-fan-theories-and-online-debates-how-to-keep-anime-communities-welcoming":"Spoilers, Fan Theories and Online Debates: Keeping Communities Welcoming",
+"beyond-power-levels-how-to-analyse-anime-writing-worldbuilding-and-character-growth":"Beyond Power Levels: Analysing Anime Writing and Worldbuilding",
+"fan-art-screenshots-and-copyright-what-indian-anime-creators-should-understand-before-publishing":"Anime Fan Art and Copyright in India: What Creators Should Check",
+"what-makes-an-anime-community-last-lessons-in-belonging-participation-and-local-leadership":"What Makes an Anime Community Last?",
+"the-next-chapter-of-anime-in-india-language-access-local-creators-and-community-growth":"The Next Chapter of Anime in India"
+};
+const slug=location.pathname.replace(/\/+$/,'').split('/').pop();
+const escText=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+const sourceSets={
+copyright:[['India Code: Copyright Act, 1957','https://www.indiacode.nic.in/handle/123456789/1367','Official legislation. Read the relevant provisions and amendments for your situation.'],['Copyright Office, Government of India','https://copyright.gov.in/','Official information about copyright in India.'],['YouTube Copyright Help','https://support.google.com/youtube/topic/2676339','Platform guidance on claims, removal requests and copyright processes.']],
+streaming:[['Crunchyroll','https://www.crunchyroll.com/','Check the official title page for current regional availability.'],['Netflix Help Center','https://help.netflix.com/','Help with audio, subtitles and title availability; catalogues vary by region.'],['Prime Video Help','https://www.primevideo.com/help','Check supported playback language and subtitle options.']],
+community:[['Indian Anime Club Community Guidelines','/community-guidelines/','The community’s own expectations for respectful participation.'],['Google Safety Center','https://safety.google/','General information about online safety and privacy.'],['UNICEF India','https://www.unicef.org/india/','Further reading on youth participation and wellbeing.']],
+production:[['Association of Japanese Animations','https://aja.gr.jp/english/','Industry organisation and animation-sector resources.'],['Japan Media Arts Festival Archive','https://j-mediaarts.jp/en/','Examples of animation and media art for further study.'],['Autodesk Education','https://www.autodesk.com/education/edu-software/overview','Software and learning resources; check current eligibility and terms.']],
+story:[['Japan Media Arts Festival Archive','https://j-mediaarts.jp/en/','Explore animation and media art through selected works.'],['Anime News Network','https://www.animenewsnetwork.com/','Editorial reporting and reference material about anime and manga.'],['Crunchyroll','https://www.crunchyroll.com/','Official anime catalogue; check individual title listings for current details.']]
+};
+let sourceSet='story';
+if(/copyright|fan-art|screenshots/.test(slug))sourceSet='copyright';
+else if(/where-to-watch|watch-orders|subtitles|language|watchlist|manga-vs-anime|merchandise/.test(slug))sourceSet='streaming';
+else if(/community|club|convention|college|spoilers|family-debate/.test(slug))sourceSet='community';
+else if(/animation|production|drawing|cosplay|creative|edit/.test(slug))sourceSet='production';
+let sources=body.querySelector('.sources');
+if(!sources){sources=document.createElement('section');sources.className='sources';body.appendChild(sources)}
+sources.innerHTML='<h2>Sources &amp; further reading</h2><p>This article is original explanatory analysis. The links below offer additional context. For time-sensitive details, consult the original source directly.</p><ul>'+sourceSets[sourceSet].map(s=>'<li><a href="'+s[1]+'" target="_blank" rel="noopener noreferrer">'+escText(s[0])+'</a> - '+escText(s[2])+'</li>').join('')+'</ul>';
+/* Move sources after the full article content, not between editorial sections. */
+body.appendChild(sources);
+let keep=body.querySelector('.related');
+if(!keep){keep=document.createElement('section');keep.className='related';body.appendChild(keep)}
+const rel=(endMatterBySlug[slug]||[]).filter(s=>articleTitles[s]);
+keep.innerHTML='<h2>Keep reading</h2><ul>'+rel.map(s=>'<li><a href="./'+s+'">'+escText(articleTitles[s])+'</a></li>').join('')+'</ul>';
+body.appendChild(keep);
+
 let p=document.querySelector('.reading-progress');if(!p){p=document.createElement('div');p.className='reading-progress';p.setAttribute('aria-hidden','true');p.innerHTML='<span></span>';document.body.appendChild(p)}
 const fill=p.querySelector('span');function update(){const e=document.documentElement,m=e.scrollHeight-e.clientHeight;fill.style.width=(m>0?Math.min(100,Math.max(0,e.scrollTop/m*100)):0)+'%'}
 window.addEventListener('scroll',update,{passive:true});update();
