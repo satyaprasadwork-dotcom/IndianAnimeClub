@@ -482,3 +482,15 @@ html body footer.iac-footer .iac-footer-copy{
   html body footer.iac-footer .iac-footer-social a{padding:8px 11px!important}
   html body footer.iac-footer nav.iac-footer-site{gap:10px 14px!important}
 }
+
+/* Canonical footer: preserve the exact dark-blue homepage footer on every route. */
+html body footer.iac-footer,html body footer.iac-footer *{box-sizing:border-box}
+html body footer.iac-footer{display:block!important;position:relative!important;clear:both!important;width:100%!important;margin:64px 0 0!important;padding:42px 24px 28px!important;background:#06182c!important;color:#fff7ec!important;border-top:4px solid #ff5a1f!important;text-align:center!important;font-family:"Space Grotesk",system-ui,sans-serif!important;font-size:14px!important;line-height:1.6!important}
+html body footer.iac-footer .iac-footer-inner{width:100%!important;max-width:1120px!important;margin:0 auto!important}
+html body footer.iac-footer .iac-footer-brand{display:inline-flex!important;align-items:center!important;justify-content:center!important;color:#fff7ec!important;font-family:"Dela Gothic One",system-ui,sans-serif!important;text-decoration:none!important}
+html body footer.iac-footer .iac-footer-tagline,html body footer.iac-footer .iac-footer-copy{color:#b8cce0!important}
+html body footer.iac-footer nav.iac-footer-social,html body footer.iac-footer nav.iac-footer-site{display:flex!important;position:static!important;float:none!important;width:100%!important;max-width:100%!important;justify-content:center!important;align-items:center!important;flex-wrap:wrap!important;background:transparent!important;border:0!important;box-shadow:none!important;text-align:center!important}
+html body footer.iac-footer a{color:#22e4ff!important}
+html body footer.iac-footer .iac-footer-social a{display:inline-flex!important;align-items:center!important;justify-content:center!important;min-height:42px!important;background:#0c2540!important;color:#22e4ff!important;border:1px solid #42617d!important;border-radius:8px!important;padding:8px 15px!important;font-weight:700!important}
+html body footer.iac-footer .iac-footer-social a:hover,html body footer.iac-footer a:hover{color:#ffd23f!important}
+@media(max-width:600px){html body footer.iac-footer{margin-top:44px!important;padding:32px 16px 24px!important}}
