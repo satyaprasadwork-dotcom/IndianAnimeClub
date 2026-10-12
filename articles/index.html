@@ -36,6 +36,16 @@ main{padding:14px 0 80px}.count{color:var(--muted);margin:18px 0;font-weight:700
 #article-grid>.card h2{line-height:1.18}
 @media(max-width:760px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:520px){.grid{grid-template-columns:minmax(0,1fr)}#article-grid>.card{padding:20px}}
+
+/* Category flags use the same distinct palette as their article cards. */
+.card[data-category="anime analysis"] .tag{background:#ff5a1f;color:#07182b}
+.card[data-category="character studies"] .tag{background:#22e4ff;color:#07182b}
+.card[data-category="rankings"] .tag{background:#ffd23f;color:#07182b}
+.card[data-category="recommendations"] .tag{background:#b6ff3b;color:#07182b}
+.card[data-category="anime guides"] .tag{background:#1f6fff;color:#fff}
+.card[data-category="anime industry"] .tag{background:#8b4ac2;color:#fff}
+.card[data-category="anime & life"] .tag{background:#d34e86;color:#07182b}
+
 </style>
 <style id="iac-shared-footer">
 .iac-footer{display:block!important;position:relative;clear:both;width:100%;margin:64px 0 0!important;padding:42px 24px 28px!important;background:#06182c!important;color:#fff7ec!important;border-top:4px solid #ff5a1f!important;text-align:center!important;font-family:"Space Grotesk",system-ui,sans-serif!important;font-size:14px!important;line-height:1.6!important;box-sizing:border-box!important}
