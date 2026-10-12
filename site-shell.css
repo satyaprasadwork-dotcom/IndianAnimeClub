@@ -227,3 +227,27 @@ body:has(article.article) article.article .related :is(a,.card,article) h3{
     min-height:0!important;
   }
 }
+
+
+/* Tighten the handoff from page content to the shared footer across all routes. */
+footer.iac-footer,.iac-footer{
+  margin-top:0!important;
+  background:#06182c!important;
+  color:#fff7ec!important;
+  border-top:4px solid #ff5a1f!important;
+}
+body:has(#article-grid) main{padding-bottom:0!important}
+.iac-footer-brand{color:#fff7ec!important}
+.iac-footer a,.iac-footer-site a{color:#22e4ff!important}
+.iac-footer-tagline,.iac-footer-copy{color:#b8cce0!important}
+.iac-footer-social a{
+  background:#0c2a4a!important;color:#22e4ff!important;
+  border:2px solid #42617d!important;border-radius:8px!important;
+  box-shadow:3px 3px 0 #ff5a1f!important;
+}
+.iac-footer-social a:hover{
+  background:#ffd23f!important;color:#07182b!important;border-color:#07182b!important;
+}
+.iac-footer-site a:hover,.iac-footer a:hover{color:#ffd23f!important}
+.iac-footer-copy{border-top:1px solid #29425b!important}
+@media(max-width:600px){footer.iac-footer,.iac-footer{margin-top:0!important}}
