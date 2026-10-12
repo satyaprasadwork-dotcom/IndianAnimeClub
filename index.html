@@ -240,7 +240,7 @@ section.oracle{padding-top:56px;padding-bottom:56px}
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 <div id="bar" aria-hidden="true"></div>
-<nav class="legacy-site-nav" aria-label="Main navigation"><div class="wrap"><a class="logo" href="/#top"><b>IAC</b> <span class="ln">Indian Anime Club</span></a><ul id="site-links"><li><a href="/#about">About</a></li><li><a href="/#worlds">Worlds</a></li><li><a href="/#events">Events</a></li><li><a href="/#chapters">Chapters</a></li><li><a href="/articles/">Articles</a></li></ul><a class="btn" href="/#join" style="padding:8px 16px;font-size:14px;box-shadow:4px 4px 0 var(--accent)">Join us</a><button class="menu" id="menu" type="button" aria-label="Toggle navigation" aria-controls="site-links" aria-expanded="false">&#9776;</button></div></nav>
+<nav class="legacy-site-nav" aria-label="Main navigation"><div class="wrap"><a class="logo" href="/#top"><b>IAC</b> <span class="ln">Indian Anime Club</span></a><ul id="site-links"><li><a href="/#about">About</a></li><li><a href="/#worlds">Worlds</a></li><li><a href="/#events">Explore</a></li><li><a href="/#chapters">Chapters</a></li><li><a href="/articles/">Articles</a></li></ul><a class="btn" href="/#join" style="padding:8px 16px;font-size:14px;box-shadow:4px 4px 0 var(--accent)">Join us</a><button class="menu" id="menu" type="button" aria-label="Toggle navigation" aria-controls="site-links" aria-expanded="false">&#9776;</button></div></nav>
 
 <main id="main">
 <header class="hero" id="top">
@@ -332,7 +332,7 @@ section.oracle{padding-top:56px;padding-bottom:56px}
 
 <section class="worlds" id="events"><div class="wrap">
   <h2 class="rv">What's next</h2>
-  <p class="lead rv">Your next anime rabbit hole starts here. Explore thoughtful character breakdowns, find a new series to try, or dive into rankings and anime culture. These links take you to our article library, not event listings.</p>
+  <p class="lead rv">Your next anime rabbit hole starts here. Explore thoughtful character breakdowns, find a new series to try, or dive into rankings and anime culture.</p>
   <a class="ev rv" href="/articles/?category=character-studies"><div class="date"><b>01</b>DEEP DIVE</div><div><h3>Get to know the characters</h3><p>Explore character psychology, motivations, rivalries, turning points, and the choices that make a character memorable.</p></div><span class="tag">Character studies ↗</span></a>
   <a class="ev rv" href="/articles/?category=recommendations"><div class="date"><b>02</b>FIND A SHOW</div><div><h3>Find your next favourite</h3><p>Browse recommendations and discover what to watch based on the stories, moods, and genres you enjoy.</p></div><span class="tag">Recommendations ↗</span></a>
   <a class="ev rv" href="/articles/?category=rankings"><div class="date"><b>03</b>MAKE THE CASE</div><div><h3>Rankings worth debating</h3><p>Compare standout characters, story arcs, memorable moments, and the reasons fans put them at the top.</p></div><span class="tag">Rankings ↗</span></a>
@@ -352,10 +352,10 @@ section.oracle{padding-top:56px;padding-bottom:56px}
 
 <section class="join" id="join"><div class="wrap">
   <h2>Anime hits different together.</h2>
-  <p>From watch parties and screenings to cosplay, quizzes, fan art, and local meetups — Indian Anime Club is where your fandom finds its people. Bring your favourite series, meet fellow fans, and help shape what happens next.</p>
+  <p>From anime discussions and fan art to cosplay ideas and thoughtful recommendations, Indian Anime Club is a place to connect with people who share your fandom. Follow our official channels for updates and help shape future community activities.</p>
   <div class="ctas">
-    <a class="btn wa" href="#chapters">Explore our chapters</a>
-    <a class="btn ig" href="#events">Discover club events</a>
+    <a class="btn wa" href="https://chat.whatsapp.com/IOR7VBI25dW9ltnofX6Frz" target="_blank" rel="noopener noreferrer">Join the conversation</a>
+    <a class="btn ig" href="/articles/">Explore articles</a>
   </div>
 </div></section>
 
@@ -370,9 +370,7 @@ mn.onclick=()=>{const open=nv.classList.toggle('open');mn.setAttribute('aria-exp
 nv.querySelectorAll('ul a').forEach(a=>a.onclick=()=>{nv.classList.remove('open');mn.setAttribute('aria-expanded','false');mn.setAttribute('aria-label','Toggle navigation')});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&nv.classList.contains('open')){nv.classList.remove('open');mn.setAttribute('aria-expanded','false');mn.setAttribute('aria-label','Toggle navigation');mn.focus()}});
 const $=s=>document.querySelector(s),RM=matchMedia('(prefers-reduced-motion:reduce)').matches;
-document.querySelectorAll('.chips button').forEach(b=>b.onclick=()=>{
-  document.querySelectorAll('.chips button').forEach(x=>x.setAttribute('aria-pressed','false'));
-  b.setAttribute('aria-pressed','true');document.documentElement.style.setProperty('--accent',b.dataset.c)});
+/* Genre controls are handled once by #iac-home-genre-handler below. */
 const W=['binge opening credits','cosplay in the rain','draw fan art at 2am','argue about endings','cry at episode 24','swap manga volumes'],tw=$('#tw');
 let wi=0,ci=0,del=false;
 (function t(){const w=W[wi];if(RM){tw.textContent=w;return}
