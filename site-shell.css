@@ -417,3 +417,29 @@ html body .iac-footer .iac-footer-copy{border-top:1px solid #29425b!important}
   }
   html body footer.iac-footer,html body .iac-footer{margin-top:32px!important;padding:32px 16px 24px!important}
 }
+
+
+/* Article card refinement: cards should hug their content instead of inheriting oversized panel spacing. */
+body:has(article.article) article.article :is(.author-box,.article-toc,.quick-answer,.key-takeaways,.visual-explainer,.original-analysis,.note,.body blockquote,.sources,.related,.reading-time,.share-box){
+  box-sizing:border-box!important;height:auto!important;min-height:0!important;max-height:none!important;
+  flex:0 1 auto!important;align-self:stretch!important;
+  margin-block:18px!important;padding:clamp(14px,2vw,22px)!important;gap:10px!important;line-height:1.55!important;
+}
+body:has(article.article) article.article :is(.author-box,.article-toc,.quick-answer,.key-takeaways,.visual-explainer,.original-analysis,.note,.body blockquote,.sources,.related,.reading-time,.share-box) > :first-child{margin-top:0!important}
+body:has(article.article) article.article :is(.author-box,.article-toc,.quick-answer,.key-takeaways,.visual-explainer,.original-analysis,.note,.body blockquote,.sources,.related,.reading-time,.share-box) > :last-child{margin-bottom:0!important}
+body:has(article.article) article.article :is(.author-box,.article-toc,.quick-answer,.key-takeaways,.visual-explainer,.original-analysis,.note,.body blockquote,.sources,.related,.reading-time,.share-box) :is(p,ul,ol,figure,blockquote){margin-block:8px!important}
+body:has(article.article) article.article :is(.author-box,.article-toc,.quick-answer,.key-takeaways,.visual-explainer,.original-analysis,.note,.body blockquote,.sources,.related,.reading-time,.share-box) :is(h2,h3,h4){margin:0 0 8px!important;line-height:1.25!important}
+body:has(article.article) article.article :is(.author-box,.article-toc,.quick-answer,.key-takeaways,.visual-explainer,.original-analysis,.note,.body blockquote,.sources,.related,.reading-time,.share-box) :is(p,li,span,small,figcaption,strong,em,h2,h3,h4){color:#07182b!important;opacity:1!important}
+body:has(article.article) article.article .body :is(p,li,dd,dt,figcaption,small,.muted,.meta){color:#17324d!important;opacity:1!important}
+body:has(article.article) article.article :is(.body a,.sources a,.related a,.article-toc a,.author-box a){color:#005d7a!important;font-weight:600!important;text-decoration-thickness:2px!important;text-underline-offset:3px!important}
+body:has(article.article) article.article .body strong{color:#8a2f00!important}
+body:has(article.article) article.article .body code{color:#07182b!important;background:#ffd23f!important;padding:2px 5px!important}
+body:has(article.article) article.article .body table{color:#07182b!important}
+body:has(article.article) article.article .body :is(th,td){color:#07182b!important;border-color:#c6a77f!important}
+body:has(article.article) article.article .body th{background:#ffd23f!important}
+body:has(article.article) article.article .body tr:nth-child(even) td{background:#fff3e0!important}
+/* Remove Decision Framework sections regardless of legacy wrapper class. */
+body:has(article.article) article.article :is(.decision-framework,[class*="decision-framework" i],[id*="decision-framework" i]){display:none!important}
+@media(max-width:600px){
+ body:has(article.article) article.article :is(.author-box,.article-toc,.quick-answer,.key-takeaways,.visual-explainer,.original-analysis,.note,.body blockquote,.sources,.related,.reading-time,.share-box){margin-block:14px!important;padding:14px!important}
+}
