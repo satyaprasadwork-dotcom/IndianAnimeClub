@@ -224,6 +224,18 @@ body article.card[style*="--blue"]{background:#1f6fff!important;color:#fff!impor
 <meta name="twitter:title" content="Indian Anime Club | indiananimeclub.com">
 <meta name="twitter:description" content="A welcoming community for anime fans across India. Discover genres, explore anime culture, and connect with fellow fans.">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://indiananimeclub.com/#organization","name":"Indian Anime Club","url":"https://indiananimeclub.com/","description":"An independent India-focused anime fan community and editorial website.","sameAs":["https://instagram.com/indiananime.club","https://www.facebook.com/people/indiananimeclub/61582607151767/","https://chat.whatsapp.com/IOR7VBI25dW9ltnofX6Frz"],"email":"prasad@indiananimeclub.com"},{"@type":"WebSite","@id":"https://indiananimeclub.com/#website","url":"https://indiananimeclub.com/","name":"Indian Anime Club","inLanguage":"en-IN","publisher":{"@id":"https://indiananimeclub.com/#organization"}},{"@type":"WebPage","@id":"https://indiananimeclub.com/#webpage","url":"https://indiananimeclub.com/","name":"Indian Anime Club | indiananimeclub.com","description":"India's anime community: screenings, cosplay, quiz nights and meetups in your city.","inLanguage":"en-IN","isPartOf":{"@id":"https://indiananimeclub.com/#website"},"about":{"@id":"https://indiananimeclub.com/#organization"}}]}</script>
+<style id="iac-home-spacing-fix">
+/* Tighten only the sections whose large 96px vertical padding creates excessive gaps. */
+#about,#worlds,#events,#chapters{padding-top:64px;padding-bottom:64px}
+section.oracle{padding-top:56px;padding-bottom:56px}
+@media(max-width:760px){
+  #about,#worlds,#events,#chapters{padding-top:48px;padding-bottom:48px}
+  section.oracle{padding-top:42px;padding-bottom:42px}
+}
+/* Make the active mood obvious without changing the original card layout. */
+.chips button{cursor:pointer}
+.chips button.genre-active,.chips button[aria-pressed="true"]{background:var(--accent)!important;border-color:var(--accent)!important;color:var(--dk)!important;box-shadow:4px 4px 0 var(--tc)!important;transform:translateY(-2px)}
+</style>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -386,7 +398,51 @@ const O=['Mecha night + pani puri','Cosplay couch-watch','Shonen marathon, 3 epi
 if($('#spin')&&sl)$('#spin').onclick=()=>{let n=0;sl.classList.add('spin');
   (function go(){sl.textContent=O[Math.floor(Math.random()*O.length)];if(++n<(RM?1:16))setTimeout(go,60+n*8);else sl.classList.remove('spin')})()};
 </script>
-<script src="/site-fixes.js?v=20261012-2" defer></script>
+<script src="/site-fixes.js?v=20261012-3" defer></script>
 <script src="/site-shell.js" defer></script>
+<script id="iac-home-genre-handler">
+(function(){
+  var palettes={
+    shonen:{fire:'#ff5a1f',cyan:'#22e4ff',sun:'#ffd23f',lime:'#b6ff3b',blue:'#1f6fff'},
+    'sci-fi':{fire:'#1f6fff',cyan:'#22e4ff',sun:'#b6ff3b',lime:'#ffd23f',blue:'#ff5a1f'},
+    'slice-of-life':{fire:'#ff8a1f',cyan:'#22e4ff',sun:'#ffd23f',lime:'#b6ff3b',blue:'#d946ef'},
+    isekai:{fire:'#8a5cff',cyan:'#22e4ff',sun:'#ff8a1f',lime:'#b6ff3b',blue:'#1f6fff'}
+  };
+  function choose(button){
+    if(!button)return;
+    var label=(button.textContent||'').trim().toLowerCase();
+    var key=label==='slice of life'?'slice-of-life':label;
+    var palette=palettes[key];
+    if(!palette)return;
+    var root=document.documentElement;
+    root.setAttribute('data-genre-mood',key);
+    Object.keys(palette).forEach(function(name){root.style.setProperty('--'+name,' '+palette[name]);});
+    root.style.setProperty('--accent',palette.fire);
+    root.style.setProperty('--tc',palette.cyan);
+    root.style.setProperty('--ts',palette.sun);
+    document.querySelectorAll('.chips button[data-c]').forEach(function(item){
+      var active=item===button;
+      item.setAttribute('aria-pressed',active?'true':'false');
+      item.classList.toggle('genre-active',active);
+    });
+  }
+  document.addEventListener('click',function(event){
+    var target=event.target;
+    var button=target&&target.closest?target.closest('.chips button[data-c]'):null;
+    if(button){event.preventDefault();choose(button);}
+  },true);
+  document.addEventListener('keydown',function(event){
+    if(event.key!=='Enter'&&event.key!==' ')return;
+    var target=event.target;
+    var button=target&&target.closest?target.closest('.chips button[data-c]'):null;
+    if(button){event.preventDefault();choose(button);}
+  },true);
+  function init(){
+    var selected=document.querySelector('.chips button[data-c][aria-pressed="true"]')||document.querySelector('.chips button[data-c]');
+    if(selected)choose(selected);
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
+})();
+</script>
 </body>
 </html>
