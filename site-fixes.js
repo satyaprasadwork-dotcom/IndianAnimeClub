@@ -64,7 +64,7 @@
         'html[data-genre-mood] .chips button[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); }',
         'html[data-genre-mood] :focus-visible { outline-color: var(--tc); }',
         'html[data-genre-mood] #bar { box-shadow: 0 0 10px var(--genre-glow); }'
-      ].join('\\n');
+      ].join('\n');
       document.head.appendChild(moodStyle);
     }
 
