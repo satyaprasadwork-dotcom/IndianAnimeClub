@@ -46,6 +46,11 @@ main{padding:14px 0 80px}.count{color:var(--muted);margin:18px 0;font-weight:700
 .card[data-category="anime industry"] .tag{background:#8b4ac2;color:#fff}
 .card[data-category="anime & life"] .tag{background:#d34e86;color:#07182b}
 
+/* Correct the actual vertical gap: main bottom padding + footer top margin were stacking. */
+main#main{padding-bottom:0!important;margin-bottom:0!important}
+#main>.wrap{padding-bottom:0!important}
+#pagination{padding-bottom:0!important;margin-bottom:0!important}
+footer.iac-footer{margin-top:0!important}
 </style>
 <style id="iac-shared-footer">
 .iac-footer{display:block!important;position:relative;clear:both;width:100%;margin:64px 0 0!important;padding:42px 24px 28px!important;background:#06182c!important;color:#fff7ec!important;border-top:4px solid #ff5a1f!important;text-align:center!important;font-family:"Space Grotesk",system-ui,sans-serif!important;font-size:14px!important;line-height:1.6!important;box-sizing:border-box!important}
@@ -78,7 +83,7 @@ main{padding:14px 0 80px}.count{color:var(--muted);margin:18px 0;font-weight:700
 <meta name="twitter:title" content="Anime Articles &amp; Analysis | Indian Anime Club">
 <meta name="twitter:description" content="Explore anime analysis, character studies, rankings, recommendations, and anime industry stories for fans in India.">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Anime Articles & Analysis | Indian Anime Club","url":"https://indiananimeclub.com/articles/","description":"Explore anime analysis, character studies, rankings, recommendations, and anime industry stories for fans in India.","inLanguage":"en-IN","isPartOf":{"@type":"WebSite","name":"Indian Anime Club","url":"https://indiananimeclub.com/"},"publisher":{"@type":"Organization","name":"Indian Anime Club","url":"https://indiananimeclub.com/"}}</script>
-<link rel="stylesheet" href="/site-shell.css?v=20261011-2" data-iac-shell-css="true">
+<link rel="stylesheet" href="/site-shell.css?v=20261012-1" data-iac-shell-css="true">
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
