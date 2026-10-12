@@ -157,7 +157,7 @@ const articleTitles={
 "where-to-watch-anime-legally-in-india-a-practical-guide-to-platforms-languages-and-availability":"Where to Watch Anime Legally in India: A Practical Availability Checklist",
 "new-to-anime-in-india-a-beginners-roadmap-based-on-your-interests-not-just-rankings":"New to Anime in India: A Beginner's Roadmap",
 "anime-watch-orders-explained-how-to-navigate-seasons-films-specials-and-spin-offs":"Anime Watch Orders Explained: Seasons, Movies, Specials and Spin-Offs",
-"subtitles-vs-dubs-how-indian-anime-viewers-can-choose-what-works-for-them":"Hindi, Tamil, Telugu or Japanese Audio? Choosing an Anime Language Track",
+"subtitles-vs-dubs-how-indian-anime-viewers-can-choose-what-works-for-them":"Subtitles vs Dubs: How Indian Anime Viewers Can Choose",
 "building-an-anime-watchlist-on-a-student-budget-a-smarter-guide-for-indian-fans":"Building an Anime Watchlist on a Student Budget",
 "why-anime-underdogs-resonate-with-indian-audiences-effort-family-expectations-and-ambition":"Why Anime Underdogs Resonate with Indian Audiences",
 "festivals-food-and-family-exploring-everyday-cultural-details-in-anime-and-indian-life":"Festivals, Food and Family: Cultural Details in Anime and Indian Life",
@@ -188,11 +188,13 @@ copyright:[['India Code: Copyright Act, 1957','https://www.indiacode.nic.in/hand
 streaming:[['Crunchyroll','https://www.crunchyroll.com/','Check the official title page for current regional availability.'],['Netflix Help Center','https://help.netflix.com/','Help with audio, subtitles and title availability; catalogues vary by region.'],['Prime Video Help','https://www.primevideo.com/help','Check supported playback language and subtitle options.']],
 community:[['Indian Anime Club Community Guidelines','/community-guidelines/','The community’s own expectations for respectful participation.'],['Google Safety Center','https://safety.google/','General information about online safety and privacy.'],['UNICEF India','https://www.unicef.org/india/','Further reading on youth participation and wellbeing.']],
 production:[['Association of Japanese Animations','https://aja.gr.jp/english/','Industry organisation and animation-sector resources.'],['Japan Media Arts Festival Archive','https://j-mediaarts.jp/en/','Examples of animation and media art for further study.'],['Autodesk Education','https://www.autodesk.com/education/edu-software/overview','Software and learning resources; check current eligibility and terms.']],
+commerce:[['National Consumer Helpline, Government of India','https://consumerhelpline.gov.in/','Official consumer grievance information and support.'],['Department of Consumer Affairs','https://consumeraffairs.nic.in/','Official consumer affairs information in India.'],['Association of Japanese Animations','https://aja.gr.jp/english/','Industry context for anime and licensed products.']],
 story:[['Japan Media Arts Festival Archive','https://j-mediaarts.jp/en/','Explore animation and media art through selected works.'],['Anime News Network','https://www.animenewsnetwork.com/','Editorial reporting and reference material about anime and manga.'],['Crunchyroll','https://www.crunchyroll.com/','Official anime catalogue; check individual title listings for current details.']]
 };
 let sourceSet='story';
 if(/copyright|fan-art|screenshots/.test(slug))sourceSet='copyright';
 else if(/where-to-watch|watch-orders|subtitles|language|watchlist|manga-vs-anime|merchandise/.test(slug))sourceSet='streaming';
+else if(/merchandise/.test(slug))sourceSet='commerce';
 else if(/community|club|convention|college|spoilers|family-debate/.test(slug))sourceSet='community';
 else if(/animation|production|drawing|cosplay|creative|edit/.test(slug))sourceSet='production';
 let sources=body.querySelector('.sources');
