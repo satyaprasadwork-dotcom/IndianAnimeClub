@@ -264,3 +264,39 @@ body:has(#article-grid) #main>.wrap{padding-bottom:0!important}
 body:has(#article-grid) #pagination{padding-bottom:0!important;margin-bottom:0!important}
 body:has(article.article) article.article{margin-bottom:0!important}
 footer.iac-footer,.iac-footer{margin-top:0!important}
+
+
+/* Enforced shared footer theme and pagination separation (2026-10-12).
+   Keep this block last so legacy and page-level footer rules cannot override it. */
+html body footer.iac-footer,
+html body .iac-footer{
+  margin-top:0!important;
+  background:#ffe3c2!important;
+  background-color:#ffe3c2!important;
+  color:#07182b!important;
+  border-top:4px solid #ff5a1f!important;
+  box-shadow:0 -4px 0 #07182b!important;
+}
+html body footer.iac-footer .iac-footer-brand,
+html body footer.iac-footer a,
+html body .iac-footer .iac-footer-brand,
+html body .iac-footer a{color:#005d7a!important}
+html body footer.iac-footer .iac-footer-tagline,
+html body footer.iac-footer .iac-footer-copy,
+html body .iac-footer .iac-footer-tagline,
+html body .iac-footer .iac-footer-copy{color:#3d5f85!important}
+html body footer.iac-footer .iac-footer-social a,
+html body .iac-footer .iac-footer-social a{
+  background:#fff3e0!important;color:#005d7a!important;
+  border:2px solid #07182b!important;border-radius:0!important;
+  box-shadow:3px 3px 0 #ff5a1f!important;
+}
+html body footer.iac-footer .iac-footer-social a:hover,
+html body .iac-footer .iac-footer-social a:hover{
+  background:#ffd23f!important;color:#07182b!important;border-color:#07182b!important;
+}
+html body footer.iac-footer .iac-footer-copy,
+html body .iac-footer .iac-footer-copy{border-top:1px solid #d9b998!important}
+body:has(#article-grid) #pagination{padding-bottom:22px!important;margin-bottom:0!important}
+body:has(#article-grid) footer.iac-footer{margin-top:0!important}
+@media(max-width:600px){body:has(#article-grid) #pagination{padding-bottom:18px!important}}
