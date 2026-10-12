@@ -18,6 +18,22 @@ document.querySelectorAll('article.article h1,article.article h2,article.article
  if(card&&card!==document.body&&card!==document.querySelector('article.article')&&card!==document.querySelector('main'))card.remove();
 });
 
+/* Build one consistent, linked table of contents for every article body. */
+const articleBody=document.querySelector('article.article .body');
+if(articleBody){
+  const headings=[...articleBody.querySelectorAll('section h2')].filter(h=>!['in brief','on this page'].includes((h.textContent||'').trim().toLowerCase()));
+  const items=headings.map((h,i)=>{
+    const section=h.closest('section')||h.parentElement;
+    if(!section.id)section.id='article-section-'+(i+1);
+    return {id:section.id,title:(h.textContent||'').trim()};
+  });
+  let toc=articleBody.querySelector('.article-toc');
+  if(!toc){toc=document.createElement('section');toc.className='article-toc';toc.innerHTML='<h2>On this page</h2><ol></ol>';const first=articleBody.querySelector(':scope > section');if(first&&first.classList.contains('quick-answer'))first.insertAdjacentElement('afterend',toc);else articleBody.insertAdjacentElement('afterbegin',toc);}
+  const list=toc.querySelector('ol')||toc.appendChild(document.createElement('ol'));
+  list.replaceChildren();
+  items.forEach(item=>{const li=document.createElement('li'),a=document.createElement('a');a.href='#'+item.id;a.textContent=item.title;li.appendChild(a);list.appendChild(li)});
+}
+
 /* Article pages do not display the homepage news ticker/scroller. */
 document.querySelectorAll('.tick,.news-scroller,#news-scroller,.news-ticker,#news-ticker,[data-news-scroller]').forEach(el=>el.remove());
 
