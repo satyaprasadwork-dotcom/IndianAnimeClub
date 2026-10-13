@@ -178,7 +178,9 @@ if(heads.length>=1){
   nav.className='article-toc';nav.setAttribute('aria-label','Table of contents');
   nav.innerHTML='<div class="toc-heading"><span class="toc-kicker">ARTICLE GUIDE</span><h2>In this article</h2><span class="toc-count">'+heads.length+' sections</span></div>';
   const list=document.createElement('ol');heads.forEach(h=>{const li=document.createElement('li'),a=document.createElement('a');a.href='#'+h.id;a.textContent=h.textContent.trim();li.appendChild(a);list.appendChild(li)});nav.appendChild(list);
-  if(!nav.isConnected){const anchor=body.querySelector('.key-takeaways')||body.querySelector('.quick-answer')||body.querySelector(':scope > p')||body.firstElementChild;if(anchor)anchor.insertAdjacentElement('afterend',nav);else body.prepend(nav)}
+  const anchor=body.querySelector('.key-takeaways')||body.querySelector('.quick-answer')||body.querySelector(':scope > p')||body.firstElementChild;
+  if(anchor&&nav.previousElementSibling!==anchor)anchor.insertAdjacentElement('afterend',nav);
+  else if(!anchor&&!nav.isConnected)body.prepend(nav);
 }
 const finalToc=body.querySelector('.article-toc');
 const visualAnchor=finalToc||body.querySelector('.key-takeaways')||body.querySelector('.quick-answer');
@@ -277,28 +279,40 @@ const rel=(endMatterBySlug[slug]||[]).filter(s=>articleTitles[s]);
 keep.innerHTML='<h2>Keep reading</h2><ul>'+rel.map(s=>'<li><a href="/'+s+'/">'+escText(articleTitles[s])+'</a></li>').join('')+'</ul>';
 body.appendChild(keep);
 
-/* Match the information-page layout: only the table of contents belongs in the left sidebar.
-   Quick Answer and Key Takeaways remain in the main article reading column. */
-if(!body.querySelector(':scope > .article-reading-layout')){
-  const layout=document.createElement('div');
+/* Approved article layout: one TOC card at left; reading content on the right.
+   This is deliberately idempotent so every article reaches the same DOM structure. */
+let layout=body.querySelector(':scope > .article-reading-layout');
+if(!layout){
+  layout=document.createElement('div');
   layout.className='article-reading-layout';
-  const sidebar=document.createElement('aside');
+  body.appendChild(layout);
+}
+let sidebar=layout.querySelector(':scope > .article-sidebar');
+if(!sidebar){
+  sidebar=document.createElement('aside');
   sidebar.className='article-sidebar';
   sidebar.setAttribute('aria-label','Article table of contents');
-  const content=document.createElement('div');
-  content.className='article-prose';
-  const sideClasses=new Set(['article-toc']);
-  [...body.children].forEach(node=>{
-    if([...sideClasses].some(className=>node.classList.contains(className)))sidebar.appendChild(node);
-    else content.appendChild(node);
-  });
-  if(sidebar.children.length){
-    layout.append(sidebar,content);
-  }else{
-    layout.appendChild(content);
-  }
-  body.replaceChildren(layout);
 }
+let content=layout.querySelector(':scope > .article-prose');
+if(!content){
+  content=document.createElement('div');
+  content.className='article-prose';
+}
+layout.replaceChildren(sidebar,content);
+
+/* Move only the TOC into the sidebar. The quick answer, takeaways, diagrams,
+   article sections, notes, sources and related links all belong in the reader column. */
+[...body.children].forEach(node=>{
+  if(node===layout)return;
+  if(node.classList&&node.classList.contains('article-toc'))sidebar.appendChild(node);
+  else content.appendChild(node);
+});
+/* Repair any previous layout where the TOC was nested in the reading column. */
+content.querySelectorAll(':scope > .article-toc').forEach(node=>sidebar.appendChild(node));
+/* A single TOC in the sidebar prevents duplicate navigation cards. */
+const tocNodes=[...body.querySelectorAll('.article-toc')];
+tocNodes.forEach(node=>{if(node!==sidebar.querySelector('.article-toc'))node.remove()});
+
 
 let p=document.querySelector('.reading-progress');if(!p){p=document.createElement('div');p.className='reading-progress';p.setAttribute('aria-hidden','true');p.innerHTML='<span></span>';document.body.appendChild(p)}
 const fill=p.querySelector('span');function update(){const e=document.documentElement,m=e.scrollHeight-e.clientHeight;fill.style.width=(m>0?Math.min(100,Math.max(0,e.scrollTop/m*100)):0)+'%'}
