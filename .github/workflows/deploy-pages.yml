@@ -30,44 +30,61 @@ jobs:
       - name: Refresh shared article assets and build clean routes
         shell: bash
         run: |
-          # Cache-bust shared assets on every deploy so browsers cannot keep an
-          # older article shell after the canonical header/footer is updated.
-          # Keep shared assets fresh on every deploy.
-          sed -i -E "s#site-shell\.css\?v=[^\"']+#site-shell.css?v=${GITHUB_SHA}#g" site-shell.js
-          find . -type f -name '*.html' -not -path './.git/*' -print0 | while IFS= read -r -d '' file; do
-            sed -i -E \
-              -e "s#href=\"[^\"]*css/article\.css[^\"]*\"#href=\"/css/article.css?v=${GITHUB_SHA}\"#g" \
-              -e "s#href=\"[^\"]*site-shell\.css[^\"]*\"#href=\"/site-shell.css?v=${GITHUB_SHA}\"#g" \
-              -e "s#article-enhancements\.js\?v=[^\"']+#article-enhancements.js?v=${GITHUB_SHA}#g" \
-              -e "s#site-shell\.js\?v=[^\"']+#site-shell.js?v=${GITHUB_SHA}#g" \
-              "$file"
-            # Every route gets the same canonical homepage header and footer.
-            if ! grep -q 'src="/site-shell.js' "$file"; then
-              sed -i "s#</body>#<script src=\"/site-shell.js?v=${GITHUB_SHA}\" defer></script></body>#I" "$file"
-            fi
-          done
-          # Remove the homepage-style news ticker from every article source page.
-          # Do this at build time so it cannot reappear due to delayed JavaScript or CSS.
+          # Cache-bust every HTML reference to shared assets with this deployment SHA.
+          # Python is used so asset query strings are replaced literally and reliably.
           python3 - <<'PY'
           from pathlib import Path
+          import os
           import re
+
+          version = os.environ["GITHUB_SHA"]
+          asset_ref = re.compile(
+              r"""((?:href|src)=["'][^"']*(?:css/article\.css|site-shell\.css|article-enhancements\.js|site-shell\.js))(?:\?[^"']*)?(["'])""",
+              re.IGNORECASE,
+          )
+
+          for page in Path(".").rglob("*.html"):
+              if ".git" in page.parts:
+                  continue
+              html = page.read_text(encoding="utf-8")
+              html = asset_ref.sub(
+                  lambda match: match.group(1) + "?v=" + version + match.group(2),
+                  html,
+              )
+
+              # Article pages do not show the homepage news ticker.
+              if page.parent.name == "articles" and page.name != "index.html":
+                  html = re.sub(
+                      r'<div class="tick"[^>]*>.*?</div>\s*</div>',
+                      "",
+                      html,
+                      flags=re.S,
+                  )
+
+              # Every route receives the shared header and footer implementation.
+              if not re.search(
+                  r'<script\b[^>]*\bsrc=["\'][^"\']*site-shell\.js(?:\?[^"\']*)?["\']',
+                  html,
+                  flags=re.I,
+              ):
+                  html = re.sub(
+                      r"</body\s*>",
+                      '<script src="/site-shell.js?v=' + version + '" defer></script></body>',
+                      html,
+                      count=1,
+                      flags=re.I,
+                  )
+
+              page.write_text(html, encoding="utf-8")
+
+          # Flat article sources remain canonical; create clean URL folders from
+          # the cache-busted article HTML.
           for page in Path("articles").glob("*.html"):
               if page.name == "index.html":
                   continue
-              html = page.read_text(encoding="utf-8")
-              html = re.sub(r'<div class="tick"[^>]*>.*?</div>\s*</div>', '', html, flags=re.S)
-              page.write_text(html, encoding="utf-8")
-          PY
-          # Flat article sources remain canonical; create clean URL folders from
-          # the updated source pages after cache-busting their asset URLs.
-          shopt -s nullglob
-          for file in articles/*.html; do
-            [ "${file##*/}" = "index.html" ] && continue
-            slug="${file##*/}"
-            slug="${slug%.html}"
-            mkdir -p "$slug"
-            cp "$file" "$slug/index.html"
-          done
+              target = Path(page.stem)
+              target.mkdir(parents=True, exist_ok=True)
+              (target / "index.html").write_text(page.read_text(encoding="utf-8"), encoding="utf-8")
       - name: Upload site
         uses: actions/upload-pages-artifact@v4
         with:
