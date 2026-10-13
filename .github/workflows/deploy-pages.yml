@@ -175,7 +175,7 @@ jobs:
                   flags=re.I,
               )
               document = re.sub(
-                  r"""<(?:section|nav|div)\b(?=[^>]*\bclass=["'][^"']*\b(?:table-of-contents|toc-container)\b[^"']*["'])[^>]*>[\s\S]*?</(?:section|nav|div)\s*>""",
+                  r"""<(section|nav|div)\b(?=[^>]*\bclass=["'][^"']*\b(?:table-of-contents|toc-container)\b[^"']*["'])[^>]*>[\s\S]*?</\1\s*>""",
                   "",
                   document,
                   flags=re.I,
