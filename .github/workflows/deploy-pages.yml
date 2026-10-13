@@ -174,6 +174,42 @@ jobs:
                   html,
               )
 
+              # Make article assets deterministic at build time, rather than relying
+              # only on a client-side stylesheet injection after the page has loaded.
+              if page.parent.name == "articles" and page.name != "index.html":
+                  # Remove the old inline rules that forced vivid legacy card colours.
+                  html = re.sub(
+                      r'<style\\b(?=[^>]*\\bid=["\\\']iac-article-card-fix["\\\'])[^>]*>[\\s\\S]*?</style\\s*>',
+                      "",
+                      html,
+                      count=1,
+                      flags=re.I,
+                  )
+
+                  # Use a root-relative, deployment-versioned URL for the enhancer.
+                  html = re.sub(
+                      r'<script\\b[^>]*\\bsrc=["\\\'][^"\\\']*article-enhancements\\.js(?:\\?[^"\\\']*)?["\\\'][^>]*>\\s*</script\\s*>',
+                      '<script src="/js/article-enhancements.js?v=' + version + '" defer></script>',
+                      html,
+                      count=1,
+                      flags=re.I,
+                  )
+
+                  # Put the shared article redesign stylesheet in the HTML head.
+                  # site-shell.js will reuse this link and keep its URL versioned.
+                  if not re.search(
+                      r'<link\\b(?=[^>]*\\bhref=["\\\']/site-shell\\.css(?:\\?[^"\\\']*)?["\\\'])',
+                      html,
+                      flags=re.I,
+                  ):
+                      html = re.sub(
+                          r"</head\\s*>",
+                          '<link rel="stylesheet" href="/site-shell.css?v=' + version + '"></head>',
+                          html,
+                          count=1,
+                          flags=re.I,
+                      )
+
               # Article pages do not show the homepage news ticker.
               if page.parent.name == "articles" and page.name != "index.html":
                   html = re.sub(
