@@ -101,7 +101,20 @@ const height=type==='layers'?labels.length*75+35:(type==='cycle'?315:(type==='ma
 return '<svg class="topic-diagram-svg" width="100%" height="'+height+'" viewBox="0 0 860 '+height+'" preserveAspectRatio="xMidYMid meet" role="img" aria-label="'+esc(title+': '+labels.join('; '))+'" xmlns="http://www.w3.org/2000/svg"><title>'+esc(title)+'</title>'+s+'</svg>';
 }
 function enhance(){
-const body=document.querySelector('.body');if(!body)return;
+const article=document.querySelector('article.article');
+if(article&&!article.querySelector(':scope > .article-hero')){
+  const hero=document.createElement('header');
+  hero.className='article-hero';
+  const bodyNode=article.querySelector(':scope > .body');
+  let node=article.firstElementChild;
+  while(node&&node!==bodyNode){
+    const next=node.nextElementSibling;
+    hero.appendChild(node);
+    node=next;
+  }
+  if(hero.children.length)article.insertBefore(hero,bodyNode||article.firstElementChild);
+}
+const body=document.querySelector('article.article > .body');if(!body)return;
 const slug=(location.pathname.replace(/\/+$/,'').split('/').pop()||'').replace(/\.html$/i,'').toLowerCase();
 const animeLayout=ANIME_ARTICLE_LAYOUTS[slug];
 const d=D[slug]||animeLayout;
@@ -263,6 +276,29 @@ if(!keep){keep=document.createElement('section');keep.className='related';body.a
 const rel=(endMatterBySlug[slug]||[]).filter(s=>articleTitles[s]);
 keep.innerHTML='<h2>Keep reading</h2><ul>'+rel.map(s=>'<li><a href="/'+s+'/">'+escText(articleTitles[s])+'</a></li>').join('')+'</ul>';
 body.appendChild(keep);
+
+/* Use the same two-column editorial layout as the information pages.
+   The summary cards and TOC become a compact sidebar; article prose remains intact. */
+if(!body.querySelector(':scope > .article-reading-layout')){
+  const layout=document.createElement('div');
+  layout.className='article-reading-layout';
+  const sidebar=document.createElement('aside');
+  sidebar.className='article-sidebar';
+  sidebar.setAttribute('aria-label','Article summary and navigation');
+  const content=document.createElement('div');
+  content.className='article-prose';
+  const sideClasses=new Set(['quick-answer','key-takeaways','article-toc']);
+  [...body.children].forEach(node=>{
+    if([...sideClasses].some(className=>node.classList.contains(className)))sidebar.appendChild(node);
+    else content.appendChild(node);
+  });
+  if(sidebar.children.length){
+    layout.append(sidebar,content);
+  }else{
+    layout.appendChild(content);
+  }
+  body.replaceChildren(layout);
+}
 
 let p=document.querySelector('.reading-progress');if(!p){p=document.createElement('div');p.className='reading-progress';p.setAttribute('aria-hidden','true');p.innerHTML='<span></span>';document.body.appendChild(p)}
 const fill=p.querySelector('span');function update(){const e=document.documentElement,m=e.scrollHeight-e.clientHeight;fill.style.width=(m>0?Math.min(100,Math.max(0,e.scrollTop/m*100)):0)+'%'}
