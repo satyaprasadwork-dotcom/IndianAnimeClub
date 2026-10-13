@@ -183,7 +183,7 @@ jobs:
               # The article body is the final div directly inside the outer article.
               # Use the final </div></article> pair so nested explainer cards cannot
               # accidentally terminate the body extraction.
-              endings = list(re.finditer(r"</div\s*</article\s*>", document[body_open.end():], re.I))
+              endings = list(re.finditer(r"</div\s*>\s*</article\s*>", document[body_open.end():], re.I))
               if not endings:
                   return document
               body_end = body_open.end() + endings[-1].start()
