@@ -1,15 +1,5 @@
 (function(){
 'use strict';
-/* Canonical Indian Anime Club site shell: shared homepage header and footer. */
-(()=>{'use strict';
-const header='<nav class="legacy-site-nav" aria-label="Main navigation"><div class="wrap"><a class="logo" href="/#top"><b>IAC</b> <span class="ln">Indian Anime Club</span></a><ul id="site-links"><li><a href="/#about">About</a></li><li><a href="/#worlds">Worlds</a></li><li><a href="/#events">Events</a></li><li><a href="/#chapters">Chapters</a></li><li><a href="/articles/">Articles</a></li></ul><a class="btn" href="/#join" style="padding:8px 16px;font-size:14px;box-shadow:4px 4px 0 var(--accent)">Join us</a><button class="menu" id="menu" type="button" aria-label="Toggle navigation" aria-controls="site-links" aria-expanded="false">&#9776;</button></div></nav>';
-const footer='<footer class="iac-footer"><div class="iac-footer-inner"><a class="iac-footer-brand" href="/" aria-label="Indian Anime Club home"><span>Indian Anime Club</span></a><p class="iac-footer-tagline">A community, not a sales pitch. Made for India\'s anime community.</p><nav class="iac-footer-social" aria-label="Social and contact links"><a href="https://chat.whatsapp.com/IOR7VBI25dW9ltnofX6Frz" target="_blank" rel="noopener noreferrer">WhatsApp</a><a href="https://instagram.com/indiananime.club" target="_blank" rel="noopener noreferrer">Instagram</a><a href="https://www.facebook.com/people/indiananimeclub/61582607151767/" target="_blank" rel="noopener noreferrer">Facebook</a><a href="mailto:prasad@indiananimeclub.com">Email</a></nav><nav class="iac-footer-site" aria-label="Website information"><a href="/about/">About</a><a href="/contact/">Contact</a><a href="/community-guidelines/">Community guidelines</a><a href="/editorial-policy/">Editorial policy</a><a href="/privacy-policy/">Privacy</a><a href="/terms/">Terms</a><a href="/disclaimer/">Disclaimer</a></nav><p class="iac-footer-copy">© 2026 Indian Anime Club · indiananimeclub.com · Independent fan community, not affiliated with anime studios or rights holders.</p></div></footer>';
-if(!document.querySelector('link[data-iac-shell-css]')){const link=document.createElement('link');link.rel='stylesheet';link.href='/site-shell.css';link.dataset.iacShellCss='true';document.head.appendChild(link);}
-let nav=document.querySelector('nav[aria-label="Main navigation"]');if(nav)nav.outerHTML=header;else{const main=document.querySelector('main');if(main)main.insertAdjacentHTML('beforebegin',header);}
-const oldFooter=document.querySelector('footer');if(oldFooter)oldFooter.outerHTML=footer;else document.body.insertAdjacentHTML('beforeend',footer);
-nav=document.querySelector('nav.legacy-site-nav');const btn=nav&&nav.querySelector('#menu');
-if(btn&&!btn.dataset.shellBound){btn.dataset.shellBound='true';const close=()=>{nav.classList.remove('open');btn.setAttribute('aria-expanded','false');btn.setAttribute('aria-label','Toggle navigation')};btn.addEventListener('click',()=>{const open=nav.classList.toggle('open');btn.setAttribute('aria-expanded',String(open));btn.setAttribute('aria-label',open?'Close navigation':'Toggle navigation')});nav.querySelectorAll('ul a').forEach(a=>a.addEventListener('click',close));document.addEventListener('keydown',e=>{if(e.key==='Escape'&&nav.classList.contains('open')){close();btn.focus()}});}
-})();
 const D={
 'agents-are-getting-jobs':['cycle','Agent work lifecycle',['Request','Policy check','Approved action','Verify or stop']],
 'small-models-on-phone':['compare','Choosing an on-device model',['Privacy and local control','Latency and offline use','Capability and resource limits']],
@@ -162,18 +152,20 @@ if(animeLayout){
   if(endAnchor){endAnchor.insertAdjacentElement('beforebegin',analysis);analysis.insertAdjacentElement('afterend',note);}
   else{body.appendChild(analysis);body.appendChild(note);}
 }
-body.querySelectorAll('.article-toc,[aria-label="Table of contents"],.table-of-contents,.toc-container').forEach(n=>n.remove());
-body.querySelectorAll('h2').forEach(h=>{if(/^in this article$/i.test(h.textContent.trim())&&!h.closest('.visual-explainer,.original-analysis,.sources,.related,.key-takeaways'))h.remove()});
-const excluded=/^(key takeaways|sources|sources and further reading|related ninth post reading|keep reading|what this means in practice|in this article|decision framework|topic diagram)$/i;
+/* Keep a build-generated TOC when present; do not delete the only fallback before checking headings. */
+body.querySelectorAll('[aria-label="Table of contents"],.table-of-contents,.toc-container').forEach(n=>{if(!n.classList.contains('article-toc'))n.remove()});
+body.querySelectorAll('h2').forEach(h=>{if(/^in this article$/i.test(h.textContent.trim())&&!h.closest('.article-toc,.visual-explainer,.original-analysis,.sources,.related,.key-takeaways'))h.remove()});
+const excluded=/^(key takeaways|sources|sources and further reading|related ninth post reading|keep reading|what this means in practice|in this article|on this page|in brief|decision framework|topic diagram)$/i;
 const seen=new Set();
-const heads=Array.from(body.querySelectorAll('h2')).filter(h=>{if(h.closest('.visual-explainer,.original-analysis,.sources,.related,.key-takeaways'))return false;const title=h.textContent.trim();if(!title||excluded.test(title))return false;const key=title.toLowerCase();if(seen.has(key))return false;seen.add(key);return true});
+const heads=Array.from(body.querySelectorAll('h2')).filter(h=>{if(h.closest('.article-toc,.visual-explainer,.original-analysis,.sources,.related,.key-takeaways,.quick-answer'))return false;const title=h.textContent.trim();if(!title||excluded.test(title))return false;const key=title.toLowerCase();if(seen.has(key))return false;seen.add(key);return true});
 heads.forEach((h,i)=>{if(!h.id||/^section-\d+$/.test(h.id))h.id='article-section-'+(i+1)});
-if(heads.length>=3){
-  const nav=document.createElement('nav');nav.className='article-toc';nav.setAttribute('aria-label','Table of contents');
+let nav=body.querySelector('.article-toc');
+if(heads.length>=1){
+  if(!nav)nav=document.createElement('nav');
+  nav.className='article-toc';nav.setAttribute('aria-label','Table of contents');
   nav.innerHTML='<div class="toc-heading"><span class="toc-kicker">ARTICLE GUIDE</span><h2>In this article</h2><span class="toc-count">'+heads.length+' sections</span></div>';
   const list=document.createElement('ol');heads.forEach(h=>{const li=document.createElement('li'),a=document.createElement('a');a.href='#'+h.id;a.textContent=h.textContent.trim();li.appendChild(a);list.appendChild(li)});nav.appendChild(list);
-  const anchor=body.querySelector('.key-takeaways')||body.querySelector('.quick-answer')||body.querySelector(':scope > p')||body.firstElementChild;
-  if(anchor)anchor.insertAdjacentElement('afterend',nav);else body.prepend(nav);
+  if(!nav.isConnected){const anchor=body.querySelector('.key-takeaways')||body.querySelector('.quick-answer')||body.querySelector(':scope > p')||body.firstElementChild;if(anchor)anchor.insertAdjacentElement('afterend',nav);else body.prepend(nav)}
 }
 const finalToc=body.querySelector('.article-toc');
 const visualAnchor=finalToc||body.querySelector('.key-takeaways')||body.querySelector('.quick-answer');
