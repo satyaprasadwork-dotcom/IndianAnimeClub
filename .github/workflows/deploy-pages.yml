@@ -34,6 +34,8 @@ jobs:
           # Python is used so asset query strings are replaced literally and reliably.
           python3 - <<'PY'
           from pathlib import Path
+          from html.parser import HTMLParser
+          from html import escape as html_escape
           import os
           import re
 
@@ -42,6 +44,123 @@ jobs:
               r"""((?:href|src)=["'][^"']*(?:css/article\.css|site-shell\.css|article-enhancements\.js|site-shell\.js))(?:\?[^"']*)?(["'])""",
               re.IGNORECASE,
           )
+
+          class ArticleHeadingParser(HTMLParser):
+              VOID = {"area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta", "param", "source", "track", "wbr"}
+              BLOCKED = {"quick-answer", "key-takeaways", "article-toc", "visual-explainer", "original-analysis", "sources", "related", "decision-framework"}
+              EXCLUDED_TITLES = {
+                  "in brief", "in this article", "on this page", "key takeaways",
+                  "sources", "sources & further reading", "sources and further reading",
+                  "further reading", "keep reading", "decision framework", "topic diagram",
+              }
+
+              def __init__(self):
+                  super().__init__(convert_charrefs=True)
+                  self.stack = []
+                  self.records = []
+                  self.current = None
+
+              def handle_starttag(self, tag, attrs):
+                  tag = tag.lower()
+                  attrs = dict(attrs)
+                  if tag == "h2" and self.current is None:
+                      ancestor_classes = [
+                          set((entry_attrs.get("class") or "").split())
+                          for _, entry_attrs in self.stack
+                      ]
+                      in_article = any(
+                          entry_tag == "article" and "article" in set((entry_attrs.get("class") or "").split())
+                          for entry_tag, entry_attrs in self.stack
+                      )
+                      in_body = any("body" in classes for classes in ancestor_classes)
+                      blocked = any(classes & self.BLOCKED for classes in ancestor_classes)
+                      self.current = {
+                          "eligible": in_article and in_body and not blocked,
+                          "id": attrs.get("id"),
+                          "parts": [],
+                      }
+                  if tag not in self.VOID:
+                      self.stack.append((tag, attrs))
+
+              def handle_data(self, data):
+                  if self.current is not None:
+                      self.current["parts"].append(data)
+
+              def handle_endtag(self, tag):
+                  tag = tag.lower()
+                  if tag == "h2" and self.current is not None:
+                      record = self.current
+                      record["title"] = " ".join("".join(record["parts"]).split())
+                      title_key = record["title"].casefold()
+                      if title_key in self.EXCLUDED_TITLES or not record["title"]:
+                          record["eligible"] = False
+                      self.records.append(record)
+                      self.current = None
+                  for index in range(len(self.stack) - 1, -1, -1):
+                      if self.stack[index][0] == tag:
+                          del self.stack[index:]
+                          break
+
+          def ensure_article_toc(document):
+              if re.search(r'<nav\\b[^>]*class=["\\'][^"\\']*\\barticle-toc\\b', document, re.I):
+                  return document
+
+              parser = ArticleHeadingParser()
+              parser.feed(document)
+              records = parser.records
+              selected = [record for record in records if record["eligible"]]
+              if not selected:
+                  return document
+
+              for number, record in enumerate(selected, 1):
+                  record["toc_id"] = record["id"] or f"iac-article-section-{number}"
+
+              # Give each selected heading its own anchor, including headings inside
+              # long sections that contain more than one subsection.
+              record_index = [0]
+              def add_heading_anchor(match):
+                  index = record_index[0]
+                  record_index[0] += 1
+                  if index >= len(records):
+                      return match.group(0)
+                  record = records[index]
+                  opening, contents, closing = match.group(1), match.group(2), match.group(3)
+                  if record["eligible"] and not re.search(r"\\bid\\s*=", opening, re.I):
+                      opening = opening[:-1] + ' id="' + html_escape(record["toc_id"], quote=True) + '">'
+                  return opening + contents + closing
+
+              document = re.sub(
+                  r"(<h2\\b[^>]*>)([\\s\\S]*?)(</h2\\s*>)",
+                  add_heading_anchor,
+                  document,
+                  flags=re.I,
+              )
+
+              items = "".join(
+                  '<li><a href="#' + html_escape(record["toc_id"], quote=True) + '">' +
+                  html_escape(record["title"]) + "</a></li>"
+                  for record in selected
+              )
+              toc = (
+                  '<nav class="article-toc" aria-label="Table of contents">'
+                  '<div class="toc-heading"><span class="toc-kicker">ARTICLE GUIDE</span>'
+                  '<h2>In this article</h2><span class="toc-count">' + str(len(selected)) +
+                  ' sections</span></div><ol>' + items + '</ol></nav>'
+              )
+
+              for component in ("key-takeaways", "quick-answer"):
+                  pattern = re.compile(
+                      r'(<section\\b(?=[^>]*\\bclass=["\\'][^"\\']*\\b' +
+                      re.escape(component) + r'\\b[^"\\']*["\\'])[^>]*>[\\s\\S]*?</section\\s*>)',
+                      re.I,
+                  )
+                  found = pattern.search(document)
+                  if found:
+                      return document[:found.end()] + toc + document[found.end():]
+              body_open = re.search(r'<div\\b(?=[^>]*\\bclass=["\\'][^"\\']*\\bbody\\b[^"\\']*["\\'])[^>]*>', document, re.I)
+              if body_open:
+                  return document[:body_open.end()] + toc + document[body_open.end():]
+              return document
 
           for page in Path(".").rglob("*.html"):
               if ".git" in page.parts:
@@ -74,6 +193,9 @@ jobs:
                       count=1,
                       flags=re.I,
                   )
+
+              if page.parent.name == "articles" and page.name != "index.html":
+                  html = ensure_article_toc(html)
 
               page.write_text(html, encoding="utf-8")
 
