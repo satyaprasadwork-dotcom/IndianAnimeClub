@@ -179,7 +179,7 @@ jobs:
               if page.parent.name == "articles" and page.name != "index.html":
                   # Remove the old inline rules that forced vivid legacy card colours.
                   html = re.sub(
-                      r'<style\\b(?=[^>]*\\bid=["\\\']iac-article-card-fix["\\\'])[^>]*>[\\s\\S]*?</style\\s*>',
+                      r'<style\b(?=[^>]*\bid=["\']iac-article-card-fix["\'])[^>]*>[\s\S]*?</style\s*>',
                       "",
                       html,
                       count=1,
@@ -188,7 +188,7 @@ jobs:
 
                   # Use a root-relative, deployment-versioned URL for the enhancer.
                   html = re.sub(
-                      r'<script\\b[^>]*\\bsrc=["\\\'][^"\\\']*article-enhancements\\.js(?:\\?[^"\\\']*)?["\\\'][^>]*>\\s*</script\\s*>',
+                      r'<script\b[^>]*\bsrc=["\'][^"\']*article-enhancements\.js(?:\?[^"\']*)?["\'][^>]*>\s*</script\s*>',
                       '<script src="/js/article-enhancements.js?v=' + version + '" defer></script>',
                       html,
                       count=1,
@@ -198,12 +198,12 @@ jobs:
                   # Put the shared article redesign stylesheet in the HTML head.
                   # site-shell.js will reuse this link and keep its URL versioned.
                   if not re.search(
-                      r'<link\\b(?=[^>]*\\bhref=["\\\']/site-shell\\.css(?:\\?[^"\\\']*)?["\\\'])',
+                      r'<link\b(?=[^>]*\bhref=["\']/site-shell\.css(?:\?[^"\']*)?["\'])',
                       html,
                       flags=re.I,
                   ):
                       html = re.sub(
-                          r"</head\\s*>",
+                          r"</head\s*>",
                           '<link rel="stylesheet" href="/site-shell.css?v=' + version + '"></head>',
                           html,
                           count=1,
