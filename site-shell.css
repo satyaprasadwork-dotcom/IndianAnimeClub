@@ -771,3 +771,98 @@ html body:has(article.article) article.article .body .sources li:last-child { ma
   html body:has(article.article) article.article .body .related li { transition:none !important; }
 }
 
+
+/* COMPACT KEEP-READING CARDS: prevent long article titles from escaping their cards. */
+html body:has(article.article) article.article .body .related {
+  display:block !important;
+  box-sizing:border-box !important;
+  width:100% !important;
+  max-width:100% !important;
+  min-width:0 !important;
+  height:auto !important;
+  min-height:0 !important;
+  padding:16px !important;
+  overflow:visible !important;
+}
+html body:has(article.article) article.article .body .related h2 {
+  margin:0 0 12px !important;
+}
+html body:has(article.article) article.article .body .related ul {
+  display:grid !important;
+  grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  align-items:start !important;
+  grid-auto-rows:min-content !important;
+  gap:10px !important;
+  width:100% !important;
+  max-width:100% !important;
+  min-width:0 !important;
+  margin:0 !important;
+  padding:0 !important;
+  list-style:none !important;
+}
+html body:has(article.article) article.article .body .related li {
+  display:block !important;
+  box-sizing:border-box !important;
+  align-self:start !important;
+  width:100% !important;
+  max-width:100% !important;
+  min-width:0 !important;
+  height:auto !important;
+  min-height:0 !important;
+  margin:0 !important;
+  padding:10px 12px !important;
+  overflow-wrap:anywhere !important;
+  word-break:normal !important;
+  white-space:normal !important;
+  border-radius:12px !important;
+  box-shadow:0 2px 8px rgba(7,24,43,.045) !important;
+}
+html body:has(article.article) article.article .body .related li a {
+  display:block !important;
+  box-sizing:border-box !important;
+  width:100% !important;
+  max-width:100% !important;
+  min-width:0 !important;
+  height:auto !important;
+  padding:0 !important;
+  margin:0 !important;
+  white-space:normal !important;
+  overflow-wrap:anywhere !important;
+  word-break:normal !important;
+  hyphens:auto !important;
+  text-overflow:clip !important;
+  overflow:visible !important;
+  font-size:14px !important;
+  line-height:1.38 !important;
+  font-weight:700 !important;
+}
+html body:has(article.article) article.article .body .related li :is(span,strong,em) {
+  max-width:100% !important;
+  white-space:normal !important;
+  overflow-wrap:anywhere !important;
+}
+html body:has(article.article) article.article .body :is(.note,.sources,.related) {
+  max-width:100% !important;
+  min-width:0 !important;
+  overflow-wrap:anywhere !important;
+}
+html body:has(article.article) article.article .body .sources :is(ul,li,a) {
+  max-width:100% !important;
+  min-width:0 !important;
+  white-space:normal !important;
+  overflow-wrap:anywhere !important;
+  word-break:normal !important;
+}
+@media(max-width:640px) {
+  html body:has(article.article) article.article .body .related {
+    padding:14px !important;
+  }
+  html body:has(article.article) article.article .body .related ul {
+    grid-template-columns:minmax(0,1fr) !important;
+    gap:8px !important;
+  }
+  html body:has(article.article) article.article .body .related li {
+    padding:10px 11px !important;
+  }
+}
+
