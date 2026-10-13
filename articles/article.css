@@ -79,13 +79,24 @@ article.article>.body{display:block;float:none;clear:both;width:100%;max-width:7
 .sources p{color:var(--mute)}
 .related .back,.back{display:inline-flex;margin-top:18px;padding:11px 19px;border:2px solid var(--ink);border-radius:999px;background:var(--sun);color:var(--dk);font:400 13px var(--display);text-decoration:none}
 .related .back:hover,.back:hover{background:var(--cyan);color:var(--dk)}
-footer.iac-footer{display:block;float:none;clear:both;width:100%;max-width:none;margin:48px 0 0;padding:30px 0 36px;background:#04111f;border-top:3px solid var(--fire);color:var(--mute);font-size:14px}
-.iac-footer-inner{max-width:1120px;margin:0 auto;padding:0 20px}
-.iac-footer-brand{color:var(--ink);font:400 19px var(--display);text-decoration:none}
-.iac-footer-tagline{margin:12px 0;color:var(--mute)}
-.iac-footer-social,.iac-footer-site{display:flex;flex-wrap:wrap;gap:10px 20px;margin:16px 0}
-.iac-footer a{color:var(--cyan)}
-.iac-footer-copy{margin:20px 0 0;font-size:12px;line-height:1.6}
+/* Match the homepage footer exactly on every article page. */
+.iac-footer{display:block!important;position:relative;float:none!important;clear:both;width:100%;max-width:none;margin:64px 0 0!important;padding:42px 24px 28px!important;background:#06182c!important;color:#fff7ec!important;border-top:4px solid #ff5a1f!important;text-align:center!important;font-family:"Space Grotesk",system-ui,sans-serif!important;font-size:14px!important;line-height:1.6!important;box-sizing:border-box!important}
+.iac-footer *{box-sizing:border-box}
+.iac-footer-inner{width:100%;max-width:1120px;margin:0 auto!important;padding:0!important}
+.iac-footer-brand{display:inline-flex!important;align-items:center;justify-content:center;gap:10px;text-decoration:none!important;color:#fff7ec!important;font-family:"Dela Gothic One",system-ui,sans-serif!important;font-weight:900;font-size:20px;line-height:1.3}
+.iac-footer-brand:first-letter{color:#ff5a1f}
+.iac-footer-brand span{font-size:17px}
+.iac-footer-tagline{margin:12px 0 22px!important;color:#b8cce0!important}
+.iac-footer nav.iac-footer-social,.iac-footer nav.iac-footer-site{width:100%!important;max-width:100%!important;display:flex!important;position:static!important;float:none!important;justify-content:center!important;align-items:center!important;gap:10px 12px!important;flex-wrap:wrap!important;margin:0 auto 18px!important;padding:0!important;border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;text-align:center!important}
+.iac-footer nav.iac-footer-site{gap:8px 18px!important;margin-bottom:0!important;font-size:13px!important}
+.iac-footer a{color:#22e4ff!important;text-decoration:none!important}
+.iac-footer a:hover{color:#ffd23f!important;text-decoration:underline!important}
+.iac-footer-social a{display:inline-flex!important;align-items:center;justify-content:center;min-height:42px;border:1px solid #42617d!important;border-radius:8px!important;padding:8px 15px!important;background:#0c2540!important;color:#22e4ff!important;font-weight:700!important;white-space:nowrap}
+.iac-footer-social a:hover{background:#163753!important;color:#ffd23f!important;border-color:#ffd23f!important}
+.iac-footer-copy{width:100%;max-width:1000px;margin:22px auto 0!important;padding:18px 0 0!important;border-top:1px solid #29425b!important;color:#b8cce0!important;line-height:1.7!important}
+body .iac-footer{background:#06182c!important;color:#fff7ec!important;border-top-color:#ff5a1f!important}
+body .iac-footer a,body .iac-footer-brand{color:#22e4ff!important}
+body .iac-footer-tagline,body .iac-footer-copy{color:#b8cce0!important}
 @media(max-width:760px){
  body>nav[aria-label="Main navigation"]>.wrap{min-height:62px;gap:10px}
  .menu{display:block;flex:0 0 auto}
