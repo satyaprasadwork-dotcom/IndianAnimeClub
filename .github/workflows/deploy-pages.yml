@@ -166,6 +166,21 @@ jobs:
               return document
 
           def ensure_article_reading_layout(document):
+              # Remove legacy TOC sections from the reading column. The shared nav
+              # below is the one canonical TOC that belongs in the sidebar.
+              document = re.sub(
+                  r"""<section\b(?=[^>]*\bclass=["'][^"']*\barticle-toc\b[^"']*["'])[^>]*>[\s\S]*?</section\s*>""",
+                  "",
+                  document,
+                  flags=re.I,
+              )
+              document = re.sub(
+                  r"""<(?:section|nav|div)\b(?=[^>]*\bclass=["'][^"']*\b(?:table-of-contents|toc-container)\b[^"']*["'])[^>]*>[\s\S]*?</(?:section|nav|div)\s*>""",
+                  "",
+                  document,
+                  flags=re.I,
+              )
+
               # Put the approved layout into the generated HTML itself, not only
               # into a client-side DOM transformation. This keeps articles consistent
               # even before enhancement JavaScript runs.
