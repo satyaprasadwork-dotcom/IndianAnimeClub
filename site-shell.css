@@ -649,3 +649,125 @@ html body:has(article.article) article.article .note strong{color:#075b7b !impor
 @media(prefers-reduced-motion:reduce){
   html body:has(article.article) article.article *{scroll-behavior:auto !important}
 }
+
+
+/* ACCESSIBLE ARTICLE CARD PALETTE: consistent, calm, readable colours for every article. */
+/* Each component keeps one semantic colour across every article. Light fills protect text contrast. */
+html body:has(article.article) article.article .author-box,
+html body:has(article.article) article.article .body .quick-answer,
+html body:has(article.article) article.article .body .key-takeaways,
+html body:has(article.article) article.article .body .article-toc,
+html body:has(article.article) article.article .body .visual-explainer,
+html body:has(article.article) article.article .body .original-analysis,
+html body:has(article.article) article.article .body .note,
+html body:has(article.article) article.article .body .sources,
+html body:has(article.article) article.article .body .related {
+  box-sizing:border-box !important;
+  border:1px solid rgba(7,24,43,.12) !important;
+  border-radius:18px !important;
+  box-shadow:0 8px 24px rgba(7,24,43,.055) !important;
+  color:#14243a !important;
+}
+html body:has(article.article) article.article .author-box {
+  background:#fffaf2 !important;
+  border-left:5px solid #ff5a1f !important;
+  border-radius:0 16px 16px 0 !important;
+}
+html body:has(article.article) article.article .body .quick-answer {
+  background:#fff1df !important;
+  border-left:6px solid #e85b25 !important;
+}
+html body:has(article.article) article.article .body .key-takeaways {
+  background:#eaf4ff !important;
+  border-left:6px solid #2776b8 !important;
+}
+html body:has(article.article) article.article .body .article-toc {
+  background:#f0efff !important;
+  border-left:6px solid #6b5bb5 !important;
+}
+html body:has(article.article) article.article .body .visual-explainer {
+  background:#e8f6ef !important;
+  border-top:4px solid #21856e !important;
+}
+html body:has(article.article) article.article .body .original-analysis {
+  background:#fff0e8 !important;
+  border-top:4px solid #e85b25 !important;
+}
+html body:has(article.article) article.article .body .note {
+  background:#e8f6fc !important;
+  border-left:6px solid #1683a5 !important;
+}
+html body:has(article.article) article.article .body .sources {
+  background:#fff6d9 !important;
+  border-top:4px solid #db9b1d !important;
+}
+html body:has(article.article) article.article .body .related {
+  background:#e8f7fa !important;
+  border-top:4px solid #1683a5 !important;
+}
+html body:has(article.article) article.article .body :is(.quick-answer,.key-takeaways,.article-toc,.visual-explainer,.original-analysis,.note,.sources,.related) :is(p,li,span,strong,em,small,figcaption,h2,h3,h4) {
+  color:#14243a !important;
+  opacity:1 !important;
+}
+html body:has(article.article) article.article .body :is(.quick-answer,.key-takeaways,.article-toc,.visual-explainer,.original-analysis,.note,.sources,.related) :is(h2,h3,h4) {
+  font-family:"Space Grotesk","Segoe UI",system-ui,sans-serif !important;
+  font-weight:750 !important;
+  letter-spacing:-.02em !important;
+}
+html body:has(article.article) article.article .body .quick-answer h2 { color:#873b18 !important; }
+html body:has(article.article) article.article .body .key-takeaways h2 { color:#15558a !important; }
+html body:has(article.article) article.article .body .article-toc h2 { color:#4e428e !important; }
+html body:has(article.article) article.article .body .visual-explainer h2 { color:#14664f !important; }
+html body:has(article.article) article.article .body .original-analysis h2 { color:#873b18 !important; }
+html body:has(article.article) article.article .body .note strong { color:#075b7b !important; }
+html body:has(article.article) article.article .body :is(.quick-answer,.key-takeaways,.article-toc,.visual-explainer,.original-analysis,.note,.sources,.related) a {
+  color:#075f7b !important;
+  text-decoration-thickness:1.5px !important;
+  text-underline-offset:3px !important;
+  font-weight:650 !important;
+}
+html body:has(article.article) article.article .body .article-toc .toc-kicker { color:#4e428e !important; }
+html body:has(article.article) article.article .body .article-toc .toc-count { color:#455875 !important; }
+html body:has(article.article) article.article .body .article-toc li::marker { color:#6b5bb5 !important; }
+html body:has(article.article) article.article .body .visual-grid { gap:12px !important; }
+html body:has(article.article) article.article .body .visual-grid>div {
+  min-width:0 !important;
+  background:#fffdf8 !important;
+  border:1px solid rgba(7,24,43,.13) !important;
+  border-top:4px solid #e85b25 !important;
+  border-radius:13px !important;
+  box-shadow:0 3px 10px rgba(7,24,43,.045) !important;
+  padding:16px !important;
+}
+html body:has(article.article) article.article .body .visual-grid>div:nth-child(2) { border-top-color:#2776b8 !important; }
+html body:has(article.article) article.article .body .visual-grid>div:nth-child(3) { border-top-color:#21856e !important; }
+html body:has(article.article) article.article .body .visual-grid>div:nth-child(4) { border-top-color:#6b5bb5 !important; }
+html body:has(article.article) article.article .body .visual-grid b { color:#14243a !important; font-weight:750 !important; }
+html body:has(article.article) article.article .body .visual-grid span { color:#405a72 !important; }
+html body:has(article.article) article.article .body .related ul { gap:12px !important; }
+html body:has(article.article) article.article .body .related li {
+  background:#fffdf8 !important;
+  border:1px solid rgba(7,24,43,.12) !important;
+  border-radius:13px !important;
+  box-shadow:0 3px 12px rgba(7,24,43,.05) !important;
+  padding:16px !important;
+}
+html body:has(article.article) article.article .body .related li:hover {
+  border-color:#1683a5 !important;
+  box-shadow:0 7px 18px rgba(7,24,43,.09) !important;
+}
+html body:has(article.article) article.article .body .sources li { margin-bottom:10px !important; }
+html body:has(article.article) article.article .body .sources li:last-child { margin-bottom:0 !important; }
+@media(max-width:640px) {
+  html body:has(article.article) article.article .author-box,
+  html body:has(article.article) article.article .body :is(.quick-answer,.key-takeaways,.article-toc,.visual-explainer,.original-analysis,.note,.sources,.related) {
+    border-radius:14px !important;
+    box-shadow:0 4px 14px rgba(7,24,43,.045) !important;
+    padding:16px !important;
+  }
+  html body:has(article.article) article.article .author-box { border-radius:0 14px 14px 0 !important; }
+}
+@media(prefers-reduced-motion:reduce) {
+  html body:has(article.article) article.article .body .related li { transition:none !important; }
+}
+
