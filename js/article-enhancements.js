@@ -277,17 +277,17 @@ const rel=(endMatterBySlug[slug]||[]).filter(s=>articleTitles[s]);
 keep.innerHTML='<h2>Keep reading</h2><ul>'+rel.map(s=>'<li><a href="/'+s+'/">'+escText(articleTitles[s])+'</a></li>').join('')+'</ul>';
 body.appendChild(keep);
 
-/* Use the same two-column editorial layout as the information pages.
-   The summary cards and TOC become a compact sidebar; article prose remains intact. */
+/* Match the information-page layout: only the table of contents belongs in the left sidebar.
+   Quick Answer and Key Takeaways remain in the main article reading column. */
 if(!body.querySelector(':scope > .article-reading-layout')){
   const layout=document.createElement('div');
   layout.className='article-reading-layout';
   const sidebar=document.createElement('aside');
   sidebar.className='article-sidebar';
-  sidebar.setAttribute('aria-label','Article summary and navigation');
+  sidebar.setAttribute('aria-label','Article table of contents');
   const content=document.createElement('div');
   content.className='article-prose';
-  const sideClasses=new Set(['quick-answer','key-takeaways','article-toc']);
+  const sideClasses=new Set(['article-toc']);
   [...body.children].forEach(node=>{
     if([...sideClasses].some(className=>node.classList.contains(className)))sidebar.appendChild(node);
     else content.appendChild(node);
