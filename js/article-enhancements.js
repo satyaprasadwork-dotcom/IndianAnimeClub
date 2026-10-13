@@ -246,7 +246,6 @@ const articleTitles={
 "what-makes-an-anime-community-last-lessons-in-belonging-participation-and-local-leadership":"What Makes an Anime Community Last?",
 "the-next-chapter-of-anime-in-india-language-access-local-creators-and-community-growth":"The Next Chapter of Anime in India"
 };
-const slug=location.pathname.replace(/\/+$/,'').split('/').pop();
 const escText=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 const sourceSets={
 copyright:[['India Code: Copyright Act, 1957','https://www.indiacode.nic.in/handle/123456789/1367','Official legislation. Read the relevant provisions and amendments for your situation.'],['Copyright Office, Government of India','https://copyright.gov.in/','Official information about copyright in India.'],['YouTube Copyright Help','https://support.google.com/youtube/topic/2676339','Platform guidance on claims, removal requests and copyright processes.']],
