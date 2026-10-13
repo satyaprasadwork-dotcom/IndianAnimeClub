@@ -7,22 +7,6 @@ let n=document.querySelector('nav[aria-label="Main navigation"]');if(n)n.outerHT
 const footers=[...document.querySelectorAll('footer')];if(footers.length){footers[0].outerHTML=footer;footers.slice(1).forEach(f=>f.remove())}else document.body.insertAdjacentHTML('beforeend',footer);
 n=document.querySelector('nav.legacy-site-nav');const b=n&&n.querySelector('#menu');if(b&&!b.dataset.shellBound){b.dataset.shellBound='true';const close=()=>{n.classList.remove('open');b.setAttribute('aria-expanded','false');b.setAttribute('aria-label','Toggle navigation')};b.addEventListener('click',()=>{const o=n.classList.toggle('open');b.setAttribute('aria-expanded',String(o));b.setAttribute('aria-label',o?'Close navigation':'Toggle navigation')});n.querySelectorAll('ul a').forEach(a=>a.addEventListener('click',close));document.addEventListener('keydown',e=>{if(e.key==='Escape'&&n.classList.contains('open')){close();b.focus()}})}
 
-/* Build one consistent, linked table of contents for every article body. */
-const articleBody=document.querySelector('article.article .body');
-if(articleBody){
-  const headings=[...articleBody.querySelectorAll('section h2')].filter(h=>!['in brief','on this page'].includes((h.textContent||'').trim().toLowerCase()));
-  const items=headings.map((h,i)=>{
-    const section=h.closest('section')||h.parentElement;
-    if(!section.id)section.id='article-section-'+(i+1);
-    return {id:section.id,title:(h.textContent||'').trim()};
-  });
-  let toc=articleBody.querySelector('.article-toc');
-  if(!toc){toc=document.createElement('section');toc.className='article-toc';toc.innerHTML='<h2>On this page</h2><ol></ol>';const first=articleBody.querySelector(':scope > section');if(first&&first.classList.contains('quick-answer'))first.insertAdjacentElement('afterend',toc);else articleBody.insertAdjacentElement('afterbegin',toc);}
-  const list=toc.querySelector('ol')||toc.appendChild(document.createElement('ol'));
-  list.replaceChildren();
-  items.forEach(item=>{const li=document.createElement('li'),a=document.createElement('a');a.href='#'+item.id;a.textContent=item.title;li.appendChild(a);list.appendChild(li)});
-}
-
 /* Article pages do not display the homepage news ticker/scroller. */
 document.querySelectorAll('.tick,.news-scroller,#news-scroller,.news-ticker,#news-ticker,[data-news-scroller]').forEach(el=>el.remove());
 
