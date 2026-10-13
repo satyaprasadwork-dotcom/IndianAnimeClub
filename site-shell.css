@@ -1414,10 +1414,10 @@ html body:has(article.article) article.article .article-sidebar > :is(.quick-ans
   min-height:0 !important;
   max-height:none !important;
   margin:0 !important;
-  padding:17px !important;
+  padding:20px !important;
   border:1px solid #d8e9ed !important;
   border-top:4px solid #1685a5 !important;
-  border-radius:12px !important;
+  border-radius:14px !important;
   background:#edf7fa !important;
   color:#42566a !important;
   box-shadow:none !important;
@@ -1518,7 +1518,7 @@ html body:has(article.article) article.article .article-prose {
   font-size:16.5px !important;
   line-height:1.82 !important;
 }
-html body:has(article.article) article.article .article-prose > section:not(.visual-explainer,.original-analysis,.note,.sources,.related) {
+html body:has(article.article) article.article .article-prose > section:not(.quick-answer,.key-takeaways,.visual-explainer,.original-analysis,.note,.sources,.related) {
   display:block !important;
   width:100% !important;
   max-width:100% !important;
@@ -1530,7 +1530,7 @@ html body:has(article.article) article.article .article-prose > section:not(.vis
   box-shadow:none !important;
   color:#42566a !important;
 }
-html body:has(article.article) article.article .article-prose > section:not(.visual-explainer,.original-analysis,.note,.sources,.related) > h2 {
+html body:has(article.article) article.article .article-prose > section:not(.quick-answer,.key-takeaways,.visual-explainer,.original-analysis,.note,.sources,.related) > h2 {
   margin:27px 0 10px !important;
   padding:18px 0 0 !important;
   border-top:1px solid #eee5d8 !important;
@@ -1541,7 +1541,7 @@ html body:has(article.article) article.article .article-prose > section:not(.vis
   line-height:1.22 !important;
   letter-spacing:-.03em !important;
 }
-html body:has(article.article) article.article .article-prose > section:not(.visual-explainer,.original-analysis,.note,.sources,.related) > h2:first-child {
+html body:has(article.article) article.article .article-prose > section:not(.quick-answer,.key-takeaways,.visual-explainer,.original-analysis,.note,.sources,.related) > h2:first-child {
   margin-top:0 !important;
 }
 html body:has(article.article) article.article .article-prose :is(p,li) {
@@ -1741,9 +1741,67 @@ html body:has(article.article) article.article .article-prose .related a {
     grid-template-columns:minmax(0,1fr) !important;
     gap:10px !important;
   }
-  html body:has(article.article) article.article .article-sidebar > :is(.quick-answer,.key-takeaways,.article-toc) { padding:14px !important; }
+  html body:has(article.article) article.article .article-sidebar > :is(.quick-answer,.key-takeaways,.article-toc) { padding:16px !important; }
   html body:has(article.article) article.article .article-prose { max-width:none !important; font-size:15.5px !important; line-height:1.78 !important; }
   html body:has(article.article) article.article .article-prose :is(p,li) { font-size:15.5px !important; line-height:1.78 !important; }
   html body:has(article.article) article.article .article-prose .visual-grid { grid-template-columns:minmax(0,1fr) !important; }
   html body:has(article.article) article.article .article-prose .related ul { grid-template-columns:minmax(0,1fr) !important; }
+}
+
+
+/* APPROVED ARTICLE LAYOUT
+   Keep the TOC as the only left-side card. Quick Answer and Key Takeaways stay
+   in the main reading column as light editorial callouts. */
+html body:has(article.article) article.article .article-prose > :is(.quick-answer,.key-takeaways) {
+  display:block !important;
+  box-sizing:border-box !important;
+  width:100% !important;
+  max-width:100% !important;
+  min-width:0 !important;
+  margin:0 0 20px !important;
+  padding:18px 20px !important;
+  border:1px solid #e8dfd2 !important;
+  border-left:4px solid #df9f25 !important;
+  border-radius:0 12px 12px 0 !important;
+  background:#fff4d9 !important;
+  box-shadow:none !important;
+  color:#42566a !important;
+  overflow-wrap:anywhere !important;
+}
+html body:has(article.article) article.article .article-prose > .key-takeaways {
+  border-color:#e8dfd2 !important;
+  border-left-color:#e2a04c !important;
+  background:#fffaf2 !important;
+}
+html body:has(article.article) article.article .article-prose > :is(.quick-answer,.key-takeaways) > h2 {
+  margin:0 0 10px !important;
+  padding:0 !important;
+  border:0 !important;
+  color:#102b42 !important;
+  font-family:"Space Grotesk","Segoe UI",system-ui,sans-serif !important;
+  font-size:21px !important;
+  font-weight:800 !important;
+  line-height:1.25 !important;
+  letter-spacing:-.025em !important;
+}
+html body:has(article.article) article.article .article-prose > :is(.quick-answer,.key-takeaways) p,
+html body:has(article.article) article.article .article-prose > .key-takeaways li {
+  color:#496174 !important;
+  font-size:15px !important;
+  line-height:1.7 !important;
+}
+html body:has(article.article) article.article .article-prose > :is(.quick-answer,.key-takeaways) p:last-child {
+  margin-bottom:0 !important;
+}
+html body:has(article.article) article.article .article-prose > .key-takeaways ul {
+  margin:0 !important;
+  padding-left:21px !important;
+}
+html body:has(article.article) article.article .article-prose > .key-takeaways li {
+  margin:6px 0 !important;
+}
+@media(max-width:760px) {
+  html body:has(article.article) article.article .article-prose > :is(.quick-answer,.key-takeaways) {
+    padding:15px !important;
+  }
 }
