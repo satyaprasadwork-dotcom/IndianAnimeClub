@@ -165,6 +165,51 @@ jobs:
                   return document[:body_open.end()] + toc + document[body_open.end():]
               return document
 
+          def ensure_article_reading_layout(document):
+              # Put the approved layout into the generated HTML itself, not only
+              # into a client-side DOM transformation. This keeps articles consistent
+              # even before enhancement JavaScript runs.
+              if re.search(r"""<div\b[^>]*class=["'][^"']*\barticle-reading-layout\b""", document, re.I):
+                  return document
+
+              body_open = re.search(
+                  r"""<div\b(?=[^>]*\bclass=["'][^"']*\bbody\b[^"']*["'])[^>]*>""",
+                  document,
+                  re.I,
+              )
+              if not body_open:
+                  return document
+
+              # The article body is the final div directly inside the outer article.
+              # Use the final </div></article> pair so nested explainer cards cannot
+              # accidentally terminate the body extraction.
+              endings = list(re.finditer(r"</div\s*</article\s*>", document[body_open.end():], re.I))
+              if not endings:
+                  return document
+              body_end = body_open.end() + endings[-1].start()
+              body_content = document[body_open.end():body_end]
+
+              toc_matches = list(re.finditer(
+                  r"""<nav\b(?=[^>]*\bclass=["'][^"']*\barticle-toc\b[^"']*["'])[^>]*>[\s\S]*?</nav\s*>""",
+                  body_content,
+                  re.I,
+              ))
+              if not toc_matches:
+                  return document
+
+              toc_match = toc_matches[0]
+              toc = toc_match.group(0)
+              # All article content stays in original order in the reading column;
+              # only the TOC is lifted into the left sidebar.
+              reading_content = body_content[:toc_match.start()] + body_content[toc_match.end():]
+              wrapped = (
+                  '<div class="article-reading-layout">'
+                  '<aside class="article-sidebar" aria-label="Article table of contents">'
+                  + toc +
+                  '</aside><div class="article-prose">' + reading_content + '</div></div>'
+              )
+              return document[:body_open.end()] + wrapped + document[body_end:]
+
           for page in Path(".").rglob("*.html"):
               if ".git" in page.parts:
                   continue
@@ -235,6 +280,7 @@ jobs:
 
               if page.parent.name == "articles" and page.name != "index.html":
                   html = ensure_article_toc(html)
+                  html = ensure_article_reading_layout(html)
 
               page.write_text(html, encoding="utf-8")
 
