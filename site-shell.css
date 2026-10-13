@@ -495,158 +495,157 @@ html body footer.iac-footer .iac-footer-social a{display:inline-flex!important;a
 html body footer.iac-footer .iac-footer-social a:hover,html body footer.iac-footer a:hover{color:#ffd23f!important}
 @media(max-width:600px){html body footer.iac-footer{margin-top:44px!important;padding:32px 16px 24px!important}}
 
-/* PILOT CASCADE FIX: scoped pilot styles must load after the global shell article rules. */
-/* Pilot article refinement: Ninth Post reading hierarchy, Indian Anime Club colours. */
-html body.iac-article-pilot article.article{
+/* SHARED ARTICLE CASCADE: apply the approved reading layout to every article after global shell rules. */
+/* Shared article style: readable editorial layout with Indian Anime Club colours. */
+html body article.article{
   width:min(900px,calc(100% - 40px)) !important;
   margin:clamp(28px,5vw,60px) auto 76px !important;
 }
-html body.iac-article-pilot article.article .meta{gap:10px 12px !important;margin-bottom:20px !important}
-html body.iac-article-pilot article.article .tag{
+html body article.article .meta{gap:10px 12px !important;margin-bottom:20px !important}
+html body article.article .tag{
   border:1px solid #07182b !important;border-radius:999px !important;padding:7px 13px !important;
   background:#ffd23f !important;color:#07182b !important;font-size:12px !important;letter-spacing:.055em !important;text-transform:uppercase !important
 }
-html body.iac-article-pilot article.article h1{
+html body article.article h1{
   max-width:15ch !important;font-size:clamp(38px,6.2vw,70px) !important;line-height:1.04 !important;
   letter-spacing:-.045em !important;color:#07182b !important;text-wrap:balance !important
 }
-html body.iac-article-pilot article.article .dek{
+html body article.article .dek{
   max-width:68ch !important;margin-top:20px !important;font-size:clamp(18px,2.1vw,21px) !important;
   line-height:1.65 !important;color:#3d5f85 !important
 }
-html body.iac-article-pilot article.article .author-box{
+html body article.article .author-box{
   margin:24px 0 28px !important;padding:16px 20px !important;background:#fffaf1 !important;
   border:1px solid rgba(7,24,43,.15) !important;border-left:5px solid #ff5a1f !important;border-radius:0 14px 14px 0 !important;
   box-shadow:0 5px 16px rgba(7,24,43,.05) !important
 }
-html body.iac-article-pilot article.article .hero-art{
+html body article.article .hero-art{
   min-height:clamp(210px,29vw,300px) !important;margin:28px 0 34px !important;padding:clamp(22px,4vw,38px) !important;
   border:2px solid #07182b !important;border-radius:24px !important;background:#ff5a1f !important;
   box-shadow:7px 7px 0 #07182b !important
 }
-html body.iac-article-pilot article.article .hero-art:before{font-size:clamp(170px,28vw,290px) !important;right:-12px !important;top:-58px !important}
-html body.iac-article-pilot article.article .hero-art:after{width:clamp(80px,14vw,135px) !important;height:clamp(80px,14vw,135px) !important}
-html body.iac-article-pilot article.article .hero-art strong{
+html body article.article .hero-art:before{font-size:clamp(170px,28vw,290px) !important;right:-12px !important;top:-58px !important}
+html body article.article .hero-art:after{width:clamp(80px,14vw,135px) !important;height:clamp(80px,14vw,135px) !important}
+html body article.article .hero-art strong{
   max-width:19ch !important;padding:18px 20px !important;border:2px solid #07182b !important;border-radius:14px !important;
   background:#06182c !important;color:#fff7ec !important;box-shadow:5px 5px 0 #ffd23f !important;
   font-size:clamp(20px,3vw,30px) !important;line-height:1.18 !important
 }
-html body.iac-article-pilot article.article>.body{
+html body article.article>.body{
   max-width:740px !important;font-size:18px !important;line-height:1.82 !important;color:#14243a !important
 }
-html body.iac-article-pilot article.article .body p{margin:0 0 23px !important}
-html body.iac-article-pilot article.article .body h2{
+html body article.article .body p{margin:0 0 23px !important}
+html body article.article .body h2{
   margin:44px 0 15px !important;font-size:clamp(26px,3.2vw,34px) !important;line-height:1.16 !important;
   letter-spacing:-.028em !important;color:#07182b !important;scroll-margin-top:100px !important
 }
-html body.iac-article-pilot article.article .body h3{margin:30px 0 12px !important;color:#07182b !important;line-height:1.3 !important}
-html body.iac-article-pilot article.article .body ul,
-html body.iac-article-pilot article.article .body ol{padding-left:25px !important;margin:0 0 28px !important}
-html body.iac-article-pilot article.article .body li{padding-left:3px !important;margin:10px 0 !important}
-html body.iac-article-pilot article.article .body strong{color:#8a3c16 !important}
-html body.iac-article-pilot article.article .quick-answer,
-html body.iac-article-pilot article.article .key-takeaways,
-html body.iac-article-pilot article.article .article-toc,
-html body.iac-article-pilot article.article .visual-explainer,
-html body.iac-article-pilot article.article .original-analysis,
-html body.iac-article-pilot article.article .note{
+html body article.article .body h3{margin:30px 0 12px !important;color:#07182b !important;line-height:1.3 !important}
+html body article.article .body ul,
+html body article.article .body ol{padding-left:25px !important;margin:0 0 28px !important}
+html body article.article .body li{padding-left:3px !important;margin:10px 0 !important}
+html body article.article .body strong{color:#8a3c16 !important}
+html body article.article .quick-answer,
+html body article.article .key-takeaways,
+html body article.article .article-toc,
+html body article.article .visual-explainer,
+html body article.article .original-analysis,
+html body article.article .note{
   width:100% !important;max-width:100% !important;margin:28px 0 !important;padding:clamp(18px,3vw,25px) !important;
   border:1px solid rgba(7,24,43,.17) !important;border-radius:18px !important;box-shadow:5px 5px 0 rgba(7,24,43,.10) !important;
   overflow-wrap:anywhere !important
 }
-html body.iac-article-pilot article.article .quick-answer{
+html body article.article .quick-answer{
   background:#fff0cf !important;border-left:6px solid #ff5a1f !important;color:#14243a !important
 }
-html body.iac-article-pilot article.article .quick-answer h2{margin:0 0 10px !important;font-size:24px !important}
-html body.iac-article-pilot article.article .quick-answer p:last-child{margin-bottom:0 !important}
-html body.iac-article-pilot article.article .key-takeaways{background:#e9f7ff !important;border-left:6px solid #1685b0 !important}
-html body.iac-article-pilot article.article .key-takeaways h2{margin:0 0 12px !important;color:#07182b !important}
-html body.iac-article-pilot article.article .key-takeaways ul{margin:0 !important}
-html body.iac-article-pilot article.article .article-toc{background:#fffaf1 !important;border-left:6px solid #1685b0 !important}
-html body.iac-article-pilot article.article .article-toc .toc-heading{
+html body article.article .quick-answer h2{margin:0 0 10px !important;font-size:24px !important}
+html body article.article .quick-answer p:last-child{margin-bottom:0 !important}
+html body article.article .key-takeaways{background:#e9f7ff !important;border-left:6px solid #1685b0 !important}
+html body article.article .key-takeaways h2{margin:0 0 12px !important;color:#07182b !important}
+html body article.article .key-takeaways ul{margin:0 !important}
+html body article.article .article-toc{background:#fffaf1 !important;border-left:6px solid #1685b0 !important}
+html body article.article .article-toc .toc-heading{
   display:grid !important;grid-template-columns:minmax(0,1fr) auto !important;align-items:center !important;gap:5px 14px !important;margin-bottom:14px !important
 }
-html body.iac-article-pilot article.article .article-toc .toc-kicker{
+html body article.article .article-toc .toc-kicker{
   grid-column:1/-1 !important;color:#b8431a !important;font-size:11px !important;font-weight:800 !important;letter-spacing:.12em !important;text-transform:uppercase !important
 }
-html body.iac-article-pilot article.article .article-toc h2{margin:0 !important;font-size:25px !important;color:#07182b !important}
-html body.iac-article-pilot article.article .article-toc .toc-count{grid-column:2 !important;grid-row:2 !important;color:#536b86 !important;font-size:12px !important;white-space:nowrap !important}
-html body.iac-article-pilot article.article .article-toc ol{
+html body article.article .article-toc h2{margin:0 !important;font-size:25px !important;color:#07182b !important}
+html body article.article .article-toc .toc-count{grid-column:2 !important;grid-row:2 !important;color:#536b86 !important;font-size:12px !important;white-space:nowrap !important}
+html body article.article .article-toc ol{
   display:grid !important;grid-template-columns:repeat(2,minmax(0,1fr)) !important;gap:9px 24px !important;margin:0 !important;padding-left:23px !important
 }
-html body.iac-article-pilot article.article .article-toc li{min-width:0 !important;margin:0 !important;padding:3px 0 !important;font-size:15px !important;line-height:1.5 !important;overflow-wrap:anywhere !important}
-html body.iac-article-pilot article.article .article-toc li::marker{color:#ff5a1f !important;font-weight:800 !important}
-html body.iac-article-pilot article.article .article-toc a,
-html body.iac-article-pilot article.article .body a,
-html body.iac-article-pilot article.article .sources a,
-html body.iac-article-pilot article.article .related a{color:#006f94 !important;text-decoration-thickness:1px !important;text-underline-offset:3px !important}
-html body.iac-article-pilot article.article .visual-explainer{
+html body article.article .article-toc li{min-width:0 !important;margin:0 !important;padding:3px 0 !important;font-size:15px !important;line-height:1.5 !important;overflow-wrap:anywhere !important}
+html body article.article .article-toc li::marker{color:#ff5a1f !important;font-weight:800 !important}
+html body article.article .article-toc a,
+html body article.article .body a,
+html body article.article .sources a,
+html body article.article .related a{color:#006f94 !important;text-decoration-thickness:1px !important;text-underline-offset:3px !important}
+html body article.article .visual-explainer{
   background:#eaf8f5 !important;border-top:4px solid #168b79 !important
 }
-html body.iac-article-pilot article.article .visual-explainer .eyebrow{
+html body article.article .visual-explainer .eyebrow{
   margin:0 0 8px !important;color:#087b6b !important;font-size:11px !important;font-weight:800 !important;letter-spacing:.12em !important;text-transform:uppercase !important
 }
-html body.iac-article-pilot article.article .visual-explainer h2{margin:0 0 16px !important;font-size:clamp(23px,3vw,29px) !important}
-html body.iac-article-pilot article.article .visual-grid{
+html body article.article .visual-explainer h2{margin:0 0 16px !important;font-size:clamp(23px,3vw,29px) !important}
+html body article.article .visual-grid{
   display:grid !important;grid-template-columns:repeat(2,minmax(0,1fr)) !important;gap:12px !important
 }
-html body.iac-article-pilot article.article .visual-grid>div{
+html body article.article .visual-grid>div{
   display:flex !important;flex-direction:column !important;gap:7px !important;min-width:0 !important;padding:16px !important;
   border:1px solid rgba(7,24,43,.14) !important;border-top:4px solid #ff5a1f !important;border-radius:12px !important;
   background:#fffaf1 !important;overflow-wrap:anywhere !important
 }
-html body.iac-article-pilot article.article .visual-grid>div:nth-child(2){border-top-color:#1685b0 !important}
-html body.iac-article-pilot article.article .visual-grid>div:nth-child(3){border-top-color:#168b79 !important}
-html body.iac-article-pilot article.article .visual-grid>div:nth-child(4){border-top-color:#8a62c6 !important}
-html body.iac-article-pilot article.article .visual-grid b{color:#07182b !important;font-size:16px !important;line-height:1.35 !important}
-html body.iac-article-pilot article.article .visual-grid span{color:#3d5f85 !important;font-size:15px !important;line-height:1.55 !important}
-html body.iac-article-pilot article.article .sources,
-html body.iac-article-pilot article.article .related{
+html body article.article .visual-grid>div:nth-child(2){border-top-color:#1685b0 !important}
+html body article.article .visual-grid>div:nth-child(3){border-top-color:#168b79 !important}
+html body article.article .visual-grid>div:nth-child(4){border-top-color:#8a62c6 !important}
+html body article.article .visual-grid b{color:#07182b !important;font-size:16px !important;line-height:1.35 !important}
+html body article.article .visual-grid span{color:#3d5f85 !important;font-size:15px !important;line-height:1.55 !important}
+html body article.article .sources,
+html body article.article .related{
   margin:48px 0 0 !important;padding:24px 0 0 !important;border-top:2px solid rgba(7,24,43,.18) !important
 }
-html body.iac-article-pilot article.article .sources h2,
-html body.iac-article-pilot article.article .related h2{margin:0 0 15px !important;font-size:clamp(24px,3vw,30px) !important}
-html body.iac-article-pilot article.article .sources p{color:#3d5f85 !important}
-html body.iac-article-pilot article.article .sources ul{padding-left:23px !important}
-html body.iac-article-pilot article.article .related ul{
+html body article.article .sources h2,
+html body article.article .related h2{margin:0 0 15px !important;font-size:clamp(24px,3vw,30px) !important}
+html body article.article .sources p{color:#3d5f85 !important}
+html body article.article .sources ul{padding-left:23px !important}
+html body article.article .related ul{
   display:grid !important;grid-template-columns:repeat(2,minmax(0,1fr)) !important;gap:14px !important;
   margin:0 !important;padding:0 !important;list-style:none !important
 }
-html body.iac-article-pilot article.article .related li{
+html body article.article .related li{
   min-width:0 !important;margin:0 !important;padding:18px !important;border:1px solid rgba(7,24,43,.17) !important;
   border-radius:14px !important;background:#fffaf1 !important;box-shadow:4px 4px 0 rgba(7,24,43,.09) !important;
   overflow-wrap:anywhere !important
 }
-html body.iac-article-pilot article.article .related a{font-weight:800 !important;line-height:1.5 !important}
-html body.iac-article-pilot article.article .back{
+html body article.article .related a{font-weight:800 !important;line-height:1.5 !important}
+html body article.article .back{
   display:inline-flex !important;align-items:center !important;gap:8px !important;margin-top:34px !important;padding:12px 18px !important;
   border:2px solid #07182b !important;border-radius:999px !important;background:#06182c !important;color:#fff7ec !important
 }
 @media(max-width:640px){
-  html body.iac-article-pilot article.article{width:calc(100% - 32px) !important;margin-top:28px !important}
-  html body.iac-article-pilot article.article h1{font-size:clamp(35px,10vw,48px) !important;line-height:1.06 !important}
-  html body.iac-article-pilot article.article>.body{font-size:17px !important;line-height:1.78 !important}
-  html body.iac-article-pilot article.article .article-toc ol,
-  html body.iac-article-pilot article.article .visual-grid,
-  html body.iac-article-pilot article.article .related ul{grid-template-columns:minmax(0,1fr) !important}
-  html body.iac-article-pilot article.article .article-toc .toc-heading{grid-template-columns:minmax(0,1fr) !important}
-  html body.iac-article-pilot article.article .article-toc .toc-count{grid-column:1 !important;grid-row:auto !important}
-  html body.iac-article-pilot article.article .hero-art{min-height:200px !important;box-shadow:5px 5px 0 #07182b !important}
-  html body.iac-article-pilot article.article .hero-art strong{max-width:100% !important}
+  html body article.article{width:calc(100% - 32px) !important;margin-top:28px !important}
+  html body article.article h1{font-size:clamp(35px,10vw,48px) !important;line-height:1.06 !important}
+  html body article.article>.body{font-size:17px !important;line-height:1.78 !important}
+  html body article.article .article-toc ol,
+  html body article.article .visual-grid,
+  html body article.article .related ul{grid-template-columns:minmax(0,1fr) !important}
+  html body article.article .article-toc .toc-heading{grid-template-columns:minmax(0,1fr) !important}
+  html body article.article .article-toc .toc-count{grid-column:1 !important;grid-row:auto !important}
+  html body article.article .hero-art{min-height:200px !important;box-shadow:5px 5px 0 #07182b !important}
+  html body article.article .hero-art strong{max-width:100% !important}
 }
-html body.iac-article-pilot article.article .original-analysis{
+html body article.article .original-analysis{
   background:#fff0e8 !important;border-top:4px solid #ff5a1f !important
 }
-html body.iac-article-pilot article.article .original-analysis .eyebrow{
+html body article.article .original-analysis .eyebrow{
   margin:0 0 8px !important;color:#b8431a !important;font-size:11px !important;font-weight:800 !important;letter-spacing:.12em !important;text-transform:uppercase !important
 }
-html body.iac-article-pilot article.article .original-analysis h2{margin:0 0 12px !important}
-html body.iac-article-pilot article.article .original-analysis p:last-child{margin-bottom:0 !important}
-html body.iac-article-pilot article.article .note{
+html body article.article .original-analysis h2{margin:0 0 12px !important}
+html body article.article .original-analysis p:last-child{margin-bottom:0 !important}
+html body article.article .note{
   background:#e7f7ff !important;border-left:6px solid #1685b0 !important;color:#14243a !important
 }
-html body.iac-article-pilot article.article .note strong{color:#075b7b !important}
+html body article.article .note strong{color:#075b7b !important}
 @media(prefers-reduced-motion:reduce){
-  html body.iac-article-pilot article.article *{scroll-behavior:auto !important}
+  html body article.article *{scroll-behavior:auto !important}
 }
-
