@@ -257,7 +257,7 @@ story:[['Japan Media Arts Festival Archive','https://j-mediaarts.jp/en/','Explor
 };
 let sourceSet='story';
 if(/copyright|fan-art|screenshots/.test(slug))sourceSet='copyright';
-else if(/where-to-watch|watch-orders|subtitles|language|watchlist|manga-vs-anime|merchandise/.test(slug))sourceSet='streaming';
+else if(/where-to-watch|watch-orders|subtitles|language|watchlist|manga-vs-anime/.test(slug))sourceSet='streaming';
 else if(/merchandise/.test(slug))sourceSet='commerce';
 else if(/community|club|convention|college|spoilers|family-debate/.test(slug))sourceSet='community';
 else if(/animation|production|drawing|cosplay|creative|edit/.test(slug))sourceSet='production';
