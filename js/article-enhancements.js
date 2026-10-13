@@ -178,13 +178,25 @@ if(heads.length>=1){
   nav.className='article-toc';nav.setAttribute('aria-label','Table of contents');
   nav.innerHTML='<div class="toc-heading"><span class="toc-kicker">ARTICLE GUIDE</span><h2>In this article</h2><span class="toc-count">'+heads.length+' sections</span></div>';
   const list=document.createElement('ol');heads.forEach(h=>{const li=document.createElement('li'),a=document.createElement('a');a.href='#'+h.id;a.textContent=h.textContent.trim();li.appendChild(a);list.appendChild(li)});nav.appendChild(list);
-  const anchor=body.querySelector('.key-takeaways')||body.querySelector('.quick-answer')||body.querySelector(':scope > p')||body.firstElementChild;
-  if(anchor&&nav.previousElementSibling!==anchor)anchor.insertAdjacentElement('afterend',nav);
-  else if(!anchor&&!nav.isConnected)body.prepend(nav);
+  /* If the build has already placed the TOC in its sidebar, keep it there.
+     Only use the inline placement fallback for pages without the static wrapper. */
+  if(!nav.closest('.article-sidebar')){
+    const anchor=body.querySelector('.key-takeaways')||body.querySelector('.quick-answer')||body.querySelector(':scope > p')||body.firstElementChild;
+    if(anchor&&nav.previousElementSibling!==anchor)anchor.insertAdjacentElement('afterend',nav);
+    else if(!anchor&&!nav.isConnected)body.prepend(nav);
+  }
 }
 const finalToc=body.querySelector('.article-toc');
-const visualAnchor=finalToc||body.querySelector('.key-takeaways')||body.querySelector('.quick-answer');
-if(visual&&visualAnchor)visualAnchor.insertAdjacentElement('afterend',visual);
+if(visual){
+  if(finalToc&&finalToc.closest('.article-sidebar')){
+    /* Keep visuals in the reading column, directly after the summary cards. */
+    const summaryAnchor=body.querySelector('.article-prose > .key-takeaways')||body.querySelector('.article-prose > .quick-answer');
+    if(summaryAnchor&&visual.previousElementSibling!==summaryAnchor)summaryAnchor.insertAdjacentElement('afterend',visual);
+  }else{
+    const visualAnchor=finalToc||body.querySelector('.key-takeaways')||body.querySelector('.quick-answer');
+    if(visualAnchor)visualAnchor.insertAdjacentElement('afterend',visual);
+  }
+}
 
 /* Ninth Post-style end matter: sources first, then related articles. */
 const endMatterBySlug={
