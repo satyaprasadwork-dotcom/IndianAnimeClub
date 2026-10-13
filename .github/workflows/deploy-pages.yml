@@ -102,7 +102,7 @@ jobs:
                           break
 
           def ensure_article_toc(document):
-              if re.search(r'<nav\\b[^>]*class=["\\'][^"\\']*\\barticle-toc\\b', document, re.I):
+              if re.search(r"""<nav\b[^>]*class=["'][^"']*\barticle-toc\b""", document, re.I):
                   return document
 
               parser = ArticleHeadingParser()
@@ -115,8 +115,7 @@ jobs:
               for number, record in enumerate(selected, 1):
                   record["toc_id"] = record["id"] or f"iac-article-section-{number}"
 
-              # Give each selected heading its own anchor, including headings inside
-              # long sections that contain more than one subsection.
+              # Give every selected heading its own anchor, even within long sections.
               record_index = [0]
               def add_heading_anchor(match):
                   index = record_index[0]
@@ -125,12 +124,12 @@ jobs:
                       return match.group(0)
                   record = records[index]
                   opening, contents, closing = match.group(1), match.group(2), match.group(3)
-                  if record["eligible"] and not re.search(r"\\bid\\s*=", opening, re.I):
+                  if record["eligible"] and not re.search(r"\bid\s*=", opening, re.I):
                       opening = opening[:-1] + ' id="' + html_escape(record["toc_id"], quote=True) + '">'
                   return opening + contents + closing
 
               document = re.sub(
-                  r"(<h2\\b[^>]*>)([\\s\\S]*?)(</h2\\s*>)",
+                  r"""(<h2\b[^>]*>)([\s\S]*?)(</h2\s*>)""",
                   add_heading_anchor,
                   document,
                   flags=re.I,
@@ -150,14 +149,18 @@ jobs:
 
               for component in ("key-takeaways", "quick-answer"):
                   pattern = re.compile(
-                      r'(<section\\b(?=[^>]*\\bclass=["\\'][^"\\']*\\b' +
-                      re.escape(component) + r'\\b[^"\\']*["\\'])[^>]*>[\\s\\S]*?</section\\s*>)',
+                      r"""(<section\b(?=[^>]*\bclass=["'][^"']*\b""" +
+                      re.escape(component) + r"""\b[^"']*["'])[^>]*>[\s\S]*?</section\s*>)""",
                       re.I,
                   )
                   found = pattern.search(document)
                   if found:
                       return document[:found.end()] + toc + document[found.end():]
-              body_open = re.search(r'<div\\b(?=[^>]*\\bclass=["\\'][^"\\']*\\bbody\\b[^"\\']*["\\'])[^>]*>', document, re.I)
+              body_open = re.search(
+                  r"""<div\b(?=[^>]*\bclass=["'][^"']*\bbody\b[^"']*["'])[^>]*>""",
+                  document,
+                  re.I,
+              )
               if body_open:
                   return document[:body_open.end()] + toc + document[body_open.end():]
               return document
