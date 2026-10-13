@@ -1395,14 +1395,10 @@ html body:has(article.article) article.article .article-sidebar {
   align-items:stretch !important;
   gap:12px !important;
   position:sticky !important;
-  top:88px !important;
+  top:90px !important;
   align-self:start !important;
   box-sizing:border-box !important;
   min-width:0 !important;
-  max-height:calc(100vh - 104px) !important;
-  overflow-y:auto !important;
-  overscroll-behavior:contain !important;
-  scrollbar-width:thin;
 }
 html body:has(article.article) article.article .article-sidebar > :is(.quick-answer,.key-takeaways,.article-toc) {
   display:block !important;
@@ -1444,7 +1440,7 @@ html body:has(article.article) article.article .article-sidebar :is(.quick-answe
   border:0 !important;
   color:#102b42 !important;
   font-family:"Space Grotesk","Segoe UI",system-ui,sans-serif !important;
-  font-size:18px !important;
+  font-size:21px !important;
   font-weight:800 !important;
   line-height:1.25 !important;
   letter-spacing:-.025em !important;
@@ -1487,17 +1483,17 @@ html body:has(article.article) article.article .article-sidebar .article-toc .to
 html body:has(article.article) article.article .article-sidebar .article-toc ol {
   display:grid !important;
   grid-template-columns:minmax(0,1fr) !important;
-  gap:5px !important;
+  gap:0 !important;
   margin:0 !important;
   padding-left:19px !important;
 }
 html body:has(article.article) article.article .article-sidebar .article-toc li {
   min-width:0 !important;
-  margin:0 !important;
+  margin:6px 0 !important;
   padding:0 !important;
   color:#496174 !important;
-  font-size:12.5px !important;
-  line-height:1.45 !important;
+  font-size:14px !important;
+  line-height:1.6 !important;
   overflow-wrap:anywhere !important;
 }
 html body:has(article.article) article.article .article-sidebar .article-toc li::marker { color:#1685a5 !important; }
