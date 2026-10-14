@@ -50,37 +50,28 @@ if(article&&!article.querySelector(':scope > .article-hero')){
 const body=document.querySelector('article.article > .body');if(!body)return;
 const slug=(location.pathname.replace(/\/+$/,'').split('/').pop()||'').replace(/\.html$/i,'').toLowerCase();
 const animeLayout=ANIME_ARTICLE_LAYOUTS[slug];
-const d=animeLayout;
 let visual=body.querySelector('.visual-explainer');
-if(d){
+if(animeLayout){
   if(!visual){
-    visual=document.createElement('section');visual.className='visual-explainer';
-    visual.innerHTML='<p class="eyebrow">Visual explainer</p><h2></h2>';
+    visual=document.createElement('section');
+    visual.className='visual-explainer';
     const anchor=body.querySelector('.key-takeaways')||body.querySelector('.quick-answer')||body.firstElementChild;
     if(anchor)anchor.insertAdjacentElement('afterend',visual);else body.prepend(visual);
   }
-  const h=visual.querySelector('h2'),e=visual.querySelector('.eyebrow');
-  if(h)h.textContent=d[1];if(e)e.textContent=animeLayout?'Visual explainer':'Topic diagram';
-  if(animeLayout){
-    visual.querySelectorAll('.topic-diagram-svg').forEach(n=>n.remove());
-    let grid=visual.querySelector('.visual-grid');
-    if(!grid){grid=document.createElement('div');grid.className='visual-grid';visual.appendChild(grid)}
-    grid.replaceChildren();
-    d[2].forEach((label,i)=>{
-      const card=document.createElement('div'),b=document.createElement('b'),span=document.createElement('span');
-      b.textContent=label;span.textContent=(d[3]&&d[3][i])||'Use this step to make the choice concrete and reviewable.';
-      card.append(b,span);grid.appendChild(card);
-    });
-  }  }else if(!visual.querySelector('.visual-grid')){
-    const fallback=document.createElement('div');fallback.className='visual-grid';
-    d[2].slice(0,4).forEach((label,i)=>{
-      const card=document.createElement('div'),b=document.createElement('b'),span=document.createElement('span');
-      b.textContent=label;span.textContent=(d[3]&&d[3][i])||['Define the requirement and constraints','Evaluate evidence and trade-offs','Choose controls and review the outcome','Check the result and next step'][i];
-      card.append(b,span);fallback.appendChild(card);
-    });
-    visual.appendChild(fallback);
-  }
-}else if(visual && /decision framework|a practical decision path/i.test(visual.textContent||'')){
+  visual.innerHTML='<p class="eyebrow">Visual explainer</p><h2></h2><div class="visual-grid"></div>';
+  const heading=visual.querySelector('h2');
+  if(heading)heading.textContent=animeLayout[1];
+  const grid=visual.querySelector('.visual-grid');
+  animeLayout[2].forEach((label,i)=>{
+    const card=document.createElement('div');
+    const title=document.createElement('b');
+    const detail=document.createElement('span');
+    title.textContent=label;
+    detail.textContent=(animeLayout[3]&&animeLayout[3][i])||'Use this step to make the choice concrete and reviewable.';
+    card.append(title,detail);
+    grid.appendChild(card);
+  });
+}else if(visual&&/decision framework|a practical decision path/i.test(visual.textContent||'')){
   visual.remove();
 }
 if(animeLayout){
