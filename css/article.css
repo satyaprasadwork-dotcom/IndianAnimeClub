@@ -697,3 +697,48 @@ html body:has(article.article) article.article .article-prose .related a {
   html body:has(article.article) article.article .article-prose .visual-grid,
   html body:has(article.article) article.article .article-prose .related ul { grid-template-columns:minmax(0,1fr) !important; }
 }
+
+
+/* Approved IAC article template: let the article shell span the content area
+   so the TOC sidebar and reading column can sit side by side. Keep the hero
+   centered at the same readable width. Scope all changes to article pages;
+   the homepage header and footer are deliberately not targeted. */
+html body.iac-article-pilot main.wrap > article.article {
+  display:block !important;
+  width:100% !important;
+  max-width:none !important;
+  min-width:0 !important;
+  margin:42px auto 0 !important;
+  padding:0 !important;
+  overflow:visible !important;
+}
+html body.iac-article-pilot article.article > .article-hero {
+  display:block !important;
+  width:min(900px,calc(100% - 40px)) !important;
+  max-width:900px !important;
+  min-width:0 !important;
+  margin:0 auto !important;
+}
+html body.iac-article-pilot article.article > .article-reading-layout {
+  width:min(1120px,calc(100% - 40px)) !important;
+  max-width:1120px !important;
+  margin:0 auto !important;
+}
+html body.iac-article-pilot article.article .article-prose,
+html body.iac-article-pilot article.article .article-sidebar {
+  min-width:0 !important;
+}
+@media (max-width:760px) {
+  html body.iac-article-pilot main.wrap > article.article {
+    margin-top:28px !important;
+  }
+  html body.iac-article-pilot article.article > .article-hero {
+    width:calc(100% - 30px) !important;
+  }
+  html body.iac-article-pilot article.article > .article-reading-layout {
+    width:calc(100% - 30px) !important;
+    grid-template-columns:minmax(0,1fr) !important;
+    gap:22px !important;
+    padding-top:24px !important;
+  }
+}
