@@ -1,860 +1,134 @@
-/* Ninth Post article reading layout; preserve the Indian Anime Club landing-page palette. */
-:root{--bg:#06182c;--bg2:#0c2a4a;--ink:#fff7ec;--mute:#a9c4e0;--dk:#07182b;--fire:#ff5a1f;--cyan:#22e4ff;--sun:#ffd23f;--lime:#b6ff3b;--blue:#1f6fff;--accent:var(--fire);--tc:var(--cyan);--ts:var(--sun);--card:#0c2a4a;--violet:var(--fire);--pink:var(--cyan);--mut:var(--mute);color-scheme:dark}
-*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:90px}body{margin:0;min-width:320px;background:var(--bg);color:var(--ink);font:400 17px/1.72 "DM Sans",Arial,sans-serif;overflow-x:hidden}a{color:inherit;text-underline-offset:3px}a:hover{color:var(--sun)}:focus-visible{outline:3px solid var(--sun);outline-offset:4px}
-body>nav[aria-label="Main navigation"]{position:sticky;top:env(safe-area-inset-top,0px);z-index:1000;display:block;width:100%;margin:0;background:rgba(6,24,44,.96);backdrop-filter:blur(10px);border-bottom:3px solid #ff5a1f;color:#fff7ec;font-family:"Space Grotesk",system-ui,sans-serif}
-body>nav[aria-label="Main navigation"]>.wrap{display:flex;align-items:center;justify-content:space-between;min-height:68px;max-width:1120px;margin:0 auto;padding:0 20px;gap:18px}
-body>nav[aria-label="Main navigation"] .logo{display:flex;align-items:center;gap:9px;color:#fff7ec;font:400 18px/1.1 "Dela Gothic One",Impact,sans-serif;text-decoration:none;white-space:nowrap}
-body>nav[aria-label="Main navigation"] .logo b{padding:4px 8px;background:#ff5a1f;color:#07182b;font-weight:400;transform:rotate(-4deg)}
-#site-links{display:flex;align-items:center;gap:20px;list-style:none;margin:0;padding:0}#site-links a{color:#fff7ec;font-size:14px;font-weight:600;text-decoration:none}#site-links a:hover{color:#22e4ff}
-body>nav[aria-label="Main navigation"] .btn{display:inline-flex;align-items:center;padding:8px 16px;background:#ffd23f;color:#07182b;border:2px solid #fff7ec;font:400 14px "Dela Gothic One",Impact,sans-serif;text-decoration:none;white-space:nowrap;box-shadow:4px 4px 0 #ff5a1f}
-body>nav[aria-label="Main navigation"] .menu{display:none;width:42px;height:42px;background:#ffd23f;color:#07182b;border:2px solid #fff7ec;font-size:22px;cursor:pointer}
-.tick{display:none!important}.tick div{display:flex;width:max-content;animation:iac-slide 30s linear infinite;padding:11px 0;font:400 20px/1.2 "Dela Gothic One",Impact,sans-serif}.tick span{padding:0 22px;white-space:nowrap}@keyframes iac-slide{to{transform:translateX(-50%)}}
-#reading-progress,.reading-progress{position:fixed;top:0;left:0;right:0;height:5px;z-index:1200;pointer-events:none;background:transparent}#reading-progress{background:linear-gradient(90deg,#ff5a1f,#ffd23f,#b6ff3b,#22e4ff);transform:scaleX(0);transform-origin:left}.reading-progress span{display:block;width:0;height:100%;background:#22e4ff}
-main.wrap{display:block;width:100%;max-width:none;margin:0;padding:0}article.article{display:block;float:none;clear:both;width:min(900px,calc(100% - 40px));max-width:900px;min-width:0;margin:clamp(28px,5vw,56px) auto 72px;padding:0;overflow-wrap:anywhere}article.article>*{max-width:100%;min-width:0}
-.meta{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:0 0 18px}.tag{display:inline-block;padding:6px 13px;background:#ffd23f;color:#07182b;border-radius:999px;font-size:12px;font-weight:800;letter-spacing:.04em}.meta span:last-child,.meta .date{color:#a9c4e0;font-size:14px}
-.article h1{max-width:13em;margin:0;color:#fff7ec;font:800 clamp(40px,6.5vw,76px)/1.02 "Bricolage Grotesque",Arial,sans-serif;letter-spacing:-.04em;text-wrap:balance;overflow-wrap:anywhere}.dek{max-width:760px;margin:22px 0 0;color:#a9c4e0;font-size:clamp(18px,2.2vw,22px);line-height:1.6}
-.author-box{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;margin:28px 0 24px;padding:16px 20px;background:#0c2a4a;border-left:5px solid #ff5a1f;border-radius:0 16px 16px 0}.author-box strong{font-weight:800}.author-box a{color:#22e4ff;font-weight:800;text-decoration:underline}.author-box span{color:#a9c4e0;font-size:14px}
-.hero-art{position:relative;isolation:isolate;display:flex;align-items:flex-end;min-height:clamp(220px,30vw,280px);margin:28px 0 34px;padding:clamp(22px,5vw,40px);overflow:hidden;border-radius:26px;background:#ff5a1f;color:#07182b}.hero-art:before{content:"IAC";position:absolute;z-index:-1;right:-14px;top:-65px;color:#ffd23f;font:800 clamp(160px,29vw,300px)/1 "Bricolage Grotesque",Arial,sans-serif;opacity:.92;transform:rotate(-8deg)}.hero-art:after{content:"";position:absolute;z-index:-1;right:8%;top:20px;width:135px;height:135px;border-radius:50%;background:#22e4ff;opacity:.8}.hero-art strong{display:block;max-width:660px;padding:18px 22px;border-radius:16px;background:#06182c;color:#fff7ec;box-shadow:6px 6px 0 #07182b;font:800 clamp(20px,3vw,29px)/1.2 "Bricolage Grotesque",Arial,sans-serif}
-article.article>.body{display:block;float:none;clear:both;width:100%;max-width:760px;min-width:0;margin:0 auto;padding:0;color:#fff7ec}.body p{margin:0 0 24px}.body h2{margin:42px 0 14px;color:#fff7ec;font:800 clamp(26px,3.4vw,35px)/1.14 "Bricolage Grotesque",Arial,sans-serif;letter-spacing:-.025em;scroll-margin-top:94px;text-wrap:pretty}.body h3{margin:28px 0 10px;font-size:22px;line-height:1.3}.body ul,.body ol{margin:0 0 28px;padding-left:24px}.body li{margin:9px 0}.body strong{color:#ffd23f}.body blockquote{margin:30px 0;padding:18px 22px;background:#0c2a4a;border-left:5px solid #ffd23f}.body a,.sources a,.related a{color:#22e4ff;text-decoration:underline;text-underline-offset:3px}
-.article-toc,.quick-answer,.key-takeaways,.visual-explainer,.original-analysis,.note{width:100%;max-width:100%;margin:32px 0;padding:22px 24px;border:2px solid #fff7ec;border-radius:20px;background:#0c2a4a}.article-toc{border-color:rgba(34,228,255,.55);box-shadow:5px 5px 0 #07182b}.article-toc .toc-heading{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:3px 16px;margin-bottom:14px}.article-toc .toc-kicker{grid-column:1/-1;color:#ffd23f;font-size:11px;font-weight:900;letter-spacing:.13em;text-transform:uppercase}.article-toc h2,.key-takeaways h2,.visual-explainer h2,.original-analysis h2{margin:0 0 14px;font:800 clamp(23px,3vw,29px)/1.2 "Bricolage Grotesque",Arial,sans-serif}.article-toc .toc-count{grid-column:2;grid-row:2;color:#a9c4e0;font-size:12px;white-space:nowrap}.article-toc ol{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 24px;margin:0;padding:0 0 0 22px}.article-toc li{break-inside:avoid;margin:0;padding:0;font-size:15px;line-height:1.5}.article-toc li::marker{color:#ffd23f;font-weight:800}.article-toc a{color:#22e4ff;text-decoration-thickness:1px}
-.quick-answer{background:#ffd23f;color:#07182b;border-color:#07182b}.quick-answer strong{color:#07182b;font-family:"Dela Gothic One",Impact,sans-serif;text-transform:uppercase}.key-takeaways{background:rgba(182,255,59,.08);border-color:rgba(182,255,59,.6)}.key-takeaways h2{color:#b6ff3b}.key-takeaways ul{margin:0;padding-left:22px}.key-takeaways li{margin:8px 0}.eyebrow{margin:0 0 8px!important;color:#ffd23f;font-size:11px!important;font-weight:900;letter-spacing:.13em;text-transform:uppercase}.visual-explainer,.original-analysis{background:#0c2a4a;border-color:rgba(169,196,224,.4)}.visual-explainer{box-shadow:5px 5px 0 #07182b;overflow:hidden}.visual-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.visual-grid>div{min-width:0;padding:15px;border:1px solid rgba(169,196,224,.25);border-top:4px solid #ff5a1f;border-radius:14px;background:#06182c}.visual-grid b,.visual-grid span{display:block}.visual-grid b{margin-bottom:7px;color:#fff7ec;font:800 15px/1.35 "Bricolage Grotesque",Arial,sans-serif}.visual-grid span{color:#a9c4e0;font-size:14px;line-height:1.5}.topic-diagram-svg{display:block;width:100%;max-width:100%;height:auto;overflow:visible}.note{background:#22e4ff;color:#07182b;border-color:#07182b;font-weight:600}
-.sources,.related{margin-top:46px;padding-top:10px;border:0;border-top:2px solid #ff5a1f;border-radius:0;background:transparent}.sources h2,.related h2{font:800 29px/1.2 "Bricolage Grotesque",Arial,sans-serif}.sources p{color:#a9c4e0}.related ul{padding-left:24px}.back{display:inline-flex;align-items:center;justify-content:center;margin-top:32px;padding:12px 20px;border:2px solid #fff7ec;border-radius:999px;background:#ffd23f;color:#07182b;font-weight:800;text-decoration:none}.back:hover{background:#22e4ff;color:#07182b;text-decoration:none}
-.article-cover{display:block;width:100%;max-width:100%;margin:0 0 30px;overflow:hidden;border-radius:24px;background:#0c2a4a}.article-cover img{display:block;width:100%;max-width:100%;height:auto;aspect-ratio:16/9;object-fit:cover}.article-cover figcaption{padding:8px 14px;color:#a9c4e0;font-size:13px;line-height:1.4}.article img,.article svg,.article table{max-width:100%}.article table{display:block;overflow-x:auto}.article pre,.article code{max-width:100%;overflow-wrap:anywhere;white-space:pre-wrap}
-/* Match the homepage footer exactly on every article page. */
-.iac-footer{display:block!important;position:relative;float:none!important;clear:both;width:100%;max-width:none;margin:64px 0 0!important;padding:42px 24px 28px!important;background:#06182c!important;color:#fff7ec!important;border-top:4px solid #ff5a1f!important;text-align:center!important;font-family:"Space Grotesk",system-ui,sans-serif!important;font-size:14px!important;line-height:1.6!important;box-sizing:border-box!important}
-.iac-footer *{box-sizing:border-box}
-.iac-footer-inner{width:100%;max-width:1120px;margin:0 auto!important;padding:0!important}
-.iac-footer-brand{display:inline-flex!important;align-items:center;justify-content:center;gap:10px;text-decoration:none!important;color:#fff7ec!important;font-family:"Dela Gothic One",system-ui,sans-serif!important;font-weight:900;font-size:20px;line-height:1.3}
-.iac-footer-brand:first-letter{color:#ff5a1f}
-.iac-footer-brand span{font-size:17px}
-.iac-footer-tagline{margin:12px 0 22px!important;color:#b8cce0!important}
-.iac-footer nav.iac-footer-social,.iac-footer nav.iac-footer-site{width:100%!important;max-width:100%!important;display:flex!important;position:static!important;float:none!important;justify-content:center!important;align-items:center!important;gap:10px 12px!important;flex-wrap:wrap!important;margin:0 auto 18px!important;padding:0!important;border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;text-align:center!important}
-.iac-footer nav.iac-footer-site{gap:8px 18px!important;margin-bottom:0!important;font-size:13px!important}
-.iac-footer a{color:#22e4ff!important;text-decoration:none!important}
-.iac-footer a:hover{color:#ffd23f!important;text-decoration:underline!important}
-.iac-footer-social a{display:inline-flex!important;align-items:center;justify-content:center;min-height:42px;border:1px solid #42617d!important;border-radius:8px!important;padding:8px 15px!important;background:#0c2540!important;color:#22e4ff!important;font-weight:700!important;white-space:nowrap}
-.iac-footer-social a:hover{background:#163753!important;color:#ffd23f!important;border-color:#ffd23f!important}
-.iac-footer-copy{width:100%;max-width:1000px;margin:22px auto 0!important;padding:18px 0 0!important;border-top:1px solid #29425b!important;color:#b8cce0!important;line-height:1.7!important}
-body .iac-footer{background:#06182c!important;color:#fff7ec!important;border-top-color:#ff5a1f!important}
-body .iac-footer a,body .iac-footer-brand{color:#22e4ff!important}
-body .iac-footer-tagline,body .iac-footer-copy{color:#b8cce0!important}
-@media(max-width:760px){body>nav[aria-label="Main navigation"]>.wrap{min-height:62px;gap:10px}body>nav[aria-label="Main navigation"] .menu{display:block;flex:0 0 auto;order:3}body>nav[aria-label="Main navigation"] .btn{display:none}#site-links{display:none;position:absolute;top:100%;left:0;right:0;z-index:60;flex-direction:column;align-items:stretch;gap:0;padding:8px 20px 14px;background:#06182c;border-bottom:3px solid #ff5a1f}body>nav[aria-label="Main navigation"].open #site-links{display:flex}#site-links a{display:block;padding:11px 0}article.article{width:calc(100% - 32px);margin:30px auto 48px}.article h1{font-size:clamp(34px,9vw,52px)}.hero-art{min-height:210px;padding:18px;border-radius:18px}.hero-art:before{font-size:150px;top:-5px}.hero-art:after{width:90px;height:90px;right:5%;top:18px}.hero-art strong{padding:14px 16px;font-size:19px}article.article>.body{width:100%}.article-toc,.quick-answer,.key-takeaways,.visual-explainer,.original-analysis,.note{padding:17px}.article-toc ol,.visual-grid{grid-template-columns:1fr}.article-toc .toc-heading h2{font-size:22px}.article-toc .toc-count{font-size:11px}.visual-explainer{box-shadow:3px 3px 0 #07182b}.body h2{margin-top:34px}.tick div{animation-duration:48s;font-size:17px}footer.iac-footer{margin-top:44px;padding:32px 16px 24px}.iac-footer-brand{flex-wrap:wrap;gap:6px}.iac-footer nav.iac-footer-social{gap:8px}.iac-footer nav.iac-footer-site{gap:10px 14px}}
-@media(max-width:480px){body>nav[aria-label="Main navigation"] .logo .ln{display:none}body>nav[aria-label="Main navigation"]>.wrap{gap:10px}}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.tick div{animation:none}}
-
-
-/* Indian Anime Club palette lock: prevent any inherited Ninth Post theme colors. */
-:root{color-scheme:dark!important;--bg:#06182c!important;--bg2:#0c2a4a!important;--ink:#fff7ec!important;--mute:#a9c4e0!important;--mut:#a9c4e0!important;--dk:#07182b!important;--fire:#ff5a1f!important;--accent:#ff5a1f!important;--cyan:#22e4ff!important;--tc:#22e4ff!important;--sun:#ffd23f!important;--ts:#ffd23f!important;--lime:#b6ff3b!important;--blue:#1f6fff!important;--card:#0c2a4a!important;--violet:#ff5a1f!important;--pink:#22e4ff!important}
-html,body{background:#06182c!important;color:#fff7ec!important}
-.article h1,.body h2,.body h3,.sources h2,.related h2{color:#fff7ec!important}
-.article .tag,.back{background:#ffd23f!important;color:#07182b!important}
-.article .hero-art{background:#ff5a1f!important;color:#07182b!important}
-.article .hero-art:before{color:#ffd23f!important}
-.article .hero-art:after{background:#22e4ff!important}
-.article .author-box,.article .article-toc,.article .visual-explainer,.article .original-analysis,.article .key-takeaways{background:#0c2a4a!important}
-.article .key-takeaways h2,.article .eyebrow{color:#b6ff3b!important}
-.article a,.article .author-box a,.article .body a,.article .sources a,.article .related a{color:#22e4ff!important}
-.tick{display:none!important}
-
-/* Article pages: use the landing page's light cream palette without changing layout. */
+/* Indian Anime Club: single, clean shared article template.
+   Article content is rebuilt here from first principles. The site's established
+   navigation and footer styling is retained, and no homepage selectors are used. */
 :root{
-  color-scheme:light!important;
-  --bg:#fff3e0!important;--bg2:#ffe3c2!important;--ink:#07182b!important;
-  --mute:#3d5f85!important;--mut:#3d5f85!important;--dk:#07182b!important;
-  --fire:#ff5a1f!important;--accent:#ff5a1f!important;--cyan:#006f94!important;
-  --tc:#006f94!important;--sun:#8a5200!important;--ts:#8a5200!important;
-  --lime:#477b00!important;--blue:#1f6fff!important;--card:#ffe3c2!important;
-  --violet:#ff5a1f!important;--pink:#006f94!important;
+  --iac-paper:#fff3e0;--iac-paper-deep:#ffe3c2;--iac-ink:#07182b;
+  --iac-muted:#3d5f85;--iac-navy:#06182c;--iac-navy-2:#0c2a4a;
+  --iac-orange:#ff5a1f;--iac-cyan:#22e4ff;--iac-yellow:#ffd23f;--iac-lime:#b6ff3b;
+  --iac-display:"Bricolage Grotesque","Space Grotesk",system-ui,sans-serif;
+  --iac-body:"DM Sans","Space Grotesk",system-ui,sans-serif;
 }
-html,body{background:#fff3e0!important;color:#07182b!important}
-body>nav[aria-label="Main navigation"]{background:rgba(255,243,224,.96)!important;color:#07182b!important}
-body>nav[aria-label="Main navigation"] .logo,
-#site-links a{color:#07182b!important}
-body>nav[aria-label="Main navigation"] .btn,
-body>nav[aria-label="Main navigation"] .menu{border-color:#07182b!important}
-#site-links{background:#fff3e0!important}
-.article h1,.body h2,.body h3,.sources h2,.related h2{color:#07182b!important}
-.meta span:last-child,.meta .date,.dek,.author-box span,.sources p,.article-cover figcaption{color:#3d5f85!important}
-.author-box,.article-toc,.visual-explainer,.original-analysis,.key-takeaways{background:#ffe3c2!important;color:#07182b!important}
-.article-toc,.visual-explainer,.original-analysis,.key-takeaways{border-color:rgba(7,24,43,.2)!important;box-shadow:none!important}
-.article-toc a,.body a,.sources a,.related a,.author-box a{color:#006f94!important}
-.body strong,.article-toc .toc-kicker,.article-toc li::marker,.eyebrow{color:#8a5200!important}
-.article-toc .toc-count{color:#3d5f85!important}
-.visual-grid>div{background:#fff3e0!important;border-color:rgba(7,24,43,.18)!important}
-.visual-grid b{color:#07182b!important}
-.visual-grid span{color:#3d5f85!important}
-.body blockquote{background:#ffe3c2!important;color:#07182b!important}
-.article-cover{background:#ffe3c2!important}
-.article .key-takeaways h2{color:#477b00!important}
-.article .quick-answer{background:#ffd23f!important;color:#07182b!important}
-.article .note{background:#22e4ff!important;color:#07182b!important}
-.back{border-color:#07182b!important}
-footer.iac-footer{background:#06182c!important;color:#fff7ec!important;border-top-color:#ff5a1f!important}
-.iac-footer-brand,.iac-footer a{color:#22e4ff!important}
-.iac-footer-tagline,.iac-footer .iac-footer-copy{color:#b8cce0!important}
-.tick,.news-scroller,#news-scroller,.news-ticker,#news-ticker,[data-news-scroller]{display:none!important}
+html{scroll-behavior:smooth;scroll-padding-top:92px}
+body:has(article.article){margin:0;background:var(--iac-paper);color:var(--iac-ink);font-family:var(--iac-body);font-size:16px;line-height:1.7;overflow-x:clip}
+body:has(article.article) *{box-sizing:border-box}
+body:has(article.article) a{color:#086b83;text-underline-offset:3px}
+body:has(article.article) a:hover{color:#b84214}
+body:has(article.article) :focus-visible{outline:3px solid var(--iac-orange);outline-offset:3px}
 
-/* Final article-page override: force the light landing-page palette across the full page. */
-html:has(body article.article),
-html:has(body article.article) body,
-html:has(body article.article) body main,
-html:has(body article.article) body main.wrap,
-html:has(body article.article) body article.article,
-html:has(body article.article) body article.article>.body{
-  background:#fff3e0!important;
-  color:#07182b!important;
-  color-scheme:light!important;
-}
-html:has(body article.article) body article.article :is(p,li,span:not(.tag),h1,h2,h3,h4,strong,blockquote,figcaption){
-  color:#07182b!important;
-}
-html:has(body article.article) body article.article :is(.dek,.date,.author-box span,.sources p,.article-cover figcaption,.visual-grid span,.article-toc .toc-count){
-  color:#3d5f85!important;
-}
-html:has(body article.article) body article.article :is(.author-box,.article-toc,.visual-explainer,.original-analysis,.key-takeaways,.body blockquote,.visual-grid>div){
-  background:#ffe3c2!important;
-}
-html:has(body article.article) body article.article :is(.body a,.sources a,.related a,.article-toc a,.author-box a){
-  color:#006f94!important;
-}
-html:has(body article.article) body article.article .hero-art,
-html:has(body article.article) body article.article .hero-art strong{color:#fff7ec!important}
-html:has(body article.article) body article.article .hero-art strong{background:#06182c!important}
-html:has(body article.article) body .tick{display:none!important;visibility:hidden!important;height:0!important;overflow:hidden!important}
+/* Keep the existing site navigation visually aligned with the homepage. */
+body>nav[aria-label="Main navigation"]{position:sticky;top:env(safe-area-inset-top,0px);z-index:1000;width:100%;margin:0;background:rgba(255,243,224,.96);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:3px solid var(--iac-orange);color:var(--iac-ink);font-family:"Space Grotesk",system-ui,sans-serif}
+body>nav[aria-label="Main navigation"]>.wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;width:100%;max-width:1120px;min-height:64px;margin:0 auto;padding:0 20px}
+body>nav[aria-label="Main navigation"] .logo{display:flex;align-items:center;gap:9px;color:var(--iac-ink);font:400 19px/1.2 "Dela Gothic One",Impact,sans-serif;text-decoration:none;white-space:nowrap}
+body>nav[aria-label="Main navigation"] .logo b{display:inline-block;padding:3px 8px;background:var(--iac-orange);color:var(--iac-ink);font-weight:400;transform:rotate(-4deg)}
+body>nav[aria-label="Main navigation"] ul{display:flex;align-items:center;gap:20px;list-style:none;margin:0;padding:0}
+body>nav[aria-label="Main navigation"] ul a{color:var(--iac-ink);font-size:14px;font-weight:600;text-decoration:none}
+body>nav[aria-label="Main navigation"] ul a:hover{color:#b84214}
+body>nav[aria-label="Main navigation"] .btn{display:inline-flex;align-items:center;padding:8px 16px;background:var(--iac-yellow);color:var(--iac-ink);border:2px solid var(--iac-ink);font:400 14px "Dela Gothic One",Impact,sans-serif;text-decoration:none;white-space:nowrap;box-shadow:4px 4px 0 var(--iac-orange)}
+body>nav[aria-label="Main navigation"] .menu{display:none;width:42px;height:42px;background:var(--iac-yellow);color:var(--iac-ink);border:2px solid var(--iac-ink);font-size:22px;cursor:pointer}
+body:has(article.article) .tick{display:none!important}
+body:has(article.article) main.wrap{display:block;width:100%;max-width:none;margin:0;padding:0}
 
+/* Hero: one centered editorial column, not a stretched full-width banner. */
+body:has(article.article) article.article{display:block;width:100%;max-width:none;min-width:0;margin:0 auto 72px;padding:0;float:none;clear:both;overflow:visible}
+body:has(article.article) .article-hero{display:block;width:min(900px,calc(100% - 40px));max-width:900px;min-width:0;margin:0 auto;padding:clamp(34px,5vw,58px) 0 0;background:transparent;color:var(--iac-ink)}
+body:has(article.article) .article-hero .meta{display:flex;align-items:center;flex-wrap:wrap;gap:8px 12px;margin:0 0 18px}
+body:has(article.article) .article-hero .tag{display:inline-flex;align-items:center;padding:6px 12px;border:1px solid var(--iac-ink);border-radius:999px;background:var(--iac-yellow);color:var(--iac-ink);font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase}
+body:has(article.article) .article-hero .date{color:var(--iac-muted);font-size:13px}
+body:has(article.article) .article-hero h1{max-width:15ch;margin:0;color:var(--iac-ink);font-family:var(--iac-display);font-size:clamp(38px,5.7vw,68px);font-weight:800;line-height:1.04;letter-spacing:-.045em;text-wrap:balance;overflow-wrap:anywhere}
+body:has(article.article) .article-hero .dek{max-width:68ch;margin:18px 0 0;color:var(--iac-muted);font-size:clamp(18px,2vw,21px);line-height:1.62}
+body:has(article.article) .article-hero .author-box{display:flex;align-items:center;flex-wrap:wrap;gap:6px 12px;margin:22px 0 24px;padding:14px 17px;border:1px solid #ead9c2;border-left:4px solid var(--iac-orange);border-radius:0 10px 10px 0;background:#fffaf2;color:#29445b;box-shadow:none}
+body:has(article.article) .article-hero .author-box strong{font-weight:800}
+body:has(article.article) .article-hero .author-box a{color:#086b83;font-weight:700}
+body:has(article.article) .article-hero .author-box span{color:#526b80;font-size:13px}
+body:has(article.article) .article-hero .hero-art{position:relative;isolation:isolate;display:flex;align-items:flex-end;min-height:clamp(190px,25vw,270px);width:100%;margin:24px 0 0;padding:clamp(20px,4vw,36px);overflow:hidden;border:2px solid var(--iac-ink);border-radius:18px;background:var(--iac-orange);color:var(--iac-ink);box-shadow:6px 6px 0 var(--iac-ink)}
+body:has(article.article) .article-hero .hero-art:before{content:"IAC";position:absolute;z-index:-1;right:-8px;top:-42px;color:var(--iac-yellow);font:800 clamp(130px,22vw,250px)/1 var(--iac-display);opacity:.9;transform:rotate(-8deg)}
+body:has(article.article) .article-hero .hero-art:after{content:"";position:absolute;z-index:-1;right:8%;top:18px;width:clamp(65px,12vw,120px);aspect-ratio:1;border-radius:50%;background:var(--iac-cyan);opacity:.9}
+body:has(article.article) .article-hero .hero-art strong{display:block;max-width:650px;padding:15px 18px;border-radius:10px;background:var(--iac-navy);color:#fff7ec;box-shadow:4px 4px 0 var(--iac-ink);font:800 clamp(19px,2.7vw,28px)/1.22 var(--iac-display)}
 
-/* Pilot article refinement: Ninth Post reading hierarchy, Indian Anime Club colours. */
-body.iac-article-pilot article.article{
-  width:min(900px,calc(100% - 40px));
-  margin:clamp(28px,5vw,60px) auto 76px;
-}
-body.iac-article-pilot article.article .meta{gap:10px 12px;margin-bottom:20px}
-body.iac-article-pilot article.article .tag{
-  border:1px solid #07182b;border-radius:999px;padding:7px 13px;
-  background:#ffd23f;color:#07182b;font-size:12px;letter-spacing:.055em;text-transform:uppercase
-}
-body.iac-article-pilot article.article h1{
-  max-width:15ch;font-size:clamp(38px,6.2vw,70px);line-height:1.04;
-  letter-spacing:-.045em;color:#07182b;text-wrap:balance
-}
-body.iac-article-pilot article.article .dek{
-  max-width:68ch;margin-top:20px;font-size:clamp(18px,2.1vw,21px);
-  line-height:1.65;color:#3d5f85
-}
-body.iac-article-pilot article.article .author-box{
-  margin:24px 0 28px;padding:16px 20px;background:#fffaf1;
-  border:1px solid rgba(7,24,43,.15);border-left:5px solid #ff5a1f;border-radius:0 14px 14px 0;
-  box-shadow:0 5px 16px rgba(7,24,43,.05)
-}
-body.iac-article-pilot article.article .hero-art{
-  min-height:clamp(210px,29vw,300px);margin:28px 0 34px;padding:clamp(22px,4vw,38px);
-  border:2px solid #07182b;border-radius:24px;background:#ff5a1f;
-  box-shadow:7px 7px 0 #07182b
-}
-body.iac-article-pilot article.article .hero-art:before{font-size:clamp(170px,28vw,290px);right:-12px;top:-58px}
-body.iac-article-pilot article.article .hero-art:after{width:clamp(80px,14vw,135px);height:clamp(80px,14vw,135px)}
-body.iac-article-pilot article.article .hero-art strong{
-  max-width:19ch;padding:18px 20px;border:2px solid #07182b;border-radius:14px;
-  background:#06182c;color:#fff7ec;box-shadow:5px 5px 0 #ffd23f;
-  font-size:clamp(20px,3vw,30px);line-height:1.18
-}
-body.iac-article-pilot article.article>.body{
-  max-width:740px;font-size:18px;line-height:1.82;color:#14243a
-}
-body.iac-article-pilot article.article .body p{margin:0 0 23px}
-body.iac-article-pilot article.article .body h2{
-  margin:44px 0 15px;font-size:clamp(26px,3.2vw,34px);line-height:1.16;
-  letter-spacing:-.028em;color:#07182b;scroll-margin-top:100px
-}
-body.iac-article-pilot article.article .body h3{margin:30px 0 12px;color:#07182b;line-height:1.3}
-body.iac-article-pilot article.article .body ul,
-body.iac-article-pilot article.article .body ol{padding-left:25px;margin:0 0 28px}
-body.iac-article-pilot article.article .body li{padding-left:3px;margin:10px 0}
-body.iac-article-pilot article.article .body strong{color:#8a3c16}
-body.iac-article-pilot article.article .quick-answer,
-body.iac-article-pilot article.article .key-takeaways,
-body.iac-article-pilot article.article .article-toc,
-body.iac-article-pilot article.article .visual-explainer,
-body.iac-article-pilot article.article .original-analysis,
-body.iac-article-pilot article.article .note{
-  width:100%;max-width:100%;margin:28px 0;padding:clamp(18px,3vw,25px);
-  border:1px solid rgba(7,24,43,.17);border-radius:18px;box-shadow:5px 5px 0 rgba(7,24,43,.10);
-  overflow-wrap:anywhere
-}
-body.iac-article-pilot article.article .quick-answer{
-  background:#fff0cf;border-left:6px solid #ff5a1f;color:#14243a
-}
-body.iac-article-pilot article.article .quick-answer h2{margin:0 0 10px;font-size:24px}
-body.iac-article-pilot article.article .quick-answer p:last-child{margin-bottom:0}
-body.iac-article-pilot article.article .key-takeaways{background:#e9f7ff;border-left:6px solid #1685b0}
-body.iac-article-pilot article.article .key-takeaways h2{margin:0 0 12px;color:#07182b}
-body.iac-article-pilot article.article .key-takeaways ul{margin:0}
-body.iac-article-pilot article.article .article-toc{background:#fffaf1;border-left:6px solid #1685b0}
-body.iac-article-pilot article.article .article-toc .toc-heading{
-  display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:5px 14px;margin-bottom:14px
-}
-body.iac-article-pilot article.article .article-toc .toc-kicker{
-  grid-column:1/-1;color:#b8431a;font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase
-}
-body.iac-article-pilot article.article .article-toc h2{margin:0;font-size:25px;color:#07182b}
-body.iac-article-pilot article.article .article-toc .toc-count{grid-column:2;grid-row:2;color:#536b86;font-size:12px;white-space:nowrap}
-body.iac-article-pilot article.article .article-toc ol{
-  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px 24px;margin:0;padding-left:23px
-}
-body.iac-article-pilot article.article .article-toc li{min-width:0;margin:0;padding:3px 0;font-size:15px;line-height:1.5;overflow-wrap:anywhere}
-body.iac-article-pilot article.article .article-toc li::marker{color:#ff5a1f;font-weight:800}
-body.iac-article-pilot article.article .article-toc a,
-body.iac-article-pilot article.article .body a,
-body.iac-article-pilot article.article .sources a,
-body.iac-article-pilot article.article .related a{color:#006f94;text-decoration-thickness:1px;text-underline-offset:3px}
-body.iac-article-pilot article.article .visual-explainer{
-  background:#eaf8f5;border-top:4px solid #168b79
-}
-body.iac-article-pilot article.article .visual-explainer .eyebrow{
-  margin:0 0 8px;color:#087b6b;font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase
-}
-body.iac-article-pilot article.article .visual-explainer h2{margin:0 0 16px;font-size:clamp(23px,3vw,29px)}
-body.iac-article-pilot article.article .visual-grid{
-  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px
-}
-body.iac-article-pilot article.article .visual-grid>div{
-  display:flex;flex-direction:column;gap:7px;min-width:0;padding:16px;
-  border:1px solid rgba(7,24,43,.14);border-top:4px solid #ff5a1f;border-radius:12px;
-  background:#fffaf1;overflow-wrap:anywhere
-}
-body.iac-article-pilot article.article .visual-grid>div:nth-child(2){border-top-color:#1685b0}
-body.iac-article-pilot article.article .visual-grid>div:nth-child(3){border-top-color:#168b79}
-body.iac-article-pilot article.article .visual-grid>div:nth-child(4){border-top-color:#8a62c6}
-body.iac-article-pilot article.article .visual-grid b{color:#07182b;font-size:16px;line-height:1.35}
-body.iac-article-pilot article.article .visual-grid span{color:#3d5f85;font-size:15px;line-height:1.55}
-body.iac-article-pilot article.article .sources,
-body.iac-article-pilot article.article .related{
-  margin:48px 0 0;padding:24px 0 0;border-top:2px solid rgba(7,24,43,.18)
-}
-body.iac-article-pilot article.article .sources h2,
-body.iac-article-pilot article.article .related h2{margin:0 0 15px;font-size:clamp(24px,3vw,30px)}
-body.iac-article-pilot article.article .sources p{color:#3d5f85}
-body.iac-article-pilot article.article .sources ul{padding-left:23px}
-body.iac-article-pilot article.article .related ul{
-  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;
-  margin:0;padding:0;list-style:none
-}
-body.iac-article-pilot article.article .related li{
-  min-width:0;margin:0;padding:18px;border:1px solid rgba(7,24,43,.17);
-  border-radius:14px;background:#fffaf1;box-shadow:4px 4px 0 rgba(7,24,43,.09);
-  overflow-wrap:anywhere
-}
-body.iac-article-pilot article.article .related a{font-weight:800;line-height:1.5}
-body.iac-article-pilot article.article .back{
-  display:inline-flex;align-items:center;gap:8px;margin-top:34px;padding:12px 18px;
-  border:2px solid #07182b;border-radius:999px;background:#06182c;color:#fff7ec
-}
-@media(max-width:640px){
-  body.iac-article-pilot article.article{width:calc(100% - 32px);margin-top:28px}
-  body.iac-article-pilot article.article h1{font-size:clamp(35px,10vw,48px);line-height:1.06}
-  body.iac-article-pilot article.article>.body{font-size:17px;line-height:1.78}
-  body.iac-article-pilot article.article .article-toc ol,
-  body.iac-article-pilot article.article .visual-grid,
-  body.iac-article-pilot article.article .related ul{grid-template-columns:minmax(0,1fr)}
-  body.iac-article-pilot article.article .article-toc .toc-heading{grid-template-columns:minmax(0,1fr)}
-  body.iac-article-pilot article.article .article-toc .toc-count{grid-column:1;grid-row:auto}
-  body.iac-article-pilot article.article .hero-art{min-height:200px;box-shadow:5px 5px 0 #07182b}
-  body.iac-article-pilot article.article .hero-art strong{max-width:100%}
-}
-body.iac-article-pilot article.article .original-analysis{
-  background:#fff0e8;border-top:4px solid #ff5a1f
-}
-body.iac-article-pilot article.article .original-analysis .eyebrow{
-  margin:0 0 8px;color:#b8431a;font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase
-}
-body.iac-article-pilot article.article .original-analysis h2{margin:0 0 12px}
-body.iac-article-pilot article.article .original-analysis p:last-child{margin-bottom:0}
-body.iac-article-pilot article.article .note{
-  background:#e7f7ff;border-left:6px solid #1685b0;color:#14243a
-}
-body.iac-article-pilot article.article .note strong{color:#075b7b}
-@media(prefers-reduced-motion:reduce){
-  body.iac-article-pilot article.article *{scroll-behavior:auto}
-}
+/* Reading area: a restrained sticky contents rail beside one readable text column. */
+body:has(article.article) .article-reading-layout{display:grid;grid-template-columns:230px minmax(0,720px);align-items:start;gap:clamp(28px,5vw,64px);width:min(1060px,calc(100% - 40px));max-width:1060px;margin:0 auto;padding:42px 0 20px}
+body:has(article.article) .article-sidebar{position:sticky;top:88px;min-width:0;max-height:calc(100vh - 110px);overflow:auto}
+body:has(article.article) .article-prose{width:100%;max-width:720px;min-width:0;margin:0;padding:0;color:#273f54;font-size:16.5px;line-height:1.82;overflow-wrap:anywhere}
+body:has(article.article) .article-prose>*{max-width:100%;min-width:0}
+body:has(article.article) .article-prose p{margin:0 0 17px;color:#344f65}
+body:has(article.article) .article-prose strong{color:#102b42;font-weight:800}
+body:has(article.article) .article-prose h2{margin:34px 0 12px;padding-top:20px;border-top:1px solid #eadbc8;color:var(--iac-ink);font:800 clamp(23px,2.7vw,30px)/1.2 var(--iac-display);letter-spacing:-.025em;scroll-margin-top:96px}
+body:has(article.article) .article-prose h3{margin:24px 0 9px;color:var(--iac-ink);font:800 20px/1.3 var(--iac-display);scroll-margin-top:96px}
+body:has(article.article) .article-prose ul,body:has(article.article) .article-prose ol{margin:0 0 22px;padding-left:23px}
+body:has(article.article) .article-prose li{margin:7px 0;color:#344f65}
+body:has(article.article) .article-prose blockquote{margin:24px 0;padding:16px 20px;border-left:4px solid var(--iac-yellow);border-radius:0 10px 10px 0;background:#fffaf2;color:#344f65}
+body:has(article.article) .article-prose img,body:has(article.article) .article-prose svg{max-width:100%;height:auto}
+body:has(article.article) .article-prose table{display:block;max-width:100%;overflow-x:auto;border-collapse:collapse}
+body:has(article.article) .article-prose th,body:has(article.article) .article-prose td{padding:10px 12px;border:1px solid #e3d3bd;text-align:left;vertical-align:top}
+body:has(article.article) .article-prose th{background:#ffe3c2;color:var(--iac-ink)}
 
+/* TOC is the only persistent sidebar card. */
+body:has(article.article) .article-toc{display:block;width:100%;margin:0;padding:18px;border:1px solid #d8e5e6;border-top:4px solid #1685a5;border-radius:12px;background:#edf7f7;color:#24394d}
+body:has(article.article) .article-toc .toc-heading{margin:0 0 10px}
+body:has(article.article) .article-toc .toc-kicker,body:has(article.article) .article-prose .eyebrow{display:block;margin:0 0 7px;color:#176b7a;font-size:10px;font-weight:850;letter-spacing:.13em;text-transform:uppercase}
+body:has(article.article) .article-toc h2{margin:0 0 8px;padding:0;border:0;color:var(--iac-ink);font:800 20px/1.2 var(--iac-display)}
+body:has(article.article) .article-toc .toc-count{color:#5b7181;font-size:12px}
+body:has(article.article) .article-toc ol{margin:0;padding:0;list-style:none;counter-reset:toc}
+body:has(article.article) .article-toc li{margin:0;border-top:1px solid #d7e6e7;counter-increment:toc}
+body:has(article.article) .article-toc li a{display:block;padding:8px 0;color:#34566b;font-size:12.5px;line-height:1.45;text-decoration:none;overflow-wrap:anywhere}
+body:has(article.article) .article-toc li a:before{content:counter(toc,decimal-leading-zero) " ";color:#1685a5;font-weight:800;margin-right:5px}
+body:has(article.article) .article-toc li a:hover{color:#b84214}
 
-/* FINAL ARTICLE LAYOUT FALLBACK
-   Keep this layout in the article's own stylesheet, which is loaded directly by
-   every article. The shared shell stylesheet contains the matching site-wide rules. */
-html body:has(article.article) main.wrap {
-  width:100% !important;
-  max-width:none !important;
-  margin:0 !important;
-  padding:0 !important;
-  background:#fffdf8 !important;
-}
-html body:has(article.article) article.article {
-  display:block !important;
-  float:none !important;
-  width:100% !important;
-  max-width:none !important;
-  min-width:0 !important;
-  margin:0 !important;
-  padding:0 !important;
-  background:#fffdf8 !important;
-  color:#27384a !important;
-  overflow-wrap:anywhere !important;
-}
-html body:has(article.article) article.article > .article-hero {
-  display:flex !important;
-  flex-direction:column !important;
-  align-items:stretch !important;
-  width:100% !important;
-  max-width:none !important;
-  box-sizing:border-box !important;
-  margin:0 !important;
-  padding:clamp(40px,6vw,72px) 0 34px !important;
-  background:linear-gradient(115deg,#fff3e0 0%,#fffaf1 58%,#e7f7fb 100%) !important;
-  border-bottom:1px solid #eadac5 !important;
-}
-html body:has(article.article) article.article > .article-hero > :is(.meta,h1,.dek,.author-box,.hero-art) {
-  box-sizing:border-box !important;
-  width:min(1120px,calc(100% - 40px)) !important;
-  max-width:1120px !important;
-  min-width:0 !important;
-  margin-left:auto !important;
-  margin-right:auto !important;
-}
-html body:has(article.article) article.article > .article-hero > .meta {
-  display:flex !important;
-  align-items:center !important;
-  flex-wrap:wrap !important;
-  gap:9px 12px !important;
-  margin-top:0 !important;
-  margin-bottom:19px !important;
-}
-html body:has(article.article) article.article > .article-hero > h1 {
-  display:block !important;
-  margin-top:0 !important;
-  margin-bottom:0 !important;
-  padding:0 !important;
-  color:#07182b !important;
-  font-family:"Bricolage Grotesque","Space Grotesk",system-ui,sans-serif !important;
-  font-size:clamp(39px,6vw,70px) !important;
-  font-weight:800 !important;
-  line-height:1.04 !important;
-  letter-spacing:-.045em !important;
-  text-wrap:balance !important;
-}
-html body:has(article.article) article.article > .article-hero > .dek {
-  max-width:780px !important;
-  margin-top:19px !important;
-  margin-bottom:0 !important;
-  color:#425b72 !important;
-  font-size:clamp(17px,2vw,20px) !important;
-  line-height:1.7 !important;
-}
-html body:has(article.article) article.article > .article-hero > .author-box {
-  display:flex !important;
-  align-items:flex-start !important;
-  flex-wrap:wrap !important;
-  gap:7px 14px !important;
-  margin-top:22px !important;
-  margin-bottom:0 !important;
-  padding:13px 16px !important;
-  background:#edf7fa !important;
-  border:1px solid #d8e9ed !important;
-  border-left:4px solid #1685a5 !important;
-  border-radius:0 11px 11px 0 !important;
-  box-shadow:none !important;
-  color:#24394d !important;
-}
-html body:has(article.article) article.article > .article-hero > .hero-art {
-  display:flex !important;
-  align-items:flex-end !important;
-  min-height:clamp(150px,20vw,220px) !important;
-  margin-top:22px !important;
-  margin-bottom:0 !important;
-  padding:clamp(16px,3vw,27px) !important;
-  background:linear-gradient(115deg,#fff4d9 0%,#f4f9f8 100%) !important;
-  border:1px solid #e5d8c4 !important;
-  border-radius:14px !important;
-  box-shadow:none !important;
-  overflow:hidden !important;
-}
-html body:has(article.article) article.article .article-reading-layout {
-  display:grid !important;
-  grid-template-columns:minmax(225px,265px) minmax(0,780px) !important;
-  align-items:start !important;
-  justify-content:center !important;
-  gap:clamp(22px,3.8vw,42px) !important;
-  width:min(1120px,calc(100% - 40px)) !important;
-  max-width:1120px !important;
-  min-width:0 !important;
-  margin:0 auto !important;
-  padding:36px 0 76px !important;
-}
-html body:has(article.article) article.article .article-sidebar {
-  display:block !important;
-  position:sticky !important;
-  top:90px !important;
-  align-self:start !important;
-  box-sizing:border-box !important;
-  width:100% !important;
-  min-width:0 !important;
-  margin:0 !important;
-  padding:0 !important;
-  background:transparent !important;
-}
-html body:has(article.article) article.article .article-sidebar > .article-toc {
-  display:block !important;
-  box-sizing:border-box !important;
-  width:100% !important;
-  max-width:100% !important;
-  min-width:0 !important;
-  height:auto !important;
-  max-height:none !important;
-  margin:0 !important;
-  padding:20px !important;
-  background:#edf7fa !important;
-  border:1px solid #d8e9ed !important;
-  border-top:4px solid #1685a5 !important;
-  border-radius:14px !important;
-  box-shadow:none !important;
-  color:#24394d !important;
-  overflow-wrap:anywhere !important;
-}
-html body:has(article.article) article.article .article-sidebar .article-toc .toc-heading {
-  display:block !important;
-  margin:0 0 10px !important;
-}
-html body:has(article.article) article.article .article-sidebar .article-toc .toc-kicker {
-  display:block !important;
-  margin:0 0 8px !important;
-  color:#176b7a !important;
-  font-size:10px !important;
-  font-weight:850 !important;
-  letter-spacing:.14em !important;
-}
-html body:has(article.article) article.article .article-sidebar .article-toc h2 {
-  margin:0 0 9px !important;
-  padding:0 !important;
-  border:0 !important;
-  color:#102b42 !important;
-  font-family:"Space Grotesk","Segoe UI",system-ui,sans-serif !important;
-  font-size:21px !important;
-  line-height:1.2 !important;
-  letter-spacing:-.025em !important;
-}
-html body:has(article.article) article.article .article-sidebar .article-toc .toc-count {
-  display:block !important;
-  margin:5px 0 0 !important;
-  color:#617889 !important;
-  font-size:12px !important;
-}
-html body:has(article.article) article.article .article-sidebar .article-toc ol {
-  display:block !important;
-  margin:8px 0 0 !important;
-  padding-left:19px !important;
-}
-html body:has(article.article) article.article .article-sidebar .article-toc li {
-  min-width:0 !important;
-  margin:6px 0 !important;
-  padding:0 !important;
-  color:#496174 !important;
-  font-size:14px !important;
-  line-height:1.6 !important;
-  overflow-wrap:anywhere !important;
-}
-html body:has(article.article) article.article .article-sidebar .article-toc li::marker {
-  color:#1685a5 !important;
-  font-weight:800 !important;
-}
-html body:has(article.article) article.article .article-sidebar .article-toc a {
-  display:inline !important;
-  color:#075f7b !important;
-  font-size:14px !important;
-  line-height:1.6 !important;
-  font-weight:750 !important;
-  text-decoration-thickness:1px !important;
-  text-underline-offset:3px !important;
-  overflow-wrap:anywhere !important;
-  white-space:normal !important;
-}
-html body:has(article.article) article.article .article-prose {
-  display:block !important;
-  width:100% !important;
-  max-width:780px !important;
-  min-width:0 !important;
-  margin:0 !important;
-  padding:0 !important;
-  color:#27384a !important;
-  font-size:16.5px !important;
-  line-height:1.8 !important;
-}
-html body:has(article.article) article.article .article-prose > :is(.quick-answer,.key-takeaways) {
-  display:block !important;
-  box-sizing:border-box !important;
-  width:100% !important;
-  max-width:100% !important;
-  min-width:0 !important;
-  margin:0 0 20px !important;
-  padding:18px 20px !important;
-  border:1px solid #e8dfd2 !important;
-  border-left:4px solid #df9f25 !important;
-  border-radius:0 12px 12px 0 !important;
-  background:#fff4d9 !important;
-  box-shadow:none !important;
-  color:#42566a !important;
-  overflow-wrap:anywhere !important;
-}
-html body:has(article.article) article.article .article-prose > .key-takeaways {
-  border-color:#e8dfd2 !important;
-  border-left-color:#e2a04c !important;
-  background:#fffaf2 !important;
-}
-html body:has(article.article) article.article .article-prose > :is(.quick-answer,.key-takeaways) > h2 {
-  margin:0 0 10px !important;
-  padding:0 !important;
-  border:0 !important;
-  color:#102b42 !important;
-  font-family:"Space Grotesk","Segoe UI",system-ui,sans-serif !important;
-  font-size:21px !important;
-  font-weight:800 !important;
-  line-height:1.25 !important;
-}
-html body:has(article.article) article.article .article-prose > :is(.quick-answer,.key-takeaways) p,
-html body:has(article.article) article.article .article-prose > .key-takeaways li {
-  color:#496174 !important;
-  font-size:15px !important;
-  line-height:1.7 !important;
-}
-html body:has(article.article) article.article .article-prose > :is(.quick-answer,.key-takeaways) p:last-child {
-  margin-bottom:0 !important;
-}
-html body:has(article.article) article.article .article-prose > .key-takeaways ul {
-  margin:0 !important;
-  padding-left:21px !important;
-}
-html body:has(article.article) article.article .article-prose > .key-takeaways li {
-  margin:6px 0 !important;
-}
-html body:has(article.article) article.article .article-prose > section:not(.quick-answer,.key-takeaways,.visual-explainer,.original-analysis,.note,.sources,.related) {
-  display:block !important;
-  width:100% !important;
-  max-width:100% !important;
-  margin:0 !important;
-  padding:0 !important;
-  border:0 !important;
-  border-radius:0 !important;
-  background:transparent !important;
-  box-shadow:none !important;
-}
-html body:has(article.article) article.article .article-prose > section:not(.quick-answer,.key-takeaways,.visual-explainer,.original-analysis,.note,.sources,.related) > h2 {
-  margin:27px 0 10px !important;
-  padding:18px 0 0 !important;
-  border-top:1px solid #eee5d8 !important;
-  color:#102b42 !important;
-  font-family:"Space Grotesk","Segoe UI",system-ui,sans-serif !important;
-  font-size:clamp(22px,2.4vw,27px) !important;
-  font-weight:800 !important;
-  line-height:1.22 !important;
-  letter-spacing:-.03em !important;
-}
-html body:has(article.article) article.article .article-prose > section:not(.quick-answer,.key-takeaways,.visual-explainer,.original-analysis,.note,.sources,.related) > h2:first-child {
-  margin-top:0 !important;
-}
-html body:has(article.article) article.article .article-prose :is(p,li) {
-  color:#42566a !important;
-  font-size:16.5px !important;
-  line-height:1.82 !important;
-}
-html body:has(article.article) article.article .article-prose p { margin:0 0 16px !important; }
-html body:has(article.article) article.article .article-prose li { margin:7px 0 !important; }
-html body:has(article.article) article.article .article-prose > .visual-explainer,
-html body:has(article.article) article.article .article-prose > .original-analysis,
-html body:has(article.article) article.article .article-prose > .note {
-  display:block !important;
-  box-sizing:border-box !important;
-  width:100% !important;
-  max-width:100% !important;
-  min-width:0 !important;
-  height:auto !important;
-  min-height:0 !important;
-  margin:25px 0 !important;
-  padding:18px !important;
-  border:1px solid #e8dfd2 !important;
-  border-top:4px solid #1685a5 !important;
-  border-radius:12px !important;
-  background:#edf7fa !important;
-  box-shadow:none !important;
-  color:#42566a !important;
-  overflow-wrap:anywhere !important;
-}
-html body:has(article.article) article.article .article-prose > .visual-explainer {
-  background:#edf7f2 !important;
-  border-color:#dce9e0 !important;
-  border-top-color:#3b8c78 !important;
-}
-html body:has(article.article) article.article .article-prose > .original-analysis {
-  background:#fffaf2 !important;
-  border-color:#e8dfd2 !important;
-  border-top-color:#e2a04c !important;
-}
-html body:has(article.article) article.article .article-prose > .note {
-  background:#edf7fa !important;
-  border-color:#d8e9ed !important;
-  border-top-color:#1685a5 !important;
-}
-html body:has(article.article) article.article .article-prose > :is(.visual-explainer,.original-analysis,.note) h2 {
-  margin:0 0 11px !important;
-  padding:0 !important;
-  border:0 !important;
-  color:#102b42 !important;
-  font-family:"Space Grotesk","Segoe UI",system-ui,sans-serif !important;
-  font-size:21px !important;
-  line-height:1.25 !important;
-  font-weight:800 !important;
-}
-html body:has(article.article) article.article .article-prose .visual-grid {
-  display:grid !important;
-  grid-template-columns:repeat(2,minmax(0,1fr)) !important;
-  gap:10px !important;
-}
-html body:has(article.article) article.article .article-prose .visual-grid > div {
-  box-sizing:border-box !important;
-  min-width:0 !important;
-  padding:13px !important;
-  border:1px solid #e0e9e3 !important;
-  border-radius:10px !important;
-  border-top:3px solid #e2a04c !important;
-  background:#fffdf8 !important;
-  box-shadow:none !important;
-  overflow-wrap:anywhere !important;
-}
-html body:has(article.article) article.article .article-prose > :is(.sources,.related) {
-  display:block !important;
-  box-sizing:border-box !important;
-  width:100% !important;
-  max-width:100% !important;
-  margin:24px 0 0 !important;
-  padding:13px 14px !important;
-  background:#fffaf2 !important;
-  border:1px solid #e8dfd2 !important;
-  border-top:3px solid #d8bb87 !important;
-  border-radius:11px !important;
-  box-shadow:none !important;
-  overflow-wrap:anywhere !important;
-}
-html body:has(article.article) article.article .article-prose > .related {
-  background:#f4f9f8 !important;
-  border-color:#dce9e6 !important;
-  border-top-color:#8cb9b3 !important;
-}
-html body:has(article.article) article.article .article-prose > :is(.sources,.related) h2 {
-  margin:0 0 7px !important;
-  padding:0 !important;
-  border:0 !important;
-  color:#102b42 !important;
-  font-family:"Space Grotesk","Segoe UI",system-ui,sans-serif !important;
-  font-size:19px !important;
-  line-height:1.25 !important;
-}
-html body:has(article.article) article.article .article-prose .related ul {
-  display:grid !important;
-  grid-template-columns:repeat(2,minmax(0,1fr)) !important;
-  gap:7px !important;
-  margin:0 !important;
-  padding:0 !important;
-  list-style:none !important;
-}
-html body:has(article.article) article.article .article-prose .related li {
-  min-width:0 !important;
-  margin:0 !important;
-  padding:7px 9px !important;
-  background:#fffdf8 !important;
-  border:1px solid #e2ebe8 !important;
-  border-radius:8px !important;
-  box-shadow:none !important;
-  overflow-wrap:anywhere !important;
-}
-html body:has(article.article) article.article .article-prose .related a {
-  color:#176b7a !important;
-  font-size:12.5px !important;
-  line-height:1.4 !important;
-  font-weight:750 !important;
-  white-space:normal !important;
-  overflow-wrap:anywhere !important;
-}
-@media(max-width:760px) {
-  html body:has(article.article) article.article > .article-hero { padding:42px 0 25px !important; }
-  html body:has(article.article) article.article > .article-hero > :is(.meta,h1,.dek,.author-box,.hero-art) { width:calc(100% - 30px) !important; }
-  html body:has(article.article) article.article > .article-hero > h1 { font-size:clamp(36px,9vw,52px) !important; line-height:1.07 !important; }
-  html body:has(article.article) article.article .article-reading-layout {
-    grid-template-columns:minmax(0,1fr) !important;
-    gap:22px !important;
-    width:calc(100% - 30px) !important;
-    padding:25px 0 50px !important;
-  }
-  html body:has(article.article) article.article .article-sidebar { position:static !important; }
-  html body:has(article.article) article.article .article-prose { max-width:none !important; font-size:15.5px !important; line-height:1.78 !important; }
-  html body:has(article.article) article.article .article-prose :is(p,li) { font-size:15.5px !important; line-height:1.78 !important; }
-  html body:has(article.article) article.article .article-prose .visual-grid,
-  html body:has(article.article) article.article .article-prose .related ul { grid-template-columns:minmax(0,1fr) !important; }
-}
+/* Summary panels and visual explainers have a shared, calm component system. */
+body:has(article.article) .article-prose>.quick-answer,body:has(article.article) .article-prose>.key-takeaways{margin:0 0 18px;padding:17px 19px;border:1px solid #eadcc7;border-left:4px solid var(--iac-yellow);border-radius:0 11px 11px 0;background:#fff8e9}
+body:has(article.article) .article-prose>.key-takeaways{border-left-color:var(--iac-orange);background:#fffaf2}
+body:has(article.article) .article-prose>.quick-answer h2,body:has(article.article) .article-prose>.key-takeaways h2{margin:0 0 8px;padding:0;border:0;font-size:21px}
+body:has(article.article) .article-prose>.quick-answer p:last-child,body:has(article.article) .article-prose>.key-takeaways p:last-child{margin-bottom:0}
+body:has(article.article) .article-prose>.key-takeaways ul{margin:0;padding-left:20px}
+body:has(article.article) .article-prose>.visual-explainer,body:has(article.article) .article-prose>.original-analysis,body:has(article.article) .article-prose>.note{margin:24px 0;padding:18px;border:1px solid #d8e9ed;border-top:4px solid #1685a5;border-radius:12px;background:#edf7fa;color:#344f65}
+body:has(article.article) .article-prose>.visual-explainer{background:#edf7f2;border-color:#dce9e0;border-top-color:#3b8c78}
+body:has(article.article) .article-prose>.original-analysis{background:#fffaf2;border-color:#eadcc7;border-top-color:var(--iac-orange)}
+body:has(article.article) .article-prose>.note{background:#edf7fa}
+body:has(article.article) .article-prose>.visual-explainer h2,body:has(article.article) .article-prose>.original-analysis h2,body:has(article.article) .article-prose>.note h2{margin:0 0 10px;padding:0;border:0;font-size:21px}
+body:has(article.article) .article-prose .visual-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+body:has(article.article) .article-prose .visual-grid>div{min-width:0;padding:13px;border:1px solid #dce9e0;border-radius:9px;border-top:3px solid var(--iac-yellow);background:#fffdf8;overflow-wrap:anywhere}
+body:has(article.article) .article-prose .visual-grid b{display:block;margin-bottom:5px;color:var(--iac-ink);font-size:14px}
+body:has(article.article) .article-prose .visual-grid span{display:block;color:#496174;font-size:13.5px;line-height:1.6}
 
+/* End matter and related links. */
+body:has(article.article) .article-prose>.sources,body:has(article.article) .article-prose>.related{margin:24px 0 0;padding:17px 18px;border:1px solid #eadcc7;border-top:3px solid #d8bb87;border-radius:11px;background:#fffaf2}
+body:has(article.article) .article-prose>.related{background:#f4f9f8;border-color:#dce9e6;border-top-color:#8cb9b3}
+body:has(article.article) .article-prose>.sources h2,body:has(article.article) .article-prose>.related h2{margin:0 0 8px;padding:0;border:0;font-size:20px}
+body:has(article.article) .article-prose>.sources p{font-size:14px}
+body:has(article.article) .article-prose>.sources ul{margin:0;padding-left:20px}
+body:has(article.article) .article-prose>.sources li{font-size:14px;line-height:1.6}
+body:has(article.article) .article-prose>.related ul{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin:0;padding:0;list-style:none}
+body:has(article.article) .article-prose>.related li{min-width:0;margin:0;padding:11px;border:1px solid #dce9e6;border-radius:8px;background:#fffdf8}
+body:has(article.article) .article-prose>.related a{color:#176b7a;font-size:13px;font-weight:750;line-height:1.45;text-decoration:none;overflow-wrap:anywhere}
 
-/* Approved IAC article template: let the article shell span the content area
-   so the TOC sidebar and reading column can sit side by side. Keep the hero
-   centered at the same readable width. Scope all changes to article pages;
-   the homepage header and footer are deliberately not targeted. */
-html body:has(article.article) main.wrap > article.article {
-  display:block !important;
-  width:100% !important;
-  max-width:none !important;
-  min-width:0 !important;
-  margin:42px auto 0 !important;
-  padding:0 !important;
-  overflow:visible !important;
-}
-html body:has(article.article) article.article > .article-hero {
-  display:block !important;
-  width:min(900px,calc(100% - 40px)) !important;
-  max-width:900px !important;
-  min-width:0 !important;
-  margin:0 auto !important;
-}
-html body:has(article.article) article.article > .article-reading-layout {
-  width:min(1120px,calc(100% - 40px)) !important;
-  max-width:1120px !important;
-  margin:0 auto !important;
-}
-html body:has(article.article) article.article .article-prose,
-html body:has(article.article) article.article .article-sidebar {
-  min-width:0 !important;
-}
-@media (max-width:760px) {
-  html body:has(article.article) main.wrap > article.article {
-    margin-top:28px !important;
-  }
-  html body:has(article.article) article.article > .article-hero {
-    width:calc(100% - 30px) !important;
-  }
-  html body:has(article.article) article.article > .article-reading-layout {
-    width:calc(100% - 30px) !important;
-    grid-template-columns:minmax(0,1fr) !important;
-    gap:22px !important;
-    padding-top:24px !important;
-  }
-}
+/* Progress is thin and fixed, never part of the article's width calculation. */
+body:has(article.article) .reading-progress{position:fixed;top:0;left:0;right:0;z-index:1200;height:4px;background:transparent;pointer-events:none}
+body:has(article.article) .reading-progress span{display:block;width:0;height:100%;background:linear-gradient(90deg,var(--iac-orange),var(--iac-yellow),var(--iac-lime),var(--iac-cyan));transition:width .08s linear}
+body:has(article.article) footer.iac-footer{margin-top:60px}
 
-
-/* Approved Indian Anime Club article template, shared by every article.
-   Warm editorial canvas and ink contrast; preserve IAC orange/cyan/yellow/lime.
-   These rules only target pages that contain article.article. */
-html body:has(article.article) {
-  background:#fff3e0 !important;
-  color:#07182b !important;
+/* Responsive: collapse the reading grid once the sidebar would crowd the copy. */
+@media(max-width:850px){
+  body>nav[aria-label="Main navigation"]>.wrap{gap:10px}
+  body>nav[aria-label="Main navigation"] ul{gap:12px}
+  body:has(article.article) .article-reading-layout{grid-template-columns:190px minmax(0,1fr);gap:24px;width:calc(100% - 36px)}
 }
-html body:has(article.article) main.wrap {
-  background:#fff3e0 !important;
+@media(max-width:700px){
+  body>nav[aria-label="Main navigation"] .menu{display:block;order:3}
+  body>nav[aria-label="Main navigation"] .btn{margin-left:auto;order:2}
+  body>nav[aria-label="Main navigation"] ul{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:0;padding:8px 20px;background:var(--iac-paper);border-bottom:3px solid var(--iac-orange)}
+  body>nav[aria-label="Main navigation"].open ul{display:flex}
+  body>nav[aria-label="Main navigation"] ul a{display:block;padding:12px 0;border-top:1px solid #eadcc7}
+  body:has(article.article) .article-hero{width:calc(100% - 32px);padding-top:30px}
+  body:has(article.article) .article-hero h1{font-size:clamp(35px,9vw,50px)}
+  body:has(article.article) .article-reading-layout{display:flex;flex-direction:column;gap:24px;width:calc(100% - 32px);padding-top:28px}
+  body:has(article.article) .article-sidebar{position:static;max-height:none;overflow:visible;width:100%}
+  body:has(article.article) .article-prose{max-width:none;font-size:16px;line-height:1.78}
+  body:has(article.article) .article-prose .visual-grid,body:has(article.article) .article-prose>.related ul{grid-template-columns:minmax(0,1fr)}
 }
-html body:has(article.article) article.article > .article-hero {
-  display:block !important;
-  width:min(900px,calc(100% - 40px)) !important;
-  max-width:900px !important;
-  margin:0 auto !important;
-  padding:clamp(34px,5vw,62px) 0 12px !important;
-  background:transparent !important;
-  color:#07182b !important;
+@media(max-width:420px){
+  body>nav[aria-label="Main navigation"] .logo .ln{display:none}
+  body:has(article.article) .article-hero .author-box{display:block}
+  body:has(article.article) .article-hero .author-box>*{display:block;margin:4px 0}
+  body:has(article.article) .article-prose{font-size:15.5px}
 }
-html body:has(article.article) article.article > .article-hero > .meta {
-  display:flex !important;
-  align-items:center !important;
-  flex-wrap:wrap !important;
-  gap:9px 12px !important;
-  margin:0 0 18px !important;
-}
-html body:has(article.article) article.article > .article-hero .tag {
-  display:inline-flex !important;
-  align-items:center !important;
-  border:1px solid #07182b !important;
-  border-radius:999px !important;
-  padding:6px 12px !important;
-  background:#ffd23f !important;
-  color:#07182b !important;
-  font-size:11px !important;
-  font-weight:800 !important;
-  letter-spacing:.06em !important;
-  text-transform:uppercase !important;
-}
-html body:has(article.article) article.article > .article-hero .date {
-  color:#526b80 !important;
-  font-size:13px !important;
-}
-html body:has(article.article) article.article > .article-hero > h1 {
-  width:100% !important;
-  max-width:15ch !important;
-  margin:0 !important;
-  color:#07182b !important;
-  font-family:"Bricolage Grotesque","Space Grotesk",system-ui,sans-serif !important;
-  font-size:clamp(38px,6.2vw,70px) !important;
-  font-weight:800 !important;
-  line-height:1.04 !important;
-  letter-spacing:-.045em !important;
-  text-wrap:balance !important;
-  overflow-wrap:anywhere !important;
-}
-html body:has(article.article) article.article > .article-hero > .dek {
-  max-width:68ch !important;
-  margin:20px 0 0 !important;
-  color:#3d5f85 !important;
-  font-size:clamp(18px,2.1vw,21px) !important;
-  line-height:1.65 !important;
-}
-html body:has(article.article) article.article > .article-hero > .author-box {
-  display:flex !important;
-  flex-wrap:wrap !important;
-  align-items:center !important;
-  gap:6px 12px !important;
-  margin:24px 0 28px !important;
-  padding:15px 18px !important;
-  background:#fffaf1 !important;
-  border:1px solid rgba(7,24,43,.14) !important;
-  border-left:5px solid #ff5a1f !important;
-  border-radius:0 12px 12px 0 !important;
-  box-shadow:0 4px 14px rgba(7,24,43,.04) !important;
-  color:#24394d !important;
-}
-html body:has(article.article) article.article > .article-hero .author-box a {
-  color:#176b7a !important;
-  font-weight:700 !important;
-}
-html body:has(article.article) article.article > .article-hero > .hero-art {
-  width:100% !important;
-  min-height:clamp(210px,29vw,300px) !important;
-  margin:26px 0 0 !important;
-  padding:clamp(22px,4vw,38px) !important;
-  border:2px solid #07182b !important;
-  border-radius:22px !important;
-  background:#ff5a1f !important;
-  color:#07182b !important;
-  box-shadow:7px 7px 0 #07182b !important;
-}
-html body:has(article.article) article.article > .article-hero > .hero-art strong {
-  max-width:660px !important;
-  color:#fff7ec !important;
-  background:#06182c !important;
-}
-html body:has(article.article) article.article .article-prose .eyebrow {
-  color:#176b7a !important;
-  font-size:11px !important;
-  font-weight:850 !important;
-  letter-spacing:.13em !important;
-  text-transform:uppercase !important;
-}
-@media(max-width:760px) {
-  html body:has(article.article) article.article > .article-hero {
-    width:calc(100% - 30px) !important;
-    padding-top:32px !important;
-  }
-  html body:has(article.article) article.article > .article-hero > h1 {
-    font-size:clamp(36px,9vw,52px) !important;
-    line-height:1.07 !important;
-  }
-}
+@media(prefers-reduced-motion:reduce){body:has(article.article) *,body:has(article.article) *:before,body:has(article.article) *:after{scroll-behavior:auto!important;transition:none!important}}
