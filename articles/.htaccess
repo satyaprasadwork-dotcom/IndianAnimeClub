@@ -1,0 +1,6 @@
+# Keep article HTML fresh after GitHub deployments so all clean article URLs use the latest shared template.
+<IfModule mod_headers.c>
+  <FilesMatch "\.html$">
+    Header set Cache-Control "no-cache, must-revalidate, max-age=0"
+  </FilesMatch>
+</IfModule>
