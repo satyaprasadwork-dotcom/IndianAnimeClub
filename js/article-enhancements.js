@@ -291,41 +291,18 @@ const rel=(endMatterBySlug[slug]||[]).filter(s=>articleTitles[s]);
 keep.innerHTML='<h2>Keep reading</h2><ul>'+rel.map(s=>'<li><a href="/'+s+'/">'+escText(articleTitles[s])+'</a></li>').join('')+'</ul>';
 body.appendChild(keep);
 
-/* Build the approved article hero from the legacy direct-child markup.
-   This is the key template migration: styling .article-hero cannot work until
-   the title, metadata, byline and hero art actually live inside that wrapper. */
-const articleRoot=body.closest('article.article');
-if(articleRoot){
-  let hero=articleRoot.querySelector(':scope > .article-hero');
-  if(!hero){
-    hero=document.createElement('header');
-    hero.className='article-hero';
-    const heroNodes=[...articleRoot.children].filter(node=>
-      node.matches('.meta,h1,.dek,.author-box,.hero-art')
-    );
-    if(heroNodes.length){
-      articleRoot.insertBefore(hero,heroNodes[0]);
-      heroNodes.forEach(node=>hero.appendChild(node));
-    }
-  }else{
-    ['.meta','h1','.dek','.author-box','.hero-art'].forEach(selector=>{
-      const node=articleRoot.querySelector(':scope > '+selector);
-      if(node&&node.parentElement!==hero)hero.appendChild(node);
-    });
-  }
-}
-
+/* Hero structure is created once at the start of enhance(). */
 /* Approved article layout: the TOC sidebar and reading column must be
    direct children of article.article, not children of .body. Keeping the
    layout outside .body prevents the old narrow body width from squeezing
    the two-column grid. This migration is idempotent for already-enhanced pages. */
-const articleRoot=body.closest('article.article');
-let layout=articleRoot&&(articleRoot.querySelector(':scope > .article-reading-layout')||body.querySelector(':scope > .article-reading-layout'));
+const root=body.closest('article.article');
+let layout=root&&(root.querySelector(':scope > .article-reading-layout')||body.querySelector(':scope > .article-reading-layout'));
 if(!layout){
   layout=document.createElement('div');
   layout.className='article-reading-layout';
 }
-if(articleRoot&&layout.parentElement!==articleRoot)articleRoot.appendChild(layout);
+if(root&&layout.parentElement!==root)root.appendChild(layout);
 let sidebar=layout.querySelector(':scope > .article-sidebar');
 if(!sidebar){
   sidebar=document.createElement('aside');
@@ -353,7 +330,7 @@ layout.replaceChildren(sidebar,content);
 /* Repair any previous layout where the TOC was nested in the reading column. */
 content.querySelectorAll(':scope > .article-toc').forEach(node=>sidebar.appendChild(node));
 /* A single TOC in the sidebar prevents duplicate navigation cards. */
-const tocNodes=[...articleRoot.querySelectorAll('.article-toc')];
+const tocNodes=[...root.querySelectorAll('.article-toc')];
 tocNodes.forEach(node=>{if(node!==sidebar.querySelector('.article-toc'))node.remove()});
 
 
