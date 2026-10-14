@@ -47,7 +47,7 @@ if(article&&!article.querySelector(':scope > .article-hero')){
   }
   if(hero.children.length)article.insertBefore(hero,bodyNode||article.firstElementChild);
 }
-const body=document.querySelector('article.article > .body');if(!body)return;
+const body=document.querySelector('article.article > .article-prose')||document.querySelector('article.article > .body');if(!body)return;
 const slug=(location.pathname.replace(/\/+$/,'').split('/').pop()||'').replace(/\.html$/i,'').toLowerCase();
 const animeLayout=ANIME_ARTICLE_LAYOUTS[slug];
 let visual=body.querySelector('.visual-explainer');
@@ -92,7 +92,7 @@ const excluded=/^(key takeaways|sources|sources and further reading|related nint
 const seen=new Set();
 const heads=Array.from(body.querySelectorAll('h2')).filter(h=>{if(h.closest('.article-toc,.visual-explainer,.original-analysis,.sources,.related,.key-takeaways,.quick-answer'))return false;const title=h.textContent.trim();if(!title||excluded.test(title))return false;const key=title.toLowerCase();if(seen.has(key))return false;seen.add(key);return true});
 heads.forEach((h,i)=>{if(!h.id||/^section-\d+$/.test(h.id))h.id='article-section-'+(i+1)});
-let nav=body.querySelector('.article-toc');
+let nav=body.querySelector('.article-toc')||(article&&article.querySelector('.article-sidebar .article-toc'));
 if(heads.length>=1){
   if(!nav)nav=document.createElement('nav');
   nav.className='article-toc';nav.setAttribute('aria-label','Table of contents');
