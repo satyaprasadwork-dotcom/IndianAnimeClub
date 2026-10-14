@@ -296,7 +296,7 @@ body.appendChild(keep);
    layout outside .body prevents the old narrow body width from squeezing
    the two-column grid. This migration is idempotent for already-enhanced pages. */
 const articleRoot=body.closest('article.article');
-let layout=articleRoot&&articleRoot.querySelector(':scope > .article-reading-layout');
+let layout=articleRoot&&(articleRoot.querySelector(':scope > .article-reading-layout')||body.querySelector(':scope > .article-reading-layout'));
 if(!layout){
   layout=document.createElement('div');
   layout.className='article-reading-layout';
