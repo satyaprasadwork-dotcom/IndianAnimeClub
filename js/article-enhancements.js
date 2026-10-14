@@ -291,14 +291,17 @@ const rel=(endMatterBySlug[slug]||[]).filter(s=>articleTitles[s]);
 keep.innerHTML='<h2>Keep reading</h2><ul>'+rel.map(s=>'<li><a href="/'+s+'/">'+escText(articleTitles[s])+'</a></li>').join('')+'</ul>';
 body.appendChild(keep);
 
-/* Approved article layout: one TOC card at left; reading content on the right.
-   This is deliberately idempotent so every article reaches the same DOM structure. */
-let layout=body.querySelector(':scope > .article-reading-layout');
+/* Approved article layout: the TOC sidebar and reading column must be
+   direct children of article.article, not children of .body. Keeping the
+   layout outside .body prevents the old narrow body width from squeezing
+   the two-column grid. This migration is idempotent for already-enhanced pages. */
+const articleRoot=body.closest('article.article');
+let layout=articleRoot&&articleRoot.querySelector(':scope > .article-reading-layout');
 if(!layout){
   layout=document.createElement('div');
   layout.className='article-reading-layout';
-  body.appendChild(layout);
 }
+if(articleRoot&&layout.parentElement!==articleRoot)articleRoot.appendChild(layout);
 let sidebar=layout.querySelector(':scope > .article-sidebar');
 if(!sidebar){
   sidebar=document.createElement('aside');
@@ -310,10 +313,14 @@ if(!content){
   content=document.createElement('div');
   content.className='article-prose';
 }
+/* Preserve any existing content when repairing the previous nested layout. */
+const existingContent=[...layout.children].filter(node=>node!==sidebar&&node!==content);
+existingContent.forEach(node=>content.appendChild(node));
 layout.replaceChildren(sidebar,content);
 
-/* Move only the TOC into the sidebar. The quick answer, takeaways, diagrams,
-   article sections, notes, sources and related links all belong in the reader column. */
+/* Move the body content into the reading column. Only the TOC belongs in
+   the sidebar; summaries, diagrams, article sections, notes and end matter
+   stay together in the main reading column. */
 [...body.children].forEach(node=>{
   if(node===layout)return;
   if(node.classList&&node.classList.contains('article-toc'))sidebar.appendChild(node);
@@ -322,7 +329,7 @@ layout.replaceChildren(sidebar,content);
 /* Repair any previous layout where the TOC was nested in the reading column. */
 content.querySelectorAll(':scope > .article-toc').forEach(node=>sidebar.appendChild(node));
 /* A single TOC in the sidebar prevents duplicate navigation cards. */
-const tocNodes=[...body.querySelectorAll('.article-toc')];
+const tocNodes=[...articleRoot.querySelectorAll('.article-toc')];
 tocNodes.forEach(node=>{if(node!==sidebar.querySelector('.article-toc'))node.remove()});
 
 
