@@ -132,3 +132,18 @@ body:has(article.article) footer.iac-footer{margin-top:60px}
   body:has(article.article) .article-prose{font-size:15.5px}
 }
 @media(prefers-reduced-motion:reduce){body:has(article.article) *,body:has(article.article) *:before,body:has(article.article) *:after{scroll-behavior:auto!important;transition:none!important}}
+
+/* The footer remains the site's established dark-blue shared footer. */
+body:has(article.article) footer.iac-footer{display:block;position:relative;clear:both;width:100%;margin:60px 0 0;padding:42px 24px 28px;background:#06182c;color:#fff7ec;border-top:4px solid #ff5a1f;text-align:center;font-family:"Space Grotesk",system-ui,sans-serif;font-size:14px;line-height:1.6}
+body:has(article.article) .iac-footer *{box-sizing:border-box}
+body:has(article.article) .iac-footer-inner{width:100%;max-width:1120px;margin:0 auto}
+body:has(article.article) .iac-footer-brand{display:inline-flex;align-items:center;justify-content:center;gap:10px;color:#fff7ec;font-family:"Dela Gothic One",system-ui,sans-serif;font-weight:900;font-size:20px;line-height:1.3;text-decoration:none}
+body:has(article.article) .iac-footer-brand span{font-size:17px}
+body:has(article.article) .iac-footer-tagline{margin:12px 0 22px;color:#b8cce0}
+body:has(article.article) .iac-footer nav.iac-footer-social,body:has(article.article) .iac-footer nav.iac-footer-site{position:static;display:flex;width:100%;max-width:100%;justify-content:center;align-items:center;gap:10px 12px;flex-wrap:wrap;margin:0 auto 18px;padding:0;border:0;background:transparent;box-shadow:none;text-align:center}
+body:has(article.article) .iac-footer nav.iac-footer-site{gap:8px 18px;margin-bottom:0;font-size:13px}
+body:has(article.article) .iac-footer a{color:#22e4ff;text-decoration:none}
+body:has(article.article) .iac-footer a:hover{color:#ffd23f;text-decoration:underline}
+body:has(article.article) .iac-footer-social a{display:inline-flex;align-items:center;justify-content:center;min-height:42px;border:1px solid #42617d;border-radius:8px;padding:8px 15px;background:#0c2540;color:#22e4ff;font-weight:700;white-space:nowrap}
+body:has(article.article) .iac-footer-copy{width:100%;max-width:1000px;margin:22px auto 0;padding:18px 0 0;border-top:1px solid #29425b;color:#b8cce0;line-height:1.7}
+@media(max-width:600px){body:has(article.article) footer.iac-footer{margin-top:44px;padding:32px 16px 24px}body:has(article.article) .iac-footer-brand{flex-wrap:wrap;gap:6px}body:has(article.article) .iac-footer nav.iac-footer-social{gap:8px}body:has(article.article) .iac-footer-social a{padding:8px 11px}body:has(article.article) .iac-footer nav.iac-footer-site{gap:10px 14px}}
