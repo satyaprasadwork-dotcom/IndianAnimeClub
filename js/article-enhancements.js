@@ -291,6 +291,30 @@ const rel=(endMatterBySlug[slug]||[]).filter(s=>articleTitles[s]);
 keep.innerHTML='<h2>Keep reading</h2><ul>'+rel.map(s=>'<li><a href="/'+s+'/">'+escText(articleTitles[s])+'</a></li>').join('')+'</ul>';
 body.appendChild(keep);
 
+/* Build the approved article hero from the legacy direct-child markup.
+   This is the key template migration: styling .article-hero cannot work until
+   the title, metadata, byline and hero art actually live inside that wrapper. */
+const articleRoot=body.closest('article.article');
+if(articleRoot){
+  let hero=articleRoot.querySelector(':scope > .article-hero');
+  if(!hero){
+    hero=document.createElement('header');
+    hero.className='article-hero';
+    const heroNodes=[...articleRoot.children].filter(node=>
+      node.matches('.meta,h1,.dek,.author-box,.hero-art')
+    );
+    if(heroNodes.length){
+      articleRoot.insertBefore(hero,heroNodes[0]);
+      heroNodes.forEach(node=>hero.appendChild(node));
+    }
+  }else{
+    ['.meta','h1','.dek','.author-box','.hero-art'].forEach(selector=>{
+      const node=articleRoot.querySelector(':scope > '+selector);
+      if(node&&node.parentElement!==hero)hero.appendChild(node);
+    });
+  }
+}
+
 /* Approved article layout: the TOC sidebar and reading column must be
    direct children of article.article, not children of .body. Keeping the
    layout outside .body prevents the old narrow body width from squeezing
