@@ -1,3 +1,14 @@
+/* Google AdSense publisher tag. Guard against duplicate loading when shared scripts overlap. */
+(function(){
+  if (document.querySelector('script[data-iac-adsense="true"]') || document.querySelector('script[src*="pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"]')) return;
+  var adsenseScript = document.createElement('script');
+  adsenseScript.async = true;
+  adsenseScript.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7937216909291905';
+  adsenseScript.crossOrigin = 'anonymous';
+  adsenseScript.setAttribute('data-iac-adsense', 'true');
+  (document.head || document.documentElement).appendChild(adsenseScript);
+})();
+
 /* Canonical Indian Anime Club site shell: shared homepage header and footer. */
 (()=>{'use strict';
 const header="<nav class=\"legacy-site-nav\" aria-label=\"Main navigation\"><div class=\"wrap\"><a class=\"logo\" href=\"/#top\"><b>IAC</b> <span class=\"ln\">Indian Anime Club</span></a><ul id=\"site-links\"><li><a href=\"/#about\">About</a></li><li><a href=\"/#worlds\">Worlds</a></li><li><a href=\"/#events\">Explore</a></li><li><a href=\"/#chapters\">Chapters</a></li><li><a href=\"/articles/\">Articles</a></li></ul><a class=\"btn\" href=\"/#join\" style=\"padding:8px 16px;font-size:14px;box-shadow:4px 4px 0 var(--accent)\">Join us</a><button class=\"menu\" id=\"menu\" type=\"button\" aria-label=\"Toggle navigation\" aria-controls=\"site-links\" aria-expanded=\"false\">&#9776;</button></div></nav>";

@@ -1,3 +1,14 @@
+/* Google AdSense publisher tag. Guard against duplicate loading when shared scripts overlap. */
+(function(){
+  if (document.querySelector('script[data-iac-adsense="true"]') || document.querySelector('script[src*="pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"]')) return;
+  var adsenseScript = document.createElement('script');
+  adsenseScript.async = true;
+  adsenseScript.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7937216909291905';
+  adsenseScript.crossOrigin = 'anonymous';
+  adsenseScript.setAttribute('data-iac-adsense', 'true');
+  (document.head || document.documentElement).appendChild(adsenseScript);
+})();
+
 (()=>{'use strict';
 const progress=document.getElementById('reading-progress');
 const readingBody=document.querySelector('article.article>.body');
