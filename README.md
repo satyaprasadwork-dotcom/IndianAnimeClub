@@ -31,11 +31,11 @@ The club is shaped by the experience of discovering anime before it was easy to 
 - `terms.html` — website terms of use.
 - `disclaimer.html` — independence, intellectual property, opinions, and external links.
 - `styles.css` — shared responsive design system for consistent navigation and footer.
-- `robots.txt`, `sitemap.xml`, and `sitemap_index.xml` — crawl guidance and sitemap discovery.
+- `robots.txt` and `sitemap.xml` — crawl guidance and the canonical sitemap.
 
 ## Technical notes
 
-This is a static website hosted through GitHub Pages. Keep internal links consistent with the clean root-level URLs (for example, `/about.html`) and update the sitemap whenever indexable pages are added or removed. The site uses Google Analytics with measurement ID `G-M4738D1ZND`; review the privacy notice if analytics configuration changes.
+This is a static website deployed through the connected GitHub-to-Hostinger workflow. The `.htaccess` file supports Apache/LiteSpeed clean URLs for the root-level information pages and article files; the public canonical routes use trailing slashes (for example, `/about/` and `/some-article/`). Keep `sitemap.xml` and `robots.txt` in sync whenever indexable pages are added, removed, or renamed. The site uses Google Analytics with measurement ID `G-M4738D1ZND`; review the privacy notice if analytics configuration changes.
 
 ## Content and maintenance
 
