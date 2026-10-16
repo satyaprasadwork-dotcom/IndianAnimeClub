@@ -2,6 +2,20 @@
 # Apache/LiteSpeed hosting can serve flat articles/slug.html files at /slug/.
 RewriteEngine On
 
+# Keep clean URLs for the static information pages backed by root-level HTML files.
+# Redirect direct .html requests to the canonical slash URL, then serve the clean route.
+RewriteCond %{THE_REQUEST} \s/+((about|contact|community-guidelines|editorial-policy|privacy-policy|terms|disclaimer|leadership))\.html(?:[\s?]) [NC]
+RewriteRule ^(about|contact|community-guidelines|editorial-policy|privacy-policy|terms|disclaimer|leadership)\.html$ /$1/ [R=301,L,NE]
+
+RewriteRule ^about/?$ about.html [L]
+RewriteRule ^contact/?$ contact.html [L]
+RewriteRule ^community-guidelines/?$ community-guidelines.html [L]
+RewriteRule ^editorial-policy/?$ editorial-policy.html [L]
+RewriteRule ^privacy-policy/?$ privacy-policy.html [L]
+RewriteRule ^terms/?$ terms.html [L]
+RewriteRule ^disclaimer/?$ disclaimer.html [L]
+RewriteRule ^leadership/?$ leadership.html [L]
+
 # Redirect explicit article .html URLs to the established clean root URL.
 RewriteCond %{THE_REQUEST} \s/+articles/([^/?]+)\.html(?:[\s?]) [NC]
 RewriteRule ^articles/([^/]+)\.html$ /$1/ [R=301,L,NE]
