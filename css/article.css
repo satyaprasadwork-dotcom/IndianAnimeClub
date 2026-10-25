@@ -147,3 +147,9 @@ body:has(article.article) .iac-footer a:hover{color:#ffd23f;text-decoration:unde
 body:has(article.article) .iac-footer-social a{display:inline-flex;align-items:center;justify-content:center;min-height:42px;border:1px solid #42617d;border-radius:8px;padding:8px 15px;background:#0c2540;color:#22e4ff;font-weight:700;white-space:nowrap}
 body:has(article.article) .iac-footer-copy{width:100%;max-width:1000px;margin:22px auto 0;padding:18px 0 0;border-top:1px solid #29425b;color:#b8cce0;line-height:1.7}
 @media(max-width:600px){body:has(article.article) footer.iac-footer{margin-top:44px;padding:32px 16px 24px}body:has(article.article) .iac-footer-brand{flex-wrap:wrap;gap:6px}body:has(article.article) .iac-footer nav.iac-footer-social{gap:8px}body:has(article.article) .iac-footer-social a{padding:8px 11px}body:has(article.article) .iac-footer nav.iac-footer-site{gap:10px 14px}}
+
+
+/* Responsive editorial feature art shared by every article. */
+body:has(article.article) .article-featured-image{display:block;width:100%;margin:24px 0 0;overflow:hidden;border:2px solid var(--iac-ink);border-radius:18px;background:var(--iac-navy);box-shadow:6px 6px 0 var(--iac-ink);line-height:0;}
+body:has(article.article) .article-featured-image img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;}
+@media(max-width:700px){body:has(article.article) .article-featured-image{margin-top:20px;border-radius:14px;box-shadow:4px 4px 0 var(--iac-ink);}}
