@@ -107,8 +107,14 @@ for path in article_files:
             candidate = json.loads(raw_schema)
         except (json.JSONDecodeError, TypeError):
             continue
-        if candidate.get("@type") == "Article":
-            article_schema = candidate
+        candidates = candidate.get("@graph", []) if isinstance(candidate, dict) else []
+        if not candidates and isinstance(candidate, dict):
+            candidates = [candidate]
+        for node in candidates:
+            if isinstance(node, dict) and node.get("@type") == "Article":
+                article_schema = node
+                break
+        if article_schema:
             break
     if not article_schema:
         errors.append(f"{path}: missing valid Article JSON-LD.")
