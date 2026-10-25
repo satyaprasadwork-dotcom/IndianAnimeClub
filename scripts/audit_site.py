@@ -135,9 +135,19 @@ try:
             errors.append(f"Sitemap contains a non-canonical domain: {url}")
             continue
         route = url[len(DOMAIN):]
-        target = ROOT / route.strip("/") / "index.html" if route.strip("/") else ROOT / "index.html"
+        clean = route.strip("/")
+        target = ROOT / clean / "index.html" if clean else ROOT / "index.html"
+        if not target.is_file() and clean:
+            # Before the deploy workflow creates clean route folders, resolve
+            # article routes back to their flat source files.
+            source_article = ROOT / "articles" / f"{clean}.html"
+            source_page = ROOT / f"{clean}.html"
+            if source_article.is_file():
+                target = source_article
+            elif source_page.is_file():
+                target = source_page
         if not target.is_file():
-            errors.append(f"Sitemap URL has no generated page: {url}")
+            errors.append(f"Sitemap URL has no source or generated page: {url}")
 except (OSError, ET.ParseError) as exc:
     errors.append(f"Could not parse sitemap.xml: {exc}")
 
