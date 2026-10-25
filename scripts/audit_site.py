@@ -176,6 +176,63 @@ if len(re.findall(r'class="article-card-image"', cards, re.I)) != 31:
 if "const perPage=15" not in cards and "const perPage = 15" not in cards:
     errors.append("Article listing pagination is not configured for 15 cards per page.")
 
+# The article archive is a public landing page in its own right, not just a grid.
+archive_path = ROOT / "articles" / "index.html"
+archive = read_page(archive_path)
+archive_title = "".join(archive.title_text).strip()
+archive_description = meta_value(archive, name="description")
+archive_canonical = archive.links[0] if archive.links else ""
+if not archive_title:
+    errors.append("Article archive is missing a title.")
+if not archive_description or len(archive_description) < 70:
+    errors.append("Article archive is missing a useful meta description.")
+if archive_canonical != f"{DOMAIN}/articles/":
+    errors.append(f"Article archive canonical is incorrect: {archive_canonical!r}.")
+if archive.h1 != 1:
+    errors.append(f"Article archive must have exactly one H1; found {archive.h1}.")
+if meta_value(archive, prop="og:url") != f"{DOMAIN}/articles/":
+    errors.append("Article archive og:url does not match its canonical URL.")
+if meta_value(archive, name="twitter:card") not in ("summary", "summary_large_image"):
+    errors.append("Article archive is missing Twitter/X card metadata.")
+
+def _valid_json(value):
+    try:
+        json.loads(value)
+        return True
+    except (json.JSONDecodeError, TypeError):
+        return False
+
+if not any(
+    isinstance(json.loads(raw_schema), dict)
+    and json.loads(raw_schema).get("@type") == "CollectionPage"
+    for raw_schema in archive.schemas
+    if raw_schema.strip().startswith("{") and _valid_json(raw_schema)
+):
+    errors.append("Article archive is missing valid CollectionPage structured data.")
+
+# Catch duplicate or malformed sitemap entries before publishing.
+try:
+    sitemap_values = [node.text.strip() for node in ET.parse(ROOT / "sitemap.xml").getroot().findall(".//{*}loc") if node.text]
+    if len(sitemap_values) != len(set(sitemap_values)):
+        errors.append("Sitemap contains duplicate URLs.")
+    if f"{DOMAIN}/articles/" not in sitemap_values:
+        errors.append("Sitemap is missing the canonical article archive URL.")
+    for url in sitemap_values:
+        if " " in url or not url.startswith(DOMAIN + "/") or url.endswith(".html"):
+            errors.append(f"Sitemap URL is not a clean canonical URL: {url}")
+except (OSError, ET.ParseError) as exc:
+    errors.append(f"Could not validate sitemap URL uniqueness: {exc}")
+
+# Confirm each article card links to a known canonical article and a real local thumbnail.
+known_article_urls = {f"{DOMAIN}/{path.stem}/" for path in article_files}
+for href in re.findall(r'<h2>\\s*<a\\s+href=["\']([^"\']+)["\']', cards, re.I):
+    if href.rstrip("/") + "/" not in known_article_urls:
+        errors.append(f"Article archive links to an unknown article URL: {href}")
+for image_src in re.findall(r'<img\\b[^>]*class=["\'][^"\']*\\barticle-card-image\\b[^"\']*["\'][^>]*src=["\']([^"\']+)["\']', cards, re.I):
+    local_image = ROOT / image_src.lstrip("/")
+    if not local_image.is_file():
+        errors.append(f"Article archive thumbnail file is missing: {image_src}")
+
 if warnings:
     print("AUDIT WARNINGS:")
     for warning in warnings:
