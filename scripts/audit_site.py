@@ -225,10 +225,10 @@ except (OSError, ET.ParseError) as exc:
 
 # Confirm each article card links to a known canonical article and a real local thumbnail.
 known_article_urls = {f"{DOMAIN}/{path.stem}/" for path in article_files}
-for href in re.findall(r'<h2>\\s*<a\\s+href=["\']([^"\']+)["\']', cards, re.I):
+for href in re.findall(r'<h2>\s*<a\s+href=["\']([^"\']+)["\']', cards, re.I):
     if href.rstrip("/") + "/" not in known_article_urls:
         errors.append(f"Article archive links to an unknown article URL: {href}")
-for image_src in re.findall(r'<img\\b[^>]*class=["\'][^"\']*\\barticle-card-image\\b[^"\']*["\'][^>]*src=["\']([^"\']+)["\']', cards, re.I):
+for image_src in re.findall(r'<img\b[^>]*class=["\'][^"\']*\barticle-card-image\b[^"\']*["\'][^>]*src=["\']([^"\']+)["\']', cards, re.I):
     local_image = ROOT / image_src.lstrip("/")
     if not local_image.is_file():
         errors.append(f"Article archive thumbnail file is missing: {image_src}")
