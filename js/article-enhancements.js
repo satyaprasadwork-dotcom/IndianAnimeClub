@@ -194,6 +194,31 @@ production:[['Association of Japanese Animations','https://aja.gr.jp/english/','
 commerce:[['National Consumer Helpline, Government of India','https://consumerhelpline.gov.in/','Official consumer grievance information and support.'],['Department of Consumer Affairs','https://consumeraffairs.nic.in/','Official consumer affairs information in India.'],['Association of Japanese Animations','https://aja.gr.jp/english/','Industry context for anime and licensed products.']],
 story:[['Japan Media Arts Festival Archive','https://j-mediaarts.jp/en/','Explore animation and media art through selected works.'],['Anime News Network','https://www.animenewsnetwork.com/','Editorial reporting and reference material about anime and manga.'],['Crunchyroll','https://www.crunchyroll.com/','Official anime catalogue; check individual title listings for current details.']]
 };
+const articleSpecificSources={
+"where-to-watch-anime-legally-in-india-a-practical-guide-to-platforms-languages-and-availability":[
+['Crunchyroll Help Center: Hindi audio and subtitles','https://help.crunchyroll.com/hc/en-us/articles/31107978981268-Accessing-Hindi-Subtitles-and-Dubs-on-Crunchyroll','Official guidance; check the individual title and season because availability varies.'],
+['Netflix Help Center: Audio and subtitles','https://help.netflix.com/en/node/101798','Official instructions for checking language options on Netflix.'],
+['Prime Video Help','https://www.primevideo.com/help','Official service help for playback, account and plan details.'],
+['Netflix India','https://www.netflix.com/in/','Official Indian service listing; it does not guarantee any specific title is available.']
+],
+"fan-art-screenshots-and-copyright-what-indian-anime-creators-should-understand-before-publishing":[
+['India Code: Copyright Act, 1957','https://www.indiacode.nic.in/handle/123456789/1367','Primary legal text. Check applicable provisions and amendments; this article is general information, not legal advice.'],
+['Copyright Office, Government of India: Exceptions to copyright infringement','https://copyright.gov.in/Exceptions.aspx','Official overview of statutory exceptions; exceptions are fact-specific, not blanket permission.'],
+['YouTube Help: Copyright','https://support.google.com/youtube/topic/2676339','Platform-specific processes for copyright claims and removal requests.']
+],
+"anime-between-lectures-and-chai-breaks-inside-indias-college-fan-culture":[
+['India Code: Copyright Act, 1957','https://www.indiacode.nic.in/handle/123456789/1367','Primary legal text relevant to public exhibition and copyright questions; confirm the specific facts and applicable provisions.'],
+['Copyright Office, Government of India','https://copyright.gov.in/','Official copyright information. A personal subscription should not be assumed to authorise a public screening.'],
+['Google Safety Center','https://safety.google/','General guidance on privacy and safer online participation.'],
+['Indian Anime Club Community Guidelines','/community-guidelines/','The club’s own expectations for respectful, privacy-aware participation.']
+],
+"new-to-anime-in-india-a-beginners-roadmap-based-on-your-interests-not-just-rankings":[
+['Netflix India','https://www.netflix.com/in/','Official Indian catalogue; verify the exact title and season before subscribing.'],
+['Crunchyroll','https://www.crunchyroll.com/','Official service catalogue; availability can vary by territory and title.'],
+['Netflix Help Center: Audio and subtitles','https://help.netflix.com/en/node/101798','Official help for checking language options.'],
+['Crunchyroll Help Center: Hindi audio and subtitles','https://help.crunchyroll.com/hc/en-us/articles/31107978981268-Accessing-Hindi-Subtitles-and-Dubs-on-Crunchyroll','Official guidance for language tracks; verify the individual title.']
+]
+};
 let sourceSet='story';
 if(/copyright|fan-art|screenshots/.test(slug))sourceSet='copyright';
 else if(/where-to-watch|watch-orders|subtitles|language|watchlist|manga-vs-anime/.test(slug))sourceSet='streaming';
@@ -202,7 +227,7 @@ else if(/community|club|convention|college|spoilers|family-debate/.test(slug))so
 else if(/animation|production|drawing|cosplay|creative|edit/.test(slug))sourceSet='production';
 let sources=body.querySelector('.sources');
 if(!sources){sources=document.createElement('section');sources.className='sources';body.appendChild(sources)}
-sources.innerHTML='<h2>Sources &amp; further reading</h2><p>This article is original explanatory analysis. The links below offer additional context. For time-sensitive details, consult the original source directly.</p><ul>'+sourceSets[sourceSet].map(s=>'<li><a href="'+s[1]+'" target="_blank" rel="noopener noreferrer">'+escText(s[0])+'</a> - '+escText(s[2])+'</li>').join('')+'</ul>';
+sources.innerHTML='<h2>Sources &amp; further reading</h2><p>These references are selected to help readers check relevant claims and explore the topic further. Official legislation, provider help pages and institutional policies should take priority for current or situation-specific details; no single link settles every individual case.</p><ul>'+(articleSpecificSources[slug]||sourceSets[sourceSet]).map(s=>'<li><a href="'+s[1]+'" target="_blank" rel="noopener noreferrer">'+escText(s[0])+'</a> - '+escText(s[2])+'</li>').join('')+'</ul>';
 /* Move sources after the full article content, not between editorial sections. */
 body.appendChild(sources);
 let keep=body.querySelector('.related');
