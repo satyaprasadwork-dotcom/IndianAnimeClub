@@ -132,6 +132,43 @@ for path in article_files:
     if re.search(r'<div\b[^>]*class=["\'][^"\']*\bquick-answer\b', raw, re.I):
         warnings.append(f"{path}: check that the brief summary adds information beyond the introduction.")
 
+    # Editorial-quality guardrails. Word count is an internal review signal,
+    # not a Google ranking rule or a substitute for usefulness.
+    source_match = re.search(r'<section\b[^>]*class=["\'][^"\']*\bsources\b[^"\']*["\'][^>]*>([\s\S]*?)</section>', raw, re.I)
+    if source_match:
+        source_links = re.findall(r'<a\b[^>]*href=["\'](https?://[^"\']+)["\']', source_match.group(1), re.I)
+        if len(set(source_links)) < 2:
+            errors.append(f"{path}: Sources & further reading should contain at least two distinct external references.")
+    clean_text = re.sub(r'<(script|style)\b[\s\S]*?</\1>', ' ', raw, flags=re.I)
+    clean_text = re.sub(r'<[^>]+>', ' ', clean_text)
+    clean_text = re.sub(r'&(?:nbsp|amp|quot|apos);|&#(?:39|160);', ' ', clean_text, flags=re.I)
+    word_count = len(re.findall(r'\b[\w’\'-]+\b', clean_text))
+    if word_count < 900:
+        warnings.append(f"{path}: approximately {word_count} source words; editor should confirm the article answers its topic fully (no fixed word-count target is implied).")
+    heading_titles = [
+        re.sub(r'<[^>]+>', '', m.group(1)).replace('&amp;', '&').strip().lower()
+        for m in re.finditer(r'<h2\b[^>]*>([\s\S]*?)</h2>', raw, re.I)
+    ]
+    ignored_headings = {"in this article", "on this page", "key takeaways", "sources & further reading", "keep reading"}
+    content_headings = [h for h in heading_titles if h and h not in ignored_headings]
+    seen_headings = set()
+    for heading in content_headings:
+        if heading in seen_headings:
+            errors.append(f"{path}: duplicate section heading {heading!r}.")
+        seen_headings.add(heading)
+    for i, left in enumerate(content_headings):
+        left_words = set(re.findall(r'[a-z0-9]+', left))
+        if len(left_words) < 3:
+            continue
+        for right in content_headings[i + 1:]:
+            right_words = set(re.findall(r'[a-z0-9]+', right))
+            if len(right_words) < 3:
+                continue
+            overlap = len(left_words & right_words) / max(1, len(left_words | right_words))
+            if overlap >= 0.6:
+                warnings.append(f"{path}: review potentially overlapping headings {left!r} and {right!r}.")
+
+
 # Confirm every sitemap URL resolves to a generated HTML file after clean routes are built.
 try:
     root = ET.parse(ROOT / "sitemap.xml").getroot()
