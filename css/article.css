@@ -34,7 +34,7 @@ body:has(article.article) .article-hero{display:block;width:min(900px,calc(100% 
 body:has(article.article) .article-hero .meta{display:flex;align-items:center;flex-wrap:wrap;gap:8px 12px;margin:0 0 18px}
 body:has(article.article) .article-hero .tag{display:inline-flex;align-items:center;padding:6px 12px;border:1px solid var(--iac-ink);border-radius:999px;background:var(--iac-yellow);color:var(--iac-ink);font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase}
 body:has(article.article) .article-hero .date{color:var(--iac-muted);font-size:13px}
-body:has(article.article) .article-hero h1{max-width:15ch;margin:0;color:var(--iac-ink);font-family:var(--iac-display);font-size:clamp(38px,5.7vw,68px);font-weight:800;line-height:1.04;letter-spacing:-.045em;text-wrap:balance;overflow-wrap:anywhere}
+body:has(article.article) .article-hero h1{max-width:100%;margin:0;color:var(--iac-ink);font-family:var(--iac-display);font-size:clamp(38px,5.7vw,68px);font-weight:800;line-height:1.04;letter-spacing:-.045em;text-wrap:balance;overflow-wrap:anywhere}
 body:has(article.article) .article-hero .dek{max-width:68ch;margin:18px 0 0;color:var(--iac-muted);font-size:clamp(18px,2vw,21px);line-height:1.62}
 body:has(article.article) .article-hero .author-box{display:flex;align-items:center;flex-wrap:wrap;gap:6px 12px;margin:22px 0 24px;padding:14px 17px;border:1px solid #ead9c2;border-left:4px solid var(--iac-orange);border-radius:0 10px 10px 0;background:#fffaf2;color:#29445b;box-shadow:none}
 body:has(article.article) .article-hero .author-box strong{font-weight:800}
