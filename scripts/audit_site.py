@@ -24,6 +24,7 @@ class PageParser(HTMLParser):
         self.schemas = []
         self.classes = []
         self.in_title = False
+        self.in_schema = False
     def handle_starttag(self, tag, attrs):
         attrs = dict(attrs)
         if tag == "title":
@@ -36,19 +37,19 @@ class PageParser(HTMLParser):
             self.links.append(attrs.get("href", ""))
         if tag == "img":
             self.images.append(attrs)
-        if tag == "script" and attrs.get("type") == "application/ld+json":
-            self.schemas.append("")
-        if self.schemas and tag == "script":
-            self._in_schema = True
+        if tag == "script":
+            self.in_schema = attrs.get("type") == "application/ld+json"
+            if self.in_schema:
+                self.schemas.append("")
     def handle_endtag(self, tag):
         if tag == "title":
             self.in_title = False
         if tag == "script":
-            self._in_schema = False
+            self.in_schema = False
     def handle_data(self, data):
         if self.in_title:
             self.title_text.append(data)
-        if getattr(self, "_in_schema", False) and self.schemas:
+        if self.in_schema and self.schemas:
             self.schemas[-1] += data
 
 def read_page(path):
