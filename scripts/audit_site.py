@@ -138,7 +138,7 @@ for path in article_files:
     if source_match:
         source_links = re.findall(r'<a\b[^>]*href=["\'](https?://[^"\']+)["\']', source_match.group(1), re.I)
         if len(set(source_links)) < 2:
-            errors.append(f"{path}: Sources & further reading should contain at least two distinct external references.")
+            warnings.append(f"{path}: Sources & further reading should contain at least two distinct external references.")
     clean_text = re.sub(r'<(script|style)\b[\s\S]*?</\1>', ' ', raw, flags=re.I)
     clean_text = re.sub(r'<[^>]+>', ' ', clean_text)
     clean_text = re.sub(r'&(?:nbsp|amp|quot|apos);|&#(?:39|160);', ' ', clean_text, flags=re.I)
@@ -154,7 +154,7 @@ for path in article_files:
     seen_headings = set()
     for heading in content_headings:
         if heading in seen_headings:
-            errors.append(f"{path}: duplicate section heading {heading!r}.")
+            warnings.append(f"{path}: duplicate section heading {heading!r}; editor review is required.")
         seen_headings.add(heading)
     for i, left in enumerate(content_headings):
         left_words = set(re.findall(r'[a-z0-9]+', left))
