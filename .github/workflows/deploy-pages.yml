@@ -308,6 +308,8 @@ jobs:
               target.mkdir(parents=True, exist_ok=True)
               (target / "index.html").write_text(page.read_text(encoding="utf-8"), encoding="utf-8")
           PY
+      - name: Generate sitemap from canonical page URLs
+        run: python3 scripts/generate_sitemap.py
       - name: Run pre-deployment SEO and article integrity audit
         run: python3 scripts/audit_site.py
       - name: Upload site
