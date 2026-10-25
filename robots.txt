@@ -1,3 +1,6 @@
+# Indian Anime Club crawler directives
 User-agent: *
 Allow: /
+Disallow: /scripts/
+
 Sitemap: https://indiananimeclub.com/sitemap.xml
