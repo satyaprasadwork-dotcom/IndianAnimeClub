@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- Canonical URLs are refreshed by scripts/generate_sitemap.py during deployment. -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://indiananimeclub.com/</loc></url>
   <url><loc>https://indiananimeclub.com/about/</loc></url>
