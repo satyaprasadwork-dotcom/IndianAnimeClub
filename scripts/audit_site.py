@@ -156,9 +156,11 @@ if "google.com, pub-7937216909291905, DIRECT, f08c47fec0942fa0" not in ads:
     errors.append("ads.txt is missing the expected AdSense publisher record.")
 
 privacy = (ROOT / "privacy-policy.html").read_text(encoding="utf-8").lower() if (ROOT / "privacy-policy.html").exists() else ""
-for term in ("google", "cookies", "personalized advertising", "ads settings"):
+for term in ("google", "cookies", "ads settings"):
     if term not in privacy:
         errors.append(f"Privacy policy may be missing the required advertising disclosure term: {term}.")
+if not any(term in privacy for term in ("personalized advertising", "personalised advertising", "personalised ads")):
+    errors.append("Privacy policy may be missing its advertising-personalisation disclosure.")
 
 cards = (ROOT / "articles" / "index.html").read_text(encoding="utf-8")
 if len(re.findall(r'<article class="card"', cards, re.I)) != 31:
