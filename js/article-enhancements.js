@@ -47,6 +47,29 @@ if(article&&!article.querySelector(':scope > .article-hero')){
   }
   if(hero.children.length)article.insertBefore(hero,bodyNode||article.firstElementChild);
 }
+/* Google Preferred Sources: render Google's official, localized publisher button on every article page. */
+if(article){
+  const hero=article.querySelector(':scope > .article-hero');
+  if(hero&&!hero.querySelector('.iac-preferred-source')){
+    const preferred=document.createElement('div');
+    preferred.className='iac-preferred-source';
+    preferred.style.cssText='display:flex;align-items:center;min-height:40px;margin:16px 0 4px;';
+    preferred.innerHTML='<div google-add-preferred-source-btn data-theme="light" data-lang="en"></div>';
+    const authorBox=hero.querySelector('.author-box');
+    const dek=hero.querySelector('.dek');
+    const meta=hero.querySelector('.meta');
+    const anchor=authorBox||dek||meta;
+    if(anchor)anchor.insertAdjacentElement('afterend',preferred);
+    else hero.appendChild(preferred);
+  }
+  if(!document.querySelector('script[data-iac-preferred-sources="true"]')&&!document.querySelector('script[src="https://news.google.com/swg/js/v1/publisher.js"]')){
+    const preferredScript=document.createElement('script');
+    preferredScript.async=true;
+    preferredScript.src='https://news.google.com/swg/js/v1/publisher.js';
+    preferredScript.setAttribute('data-iac-preferred-sources','true');
+    (document.head||document.documentElement).appendChild(preferredScript);
+  }
+}
 const body=document.querySelector('article.article > .article-prose')||document.querySelector('article.article > .body');if(!body)return;
 const slug=(location.pathname.replace(/\/+$/,'').split('/').pop()||'').replace(/\.html$/i,'').toLowerCase();
 const animeLayout=ANIME_ARTICLE_LAYOUTS[slug];
