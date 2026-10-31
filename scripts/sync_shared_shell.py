@@ -28,6 +28,14 @@ def source_files():
 
 for path in source_files():
     html = path.read_text(encoding="utf-8")
+    # Repair a known legacy article typo: <header class="article-hero">">
+    # This is text outside the HTML element and otherwise renders above the title.
+    html = re.sub(
+        r"""(<header\b(?=[^>]*\bclass=["'][^"']*\barticle-hero\b[^"']*["'])[^>]*>)\s*["']>""",
+        r"\1",
+        html,
+        flags=re.I,
+    )
     matches = list(HEADER_RE.finditer(html))
     if len(matches) > 1:
         raise SystemExit(f"{path}: multiple main-navigation headers; refusing to alter page body")
