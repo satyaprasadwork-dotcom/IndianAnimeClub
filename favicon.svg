@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Indian Anime Club anime eye emblem">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#103b68"/><stop offset="1" stop-color="#06182c"/></linearGradient>
+    <linearGradient id="iris" x1="0" y1="0" x2=".85" y2="1"><stop stop-color="#22e4ff"/><stop offset="1" stop-color="#1f6fff"/></linearGradient>
+  </defs>
+  <rect x="2" y="2" width="124" height="124" rx="28" fill="url(#sky)"/>
+  <path d="M15 72 37 29 71 17 108 30 119 70 99 103 57 114 24 99Z" fill="#ff5a1f" opacity=".22"/>
+  <circle cx="66" cy="64" r="42" fill="#ffd23f"/>
+  <path d="M15 64C37 30 87 29 115 62c-21 35-73 38-100 2Z" fill="#fff7ec" stroke="#06182c" stroke-width="7" stroke-linejoin="round"/>
+  <circle cx="66" cy="61" r="24" fill="url(#iris)" stroke="#06182c" stroke-width="5"/>
+  <circle cx="65" cy="60" r="12" fill="#06182c"/>
+  <circle cx="57" cy="51" r="6" fill="#fff7ec"/>
+  <circle cx="72" cy="72" r="3" fill="#fff7ec"/>
+  <path d="M17 60 11 44M29 47 22 31M103 48 117 35" fill="none" stroke="#06182c" stroke-width="7" stroke-linecap="round"/>
+  <path d="M31 20 45 10 58 19" fill="none" stroke="#ff5a1f" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="m102 91 4 7 7 4-7 4-4 7-4-7-7-4 7-4Z" fill="#22e4ff"/>
+  <rect x="2" y="2" width="124" height="124" rx="28" fill="none" stroke="#0e3155" stroke-width="4"/>
+</svg>

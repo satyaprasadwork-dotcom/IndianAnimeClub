@@ -234,6 +234,21 @@ jobs:
                   html,
               )
 
+              # One accessible, site-wide favicon for every generated page.
+              # Remove legacy embedded icons before inserting canonical asset links.
+              html = re.sub(
+                  r"""<link\b(?=[^>]*\brel=["'](?:shortcut\s+)?icon["'])[^>]*>\s*""",
+                  "",
+                  html,
+                  flags=re.I,
+              )
+              favicon_links = (
+                  '<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png">\n'
+                  '<link rel="icon" type="image/svg+xml" href="/favicon.svg">\n'
+                  '<link rel="shortcut icon" href="/favicon.ico">\n'
+              )
+              html = re.sub(r"</head\s*>", favicon_links + "</head>", html, count=1, flags=re.I)
+
               # Make article assets deterministic at build time, rather than relying
               # only on a client-side stylesheet injection after the page has loaded.
               if page.parent.name == "articles" and page.name != "index.html":
