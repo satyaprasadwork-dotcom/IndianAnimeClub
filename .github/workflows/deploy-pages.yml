@@ -337,6 +337,12 @@ jobs:
         run: python3 -m pip install 'CairoSVG>=2.7,<3'
       - name: Build 1200x675 PNG social previews from original SVGs
         run: python3 scripts/build_social_images.py
+      - name: Check JavaScript syntax and generate editorial claim inventory
+        run: |
+          node --check site-fixes.js
+          node --check site-shell.js
+          node --check js/genre-mood.js
+          python3 scripts/review_articles.py
       - name: Validate public routes and shared favicon
         env:
           IAC_DEPLOY_BUILD: "1"

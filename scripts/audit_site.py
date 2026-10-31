@@ -298,6 +298,22 @@ if __import__("os").environ.get("IAC_DEPLOY_BUILD") == "1":
         if not re.search(r"<main\b", html, re.I):
             errors.append(f"{page}: missing main landmark.")
 
+# Generated public routes must contain all three consistent tracking integrations.
+if __import__("os").environ.get("IAC_DEPLOY_BUILD") == "1":
+    for url in sitemap_urls:
+        route = url[len(DOMAIN):].strip("/")
+        page = ROOT / route / "index.html" if route else ROOT / "index.html"
+        if not page.is_file(): continue
+        head = page.read_text(encoding="utf-8").split("</head>",1)[0]
+        for token in ("G-M4738D1ZND","ca-pub-7937216909291905","ywqdm8xkj7"):
+            if token not in head:
+                errors.append(f"{page}: required tracking id {token} missing")
+        for uri in ("https://www.googletagmanager.com/gtag/js?id=",
+                    "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=",
+                    "https://www.clarity.ms/tag/"):
+            if head.count(uri)!=1:
+                errors.append(f"{page}: missing or duplicate tracking script {uri}")
+
 if warnings:
     print("AUDIT WARNINGS:")
     for warning in warnings:
