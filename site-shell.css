@@ -1820,3 +1820,102 @@ html[data-genre-mood] body .hero h1 .o{-webkit-text-stroke-color:var(--tc)!impor
 html[data-genre-mood] body .chips button[aria-pressed="true"]{background:var(--accent)!important;border-color:var(--accent)!important;color:#06182c!important;box-shadow:4px 4px 0 var(--tc)!important}
 html[data-genre-mood] body .btn{box-shadow:6px 6px 0 var(--accent)!important}
 html[data-genre-mood] body #bar{box-shadow:0 0 10px var(--accent)}
+
+
+/* Canonical Indian Anime Club navigation and footer.
+   Keep these shared surfaces visually identical on every route.
+   The homepage genre mood only changes body content, not the site chrome. */
+html body nav.legacy-site-nav,
+html[data-genre-mood] body nav.legacy-site-nav {
+  background:rgba(255,243,224,.97)!important;
+  color:#07182b!important;
+  border-bottom:3px solid #ff5a1f!important;
+}
+html body nav.legacy-site-nav a.logo.iac-brand {
+  display:inline-flex!important;
+  align-items:center!important;
+  gap:10px!important;
+  flex:0 0 auto!important;
+  min-width:42px;
+  color:#07182b!important;
+  text-decoration:none!important;
+  font-size:18px!important;
+  line-height:1.2!important;
+}
+html body nav.legacy-site-nav .iac-brand-mark {
+  display:block!important;
+  flex:0 0 42px!important;
+  width:42px!important;
+  height:42px!important;
+  max-width:none!important;
+  min-width:42px!important;
+  opacity:1!important;
+  visibility:visible!important;
+  object-fit:contain!important;
+  border-radius:11px;
+  background:#06182c;
+  box-shadow:0 1px 5px rgba(6,24,44,.18);
+}
+html body nav.legacy-site-nav .iac-brand .ln {
+  display:inline!important;
+  color:#07182b!important;
+  visibility:visible!important;
+  opacity:1!important;
+  font-weight:800;
+}
+html body nav.legacy-site-nav .btn,
+html[data-genre-mood] body nav.legacy-site-nav .btn {
+  border-color:#07182b!important;
+  background:#ffd23f!important;
+  color:#07182b!important;
+  box-shadow:4px 4px 0 #ff5a1f!important;
+}
+html body nav.legacy-site-nav .menu {
+  border-color:#07182b!important;
+  background:#ffd23f!important;
+  color:#07182b!important;
+}
+html body footer.iac-footer {
+  background:#06182c!important;
+  color:#fff7ec!important;
+  border-top:4px solid #ff5a1f!important;
+}
+html body footer.iac-footer .iac-footer-brand {
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:10px!important;
+  color:#fff7ec!important;
+}
+html body footer.iac-footer .iac-footer-mark {
+  display:block!important;
+  width:38px!important;
+  height:38px!important;
+  opacity:1!important;
+  visibility:visible!important;
+  flex:0 0 38px!important;
+}
+html body footer.iac-footer .iac-footer-brand span {color:#fff7ec!important}
+html body footer.iac-footer :is(.iac-footer-tagline,.iac-footer-copy) {color:#b8cce0!important}
+html body footer.iac-footer :is(.iac-footer-social,.iac-footer-site) {
+  background:transparent!important;
+  color:#fff7ec!important;
+  border:0!important;
+  box-shadow:none!important;
+  position:static!important;
+}
+html body footer.iac-footer a:not(.iac-footer-brand) {color:#22e4ff!important}
+html body footer.iac-footer a:not(.iac-footer-brand):hover {color:#ffd23f!important}
+html body footer.iac-footer .iac-footer-social a {
+  background:#0c2540!important;
+  border:1px solid #42617d!important;
+}
+@media(max-width:480px){
+  html body nav.legacy-site-nav .iac-brand .ln {display:none!important}
+  html body nav.legacy-site-nav .iac-brand-mark {
+    width:40px!important;
+    height:40px!important;
+    min-width:40px!important;
+    flex-basis:40px!important;
+  }
+}

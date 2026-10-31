@@ -22,6 +22,10 @@ jobs:
           python-version: "3.x"
       - name: Sync new article cards
         run: python3 scripts/sync_article_archive.py
+      - name: Apply canonical shared logo, header and footer
+        run: python3 scripts/sync_shared_shell.py
+      - name: Validate shared markup and article header syntax
+        run: python3 scripts/validate_shared_shell.py
       - name: Generate sitemap
         run: python3 scripts/generate_sitemap.py
       - name: Ensure consistent analytics, AdSense and Clarity tags
