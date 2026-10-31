@@ -24,7 +24,7 @@ if(document.querySelector('article.article')) document.querySelectorAll('.tick,.
 })();
 
 /* Microsoft Clarity analytics for Indian Anime Club. Load once on every page. */
-if(!window.__iacClarityLoaded){
+if(!window.__iacClarityLoaded && typeof window.clarity !== 'function'){
   window.__iacClarityLoaded=true;
   (function(c,l,a,r,i,t,y){
     c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};

@@ -263,10 +263,10 @@ section.oracle{padding-top:56px;padding-bottom:56px}
       </div>
       <div class="chips" role="group" aria-label="Pick your vibe">
         <small>Pick your genre and the whole site changes mood:</small>
-        <button aria-pressed="true" data-c="#ff5a1f">Shonen</button>
-        <button aria-pressed="false" data-c="#22e4ff">Sci-fi</button>
-        <button aria-pressed="false" data-c="#ffd23f">Slice of life</button>
-        <button aria-pressed="false" data-c="#b6ff3b">Isekai</button>
+        <button type="button" aria-pressed="true" data-c="#ff5a1f" data-genre="shonen">Shonen</button>
+        <button type="button" aria-pressed="false" data-c="#22e4ff" data-genre="sci-fi">Sci-fi</button>
+        <button type="button" aria-pressed="false" data-c="#ffd23f" data-genre="slice-of-life">Slice of life</button>
+        <button type="button" aria-pressed="false" data-c="#b6ff3b" data-genre="isekai">Isekai</button>
       </div>
     </div>
     <div class="mascot">
@@ -404,50 +404,8 @@ if($('#spin')&&sl)$('#spin').onclick=()=>{let n=0;sl.classList.add('spin');
   (function go(){sl.textContent=O[Math.floor(Math.random()*O.length)];if(++n<(RM?1:16))setTimeout(go,60+n*8);else sl.classList.remove('spin')})()};
 </script>
 <script src="/site-fixes.js?v=20261012-3" defer></script>
+<script src="/js/genre-mood.js" defer></script>
 <script src="/site-shell.js?v=20261017-1" defer></script>
-<script id="iac-home-genre-handler">
-(function(){
-  var palettes={
-    shonen:{fire:'#ff5a1f',cyan:'#22e4ff',sun:'#ffd23f',lime:'#b6ff3b',blue:'#1f6fff'},
-    'sci-fi':{fire:'#1f6fff',cyan:'#22e4ff',sun:'#b6ff3b',lime:'#ffd23f',blue:'#ff5a1f'},
-    'slice-of-life':{fire:'#ff8a1f',cyan:'#22e4ff',sun:'#ffd23f',lime:'#b6ff3b',blue:'#d946ef'},
-    isekai:{fire:'#8a5cff',cyan:'#22e4ff',sun:'#ff8a1f',lime:'#b6ff3b',blue:'#1f6fff'}
-  };
-  function choose(button){
-    if(!button)return;
-    var label=(button.textContent||'').trim().toLowerCase();
-    var key=label==='slice of life'?'slice-of-life':label;
-    var palette=palettes[key];
-    if(!palette)return;
-    var root=document.documentElement;
-    root.setAttribute('data-genre-mood',key);
-    Object.keys(palette).forEach(function(name){root.style.setProperty('--'+name,' '+palette[name]);});
-    root.style.setProperty('--accent',palette.fire);
-    root.style.setProperty('--tc',palette.cyan);
-    root.style.setProperty('--ts',palette.sun);
-    document.querySelectorAll('.chips button[data-c]').forEach(function(item){
-      var active=item===button;
-      item.setAttribute('aria-pressed',active?'true':'false');
-      item.classList.toggle('genre-active',active);
-    });
-  }
-  document.addEventListener('click',function(event){
-    var target=event.target;
-    var button=target&&target.closest?target.closest('.chips button[data-c]'):null;
-    if(button){event.preventDefault();choose(button);}
-  },true);
-  document.addEventListener('keydown',function(event){
-    if(event.key!=='Enter'&&event.key!==' ')return;
-    var target=event.target;
-    var button=target&&target.closest?target.closest('.chips button[data-c]'):null;
-    if(button){event.preventDefault();choose(button);}
-  },true);
-  function init(){
-    var selected=document.querySelector('.chips button[data-c][aria-pressed="true"]')||document.querySelector('.chips button[data-c]');
-    if(selected)choose(selected);
-  }
-  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
-})();
-</script>
+
 </body>
 </html>

@@ -1811,3 +1811,12 @@ body > a.skip-link:focus,body > a.skip-link:focus-visible{top:12px}
   html{scroll-behavior:auto!important}
   .legacy-site-nav .btn,.legacy-site-nav a{transition:none!important}
 }
+
+/* Genre mood applies only on the homepage. Keep the approved layout and footer intact. */
+html[data-genre-mood] body :is(.legacy-site-nav, nav[aria-label="Main navigation"]){border-bottom-color:var(--accent)!important}
+html[data-genre-mood] body :is(.logo b, .hero h1 .a){color:var(--accent)!important}
+html[data-genre-mood] body .hero h1 .a{color:var(--accent)!important}
+html[data-genre-mood] body .hero h1 .o{-webkit-text-stroke-color:var(--tc)!important}
+html[data-genre-mood] body .chips button[aria-pressed="true"]{background:var(--accent)!important;border-color:var(--accent)!important;color:#06182c!important;box-shadow:4px 4px 0 var(--tc)!important}
+html[data-genre-mood] body .btn{box-shadow:6px 6px 0 var(--accent)!important}
+html[data-genre-mood] body #bar{box-shadow:0 0 10px var(--accent)}
