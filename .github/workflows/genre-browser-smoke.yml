@@ -1,0 +1,29 @@
+name: Homepage genre browser smoke test
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.x"
+      - name: Install Chromium and browser automation
+        run: |
+          python -m pip install 'playwright>=1.55,<2'
+          python -m playwright install --with-deps chromium
+      - name: Exercise Shonen, Sci-fi, Slice of life and Isekai on desktop and mobile
+        run: python scripts/test_genre_browser.py
+      - name: Save browser screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: homepage-genre-smoke-screenshots
+          path: reports/genre-*.png
+          if-no-files-found: ignore
