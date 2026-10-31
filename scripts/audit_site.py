@@ -274,7 +274,7 @@ for image_src in re.findall(r'<img\b[^>]*class=["\'][^"\']*\barticle-card-image\
     if not local_image.is_file():
         errors.append(f"Article archive thumbnail file is missing: {image_src}")
 
-listed_links = set(re.findall(r'<h2>\\s*<a\\s+href=["\\']([^"\\']+)["\\']', cards, re.I))
+listed_links = set(re.findall(r"<h2>\s*<a\s+href=['\"]([^'\"]+)['\"]", cards, re.I))
 missing_cards = sorted(known_article_urls - {href.rstrip("/") + "/" for href in listed_links})
 for url in missing_cards:
     errors.append(f"Article missing from archive: {url}")
@@ -295,7 +295,7 @@ if __import__("os").environ.get("IAC_DEPLOY_BUILD") == "1":
             errors.append(f"{page}: shared favicon not installed.")
         if 'site-shell.js' not in html:
             errors.append(f"{page}: shared shell/analytics not installed.")
-        if not re.search(r"<main\\b", html, re.I):
+        if not re.search(r"<main\b", html, re.I):
             errors.append(f"{page}: missing main landmark.")
 
 if warnings:
