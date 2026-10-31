@@ -36,11 +36,13 @@
       button.setAttribute('aria-expanded', 'false');
       button.setAttribute('aria-label', 'Toggle navigation');
     };
-    button.addEventListener('click', () => {
+    button.addEventListener('click', event => {
+      // Capture this click before legacy inline handlers can toggle the menu twice.
+      event.stopImmediatePropagation();
       const open = nav.classList.toggle('open');
       button.setAttribute('aria-expanded', String(open));
       button.setAttribute('aria-label', open ? 'Close navigation' : 'Toggle navigation');
-    });
+    }, true);
     nav.querySelectorAll('ul a').forEach(link => link.addEventListener('click', close));
     document.addEventListener('keydown', event => {
       if (event.key === 'Escape' && nav.classList.contains('open')) {
