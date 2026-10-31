@@ -15,8 +15,13 @@ for path in pages:
         raise SystemExit(f"{path}: shared header does not match template")
     if html.count(footer)!=1:
         raise SystemExit(f"{path}: shared footer does not match template")
-    if html.count('aria-label="Main navigation"')!=1:
-        raise SystemExit(f"{path}: expected exactly one main navigation")
+    nav_count = len(re.findall(
+        r"""<nav\b(?=[^>]*\baria-label=["']Main navigation["'])[^>]*>""",
+        html,
+        re.I,
+    ))
+    if nav_count != 1:
+        raise SystemExit(f"{path}: expected one actual main navigation, got {nav_count}")
     if not re.search(r'<img\b[^>]*class="iac-brand-mark"[^>]*src="/favicon\.svg"',html):
         raise SystemExit(f"{path}: visible logo image is missing")
     if not re.search(r'href=["\']/site-shell\.css(?:\?[^"\']*)?["\']',html):
