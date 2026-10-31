@@ -128,6 +128,13 @@ for path in article_files:
             errors.append(f"{path}: Article JSON-LD image does not match the featured image.")
         if not article_schema.get("datePublished") or not article_schema.get("dateModified"):
             errors.append(f"{path}: Article JSON-LD is missing publication or modification dates.")
+    # Fail fast if a second sources heading or a known wrong legislation link reappears.
+    article_html = re.search(r'<article\\b[^>]*class="[^"]*article[^"]*"[^>]*>([\\s\\S]*?)</article>', raw, re.I)
+    article_body = article_html.group(1) if article_html else raw
+    if len(re.findall(r'Sources &amp; further reading', article_body)) != 1:
+        errors.append(f"{path}: Sources & further reading must occur exactly once.")
+    if "copyright.gov.in/Copyright_Act_1957/chapter_i.html" in raw:
+        errors.append(f"{path}: Copyright Act chapter I is not a valid source for infringement exceptions.")
     if not re.search(r'<section\b[^>]*class=["\'][^"\']*\bsources\b', raw, re.I):
         errors.append(f"{path}: missing Sources & further reading section.")
     if re.search(r"<h2[^>]*>\s*Start with the context\s*</h2>", raw, re.I):

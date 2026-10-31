@@ -26,5 +26,15 @@ jobs:
         run: python3 scripts/generate_sitemap.py
       - name: Ensure consistent analytics, AdSense and Clarity tags
         run: python3 scripts/ensure_tracking.py
+      - name: Generate transparent article claim-review register
+        run: python3 scripts/review_articles.py
+      - name: Upload editorial review register for editor validation
+        uses: actions/upload-artifact@v4
+        with:
+          name: 31-article-editorial-claim-review
+          path: |
+            reports/editorial-review.md
+            reports/claim-review.json
+          retention-days: 60
       - name: Validate article SEO, images, sitemap and AdSense basics
         run: python3 scripts/audit_site.py

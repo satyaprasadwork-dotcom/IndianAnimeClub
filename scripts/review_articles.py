@@ -74,3 +74,5 @@ if duplicated:
 else:lines.append("No exact normalized paragraph reuse between different article source files was detected (similar ideas or template phrasing may still overlap).")
 (OUT/"editorial-review.md").write_text("\n".join(lines)+"\n",encoding="utf-8")
 print(f"Inventory: {len(rows)} articles, {sum(len(r['fact_sensitive_sentences']) for r in rows)} candidate statements, {len(duplicated)} exact cross-article paragraph repeats.")
+for item in duplicated:
+ print("REPEATED ARTICLE PARAGRAPH:", " | ".join(item["articles"]), "::", item["text"][:210])
