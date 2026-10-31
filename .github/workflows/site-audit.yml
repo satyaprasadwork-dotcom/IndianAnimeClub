@@ -20,5 +20,9 @@ jobs:
         uses: actions/setup-python@v6
         with:
           python-version: "3.x"
+      - name: Sync new article cards
+        run: python3 scripts/sync_article_archive.py
+      - name: Generate sitemap
+        run: python3 scripts/generate_sitemap.py
       - name: Validate article SEO, images, sitemap and AdSense basics
         run: python3 scripts/audit_site.py

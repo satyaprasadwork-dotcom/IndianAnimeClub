@@ -19,7 +19,7 @@ const footers=[...document.querySelectorAll('footer')];if(footers.length){footer
 n=document.querySelector('nav.legacy-site-nav');const b=n&&n.querySelector('#menu');if(b&&!b.dataset.shellBound){b.dataset.shellBound='true';const close=()=>{n.classList.remove('open');b.setAttribute('aria-expanded','false');b.setAttribute('aria-label','Toggle navigation')};b.addEventListener('click',()=>{const o=n.classList.toggle('open');b.setAttribute('aria-expanded',String(o));b.setAttribute('aria-label',o?'Close navigation':'Toggle navigation')});n.querySelectorAll('ul a').forEach(a=>a.addEventListener('click',close));document.addEventListener('keydown',e=>{if(e.key==='Escape'&&n.classList.contains('open')){close();b.focus()}})}
 
 /* Article pages do not display the homepage news ticker/scroller. */
-document.querySelectorAll('.tick,.news-scroller,#news-scroller,.news-ticker,#news-ticker,[data-news-scroller]').forEach(el=>el.remove());
+if(document.querySelector('article.article')) document.querySelectorAll('.tick,.news-scroller,#news-scroller,.news-ticker,#news-ticker,[data-news-scroller]').forEach(el=>el.remove());
 
 })();
 
@@ -32,3 +32,24 @@ if(!window.__iacClarityLoaded){
     y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
   })(window,document,"clarity","script","ywqdm8xkj7");
 }
+
+/* Load GA4 once for article routes. Other pages have an explicit head tag. */
+(function(){
+ var id='G-M4738D1ZND';
+ if(document.querySelector('script[src*="googletagmanager.com/gtag/js?id='+id+'"]'))return;
+ window.dataLayer=window.dataLayer||[];
+ if(typeof window.gtag!=='function')window.gtag=function(){window.dataLayer.push(arguments);};
+ window.gtag('js',new Date());
+ window.gtag('config',id);
+ var s=document.createElement('script');s.async=true;
+ s.src='https://www.googletagmanager.com/gtag/js?id='+encodeURIComponent(id);
+ s.dataset.iacGa4='true';document.head.appendChild(s);
+})();
+/* Accessible keyboard escape route where one is not already present. */
+(function(){
+ var main=document.querySelector('main');
+ if(!main||document.querySelector('a.skip-link'))return;
+ if(!main.id)main.id='main-content';
+ var a=document.createElement('a');a.className='skip-link';a.href='#'+main.id;
+ a.textContent='Skip to main content';document.body.insertBefore(a,document.body.firstChild);
+})();

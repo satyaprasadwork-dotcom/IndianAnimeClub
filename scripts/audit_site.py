@@ -66,8 +66,8 @@ def meta_value(parser, name=None, prop=None):
     return ""
 
 article_files = sorted(p for p in (ROOT / "articles").glob("*.html") if p.name != "index.html")
-if len(article_files) != 31:
-    errors.append(f"Expected 31 article source files; found {len(article_files)}.")
+if not article_files:
+    errors.append("No article source files found.")
 
 seen_canonicals = set()
 for path in article_files:
@@ -206,10 +206,11 @@ if not any(term in privacy for term in ("personalized advertising", "personalise
     errors.append("Privacy policy may be missing its advertising-personalisation disclosure.")
 
 cards = (ROOT / "articles" / "index.html").read_text(encoding="utf-8")
-if len(re.findall(r'<article class="card"', cards, re.I)) != 31:
-    errors.append("Article listing does not contain 31 cards.")
-if len(re.findall(r'class="article-card-image"', cards, re.I)) != 31:
-    errors.append("Article listing does not contain one thumbnail for each of the 31 cards.")
+archive_card_count = len(re.findall(r'<article class="card"', cards, re.I))
+if archive_card_count != len(article_files):
+    errors.append(f"Article listing contains {archive_card_count} cards; expected {len(article_files)}.")
+if len(re.findall(r'class="article-card-image"', cards, re.I)) != len(article_files):
+    errors.append(f"Article listing should contain {len(article_files)} article thumbnails.")
 if "const perPage=15" not in cards and "const perPage = 15" not in cards:
     errors.append("Article listing pagination is not configured for 15 cards per page.")
 
@@ -269,6 +270,30 @@ for image_src in re.findall(r'<img\b[^>]*class=["\'][^"\']*\barticle-card-image\
     local_image = ROOT / image_src.lstrip("/")
     if not local_image.is_file():
         errors.append(f"Article archive thumbnail file is missing: {image_src}")
+
+listed_links = set(re.findall(r'<h2>\\s*<a\\s+href=["\\']([^"\\']+)["\\']', cards, re.I))
+missing_cards = sorted(known_article_urls - {href.rstrip("/") + "/" for href in listed_links})
+for url in missing_cards:
+    errors.append(f"Article missing from archive: {url}")
+
+# Built-page checks can inspect the real deployment artifacts.
+if __import__("os").environ.get("IAC_DEPLOY_BUILD") == "1":
+    shell = ROOT / "site-shell.js"
+    if not shell.is_file() or "G-M4738D1ZND" not in shell.read_text(encoding="utf-8"):
+        errors.append("Shared GA4 loader missing.")
+    for url in sitemap_urls:
+        route = url[len(DOMAIN):].strip("/")
+        page = ROOT / route / "index.html" if route else ROOT / "index.html"
+        if not page.is_file():
+            errors.append(f"{url}: clean route not generated.")
+            continue
+        html = page.read_text(encoding="utf-8")
+        if '/favicon.svg' not in html or '/favicon-48.png' not in html:
+            errors.append(f"{page}: shared favicon not installed.")
+        if 'site-shell.js' not in html:
+            errors.append(f"{page}: shared shell/analytics not installed.")
+        if not re.search(r"<main\\b", html, re.I):
+            errors.append(f"{page}: missing main landmark.")
 
 if warnings:
     print("AUDIT WARNINGS:")
