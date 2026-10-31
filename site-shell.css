@@ -1801,3 +1801,13 @@ html body:has(article.article) article.article .article-prose > .key-takeaways l
     padding:15px !important;
   }
 }
+
+/* Shared skip-link fallback for keyboard readers on all site routes. */
+body > a.skip-link{position:fixed;left:12px;top:-120px;z-index:99999;
+  padding:11px 15px;background:#ffd23f;color:#06182c;
+  border:2px solid #06182c;border-radius:4px;font:700 15px/1.3 system-ui,sans-serif}
+body > a.skip-link:focus,body > a.skip-link:focus-visible{top:12px}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto!important}
+  .legacy-site-nav .btn,.legacy-site-nav a{transition:none!important}
+}

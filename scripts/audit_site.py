@@ -79,7 +79,8 @@ for path in article_files:
     description = meta_value(parser, name="description")
     og_image = meta_value(parser, prop="og:image")
     twitter_card = meta_value(parser, name="twitter:card")
-    expected_image = f"{DOMAIN}/images/articles/{slug}.svg"
+    built = __import__("os").environ.get("IAC_DEPLOY_BUILD") == "1"
+    expected_image = f"{DOMAIN}/images/articles/{slug}.{'png' if built else 'svg'}"
     image_path = ROOT / "images" / "articles" / f"{slug}.svg"
 
     if not title:
@@ -97,6 +98,8 @@ for path in article_files:
         errors.append(f"{path}: missing featured image file {image_path}.")
     if not any(img.get("src") == f"/images/articles/{slug}.svg" and img.get("alt", "").strip() for img in parser.images):
         errors.append(f"{path}: featured image or descriptive alt text is missing.")
+    if built and not (ROOT / "images" / "articles" / f"{slug}.png").is_file():
+        errors.append(f"{path}: PNG social image was not built.")
     if og_image != expected_image:
         errors.append(f"{path}: og:image does not match the featured image.")
     if twitter_card != "summary_large_image":

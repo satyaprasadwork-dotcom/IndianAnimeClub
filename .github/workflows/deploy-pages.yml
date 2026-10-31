@@ -331,6 +331,10 @@ jobs:
         run: python3 scripts/generate_sitemap.py
       - name: Run pre-deployment SEO and article integrity audit
         run: python3 scripts/audit_site.py
+      - name: Install social preview renderer
+        run: python3 -m pip install 'CairoSVG>=2.7,<3'
+      - name: Build 1200x675 PNG social previews from original SVGs
+        run: python3 scripts/build_social_images.py
       - name: Validate public routes and shared favicon
         env:
           IAC_DEPLOY_BUILD: "1"
