@@ -31,10 +31,17 @@ paths=[
   "/articles/",
   "/articles/the-next-chapter-of-anime-in-india-language-access-local-creators-and-community-growth.html",
 ]
+# Every article can bring its own legacy CSS. Check all of them, including flat
+# information-page sources used directly by Apache/LiteSpeed hosting.
+paths += ['/' + p.as_posix() for p in sorted(Path('articles').glob('*.html')) if p.name != 'index.html']
+paths += ['/' + p.name for p in sorted(Path('.').glob('*.html')) if p.name != 'index.html']
+paths = list(dict.fromkeys(paths))
 try:
     with sync_playwright() as pw:
         browser=pw.chromium.launch(headless=True)
-        for label,viewport in [("desktop",{"width":1280,"height":850}),("mobile",{"width":390,"height":844})]:
+        for width in (320,390,768,820,900,1024,1280):
+            label = 'mobile' if width <= 900 else 'desktop'
+            viewport = {"width":width,"height":850}
             ctx=browser.new_context(viewport=viewport,is_mobile=label=="mobile",has_touch=label=="mobile")
             ctx.route("https://**/*",lambda r:r.abort())
             reference_header=None
@@ -74,7 +81,13 @@ try:
                     height:Math.round(box.height),
                     logoWidth:Math.round(mark.width),
                     menuItemColor:getComputedStyle(link).color,
-                    label:el.querySelector('.iac-brand').getAttribute('aria-label')
+                    label:el.querySelector('.iac-brand').getAttribute('aria-label'),
+                    elements:[...el.querySelectorAll('.wrap,.iac-brand,.ln,#site-links,#site-links a,.btn,#menu')].map(node=>{
+                      const s=getComputedStyle(node),r=node.getBoundingClientRect();
+                      return {font:s.fontFamily,size:s.fontSize,weight:s.fontWeight,line:s.lineHeight,
+                        padding:s.padding,margin:s.margin,display:s.display,gap:s.gap,
+                        x:Math.round(r.x),y:Math.round(r.y),width:Math.round(r.width),height:Math.round(r.height)};
+                    })
                   };
                 }""")
                 if appearance["background"]!="rgba(255, 243, 224, 0.97)":
@@ -97,15 +110,22 @@ try:
                     menu.click()
                     if menu.get_attribute("aria-expanded")!="true" or "open" not in header.get_attribute("class"):
                         raise AssertionError(f"{path}: mobile menu did not open")
-                    menu.click()
+                    links=header.locator('#site-links')
+                    if not links.is_visible():
+                        raise AssertionError(f"{path}: open menu links are hidden")
+                    menu.press('Escape')
                     if menu.get_attribute("aria-expanded")!="false" or "open" in header.get_attribute("class"):
                         raise AssertionError(f"{path}: mobile menu did not close")
                 if i in (0,1,5,10):
                     shot = {0:'home',1:'about',5:'privacy',10:'article'}[i]
-                    page.screenshot(path=str(REPORTS/f"shared-shell-{label}-{shot}.png"),full_page=False)
+                    page.screenshot(path=str(REPORTS/f"shared-shell-{width}-{shot}.png"),full_page=False)
+                controls=header.locator('.iac-brand,.btn,#menu').evaluate_all("""nodes=>nodes.filter(n=>getComputedStyle(n).display!=='none').map(n=>{const b=n.getBoundingClientRect();return {left:b.left,right:b.right}})""")
+                controls.sort(key=lambda b:b['left'])
+                if any(a['right'] > b['left'] + 1 for a,b in zip(controls,controls[1:])):
+                    raise AssertionError(f"{path} at {width}px: header controls overlap")
                 page.close()
             ctx.close()
         browser.close()
 finally:
     server.shutdown()
-print("Shared logo/header/footer, CSS appearance and mobile menu pass across all seven information pages, the homepage, leadership, archive and article.")
+print(f"Shared header typography, geometry, controls and footer pass on {len(paths)} routes at seven mobile, tablet and desktop widths.")

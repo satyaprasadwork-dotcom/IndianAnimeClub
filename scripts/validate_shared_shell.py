@@ -22,10 +22,14 @@ for path in pages:
     ))
     if nav_count != 1:
         raise SystemExit(f"{path}: expected one actual main navigation, got {nav_count}")
-    if not re.search(r'<img\b[^>]*class="iac-brand-mark"[^>]*src="/favicon\.svg"',html):
+    if not re.search(r'<img\b[^>]*class="iac-brand-mark"[^>]*src="/favicon\.svg(?:\?[^"]*)?"',html):
         raise SystemExit(f"{path}: visible logo image is missing")
     if not re.search(r'href=["\']/site-shell\.css(?:\?[^"\']*)?["\']',html):
         raise SystemExit(f"{path}: shared stylesheet is missing")
+    if 'fonts.googleapis.com/css2?family=Dela+Gothic+One' not in html:
+        raise SystemExit(f"{path}: shared navigation fonts are missing")
+    if not re.search(r'href=["\']/css/navigation\.css\?v=[a-f0-9]+["\']',html):
+        raise SystemExit(f"{path}: versioned navigation styles are missing")
     if not re.search(r'<script[^>]*src="/site-shell\.js(?:\?[^"]*)?"',html):
         raise SystemExit(f"{path}: shared menu script missing")
     if re.search(r'<header\b[^>]*\bclass=["\'][^"\']*\barticle-hero\b[^"\']*["\'][^>]*>\s*["\']>',html):

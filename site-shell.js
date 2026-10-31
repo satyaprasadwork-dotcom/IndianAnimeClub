@@ -23,7 +23,9 @@
     css.rel = 'stylesheet';
     document.head.appendChild(css);
   }
-  css.href = '/site-shell.css?v=' + encodeURIComponent(version);
+  // Preserve the build's content hash. Replacing it with "shared" or a stale
+  // script query string made raw Hostinger pages reuse an old stylesheet.
+  if (!css.getAttribute('href')) css.href = '/site-shell.css?v=' + encodeURIComponent(version);
   css.dataset.iacShellCss = 'true';
   links.forEach(link => link.remove());
 
@@ -50,6 +52,7 @@
         button.focus();
       }
     });
+    window.matchMedia('(min-width:901px)').addEventListener('change', close);
   }
   // Article pages never show the homepage news ticker.
   if (document.querySelector('article.article')) {
@@ -83,7 +86,7 @@ if(!window.__iacClarityLoaded && typeof window.clarity !== 'function'){
 /* Accessible keyboard escape route where one is not already present. */
 (function(){
  var main=document.querySelector('main');
- if(!main||document.querySelector('a.skip-link'))return;
+ if(!main||document.querySelector('a.skip-link,a.skip'))return;
  if(!main.id)main.id='main-content';
  var a=document.createElement('a');a.className='skip-link';a.href='#'+main.id;
  a.textContent='Skip to main content';document.body.insertBefore(a,document.body.firstChild);

@@ -255,9 +255,9 @@ jobs:
                   flags=re.I,
               )
               favicon_links = (
-                  '<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png">\n'
-                  '<link rel="icon" type="image/svg+xml" href="/favicon.svg">\n'
-                  '<link rel="shortcut icon" href="/favicon.ico">\n'
+                  '<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png?v=' + version + '">\n'
+                  '<link rel="icon" type="image/svg+xml" href="/favicon.svg?v=' + version + '">\n'
+                  '<link rel="shortcut icon" href="/favicon.ico?v=' + version + '">\n'
               )
               html = re.sub(r"</head\s*>", favicon_links + "</head>", html, count=1, flags=re.I)
 
