@@ -27,6 +27,8 @@ jobs:
         uses: actions/configure-pages@v5
         with:
           enablement: true
+      - name: Enforce shared header and footer before build
+        run: python3 scripts/validate_shared_shell.py
       - name: Sync new article cards
         run: python3 scripts/sync_article_archive.py
       - name: Apply canonical shared logo, header and footer

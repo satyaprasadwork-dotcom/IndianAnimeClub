@@ -20,6 +20,8 @@ jobs:
         uses: actions/setup-python@v6
         with:
           python-version: "3.x"
+      - name: Enforce shared header and footer in committed HTML sources
+        run: python3 scripts/validate_shared_shell.py
       - name: Sync new article cards
         run: python3 scripts/sync_article_archive.py
       - name: Apply canonical shared logo, header and footer

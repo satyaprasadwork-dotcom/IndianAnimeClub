@@ -14,6 +14,8 @@ jobs:
       - uses: actions/setup-python@v6
         with:
           python-version: "3.x"
+      - name: Verify committed source header and footer consistency
+        run: python3 scripts/validate_shared_shell.py
       - name: Build shared header and footer
         run: python3 scripts/sync_shared_shell.py
       - name: Verify shared logo and route consistency

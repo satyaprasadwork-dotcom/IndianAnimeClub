@@ -20,8 +20,15 @@ Thread(target=server.serve_forever,daemon=True).start()
 base=f"http://127.0.0.1:{server.server_port}"
 paths=[
   "/",
-  "/articles/index.html",
-  "/about.html",
+  "/about/",
+  "/contact/",
+  "/community-guidelines/",
+  "/editorial-policy/",
+  "/privacy-policy/",
+  "/terms/",
+  "/disclaimer/",
+  "/leadership/",
+  "/articles/",
   "/articles/the-next-chapter-of-anime-in-india-language-access-local-creators-and-community-growth.html",
 ]
 try:
@@ -56,6 +63,30 @@ try:
                 color=footer.evaluate("(el)=>getComputedStyle(el).backgroundColor")
                 if color!="rgb(6, 24, 44)":
                     raise AssertionError(f"{path}: inconsistent footer color {color}")
+                # Compare the visible header as well as the HTML structure.
+                appearance=header.evaluate("""el=>{
+                  const box=el.getBoundingClientRect();
+                  const mark=el.querySelector('.iac-brand-mark').getBoundingClientRect();
+                  const link=el.querySelector('#site-links a');
+                  return {
+                    background:getComputedStyle(el).backgroundColor,
+                    border:getComputedStyle(el).borderBottomColor,
+                    height:Math.round(box.height),
+                    logoWidth:Math.round(mark.width),
+                    menuItemColor:getComputedStyle(link).color,
+                    label:el.querySelector('.iac-brand').getAttribute('aria-label')
+                  };
+                }""")
+                if appearance["background"]!="rgba(255, 243, 224, 0.97)":
+                    raise AssertionError(f"{path}: incorrect header background {appearance}")
+                if appearance["border"]!="rgb(255, 90, 31)":
+                    raise AssertionError(f"{path}: incorrect header border {appearance}")
+                if appearance["logoWidth"]<38:
+                    raise AssertionError(f"{path}: header logo too narrow {appearance}")
+                if i==0:
+                    reference_appearance=appearance
+                elif appearance!=reference_appearance:
+                    raise AssertionError(f"{path}: header styling differs from homepage: {appearance} != {reference_appearance}")
                 if path.endswith("the-next-chapter-of-anime-in-india-language-access-local-creators-and-community-growth.html"):
                     bad=page.locator("article.article > header.article-hero").evaluate(
                         "(el)=>el.firstChild?.nodeType===3 ? el.firstChild.textContent.trim() : ''")
@@ -69,11 +100,12 @@ try:
                     menu.click()
                     if menu.get_attribute("aria-expanded")!="false" or "open" in header.get_attribute("class"):
                         raise AssertionError(f"{path}: mobile menu did not close")
-                if i in (0,3):
-                    page.screenshot(path=str(REPORTS/f"shared-shell-{label}-{'home' if i==0 else 'article'}.png"),full_page=False)
+                if i in (0,1,5,10):
+                    shot = {0:'home',1:'about',5:'privacy',10:'article'}[i]
+                    page.screenshot(path=str(REPORTS/f"shared-shell-{label}-{shot}.png"),full_page=False)
                 page.close()
             ctx.close()
         browser.close()
 finally:
     server.shutdown()
-print("Shared logo/header/footer and mobile menu passed on homepage, archive, information and article pages.")
+print("Shared logo/header/footer, CSS appearance and mobile menu pass across all seven information pages, the homepage, leadership, archive and article.")
