@@ -63,6 +63,7 @@ html body nav.legacy-site-nav > .wrap > .btn {
   display:inline-flex!important;
   align-items:center!important;
   justify-content:center!important;
+  gap:10px!important;
   flex:0 0 auto!important;
   font:400 14px/22px "Dela Gothic One",Impact,"Arial Black",sans-serif!important;
   letter-spacing:normal!important;
