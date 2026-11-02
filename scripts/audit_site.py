@@ -340,6 +340,39 @@ if __import__("os").environ.get("IAC_DEPLOY_BUILD") == "1":
             if head.count(uri)!=1:
                 errors.append(f"{page}: missing or duplicate tracking script {uri}")
 
+# Low-value-content prevention: ensure homepage gives direct, crawlable access
+# to genuine published articles rather than only promotional navigation.
+homepage_path = ROOT / "index.html"
+homepage_html = homepage_path.read_text(encoding="utf-8")
+featured_match = re.search(
+    r'<section\\b[^>]*id="featured-reading"[^>]*>([\\s\\S]*?)</section>',
+    homepage_html, re.I,
+)
+if not featured_match:
+    errors.append("Homepage is missing its editorial article showcase.")
+else:
+    section_html = featured_match.group(1)
+    featured_hrefs = set(re.findall(r'<a\\b[^>]*href="(/[^"]+/)"', section_html))
+    featured_articles = {DOMAIN + href for href in featured_hrefs if DOMAIN + href in known_article_urls}
+    if len(featured_articles) < 6:
+        errors.append(f"Homepage should link to at least six published article pages; found {len(featured_articles)}.")
+    featured_images = re.findall(r'<img\\b[^>]*src="(/images/articles/[^"]+)"', section_html)
+    if len(featured_images) < 6:
+        errors.append("Homepage editorial showcase is missing article thumbnails.")
+    for image_src in featured_images:
+        if not (ROOT / image_src.lstrip("/")).is_file():
+            errors.append(f"Homepage references missing featured image: {image_src}")
+if '<p class="type">We <span id="tw"></span>' in homepage_html:
+    errors.append("Homepage hero lacks meaningful non-JavaScript fallback text.")
+if "Fans wanted" in homepage_html:
+    errors.append("Homepage still advertises hypothetical city chapter cards.")
+if homepage_html.count('<section class="worlds" id="events">') != 1:
+    errors.append("Homepage discovery section must occur exactly once.")
+if homepage_html.count('<main') != 1 or homepage_html.count('</main>') != 1:
+    errors.append("Homepage must have one closed main landmark.")
+if 'href="/css/home-editorial.css' not in homepage_html or not (ROOT / "css/home-editorial.css").is_file():
+    errors.append("Homepage editorial grid stylesheet missing.")
+
 if warnings:
     print("AUDIT WARNINGS:")
     for warning in warnings:
