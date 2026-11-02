@@ -345,18 +345,18 @@ if __import__("os").environ.get("IAC_DEPLOY_BUILD") == "1":
 homepage_path = ROOT / "index.html"
 homepage_html = homepage_path.read_text(encoding="utf-8")
 featured_match = re.search(
-    r'<section\\b[^>]*id="featured-reading"[^>]*>([\\s\\S]*?)</section>',
+    r'<section\b[^>]*id="featured-reading"[^>]*>([\s\S]*?)</section>',
     homepage_html, re.I,
 )
 if not featured_match:
     errors.append("Homepage is missing its editorial article showcase.")
 else:
     section_html = featured_match.group(1)
-    featured_hrefs = set(re.findall(r'<a\\b[^>]*href="(/[^"]+/)"', section_html))
+    featured_hrefs = set(re.findall(r'<a\b[^>]*href="(/[^"]+/)"', section_html))
     featured_articles = {DOMAIN + href for href in featured_hrefs if DOMAIN + href in known_article_urls}
     if len(featured_articles) < 6:
         errors.append(f"Homepage should link to at least six published article pages; found {len(featured_articles)}.")
-    featured_images = re.findall(r'<img\\b[^>]*src="(/images/articles/[^"]+)"', section_html)
+    featured_images = re.findall(r'<img\b[^>]*src="(/images/articles/[^"]+)"', section_html)
     if len(featured_images) < 6:
         errors.append("Homepage editorial showcase is missing article thumbnails.")
     for image_src in featured_images:
