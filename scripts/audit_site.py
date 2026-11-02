@@ -394,6 +394,24 @@ for name in filters-{"all"}:
 if "history.pushState" not in archive_source or "popstate" not in archive_source:
     errors.append("Article archive navigation needs shareable URL and browser history handling.")
 
+# Verify the original reader tool is publicly accessible and linked.
+planner=ROOT/"watchlist-planner"/"index.html"
+if not planner.is_file():
+    errors.append("Original watchlist planner page is missing.")
+else:
+    html=planner.read_text(encoding="utf-8")
+    if 'rel="canonical" href="https://indiananimeclub.com/watchlist-planner/"' not in html:
+        errors.append("Watchlist planner canonical URL missing.")
+    if not (ROOT/"js/watchlist-planner.js").is_file():
+        errors.append("Watchlist planner calculation script missing.")
+    for field in ('iac-weekly-hours','iac-series-rows','iac-budget-limit','iac-budget-spend'):
+        if field not in html:
+            errors.append(f"Planner missing usable field {field}.")
+    if "https://indiananimeclub.com/watchlist-planner/" not in sitemap_urls:
+        errors.append("Watchlist planner URL is absent from the generated sitemap.")
+    if 'href="/watchlist-planner/"' not in homepage_html:
+        errors.append("Watchlist planner is not discoverable from the homepage.")
+
 if warnings:
     print("AUDIT WARNINGS:")
     for warning in warnings:

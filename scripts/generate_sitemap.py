@@ -25,7 +25,7 @@ class CanonicalParser(HTMLParser):
 
 def source_pages():
     # Public top-level HTML pages, plus article sources and the article listing.
-    candidates = list(ROOT.glob("*.html")) + list((ROOT / "articles").glob("*.html"))
+    candidates = list(ROOT.glob("*.html")) + list((ROOT / "articles").glob("*.html")) + list(ROOT.glob("*/index.html"))
     return sorted(p for p in candidates if p.is_file())
 
 urls = set()
