@@ -339,6 +339,14 @@ if __import__("os").environ.get("IAC_DEPLOY_BUILD") == "1":
                     "https://www.clarity.ms/tag/"):
             if head.count(uri)!=1:
                 errors.append(f"{page}: missing or duplicate tracking script {uri}")
+        for marker in ('IAC_TRACKING_START', 'IAC_TRACKING_END', 'id="iac-ga4-init"', 'id="iac-clarity-init"'):
+            if head.count(marker) != 1:
+                errors.append(f"{page}: expected one canonical tracking marker/initializer {marker}")
+        if head.count("gtag('config','G-M4738D1ZND')") != 1:
+            errors.append(f"{page}: duplicate or missing GA4 configuration call")
+        if head.count('"ywqdm8xkj7"') != 1:
+            errors.append(f"{page}: duplicate or missing Clarity initialization")
+
 
 # Low-value-content prevention: ensure homepage gives direct, crawlable access
 # to genuine published articles rather than only promotional navigation.

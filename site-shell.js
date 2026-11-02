@@ -1,14 +1,3 @@
-/* Google AdSense publisher tag. Guard against duplicate loading when shared scripts overlap. */
-(function(){
-  if (document.querySelector('script[data-iac-adsense="true"]') || document.querySelector('script[src*="pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"]')) return;
-  var adsenseScript = document.createElement('script');
-  adsenseScript.async = true;
-  adsenseScript.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7937216909291905';
-  adsenseScript.crossOrigin = 'anonymous';
-  adsenseScript.setAttribute('data-iac-adsense', 'true');
-  (document.head || document.documentElement).appendChild(adsenseScript);
-})();
-
 /* Header and footer are rendered from /partials/ at build time.
    This script only attaches behaviour; it never replaces shared DOM markup. */
 (() => {
@@ -61,28 +50,9 @@
   }
 })();
 
-/* Microsoft Clarity analytics for Indian Anime Club. Load once on every page. */
-if(!window.__iacClarityLoaded && typeof window.clarity !== 'function'){
-  window.__iacClarityLoaded=true;
-  (function(c,l,a,r,i,t,y){
-    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-  })(window,document,"clarity","script","ywqdm8xkj7");
-}
+/* Analytics, AdSense and Clarity are now loaded exactly once from the HTML head.
+   Never load them again in this shared navigation script. */
 
-/* Load GA4 once for article routes. Other pages have an explicit head tag. */
-(function(){
- var id='G-M4738D1ZND';
- if(document.querySelector('script[src*="googletagmanager.com/gtag/js?id='+id+'"]'))return;
- window.dataLayer=window.dataLayer||[];
- if(typeof window.gtag!=='function')window.gtag=function(){window.dataLayer.push(arguments);};
- window.gtag('js',new Date());
- window.gtag('config',id);
- var s=document.createElement('script');s.async=true;
- s.src='https://www.googletagmanager.com/gtag/js?id='+encodeURIComponent(id);
- s.dataset.iacGa4='true';document.head.appendChild(s);
-})();
 /* Accessible keyboard escape route where one is not already present. */
 (function(){
  var main=document.querySelector('main');

@@ -20,6 +20,8 @@ jobs:
         uses: actions/setup-python@v6
         with:
           python-version: "3.x"
+      - name: Verify consistent tracking in all committed HTML pages
+        run: python3 scripts/ensure_tracking.py --check
       - name: Enforce shared header and footer in committed HTML sources
         run: python3 scripts/validate_shared_shell.py
       - name: Sync new article cards
@@ -32,6 +34,8 @@ jobs:
         run: python3 scripts/generate_sitemap.py
       - name: Ensure consistent analytics, AdSense and Clarity tags
         run: python3 scripts/ensure_tracking.py
+      - name: Verify canonical tracking remains exactly once
+        run: python3 scripts/ensure_tracking.py --check
       - name: Generate transparent article claim-review register
         run: python3 scripts/review_articles.py
       - name: Check article body counting and review invalidation
