@@ -36,9 +36,9 @@ main{padding:14px 0 80px}.count{color:var(--muted);margin:18px 0;font-weight:700
 #article-grid>.card[hidden]{display:none!important}
 #pagination[hidden]{display:none!important}.card{--tile:var(--sun);background:var(--tile);color:var(--dk);border:4px solid var(--dk);padding:22px;min-height:310px;display:flex;flex-direction:column;position:relative;box-shadow:7px 7px 0 var(--fire);transition:transform .2s,box-shadow .2s}.card:nth-child(4n+2){--tile:var(--cyan);box-shadow:7px 7px 0 var(--sun)}.card:nth-child(4n+3){--tile:var(--lime);box-shadow:7px 7px 0 var(--cyan)}.card:nth-child(4n){--tile:var(--fire);box-shadow:7px 7px 0 var(--lime)}.card .tag{display:inline-flex;align-self:flex-start;max-width:100%;padding:5px 9px;background:rgba(255,255,255,.58);border:2px solid currentColor;line-height:1.25;overflow-wrap:anywhere}.card:hover{box-shadow:4px 4px 0 var(--dk)}.card:hover{transform:rotate(-1.2deg) translateY(-5px);box-shadow:4px 4px 0 var(--dk)}.tag{color:var(--dk);font-weight:700}.card h2{font:clamp(21px,2vw,27px)/1.13 var(--display);margin:20px 0 14px}.card h2 a{text-decoration:none}.card h2 a:hover{text-decoration:underline;text-decoration-thickness:3px}.card p{line-height:1.5;color:var(--dk);margin:0 0 22px;font-weight:500}.read{margin-top:auto;font-family:var(--display);font-size:14px;color:var(--dk);text-decoration:none;border-top:3px solid var(--dk);padding-top:12px}.read:hover{text-decoration:underline}.empty{display:none;padding:40px 10px;color:var(--muted)}
 .pagination{display:flex;justify-content:center;align-items:center;gap:10px;flex-wrap:wrap;padding:34px 0 10px}
-.pagination button{min-width:44px;min-height:44px;padding:8px 13px;border:2px solid var(--ink);background:transparent;color:var(--paper);font:700 15px var(--body);cursor:pointer}
-.pagination button[aria-current="page"],.pagination button:hover:not(:disabled){background:var(--sun);color:var(--dk);border-color:var(--sun)}
-.pagination button:disabled{opacity:.35;cursor:not-allowed}footer{padding:36px 0 48px;text-align:center;color:var(--muted);font-size:15px}footer .row{display:flex;justify-content:center;gap:22px;margin-bottom:12px;flex-wrap:wrap}footer a{color:var(--sun)}
+.pagination a,.pagination span{display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;padding:8px 13px;border:2px solid var(--ink);background:transparent;color:var(--paper);font:700 15px var(--body);text-decoration:none}
+.pagination a{cursor:pointer}.pagination a[aria-current="page"],.pagination a:hover{background:var(--sun);color:var(--dk);border-color:var(--sun)}
+.pagination span[aria-disabled="true"]{opacity:.4}footer{padding:36px 0 48px;text-align:center;color:var(--muted);font-size:15px}footer .row{display:flex;justify-content:center;gap:22px;margin-bottom:12px;flex-wrap:wrap}footer a{color:var(--sun)}
 .float{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:25;width:62px;height:62px;border-radius:50%;background:var(--lime);border:3px solid var(--dk);display:grid;place-items:center;box-shadow:4px 4px 0 var(--dk);animation:pulse 2.4s infinite}.float svg{width:30px;height:30px;fill:none;stroke:var(--dk);stroke-width:2.2}@keyframes pulse{0%{box-shadow:4px 4px 0 var(--dk),0 0 0 0 rgba(182,255,59,.7)}70%,100%{box-shadow:4px 4px 0 var(--dk),0 0 0 22px rgba(182,255,59,0)}}
 @media(max-width:850px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:760px){.menu{display:block}nav ul{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:0;background:var(--bg);border-bottom:3px solid var(--accent);padding:8px 20px}nav ul a{display:block;padding:12px 0}nav.open ul{display:flex}}@media(max-width:480px){.logo .ln{display:none}}@media(max-width:560px){.grid{grid-template-columns:1fr}.hero{padding-top:46px}.card{min-height:260px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
@@ -116,12 +116,10 @@ window.__iacClarityLoaded=true;
 <nav class="legacy-site-nav" aria-label="Main navigation"><div class="wrap"><a class="logo iac-brand" href="/#top" aria-label="Indian Anime Club home"><img class="iac-brand-mark" src="/favicon.svg?v=20261101-spark" width="42" height="42" alt="" decoding="async"><span class="ln">Indian Anime Club</span></a><ul id="site-links"><li><a href="/#about">About</a></li><li><a href="/#worlds">Worlds</a></li><li><a href="/#events">Explore</a></li><li><a href="/#chapters">Chapters</a></li><li><a href="/articles/">Articles</a></li></ul><a class="btn" href="/#join">Join us</a><button class="menu" id="menu" type="button" aria-label="Toggle navigation" aria-controls="site-links" aria-expanded="false">&#9776;</button></div></nav>
 
 
-<main id="main"><div class="wrap"><header class="hero"><p class="eyebrow">Stories, analysis &amp; guides</p><h1>Anime Articles &amp; Analysis</h1><p class="lead">Explore anime storytelling, characters, viewing choices, and the fan communities shaping anime culture in India.</p></header><div class="filters article-category-filters" aria-label="Filter articles by category">
+<main id="main"><div class="wrap"><header class="hero"><p class="eyebrow">Stories, analysis &amp; guides</p><h1>Anime Articles &amp; Analysis</h1><p class="lead">Explore anime storytelling, characters, viewing choices, and the fan communities shaping anime culture in India.</p><p style="margin:-20px 0 26px;font-weight:700"><a href="/watchlist-planner/">Try our free weekly anime watchlist and budget planner</a></p></header><div class="filters article-category-filters" aria-label="Filter articles by category">
 <button type="button" data-filter="all" aria-pressed="true">All articles</button>
 <button type="button" data-filter="anime analysis" aria-pressed="false">Analysis</button>
 <button type="button" data-filter="character studies" aria-pressed="false">Characters</button>
-<button type="button" data-filter="rankings" aria-pressed="false">Rankings</button>
-<button type="button" data-filter="recommendations" aria-pressed="false">Recommendations</button>
 <button type="button" data-filter="anime guides" aria-pressed="false">Guides</button>
 <button type="button" data-filter="anime industry" aria-pressed="false">Industry</button>
 </div><section class="grid" id="article-grid" aria-label="Anime articles">
@@ -161,7 +159,10 @@ window.__iacClarityLoaded=true;
 <a class="float" href="https://chat.whatsapp.com/IOR7VBI25dW9ltnofX6Frz" target="_blank" rel="noopener" aria-label="Join our WhatsApp group"><svg viewBox="0 0 24 24"><path d="M3 21l1.6-4.6A8.5 8.5 0 1 1 8 19.6z"/><path d="M9 8.5c0 3 2.5 5.5 5.5 5.5l1-1.500-2-1-.8.8c-.8-.4-1.500-1.100-1.900-1.900l.8-.8-1-2z"/></svg></a>
 
 <script>
+/* Browsable archive: URLs record both category and page, so links work with
+   browser back/forward, can be bookmarked and are usable by screen readers. */
 (function(){
+ 'use strict';
  const grid=document.getElementById('article-grid');
  const cards=Array.from(grid.querySelectorAll('.card'));
  const filters=Array.from(document.querySelectorAll('.article-category-filters [data-filter]'));
@@ -169,54 +170,72 @@ window.__iacClarityLoaded=true;
  const empty=document.getElementById('empty');
  const perPage=15;
  const categoryMap={
-  all:null,
-  'anime analysis':['anime analysis','anime & life','anime trends'],
-  'character studies':['character studies'],
-  rankings:['rankings'],
-  recommendations:['recommendations'],
-  'anime guides':['anime guides'],
-  'anime industry':['anime industry','community']
+   all:null,
+   'anime analysis':['anime analysis','anime & life','anime trends'],
+   'character studies':['character studies'],
+   'anime guides':['anime guides'],
+   'anime industry':['anime industry','community']
  };
- const requestedCategory=(new URLSearchParams(window.location.search).get('category')||'all').toLowerCase().replace(/-/g,' ');
- let selected=Object.prototype.hasOwnProperty.call(categoryMap,requestedCategory)?requestedCategory:'all';
- let page=1;
- let matching=cards.slice();
- function draw(){
-  const accepted=categoryMap[selected];
-  matching=cards.filter(card=>!accepted||accepted.includes((card.dataset.category||'').toLowerCase()));
-  const totalPages=Math.max(1,Math.ceil(matching.length/perPage));
-  page=Math.max(1,Math.min(page,totalPages));
-  cards.forEach(card=>{card.hidden=true;});
-  matching.slice((page-1)*perPage,page*perPage).forEach(card=>{card.hidden=false;});
-  empty.hidden=matching.length>0;
-  empty.style.display=matching.length?'none':'block';
-  drawPages(totalPages);
+ function readState(){
+   const params=new URLSearchParams(window.location.search);
+   const requested=(params.get('category')||'all').toLowerCase().replace(/-/g,' ');
+   const category=Object.prototype.hasOwnProperty.call(categoryMap,requested)?requested:'all';
+   const raw=params.get('page')||'1';
+   const number=Number(raw);
+   const page=Number.isSafeInteger(number)&&number>0?number:1;
+   return {category,page};
  }
- function drawPages(totalPages){
-  pagination.replaceChildren();
-  if(totalPages<=1){pagination.hidden=true;return;}
-  pagination.hidden=false;
-  function add(label,target,disabled,isCurrent){
-   const button=document.createElement('button');
-   button.type='button';button.textContent=label;button.disabled=!!disabled;
-   if(isCurrent){button.setAttribute('aria-current','page');}
-   button.addEventListener('click',function(){
-    page=target;draw();
-    grid.scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});
-   });
-   pagination.appendChild(button);
-  }
-  add('← Previous',page-1,page===1,false);
-  for(let n=1;n<=totalPages;n++)add(String(n),n,false,n===page);
-  add('Next →',page+1,page===totalPages,false);
+ function urlFor(category,page){
+   const url=new URL(window.location.href);
+   if(category==='all')url.searchParams.delete('category');
+   else url.searchParams.set('category',category.replace(/ /g,'-'));
+   if(page<=1)url.searchParams.delete('page');
+   else url.searchParams.set('page',String(page));
+   return url.pathname+url.search+url.hash;
  }
- filters.forEach(button=>{button.setAttribute('aria-pressed',String((button.dataset.filter||'all')===selected));});
+ function render(){
+   const state=readState();
+   const accepted=categoryMap[state.category];
+   const matched=cards.filter(card=>!accepted||accepted.includes((card.dataset.category||'').toLowerCase()));
+   const pages=Math.max(1,Math.ceil(matched.length/perPage));
+   const page=Math.min(state.page,pages);
+   cards.forEach(card=>{card.hidden=true});
+   matched.slice((page-1)*perPage,page*perPage).forEach(card=>{card.hidden=false});
+   empty.hidden=matched.length>0;
+   empty.style.display=matched.length?'none':'block';
+   filters.forEach(button=>button.setAttribute('aria-pressed',String((button.dataset.filter||'all')===state.category)));
+   pagination.replaceChildren();
+   pagination.hidden=pages<=1;
+   if(pages<=1)return;
+   function add(label,n,disabled,current){
+     const el=document.createElement(disabled?'span':'a');
+     el.textContent=label;
+     if(disabled)el.setAttribute('aria-disabled','true');
+     else{
+       el.href=urlFor(state.category,n);
+       el.addEventListener('click',function(event){
+         if(event.button!==0||event.ctrlKey||event.metaKey||event.shiftKey||event.altKey)return;
+         event.preventDefault();
+         window.history.pushState({},'',el.href);
+         render();
+         grid.scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});
+       });
+     }
+     if(current)el.setAttribute('aria-current','page');
+     pagination.appendChild(el);
+   }
+   add('← Previous',page-1,page===1,false);
+   for(let n=1;n<=pages;n++)add(String(n),n,false,n===page);
+   add('Next →',page+1,page===pages,false);
+ }
  filters.forEach(button=>button.addEventListener('click',function(){
-  selected=button.dataset.filter||'all';page=1;
-  filters.forEach(item=>{item.setAttribute('aria-pressed',String(item===button));});
-  draw();
+   const category=button.dataset.filter||'all';
+   if(!Object.prototype.hasOwnProperty.call(categoryMap,category))return;
+   window.history.pushState({},'',urlFor(category,1));
+   render();
  }));
- draw();
+ window.addEventListener('popstate',render);
+ render();
 })();
 </script>
 

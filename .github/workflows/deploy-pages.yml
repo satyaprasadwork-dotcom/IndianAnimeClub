@@ -348,6 +348,7 @@ jobs:
           node --check site-fixes.js
           node --check site-shell.js
           node --check js/genre-mood.js
+          node --check js/watchlist-planner.js
           python3 scripts/review_articles.py
       - name: Validate public routes and shared favicon
         env:

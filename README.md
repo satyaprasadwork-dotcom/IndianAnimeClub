@@ -46,3 +46,7 @@ This is a static website deployed through the connected GitHub-to-Hostinger work
 - Privacy and legal pages are general website disclosures, not a substitute for jurisdiction-specific legal advice.
 
 Indian Anime Club exists to build trust with India's anime community, one useful and honest interaction at a time.
+
+## AdSense remediation and live verification (November 2026)
+
+Source-code and browser regression checks now cover the preservation of article references, working archive categories, shareable pagination, and the original [watchlist planner](https://indiananimeclub.com/watchlist-planner/). The evidence register in [editorial/adsense-readiness-2026-11-03.md](editorial/adsense-readiness-2026-11-03.md) separates passing repository tests from Google account settings, custom-domain hosting, independent content verification, and real consent compliance. **A successful GitHub Pages deployment is not proof that every visitor is seeing the new custom-domain version or that AdSense approval is granted.**

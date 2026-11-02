@@ -1,0 +1,22 @@
+name: Verify live custom-domain release
+on:
+  workflow_run:
+    workflows: ["Deploy Indian Anime Club to GitHub Pages"]
+    types: [completed]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  live-parity:
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.x"
+      - name: Verify actual indiananimeclub.com HTML, article navigation, planner and sitemap
+        run: python3 scripts/check_live_domain.py

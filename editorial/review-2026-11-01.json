@@ -484,10 +484,10 @@
     },
     {
       "slug": "anime-watch-orders-explained-how-to-navigate-seasons-films-specials-and-spin-offs",
-      "reviewed_on": "2026-11-01",
+      "reviewed_on": "2026-11-03",
       "review_status": "REVIEWED_WITH_SCOPE_LIMITS",
-      "review_sha256": "4c5e41691c0eef452cfed32dbe6e9fb041b6a328cffb631fd84797912fa3ebb3",
-      "body_words": 1168,
+      "review_sha256": "cab527671e38194584e8e3b976cff097c49d99b08d4010838abec91ba126ec6a",
+      "body_words": 1362,
       "sources": [
         "mugen",
         "mugenjp",
@@ -495,7 +495,8 @@
       ],
       "claim_checks": [
         "Mugen Train seven-episode structure and new first episode verified through official introductions.",
-        "Suggested first-viewing approach is labelled editorial advice."
+        "Suggested first-viewing approach is labelled editorial advice.",
+        "3 November 2026: Official Mugen Train introduction confirms seven episodes, new first episode and 70 added scenes; viewing recommendation clearly editorial and separate from current India rights."
       ],
       "original_example_heading": "A real overlap to recognise: Mugen Train",
       "statement_reviews": [
@@ -549,6 +550,15 @@
             "mugenjp"
           ],
           "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED"
+        },
+        {
+          "passage_locator": "Separate repeated story from genuinely new material",
+          "sources": [
+            "mugen",
+            "mugenjp",
+            "netregion"
+          ],
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED_AND_INTERPRETATION_SEPARATED"
         }
       ]
     },
@@ -2338,17 +2348,18 @@
     },
     {
       "slug": "this-anime-scene-changed-how-fans-look-at-life",
-      "reviewed_on": "2026-11-01",
+      "reviewed_on": "2026-11-03",
       "review_status": "REVIEWED_WITH_SCOPE_LIMITS",
-      "review_sha256": "64ffd161a9b6061c88bfe0f3d8ff2215941988c281766298c68c39c51d463d24",
-      "body_words": 1195,
+      "review_sha256": "4fc838739e918380d6ca7ad9b82fcd0d8549ba644c1adafe0906be4a71ae1904",
+      "body_words": 1407,
       "sources": [
         "silentfilm",
         "silentgkids"
       ],
       "claim_checks": [
         "Film premise supported by studio and distributor.",
-        "No invented scene detail, creator intent or measured life-change claim."
+        "No invented scene detail, creator intent or measured life-change claim.",
+        "3 November 2026: Source confirms Shoko was bullied by Shoya, his later isolation and attempted amends; separate responsibility and agency arguments are interpretation, not reported audience outcomes."
       ],
       "original_example_heading": "Start a discussion of A Silent Voice with a bounded claim",
       "statement_reviews": [],
@@ -2360,6 +2371,14 @@
             "silentgkids"
           ],
           "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED"
+        },
+        {
+          "passage_locator": "What the plot summary lets us compare, and what it does not",
+          "sources": [
+            "silentgkids",
+            "silentfilm"
+          ],
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED_AND_INTERPRETATION_SEPARATED"
         }
       ]
     },
@@ -2492,17 +2511,18 @@
     },
     {
       "slug": "when-the-hero-makes-the-wrong-choice-understanding-moral-dilemmas-in-anime-stories",
-      "reviewed_on": "2026-11-01",
+      "reviewed_on": "2026-11-03",
       "review_status": "REVIEWED_WITH_SCOPE_LIMITS",
-      "review_sha256": "ad4861c399c8cfb637dd174c5ee265eb3fbb92cf75647c7f9a90a4e2b146cac9",
-      "body_words": 1161,
+      "review_sha256": "fa46c5b8c239f48534f156a87cdf7c4b7660fae4c11c09df41a611d39bd31345",
+      "body_words": 1375,
       "sources": [
         "death",
         "death1"
       ],
       "claim_checks": [
         "Death Note opening setup sourced to publisher, without endorsing character actions.",
-        "Ethical lenses and conclusions presented as analysis, not verified authorial intent."
+        "Ethical lenses and conclusions presented as analysis, not verified authorial intent.",
+        "3 November 2026: Official VIZ premise establishes notebook, Light’s stated ambition and L investigation; moral tests are independent interpretation, not creator intent."
       ],
       "original_example_heading": "Use Death Note to separate a stated aim from its methods",
       "statement_reviews": [
@@ -2521,6 +2541,14 @@
             "death1"
           ],
           "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED"
+        },
+        {
+          "passage_locator": "Apply three tests to Light’s idea of justice",
+          "sources": [
+            "death",
+            "death1"
+          ],
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED_AND_INTERPRETATION_SEPARATED"
         }
       ]
     },
@@ -2779,17 +2807,18 @@
     },
     {
       "slug": "why-the-supporting-cast-matters-how-anime-builds-friendships-beyond-the-main-hero",
-      "reviewed_on": "2026-11-01",
+      "reviewed_on": "2026-11-03",
       "review_status": "REVIEWED_WITH_SCOPE_LIMITS",
-      "review_sha256": "0ae38b85a121b9660ca62e840d0122a01a090386d5fb60c55933824f939c6058",
-      "body_words": 1181,
+      "review_sha256": "b43c3785328d8a23f2a984c37f824cb54f734be5ff9fa48c78b5a9f91725c86a",
+      "body_words": 1391,
       "sources": [
         "haikyu",
         "haikyu2"
       ],
       "claim_checks": [
         "Initial rivalry and developing combination supported by publisher descriptions.",
-        "Scene-analysis prompts are original interpretation, not invented scene descriptions."
+        "Scene-analysis prompts are original interpretation, not invented scene descriptions.",
+        "3 November 2026: VIZ volume-one premise confirms rival-to-teammate shift; hypothetical play scenario labelled as such and not asserted as an actual scene."
       ],
       "original_example_heading": "Look at rivalry and cooperation in Haikyu!!",
       "statement_reviews": [
@@ -2814,6 +2843,14 @@
             "haikyu2"
           ],
           "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED"
+        },
+        {
+          "passage_locator": "Why a former rival becoming a teammate changes the question",
+          "sources": [
+            "haikyu",
+            "haikyu2"
+          ],
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED_AND_INTERPRETATION_SEPARATED"
         }
       ]
     },
