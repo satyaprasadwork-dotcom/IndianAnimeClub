@@ -422,4 +422,5 @@ if errors:
         print(" - " + error)
     sys.exit(1)
 print(f"Site audit passed: {len(article_files)} article pages, {len(sitemap_urls)} sitemap URLs, featured images, structured data, ads.txt and privacy disclosures.")
+print("AdSense eligibility, certified consent management, image rights and custom-domain freshness still require independent/account-side verification.")
 print(f"Reviewed article bodies: {min(body_counts)}–{max(body_counts)} words, excluding page furniture and source lists; review fingerprints current.")
