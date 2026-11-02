@@ -373,6 +373,27 @@ if homepage_html.count('<main') != 1 or homepage_html.count('</main>') != 1:
 if 'href="/css/home-editorial.css' not in homepage_html or not (ROOT / "css/home-editorial.css").is_file():
     errors.append("Homepage editorial grid stylesheet missing.")
 
+# These checks catch defects that passed the old SEO-only audit.
+enhancer_js=(ROOT/"js/article-enhancements.js").read_text(encoding="utf-8")
+if re.search(r'\bsources\.innerHTML\s*=',enhancer_js):
+    errors.append("Runtime JavaScript is overwriting source citations approved by the editorial review.")
+archive_source=(ROOT/"articles/index.html").read_text(encoding="utf-8")
+filters=set(re.findall(r'data-filter="([^"]+)"',archive_source))
+card_categories=set(re.findall(r'<article\b[^>]*class="card"[^>]*data-category="([^"]+)"',archive_source))
+category_map={
+    "anime analysis":{"anime analysis","anime & life","anime trends"},
+    "character studies":{"character studies"},
+    "anime guides":{"anime guides"},
+    "anime industry":{"anime industry","community"},
+    "rankings":{"rankings"},
+    "recommendations":{"recommendations"}
+}
+for name in filters-{"all"}:
+    if not (category_map.get(name,{name}) & card_categories):
+        errors.append(f"Archive filter {name!r} has no published article cards.")
+if "history.pushState" not in archive_source or "popstate" not in archive_source:
+    errors.append("Article archive navigation needs shareable URL and browser history handling.")
+
 if warnings:
     print("AUDIT WARNINGS:")
     for warning in warnings:
