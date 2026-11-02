@@ -6,6 +6,7 @@ import json
 import re
 import sys
 import xml.etree.ElementTree as ET
+from article_content import article_fragment, body_word_count, review_fingerprint
 
 ROOT = Path(".")
 DOMAIN = "https://indiananimeclub.com"
@@ -70,6 +71,11 @@ if not article_files:
     errors.append("No article source files found.")
 
 seen_canonicals = set()
+body_counts = []
+ledger_path = ROOT / 'editorial' / 'review-2026-11-01.json'
+review_entries = {}
+if ledger_path.is_file():
+    review_entries = {entry['slug']: entry for entry in json.loads(ledger_path.read_text())['articles']}
 for path in article_files:
     raw = path.read_text(encoding="utf-8")
     parser = read_page(path)
@@ -129,8 +135,7 @@ for path in article_files:
         if not article_schema.get("datePublished") or not article_schema.get("dateModified"):
             errors.append(f"{path}: Article JSON-LD is missing publication or modification dates.")
     # Fail fast if a second sources heading or a known wrong legislation link reappears.
-    article_html = re.search(r'<article\\b[^>]*class="[^"]*article[^"]*"[^>]*>([\\s\\S]*?)</article>', raw, re.I)
-    article_body = article_html.group(1) if article_html else raw
+    article_body = article_fragment(raw)
     if len(re.findall(r'Sources &amp; further reading', article_body)) != 1:
         errors.append(f"{path}: Sources & further reading must occur exactly once.")
     if "copyright.gov.in/Copyright_Act_1957/chapter_i.html" in raw:
@@ -149,12 +154,26 @@ for path in article_files:
         source_links = re.findall(r'<a\b[^>]*href=["\'](https?://[^"\']+)["\']', source_match.group(1), re.I)
         if len(set(source_links)) < 2:
             warnings.append(f"{path}: Sources & further reading should contain at least two distinct external references.")
-    clean_text = re.sub(r'<(script|style)\b[\s\S]*?</\1>', ' ', raw, flags=re.I)
-    clean_text = re.sub(r'<[^>]+>', ' ', clean_text)
-    clean_text = re.sub(r'&(?:nbsp|amp|quot|apos);|&#(?:39|160);', ' ', clean_text, flags=re.I)
-    word_count = len(re.findall(r'\b[\w’\'-]+\b', clean_text))
-    if word_count < 900:
-        warnings.append(f"{path}: approximately {word_count} source words; editor should confirm the article answers its topic fully (no fixed word-count target is implied).")
+    word_count = body_word_count(raw)
+    body_counts.append(word_count)
+    # This is the publisher's requirement, not a search-engine ranking rule.
+    if word_count <= 1000:
+        errors.append(f"{path}: {word_count} article-body words; this project requires more than 1,000, excluding navigation, summaries, references and footer.")
+    entry = review_entries.get(slug)
+    if not entry or entry.get('review_sha256') != review_fingerprint(raw):
+        errors.append(f"{path}: editorial review is missing or stale after a body/source change.")
+    toc = re.search(r'<nav\b[^>]*class="article-toc"[^>]*>(.*?)</nav>', article_body, re.S)
+    if not toc:
+        errors.append(f"{path}: article sidebar table of contents missing.")
+    else:
+        targets = re.findall(r'href="#([^"]+)"', toc.group(1))
+        count = re.search(r'class="toc-count">(\d+) sections', toc.group(1))
+        if not count or int(count.group(1)) != len(targets):
+            errors.append(f"{path}: table-of-contents count does not match its links.")
+        ids = re.findall(r'\bid="([^"]+)"', article_body)
+        for target in targets:
+            if ids.count(target) != 1:
+                errors.append(f"{path}: table of contents points to missing/duplicate anchor #{target}.")
     heading_titles = [
         re.sub(r'<[^>]+>', '', m.group(1)).replace('&amp;', '&').strip().lower()
         for m in re.finditer(r'<h2\b[^>]*>([\s\S]*?)</h2>', raw, re.I)
@@ -331,3 +350,4 @@ if errors:
         print(" - " + error)
     sys.exit(1)
 print(f"Site audit passed: {len(article_files)} article pages, {len(sitemap_urls)} sitemap URLs, featured images, structured data, ads.txt and privacy disclosures.")
+print(f"Reviewed article bodies: {min(body_counts)}–{max(body_counts)} words, excluding page furniture and source lists; review fingerprints current.")

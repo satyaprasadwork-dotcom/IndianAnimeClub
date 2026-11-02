@@ -34,6 +34,8 @@ jobs:
         run: python3 scripts/ensure_tracking.py
       - name: Generate transparent article claim-review register
         run: python3 scripts/review_articles.py
+      - name: Check article body counting and review invalidation
+        run: python3 scripts/test_article_content.py
       - name: Upload editorial review register for editor validation
         uses: actions/upload-artifact@v4
         with:

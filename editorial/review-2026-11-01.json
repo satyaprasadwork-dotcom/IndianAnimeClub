@@ -1,0 +1,3041 @@
+{
+  "reviewed_on": "2026-11-01",
+  "method": "Full reading of all 31 article bodies, checking factual assertions against the listed primary sources, revising overbroad claims, separating interpretation and advice, checking hypothetical arithmetic and exact paragraph reuse. This is an editorial review, not independent legal advice, a statistical audience study, a plagiarism certificate, or an AdSense approval guarantee. Future substantive body or source changes invalidate the stored content fingerprint.",
+  "sources": {
+    "law": {
+      "url": "https://copyright.gov.in/Copyright_Act_1957/chapter_xi.html",
+      "title": "Copyright Office: Copyright Act, Chapter XI",
+      "scope": "Sections 51 and 52, including fact-dependent exceptions; Indian jurisdiction."
+    },
+    "netpublic": {
+      "url": "https://help.netflix.com/en/node/633853347904100",
+      "title": "Netflix: public viewing and educational screenings",
+      "scope": "Personal-use terms and limited educational screening permissions; separate from statutory exceptions."
+    },
+    "netlang": {
+      "url": "https://help.netflix.com/en/node/101798",
+      "title": "Netflix: missing audio or subtitle options",
+      "scope": "Language availability by title, season, location, profile and device."
+    },
+    "netplayer": {
+      "url": "https://help.netflix.com/en/node/372",
+      "title": "Netflix: audio, subtitles and captions",
+      "scope": "Player controls and SDH or closed-caption availability."
+    },
+    "netregion": {
+      "url": "https://help.netflix.com/en/node/14164",
+      "title": "Netflix: where Netflix is available",
+      "scope": "Country-specific catalogues and changing availability."
+    },
+    "netrate": {
+      "url": "https://help.netflix.com/en/node/2064",
+      "title": "Netflix: maturity ratings for shows and films",
+      "scope": "Ratings and content descriptors; not a guarantee of personal suitability."
+    },
+    "netparent": {
+      "url": "https://help.netflix.com/en/node/114276",
+      "title": "Netflix: profile maturity levels and blocked titles",
+      "scope": "Per-profile restrictions and title blocking."
+    },
+    "crunch": {
+      "url": "https://help.crunchyroll.com/hc/en-us/articles/31107978981268-Accessing-Hindi-Subtitles-and-Dubs-on-Crunchyroll",
+      "title": "Crunchyroll: Hindi subtitles and dubs",
+      "scope": "Title-specific Hindi availability; no promise about Tamil or Telugu coverage."
+    },
+    "dub": {
+      "url": "https://partnerhelp.netflixstudios.com/hc/en-us/articles/11748072290579-India-Dubbing-Creative-Guidelines-Films-Series",
+      "title": "Netflix: India dubbing creative guidelines",
+      "scope": "One provider’s requirements for adaptation, performance and synchronisation, not an industry-wide rule."
+    },
+    "timing": {
+      "url": "https://partnerhelp.netflixstudios.com/hc/en-us/articles/360051554394-Timed-Text-Style-Guide-Subtitle-Timing-Guidelines",
+      "title": "Netflix: subtitle timing guidelines",
+      "scope": "Timing, shot changes and reading-speed constraints in Netflix deliveries."
+    },
+    "youtube": {
+      "url": "https://support.google.com/youtube/answer/2797466",
+      "title": "YouTube: copyright on YouTube",
+      "scope": "Permission, exceptions, licences and claims; platform guidance is not Indian legal advice."
+    },
+    "audio": {
+      "url": "https://support.google.com/youtube/answer/3376882?hl=en",
+      "title": "YouTube: Audio Library music and attribution",
+      "scope": "Track-specific attribution and the limits of YouTube’s guidance outside its platform."
+    },
+    "goodsmile": {
+      "url": "https://support.goodsmile.com/hc/en-us/articles/14951135720345-Bootleg-information",
+      "title": "Good Smile Company: bootleg information",
+      "scope": "Manufacturer-specific packaging cautions and authentication limits."
+    },
+    "consumer": {
+      "url": "https://consumerhelpline.gov.in/public/index.php/about",
+      "title": "National Consumer Helpline: about the service",
+      "scope": "Indian pre-litigation consumer grievance support; not product authentication or guaranteed recovery."
+    },
+    "mugen": {
+      "url": "https://demonslayer-anime.com/mugentrainarc/intro/",
+      "title": "Demon Slayer: Mugen Train TV production introduction",
+      "scope": "Seven-episode adaptation and additional material; a US official site, not Indian availability evidence."
+    },
+    "mugenjp": {
+      "url": "https://kimetsu.com/anime/mugenresshahen_tv/intro/",
+      "title": "Demon Slayer: Japanese Mugen Train TV introduction",
+      "scope": "Episode one and episodes two to seven have distinct roles in the TV adaptation."
+    },
+    "spirited": {
+      "url": "https://gkids.com/films/spirited-away/",
+      "title": "GKIDS: Spirited Away",
+      "scope": "Distributor synopsis supports the opening premise, not a claim about Indian streaming rights or audience reactions."
+    },
+    "storyboard": {
+      "url": "https://www.screenskills.com/job-profiles/browse/animation/pre-production/storyboard-artist/",
+      "title": "ScreenSkills: storyboard artist",
+      "scope": "Role description for planning sequences and communicating visual action."
+    },
+    "animator": {
+      "url": "https://www.screenskills.com/job-profiles/browse/animation/production/animator-animation/",
+      "title": "ScreenSkills: animator",
+      "scope": "Animation role and production skills; not Indian employment or salary data."
+    },
+    "krita": {
+      "url": "https://docs.krita.org/en/user_manual/animation.html",
+      "title": "Krita manual: animation",
+      "scope": "Frame-by-frame workflow, key poses, timeline and onion skins."
+    },
+    "blender": {
+      "url": "https://www.blender.org/features/story-artist/",
+      "title": "Blender: story art and Grease Pencil",
+      "scope": "Drawing and animating 2D elements in a 3D environment."
+    },
+    "layers": {
+      "url": "https://docs.blender.org/manual/en/5.1/render/layers/introduction.html",
+      "title": "Blender manual: view layers",
+      "scope": "Separating scene elements for rendering and recombining them during compositing."
+    },
+    "pib": {
+      "url": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=1886679&lang=2&reg=48",
+      "title": "PIB: AVGC task-force recommendations, 26 December 2022",
+      "scope": "Dated recommendations, not evidence that every proposal was implemented."
+    },
+    "maff": {
+      "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/about/index.html",
+      "title": "Japan MAFF: Our Regional Cuisines",
+      "scope": "Regional food histories and practices; no single meal represents every household."
+    },
+    "festival": {
+      "url": "https://web-japan.org/kidsweb/manga/0708/index.html",
+      "title": "Web Japan: summer festivals",
+      "scope": "An introduction to summer festival activities; not a description of every Japanese festival."
+    },
+    "cosplay": {
+      "url": "https://www.comicconindia.com/all-about-cosplay",
+      "title": "Comic Con India: cosplay and conduct",
+      "scope": "Ask before photographs or touching; organiser-specific visitor guidance."
+    },
+    "eventfaq": {
+      "url": "https://www.comicconindia.com/faqs-2026",
+      "title": "Comic Con India: 2026 FAQs",
+      "scope": "Entry, passes, photographs and visitor arrangements; recheck the specific city and edition."
+    },
+    "eventterms": {
+      "url": "https://www.comicconindia.com/terms-and-conditions",
+      "title": "Comic Con India: terms and conditions",
+      "scope": "Organiser-specific ticket and venue conditions; these do not apply to every event in India."
+    },
+    "props": {
+      "url": "https://www.comicconindia.com/all-cities-cosplay/pune-comic-con-cosplay",
+      "title": "Pune Comic Con: cosplay rules",
+      "scope": "An event-specific example of prop inspections and restrictions."
+    },
+    "permissions": {
+      "url": "https://discord.com/community/permissions-on-discord-discord",
+      "title": "Discord: permissions",
+      "scope": "Administrator bypasses channel restrictions; grant narrower roles when possible."
+    },
+    "moderators": {
+      "url": "https://discord.com/safety/developing-moderator-guidelines",
+      "title": "Discord: developing moderator guidelines",
+      "scope": "Provider guidance on consistent moderation and escalation."
+    },
+    "spoilers": {
+      "url": "https://support.discord.com/hc/en-us/articles/360022320632-Spoiler-Tags",
+      "title": "Discord: spoiler tags",
+      "scope": "Text and attachment spoiler controls; not a confidentiality guarantee."
+    },
+    "rules": {
+      "url": "https://support.discord.com/hc/en-us/articles/1500000466882-Rules-Screening-FAQ",
+      "title": "Discord: rules screening",
+      "scope": "An optional server feature for acknowledging rules."
+    },
+    "clip": {
+      "url": "https://tips.clip-studio.com/en-us/articles/16712",
+      "title": "Clip Studio Official: your first character illustration",
+      "scope": "A provider-authored example of rough shapes before detail; proportions are style-specific."
+    },
+    "clipfigure": {
+      "url": "https://tips.clip-studio.com/en-us/articles/1722",
+      "title": "Clip Studio Official: figure drawing",
+      "scope": "Construction and proportion practice, with room for stylistic variation."
+    },
+    "manga": {
+      "url": "https://mangaplus.shueisha.co.jp/faq/eng/",
+      "title": "MANGA Plus by SHUEISHA: FAQ",
+      "scope": "Official digital chapters and regional access; not universal full-series access."
+    },
+    "silentmanga": {
+      "url": "https://kodansha.us/series/a-silent-voice/volume-1/",
+      "title": "Kodansha: A Silent Voice, volume 1",
+      "scope": "Publisher synopsis and edition identity; US store prices are not Indian quotes."
+    },
+    "silentfilm": {
+      "url": "https://www.kyotoanimation.co.jp/en/works/koe/",
+      "title": "Kyoto Animation: A Silent Voice",
+      "scope": "Studio page identifies the film and its premise; not evidence of viewer life changes."
+    },
+    "silentgkids": {
+      "url": "https://gkids.com/films/a-silent-voice/",
+      "title": "GKIDS: A Silent Voice",
+      "scope": "Film synopsis as a starting point for commentary, not a psychological study."
+    },
+    "naruto": {
+      "url": "https://naruto-official.com/en/about",
+      "title": "Naruto official: introduction",
+      "scope": "Naruto and his academy teacher Iruka; story premise only."
+    },
+    "iruka": {
+      "url": "https://naruto-official.com/en/news/01_1788",
+      "title": "Naruto official: Iruka birthday column, 26 May 2024",
+      "scope": "Specific Iruka and Naruto interactions referenced to manga chapters; contains spoilers."
+    },
+    "narutoep": {
+      "url": "https://naruto-official.com/en/anime/naruto1/list/01_225",
+      "title": "Naruto official: episode 1",
+      "scope": "Opening episode context; not educational research."
+    },
+    "death": {
+      "url": "https://www.viz.com/death-note",
+      "title": "VIZ: Death Note",
+      "scope": "Light’s premise and stated ambition, rather than a moral endorsement."
+    },
+    "death1": {
+      "url": "https://www.viz.com/manga-books/manga/death-note-volume-1-0/product/513",
+      "title": "VIZ: Death Note, volume 1",
+      "scope": "Opening conflict and investigation; avoid assuming later knowledge."
+    },
+    "haikyu": {
+      "url": "https://www.viz.com/haikyu",
+      "title": "VIZ: Haikyu!!",
+      "scope": "Hinata and Kageyama’s initial rivalry and shared team premise."
+    },
+    "haikyu2": {
+      "url": "https://www.simonandschuster.co.in/books/Haikyu%21%21-Vol-2/Haruichi-Furudate/Haikyu%21%21/9781421587677",
+      "title": "Simon & Schuster India: Haikyu!!, volume 2",
+      "scope": "Publisher-distributor synopsis of the pair’s developing combination."
+    },
+    "netlicence": {
+      "url": "https://help.netflix.com/en/node/4976",
+      "title": "Netflix: how titles are licensed",
+      "scope": "Some licensed titles are limited by country or period; not a live catalogue."
+    }
+  },
+  "articles": [
+    {
+      "slug": "anime-between-lectures-and-chai-breaks-inside-indias-college-fan-culture",
+      "reviewed_on": "2026-11-01",
+      "review_status": "REVIEWED_WITH_SCOPE_LIMITS",
+      "review_sha256": "b7225960ab385261d0b6d2a000613abe6e472f44c72c1c140497ba1f134a98aa",
+      "body_words": 1221,
+      "sources": [
+        "law",
+        "netpublic"
+      ],
+      "claim_checks": [
+        "Educational screening exception is conditional, not a blanket permission or blanket prohibition.",
+        "Meeting format and sustainability conclusions are recommendations, not survey findings."
+      ],
+      "original_example_heading": "An exam-week meeting that still leaves room to join",
+      "statement_reviews": [
+        {
+          "statement": "Let members propose activities so the community does not depend on one organiser’s energy.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "Check campus rules and venue approval before using a room or advertising a screening.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "A personal streaming subscription should not be assumed to permit public exhibition.",
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED",
+          "sources": [
+            "netpublic",
+            "law"
+          ],
+          "note": "Read with its surrounding paragraph and the source-scope notes. Conditional examples do not assert current availability, price or a universal rule."
+        },
+        {
+          "statement": "Before showing episodes in a classroom or auditorium, check institutional rules and the relevant rights holder or authorised distributor's permission requirements.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "For the legal context, consult the Copyright Act, 1957 on India Code and the Copyright Office of India ; neither replaces checking the facts and permissions for a specific event.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "Set clear community rules from the beginning: no harassment, no unwanted comments about someone’s body or cosplay, no sharing private information, and no reposting another member’s artwork without permission.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "Keep a shared checklist of venue permission, accessibility, materials, start and finish times, and follow-up tasks.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "If an organiser graduates, written notes make the handover easier.",
+          "disposition": "QUALIFIED_ANALYSIS_OR_POSSIBILITY",
+          "sources": [],
+          "note": "Editorial interpretation, preference, limitation or conditional possibility. Not presented as a survey, forecast or measured outcome."
+        },
+        {
+          "statement": "Ask whether newcomers felt included, whether the cost was reasonable, whether people respected spoiler boundaries, and whether members had opportunities to contribute.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "Campus checklist: confirm permission for the space and activity, keep costs optional and visible, choose a format that does not require prior knowledge, set respectful conduct rules, and share organising work.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "A small repeatable activity with shared responsibility is a stronger foundation than a packed calendar that depends on one organiser.",
+          "disposition": "QUALIFIED_ANALYSIS_OR_POSSIBILITY",
+          "sources": [],
+          "note": "Editorial interpretation, preference, limitation or conditional possibility. Not presented as a survey, forecast or measured outcome."
+        },
+        {
+          "statement": "Each person brings one spoiler-free reason to try a story, and participation does not require buying a subscription.",
+          "disposition": "EXPLICIT_HYPOTHETICAL",
+          "sources": [],
+          "note": "Invented example, not reported experience or a current quotation. Arithmetic checked where present."
+        },
+        {
+          "statement": "For any proposed screening, distinguish campus approval, copyright exceptions and the provider’s terms.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        }
+      ],
+      "additional_factual_checks": [
+        {
+          "passage_locator": "Section 52(1)(j) describes",
+          "sources": [
+            "law"
+          ],
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED"
+        }
+      ]
+    },
+    {
+      "slug": "anime-merchandise-in-india-how-to-check-authenticity-pricing-and-seller-credibility",
+      "reviewed_on": "2026-11-01",
+      "review_status": "REVIEWED_WITH_SCOPE_LIMITS",
+      "review_sha256": "1c0cbc21f64d22952290c5f0f0448ae443cb7e7eb3806d6ca1f495538d216651",
+      "body_words": 1097,
+      "sources": [
+        "goodsmile",
+        "consumer"
+      ],
+      "claim_checks": [
+        "Manufacturer packaging and authentication limits verified against Good Smile guidance.",
+        "₹1,950 comparison is explicitly hypothetical and arithmetic-checked.",
+        "Consumer support described without guaranteeing a remedy."
+      ],
+      "original_example_heading": "A missing sticker is a clue, not a verdict",
+      "statement_reviews": [
+        {
+          "statement": "Evaluate seller transparency, licensing claims, total cost, returns and product quality before buying anime merchandise.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "Look for a verifiable business name, contact method, shipping timeline, return policy and invoice information.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "Before paying, save the listing, read return conditions, verify seller identity, check dimensions and review the total price.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "If it differs materially from the listing, use the platform's documented dispute process and provide clear evidence.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "Pause before buying and compare the item, seller evidence and total price.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "The safest purchase is informed: know what is sold, who sells it, what the final price includes and what recourse exists if it is wrong.",
+          "disposition": "QUALIFIED_ANALYSIS_OR_POSSIBILITY",
+          "sources": [],
+          "note": "Editorial interpretation, preference, limitation or conditional possibility. Not presented as a survey, forecast or measured outcome."
+        },
+        {
+          "statement": "Before paying, check the product description, brand or rights-holder information, maker details, and any licensing claim.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "A low price does not prove a product is counterfeit, but it is a reason to inspect the details carefully.",
+          "disposition": "QUALIFIED_ANALYSIS_OR_POSSIBILITY",
+          "sources": [],
+          "note": "Editorial interpretation, preference, limitation or conditional possibility. Not presented as a survey, forecast or measured outcome."
+        },
+        {
+          "statement": "Use a simple comparison note with item name, seller, stated authenticity, condition, total delivered cost, expected delivery window, and return terms.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "Follow the platform’s official dispute process and check whether moving the transaction elsewhere changes the records or protection available.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "Official merchandise may appeal to collectors who value licensing, packaging, and consistent manufacturing.",
+          "disposition": "QUALIFIED_ANALYSIS_OR_POSSIBILITY",
+          "sources": [],
+          "note": "Editorial interpretation, preference, limitation or conditional possibility. Not presented as a survey, forecast or measured outcome."
+        },
+        {
+          "statement": "Second-hand products can be a lower-cost route, although condition, completeness, and provenance deserve attention.",
+          "disposition": "QUALIFIED_ANALYSIS_OR_POSSIBILITY",
+          "sources": [],
+          "note": "Editorial interpretation, preference, limitation or conditional possibility. Not presented as a survey, forecast or measured outcome."
+        },
+        {
+          "statement": "Good Smile Company’s own bootleg guidance makes a useful distinction: not every genuine product has a licence sticker, and label designs can vary by release or distribution region.",
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED",
+          "sources": [
+            "goodsmile"
+          ],
+          "note": "Read with its surrounding paragraph and the source-scope notes. Conditional examples do not assert current availability, price or a universal rule."
+        },
+        {
+          "statement": "Its post-purchase enquiry asks for packaging, product and copyright-mark photographs.",
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED",
+          "sources": [
+            "goodsmile"
+          ],
+          "note": "Read with its surrounding paragraph and the source-scope notes. Conditional examples do not assert current availability, price or a universal rule."
+        },
+        {
+          "statement": "For a hypothetical comparison, suppose one listing is ₹1,800 with ₹150 delivery and another is ₹1,950 delivered.",
+          "disposition": "EXPLICIT_HYPOTHETICAL",
+          "sources": [],
+          "note": "Invented example, not reported experience or a current quotation. Arithmetic checked where present."
+        },
+        {
+          "statement": "If the cheaper-looking listing has no photographs of the actual item, the headline price has told you very little.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        }
+      ],
+      "additional_factual_checks": [
+        {
+          "passage_locator": "The manufacturer also says",
+          "sources": [
+            "goodsmile"
+          ],
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED"
+        },
+        {
+          "passage_locator": "India’s National Consumer Helpline",
+          "sources": [
+            "consumer"
+          ],
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED"
+        }
+      ]
+    },
+    {
+      "slug": "anime-watch-orders-explained-how-to-navigate-seasons-films-specials-and-spin-offs",
+      "reviewed_on": "2026-11-01",
+      "review_status": "REVIEWED_WITH_SCOPE_LIMITS",
+      "review_sha256": "4c5e41691c0eef452cfed32dbe6e9fb041b6a328cffb631fd84797912fa3ebb3",
+      "body_words": 1168,
+      "sources": [
+        "mugen",
+        "mugenjp",
+        "netregion"
+      ],
+      "claim_checks": [
+        "Mugen Train seven-episode structure and new first episode verified through official introductions.",
+        "Suggested first-viewing approach is labelled editorial advice."
+      ],
+      "original_example_heading": "A real overlap to recognise: Mugen Train",
+      "statement_reviews": [
+        {
+          "statement": "Check the franchise's official website, distributor episode list or the streaming platform's season and movie labels.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "It is not a universal law: some franchises have explicit viewing instructions, and a remake may intentionally replace an earlier adaptation.",
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED",
+          "sources": [
+            "mugen",
+            "mugenjp"
+          ],
+          "note": "Read with its surrounding paragraph and the source-scope notes. Conditional examples do not assert current availability, price or a universal rule."
+        },
+        {
+          "statement": "Streaming services sometimes group episodes differently from the original release, and availability may differ by region.",
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED",
+          "sources": [
+            "netregion"
+          ],
+          "note": "Read with its surrounding paragraph and the source-scope notes. Conditional examples do not assert current availability, price or a universal rule."
+        },
+        {
+          "statement": "If the numbering looks unusual, compare the episode titles and descriptions with the distributor’s official listing rather than relying only on a platform’s season label.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "They do not prove that either version is currently included in an Indian subscription, nor that a US disc’s language tracks match an Indian player.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        }
+      ],
+      "additional_factual_checks": [
+        {
+          "passage_locator": "The official Mugen Train TV introduction",
+          "sources": [
+            "mugen"
+          ],
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED"
+        },
+        {
+          "passage_locator": "The Japanese official introduction",
+          "sources": [
+            "mugenjp"
+          ],
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED"
+        }
+      ]
+    },
+    {
+      "slug": "beyond-power-levels-how-to-analyse-anime-writing-worldbuilding-and-character-growth",
+      "reviewed_on": "2026-11-01",
+      "review_status": "REVIEWED_WITH_SCOPE_LIMITS",
+      "review_sha256": "2656d13b3bd45707340bd0f413ad69623db6e69f8052eb035f5d01eab9f70a2b",
+      "body_words": 1099,
+      "sources": [
+        "spirited",
+        "storyboard"
+      ],
+      "claim_checks": [
+        "Spirited Away opening premise checked against distributor synopsis.",
+        "Analytical exercise is original commentary, not a claim about measured audience response."
+      ],
+      "original_example_heading": "Try the questions on Spirited Away’s opening problem",
+      "statement_reviews": [
+        {
+          "statement": "It might concern loyalty, ambition, memory, belonging, responsibility, or the cost of revenge.",
+          "disposition": "QUALIFIED_ANALYSIS_OR_POSSIBILITY",
+          "sources": [],
+          "note": "Editorial interpretation, preference, limitation or conditional possibility. Not presented as a survey, forecast or measured outcome."
+        },
+        {
+          "statement": "Look at who benefits from the world’s rules and who pays the cost.",
+          "disposition": "QUALIFIED_ANALYSIS_OR_POSSIBILITY",
+          "sources": [],
+          "note": "Editorial interpretation, preference, limitation or conditional possibility. Not presented as a survey, forecast or measured outcome."
+        }
+      ],
+      "additional_factual_checks": [
+        {
+          "passage_locator": "GKIDS describes Spirited Away",
+          "sources": [
+            "spirited"
+          ],
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED"
+        }
+      ]
+    },
+    {
+      "slug": "beyond-watching-how-indian-anime-fans-turn-their-favourite-stories-into-art-edits-and-cosplay",
+      "reviewed_on": "2026-11-01",
+      "review_status": "REVIEWED_WITH_SCOPE_LIMITS",
+      "review_sha256": "8e4f6501e5bcc249836d8b5ae504f93aacccdc44dcc4129ec47271e01944db99",
+      "body_words": 1136,
+      "sources": [
+        "krita",
+        "youtube",
+        "law"
+      ],
+      "claim_checks": [
+        "Krita capability verified; creative brief and feedback method are original suggestions.",
+        "Credit and successful upload are not treated as copyright permission."
+      ],
+      "original_example_heading": "A weekend project with one idea and three outputs",
+      "statement_reviews": [
+        {
+          "statement": "Free or low-cost software can be enough for a first edit, provided you check the current licence and export options.",
+          "disposition": "QUALIFIED_ANALYSIS_OR_POSSIBILITY",
+          "sources": [],
+          "note": "Editorial interpretation, preference, limitation or conditional possibility. Not presented as a survey, forecast or measured outcome."
+        },
+        {
+          "statement": "Credit is good practice, but it does not automatically give permission to reproduce protected art, logos, music, or footage.",
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED",
+          "sources": [
+            "law",
+            "youtube"
+          ],
+          "note": "Read with its surrounding paragraph and the source-scope notes. Conditional examples do not assert current availability, price or a universal rule."
+        },
+        {
+          "statement": "Platform rules and copyright law are separate questions, and a post remaining online does not prove that every use is authorised.",
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED",
+          "sources": [
+            "law",
+            "youtube"
+          ],
+          "note": "Read with its surrounding paragraph and the source-scope notes. Conditional examples do not assert current availability, price or a universal rule."
+        },
+        {
+          "statement": "If a rights holder or platform raises a concern, review the notice carefully rather than reposting the same material through another account.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "This demonstrates problem-solving and growth more clearly than posting only a final image.",
+          "disposition": "QUALIFIED_ANALYSIS_OR_POSSIBILITY",
+          "sources": [],
+          "note": "Editorial interpretation, preference, limitation or conditional possibility. Not presented as a survey, forecast or measured outcome."
+        },
+        {
+          "statement": "Project checklist: set a small scope, estimate time and cost, separate essentials from upgrades, use references responsibly, keep process notes, and check rights before sharing.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        }
+      ],
+      "additional_factual_checks": [
+        {
+          "passage_locator": "Krita’s manual documents",
+          "sources": [
+            "krita"
+          ],
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED"
+        }
+      ]
+    },
+    {
+      "slug": "building-an-anime-watchlist-on-a-student-budget-a-smarter-guide-for-indian-fans",
+      "reviewed_on": "2026-11-01",
+      "review_status": "REVIEWED_WITH_SCOPE_LIMITS",
+      "review_sha256": "22993d38f3415bd3ee719a56b7ea1d857e4c9bda272f29c2035eab9174f30351",
+      "body_words": 1128,
+      "sources": [
+        "netregion",
+        "netpublic",
+        "law"
+      ],
+      "claim_checks": [
+        "Budget example is invented and arithmetic-checked; no live provider price is asserted.",
+        "Catalogue geography and personal-viewing terms checked against Netflix."
+      ],
+      "original_example_heading": "Calculate value from time you can actually use",
+      "statement_reviews": [
+        {
+          "statement": "A simple way for Indian students to prioritise what to watch, compare legal access and avoid overspending on subscriptions and merchandise.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "Search each title in the official Indian catalogue and check seasons, audio and subtitles.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "Do not treat a subscription as a small expense simply because it is billed monthly.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "Add the renewal date and total cost to a note or calendar, and check whether the plan renews automatically.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "A streaming plan, manga volume, convention ticket, figure, and cosplay material are different categories.",
+          "disposition": "QUALIFIED_ANALYSIS_OR_POSSIBILITY",
+          "sources": [],
+          "note": "Editorial interpretation, preference, limitation or conditional possibility. Not presented as a survey, forecast or measured outcome."
+        },
+        {
+          "statement": "A month of watching with friends may be more valuable to you than buying merchandise, while a reader may prefer one physical volume to a subscription they rarely open.",
+          "disposition": "QUALIFIED_ANALYSIS_OR_POSSIBILITY",
+          "sources": [],
+          "note": "Editorial interpretation, preference, limitation or conditional possibility. Not presented as a survey, forecast or measured outcome."
+        },
+        {
+          "statement": "Use official free previews, trailers, or legal ad-supported options where available, but check the terms and catalogue for India.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "Never assume that a title available in another country is included in the Indian catalogue.",
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED",
+          "sources": [
+            "netregion"
+          ],
+          "note": "Read with its surrounding paragraph and the source-scope notes. Conditional examples do not assert current availability, price or a universal rule."
+        },
+        {
+          "statement": "Consider how many titles you realistically plan to watch, whether the service has the language tracks you need, whether you can download episodes under the plan, and whether the catalogue is likely to change.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "For a simple comparison, list each service’s current monthly price, renewal date, desired titles, language options, device limits, and cancellation process.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "Use the official plan page as the source for price and terms.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "If you watch together, follow the service’s terms and do not assume a personal account grants permission for a public event.",
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED",
+          "sources": [
+            "netpublic",
+            "law"
+          ],
+          "note": "Read with its surrounding paragraph and the source-scope notes. Conditional examples do not assert current availability, price or a universal rule."
+        },
+        {
+          "statement": "A discussion or trivia night can be a lower-cost alternative when permissions are unclear.",
+          "disposition": "QUALIFIED_ANALYSIS_OR_POSSIBILITY",
+          "sources": [],
+          "note": "Editorial interpretation, preference, limitation or conditional possibility. Not presented as a survey, forecast or measured outcome."
+        },
+        {
+          "statement": "Unofficial sources can expose devices and accounts to risks, and their catalogues may not have permission to distribute the work.",
+          "disposition": "QUALIFIED_ANALYSIS_OR_POSSIBILITY",
+          "sources": [],
+          "note": "Editorial interpretation, preference, limitation or conditional possibility. Not presented as a survey, forecast or measured outcome."
+        },
+        {
+          "statement": "Suppose, only for planning, a service costs ₹250 for a month and you expect to watch eight episodes of twenty-four minutes each.",
+          "disposition": "EXPLICIT_HYPOTHETICAL",
+          "sources": [],
+          "note": "Invented example, not reported experience or a current quotation. Arithmetic checked where present."
+        },
+        {
+          "statement": "That is 192 minutes, or three hours and twelve minutes, with a subscription cost of ₹31.25 per episode watched.",
+          "disposition": "EXPLICIT_HYPOTHETICAL",
+          "sources": [],
+          "note": "Invented example, not reported experience or a current quotation. Arithmetic checked where present."
+        },
+        {
+          "statement": "If exams reduce your viewing to two episodes, the same payment becomes ₹125 per episode.",
+          "disposition": "EXPLICIT_HYPOTHETICAL",
+          "sources": [],
+          "note": "Invented example, not reported experience or a current quotation. Arithmetic checked where present."
+        },
+        {
+          "statement": "Netflix explains that its catalogue differs across countries, so an overseas recommendation does not close that check.",
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED",
+          "sources": [
+            "netregion"
+          ],
+          "note": "Read with its surrounding paragraph and the source-scope notes. Conditional examples do not assert current availability, price or a universal rule."
+        },
+        {
+          "statement": "If a club wants to show a film, review the institution’s rules, applicable copyright exceptions and the service’s public-viewing terms.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "Do not turn a personal subscription into an assumed event licence merely because the ticket price is zero.",
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED",
+          "sources": [
+            "netpublic",
+            "law"
+          ],
+          "note": "Read with its surrounding paragraph and the source-scope notes. Conditional examples do not assert current availability, price or a universal rule."
+        }
+      ]
+    },
+    {
+      "slug": "could-india-build-a-bigger-animation-to-anime-pipeline-talent-training-and-industry-challenges",
+      "reviewed_on": "2026-11-01",
+      "review_status": "REVIEWED_WITH_SCOPE_LIMITS",
+      "review_sha256": "3019707910dd5e545b336d480222c6ebfd6b1bc3c8253512e3f9fe5032fde775",
+      "body_words": 1085,
+      "sources": [
+        "pib",
+        "storyboard",
+        "animator"
+      ],
+      "claim_checks": [
+        "2022 task-force announcement presented as recommendations only.",
+        "Production roles sourced to ScreenSkills; no current market, hiring or salary number retained."
+      ],
+      "original_example_heading": "Test a production pathway with a small handoff",
+      "statement_reviews": [
+        {
+          "statement": "Producers must consider who owns the characters, whether the team has permission to use music and source material, how revisions are funded, and what happens if a partner or platform changes plans.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "A policy announcement and a finished production answer different questions.",
+          "disposition": "QUALIFIED_ANALYSIS_OR_POSSIBILITY",
+          "sources": [],
+          "note": "Editorial interpretation, preference, limitation or conditional possibility. Not presented as a survey, forecast or measured outcome."
+        },
+        {
+          "statement": "The PIB release of 26 December 2022 records AVGC task-force recommendations, including proposals concerning skills and industry development.",
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED",
+          "sources": [
+            "pib"
+          ],
+          "note": "Read with its surrounding paragraph and the source-scope notes. Conditional examples do not assert current availability, price or a universal rule."
+        },
+        {
+          "statement": "It is dated policy context, not proof that a particular programme is operating today, that a course has placed its graduates, or that a studio has secured distribution.",
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED",
+          "sources": [
+            "pib"
+          ],
+          "note": "Read with its surrounding paragraph and the source-scope notes. Conditional examples do not assert current availability, price or a universal rule."
+        },
+        {
+          "statement": "That distinction makes room for ambition while avoiding unsupported claims about market size, jobs or an inevitable Indian anime boom.",
+          "disposition": "QUALIFIED_ANALYSIS_OR_POSSIBILITY",
+          "sources": [],
+          "note": "Editorial interpretation, preference, limitation or conditional possibility. Not presented as a survey, forecast or measured outcome."
+        }
+      ],
+      "additional_factual_checks": [
+        {
+          "passage_locator": "ScreenSkills’ role descriptions",
+          "sources": [
+            "storyboard",
+            "animator"
+          ],
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED"
+        }
+      ]
+    },
+    {
+      "slug": "fan-art-screenshots-and-copyright-what-indian-anime-creators-should-understand-before-publishing",
+      "reviewed_on": "2026-11-01",
+      "review_status": "REVIEWED_WITH_SCOPE_LIMITS",
+      "review_sha256": "7cbe6ab7f67b26b82b4efb794dc37d3d215548bb8e05db09ee397a64816ce486",
+      "body_words": 1104,
+      "sources": [
+        "law",
+        "youtube",
+        "audio"
+      ],
+      "claim_checks": [
+        "Section 52 fair dealing qualified by purpose and circumstances; no safe-length rule asserted.",
+        "Platform upload or lack of a claim does not prove lawful use.",
+        "Ownership-or-permission checklist expanded to account for applicable exceptions."
+      ],
+      "original_example_heading": "Write down the basis for each asset, not just its credit",
+      "statement_reviews": [
+        {
+          "statement": "A practical introduction to permission, original work, screenshots, music and platform takedowns before publishing fan creations.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "Avoid blanket claims such as “fan art is always fair use” or “credit makes it legal.” Credit acknowledges a creator, but it does not itself grant permission.",
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED",
+          "sources": [
+            "law"
+          ],
+          "note": "Read with its surrounding paragraph and the source-scope notes. Conditional examples do not assert current availability, price or a universal rule."
+        },
+        {
+          "statement": "For commercial projects or significant risks, consult a qualified legal professional.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "A platform's music library may allow use only inside that platform or under specified account conditions.",
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED",
+          "sources": [
+            "audio"
+          ],
+          "note": "Read with its surrounding paragraph and the source-scope notes. Conditional examples do not assert current availability, price or a universal rule."
+        },
+        {
+          "statement": "India's Copyright Act, 1957 sets out copyright rights and specific exceptions, including fair dealing for certain purposes.",
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED",
+          "sources": [
+            "law"
+          ],
+          "note": "Read with its surrounding paragraph and the source-scope notes. Conditional examples do not assert current availability, price or a universal rule."
+        },
+        {
+          "statement": "These exceptions are not blanket permission for every fan edit, repost or monetised video.",
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED",
+          "sources": [
+            "law"
+          ],
+          "note": "Read with its surrounding paragraph and the source-scope notes. Conditional examples do not assert current availability, price or a universal rule."
+        },
+        {
+          "statement": "Whether a particular use qualifies depends on the facts and legal interpretation.",
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED",
+          "sources": [
+            "law"
+          ],
+          "note": "Read with its surrounding paragraph and the source-scope notes. Conditional examples do not assert current availability, price or a universal rule."
+        },
+        {
+          "statement": "Read the legislation rather than treating social-media advice as legal certainty.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "Prefer original characters, your own photography, licensed stock or assets whose licence clearly covers your intended use.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "If a rights holder has a fan-content policy, read its actual scope.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "Permission for one use may not cover merchandise, monetisation or a different platform.",
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED",
+          "sources": [
+            "law"
+          ],
+          "note": "Read with its surrounding paragraph and the source-scope notes. Conditional examples do not assert current availability, price or a universal rule."
+        },
+        {
+          "statement": "Save the notice, URL and relevant licence or permission.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "Follow the platform's documented process and get legal advice when consequences are significant.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "A takedown does not automatically settle every legal question, but it should be treated seriously.",
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED",
+          "sources": [
+            "youtube"
+          ],
+          "note": "Read with its surrounding paragraph and the source-scope notes. Conditional examples do not assert current availability, price or a universal rule."
+        },
+        {
+          "statement": "For each element, identify the basis for your intended use: ownership, an applicable licence or permission, or a relevant legal exception assessed in context.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "When permission is uncertain, redesign the piece around your own characters, commentary or original visuals rather than assuming that non-commercial intent or a credit line removes the risk.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "Each element may have a different creator or rights holder.",
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED",
+          "sources": [
+            "law"
+          ],
+          "note": "Read with its surrounding paragraph and the source-scope notes. Conditional examples do not assert current availability, price or a universal rule."
+        },
+        {
+          "statement": "Drawing something yourself does not automatically remove questions about the underlying character or design, and adding credit does not by itself grant permission to reproduce someone else’s work.",
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED",
+          "sources": [
+            "law"
+          ],
+          "note": "Read with its surrounding paragraph and the source-scope notes. Conditional examples do not assert current availability, price or a universal rule."
+        },
+        {
+          "statement": "For Indian creators, the official Copyright Act, 1957 is the primary legislation to consult for the statutory framework: India Code: Copyright Act, 1957 .",
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED",
+          "sources": [
+            "law"
+          ],
+          "note": "Read with its surrounding paragraph and the source-scope notes. Conditional examples do not assert current availability, price or a universal rule."
+        },
+        {
+          "statement": "How a specific fan project is treated depends on the facts, the type of material, the use, and the applicable legal provisions.",
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED",
+          "sources": [
+            "law"
+          ],
+          "note": "Read with its surrounding paragraph and the source-scope notes. Conditional examples do not assert current availability, price or a universal rule."
+        },
+        {
+          "statement": "This article is general information, not legal advice or a guarantee that a particular post is lawful.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "For cosplay, photograph your own construction and styling, and ask permission before using another person’s image.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "For music edits, check whether the platform’s licensed audio library covers your intended use and whether the permission applies outside that service.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "If you need certainty for a commercial project, merchandise, a paid commission, or a dispute, the responsible next step is to review the applicable law and obtain legal advice or permission from the rights holder.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "A drawing you created from your own design, a track supplied under a specific licence and a screenshot used in criticism raise different questions.",
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED",
+          "sources": [
+            "law"
+          ],
+          "note": "Read with its surrounding paragraph and the source-scope notes. Conditional examples do not assert current availability, price or a universal rule."
+        },
+        {
+          "statement": "A commercial purpose, a noncommercial purpose or an attribution line should not be treated as a complete legal test by itself.",
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED",
+          "sources": [
+            "law"
+          ],
+          "note": "Read with its surrounding paragraph and the source-scope notes. Conditional examples do not assert current availability, price or a universal rule."
+        },
+        {
+          "statement": "YouTube’s copyright guidance also separates permission, licences and exceptions from platform claims.",
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED",
+          "sources": [
+            "youtube"
+          ],
+          "note": "Read with its surrounding paragraph and the source-scope notes. Conditional examples do not assert current availability, price or a universal rule."
+        },
+        {
+          "statement": "Keep a copy of any relevant licence or permission and the date you checked it.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        }
+      ],
+      "additional_factual_checks": [
+        {
+          "passage_locator": "In India, section 52",
+          "sources": [
+            "law"
+          ],
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED"
+        }
+      ]
+    },
+    {
+      "slug": "festivals-food-and-family-exploring-everyday-cultural-details-in-anime-and-indian-life",
+      "reviewed_on": "2026-11-01",
+      "review_status": "REVIEWED_WITH_SCOPE_LIMITS",
+      "review_sha256": "b8a280091b7eda664814d243d92d2f269799d6e2ad449dab98b127e0efdfa9e9",
+      "body_words": 1182,
+      "sources": [
+        "maff",
+        "festival"
+      ],
+      "claim_checks": [
+        "Regional-food and summer-festival context sourced to Japanese public institutions.",
+        "No universal Japanese or Indian household behaviour is asserted."
+      ],
+      "original_example_heading": "Research a meal before using it as a national symbol",
+      "statement_reviews": [
+        {
+          "statement": "Avoid assuming a food shown in anime is eaten the same way in every region or household.",
+          "disposition": "QUALIFIED_ANALYSIS_OR_POSSIBILITY",
+          "sources": [],
+          "note": "Editorial interpretation, preference, limitation or conditional possibility. Not presented as a survey, forecast or measured outcome."
+        },
+        {
+          "statement": "Region, language, religion, class, generation, city or village, and individual family history all shape daily life.",
+          "disposition": "QUALIFIED_ANALYSIS_OR_POSSIBILITY",
+          "sources": [],
+          "note": "Editorial interpretation, preference, limitation or conditional possibility. Not presented as a survey, forecast or measured outcome."
+        }
+      ],
+      "additional_factual_checks": [
+        {
+          "passage_locator": "Japan’s Ministry of Agriculture",
+          "sources": [
+            "maff"
+          ],
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED"
+        },
+        {
+          "passage_locator": "Web Japan’s introduction",
+          "sources": [
+            "festival"
+          ],
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED"
+        }
+      ]
+    },
+    {
+      "slug": "from-fan-idea-to-finished-edit-a-beginners-guide-to-making-anime-inspired-videos",
+      "reviewed_on": "2026-11-01",
+      "review_status": "REVIEWED_WITH_SCOPE_LIMITS",
+      "review_sha256": "81f8978913b8211bedb7b9e41b7c8bc7b4655d4a5221ba36ec0d8f5c81304db2",
+      "body_words": 1064,
+      "sources": [
+        "audio",
+        "youtube",
+        "law"
+      ],
+      "claim_checks": [
+        "Audio Library attribution distinction verified; no cross-platform licence guarantee.",
+        "Ten-second edit timing is a hypothetical original exercise, not reported testing."
+      ],
+      "original_example_heading": "Build a ten-second edit from material you control",
+      "statement_reviews": [
+        {
+          "statement": "A platform's built-in audio library may have restrictions by platform, account type or use.",
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED",
+          "sources": [
+            "audio"
+          ],
+          "note": "Read with its surrounding paragraph and the source-scope notes. Conditional examples do not assert current availability, price or a universal rule."
+        },
+        {
+          "statement": "Use audio you have rights to use, and check the platform's current recommended dimensions and format rather than relying on an old preset.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "Credit collaborators and identify assets when required by the licence or creator.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "Anime footage, still images, music, logos, and fan translations may be protected by copyright or other rights.",
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED",
+          "sources": [
+            "law"
+          ],
+          "note": "Read with its surrounding paragraph and the source-scope notes. Conditional examples do not assert current availability, price or a universal rule."
+        },
+        {
+          "statement": "Exceptions and fair-dealing rules depend on the facts and applicable law.",
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED",
+          "sources": [
+            "law"
+          ],
+          "note": "Read with its surrounding paragraph and the source-scope notes. Conditional examples do not assert current availability, price or a universal rule."
+        },
+        {
+          "statement": "A platform allowing an upload to remain online is not proof that the rights holder has authorised every use.",
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED",
+          "sources": [
+            "youtube"
+          ],
+          "note": "Read with its surrounding paragraph and the source-scope notes. Conditional examples do not assert current availability, price or a universal rule."
+        },
+        {
+          "statement": "Safer options include material you created, assets with clear licences, or platform-provided audio under the platform’s terms.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "Keep a record of asset sources and licence conditions.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "The help page also limits what YouTube can advise about use outside the platform; a track being available in one editing app is not proof that every export and repost is covered.",
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED",
+          "sources": [
+            "audio"
+          ],
+          "note": "Read with its surrounding paragraph and the source-scope notes. Conditional examples do not assert current availability, price or a universal rule."
+        },
+        {
+          "statement": "Record the music title, licence basis, credit text and where you plan to publish.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        }
+      ],
+      "additional_factual_checks": [
+        {
+          "passage_locator": "YouTube’s Audio Library distinguishes",
+          "sources": [
+            "audio"
+          ],
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED"
+        }
+      ]
+    },
+    {
+      "slug": "hand-drawn-frames-to-digital-pipelines-how-anime-production-techniques-have-evolved",
+      "reviewed_on": "2026-11-01",
+      "review_status": "REVIEWED_WITH_SCOPE_LIMITS",
+      "review_sha256": "ade00ab9fedad171fce1d52b6eed40550d0b5ca44bc9d515c2a5c7cb6306e5c6",
+      "body_words": 1055,
+      "sources": [
+        "krita",
+        "blender",
+        "layers"
+      ],
+      "claim_checks": [
+        "Workflow definitions checked against official tool manuals; no studio-specific pipeline inferred.",
+        "Five seconds times twelve frames per second equals sixty timeline frames, not sixty mandatory drawings."
+      ],
+      "original_example_heading": "Separate timeline frames from newly drawn pictures",
+      "statement_reviews": [],
+      "additional_factual_checks": [
+        {
+          "passage_locator": "Krita’s animation manual",
+          "sources": [
+            "krita"
+          ],
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED"
+        },
+        {
+          "passage_locator": "Blender’s Grease Pencil",
+          "sources": [
+            "blender"
+          ],
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED"
+        },
+        {
+          "passage_locator": "Blender’s view-layer documentation",
+          "sources": [
+            "layers"
+          ],
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED"
+        }
+      ]
+    },
+    {
+      "slug": "hindi-tamil-telugu-or-japanese-audio-how-language-changes-the-indian-anime-experience",
+      "reviewed_on": "2026-11-01",
+      "review_status": "REVIEWED_WITH_SCOPE_LIMITS",
+      "review_sha256": "9b7c57a0c97c861b828635893d297989b1657a77b534252007f7e8c9ee1c6aa5",
+      "body_words": 1180,
+      "sources": [
+        "crunch",
+        "netlang",
+        "dub",
+        "timing",
+        "netplayer"
+      ],
+      "claim_checks": [
+        "Hindi-specific help is not extended to Tamil or Telugu availability.",
+        "Adaptation constraints anchored to a named provider’s guidance, with scope stated."
+      ],
+      "original_example_heading": "Keep a language record for the whole viewing plan",
+      "statement_reviews": [
+        {
+          "statement": "Some viewers prefer original Japanese audio with subtitles; others enjoy Hindi, Tamil, Telugu or another available dub.",
+          "disposition": "QUALIFIED_ANALYSIS_OR_POSSIBILITY",
+          "sources": [],
+          "note": "Editorial interpretation, preference, limitation or conditional possibility. Not presented as a survey, forecast or measured outcome."
+        },
+        {
+          "statement": "A dub is an interpretation shaped by translation, casting, direction and timing.",
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED",
+          "sources": [
+            "dub"
+          ],
+          "note": "Read with its surrounding paragraph and the source-scope notes. Conditional examples do not assert current availability, price or a universal rule."
+        },
+        {
+          "statement": "Open the streaming service's audio and subtitle menu for the exact season and episode rather than assuming general platform support applies to every show.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "Avoid judging an entire dub from one clip without considering the full performance.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "Japanese audio with subtitles can preserve a performance that a viewer wants to hear in its original language, while a Hindi, Tamil, Telugu, or English dub can make dialogue easier to follow without constantly reading.",
+          "disposition": "QUALIFIED_ANALYSIS_OR_POSSIBILITY",
+          "sources": [],
+          "note": "Editorial interpretation, preference, limitation or conditional possibility. Not presented as a survey, forecast or measured outcome."
+        },
+        {
+          "statement": "In a dialogue-heavy drama, a familiar dub may make it easier to notice facial expressions and pauses.",
+          "disposition": "QUALIFIED_ANALYSIS_OR_POSSIBILITY",
+          "sources": [],
+          "note": "Editorial interpretation, preference, limitation or conditional possibility. Not presented as a survey, forecast or measured outcome."
+        },
+        {
+          "statement": "A dub is an adaptation: line length, jokes, wordplay, and cultural references may need to change so the dialogue fits the timing of the animation.",
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED",
+          "sources": [
+            "dub"
+          ],
+          "note": "Read with its surrounding paragraph and the source-scope notes. Conditional examples do not assert current availability, price or a universal rule."
+        },
+        {
+          "statement": "A subtitle track also involves choices about phrasing and reading speed.",
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED",
+          "sources": [
+            "timing"
+          ],
+          "note": "Read with its surrounding paragraph and the source-scope notes. Conditional examples do not assert current availability, price or a universal rule."
+        },
+        {
+          "statement": "A platform may offer a Hindi dub but only English subtitles, or Japanese audio with several subtitle choices.",
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED",
+          "sources": [
+            "netlang"
+          ],
+          "note": "Read with its surrounding paragraph and the source-scope notes. Conditional examples do not assert current availability, price or a universal rule."
+        },
+        {
+          "statement": "If you rely on captions for accessibility, check what the platform actually provides for the episode you plan to watch.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "A series may have a dub for its first season but not for a later instalment, or a film may be licensed separately.",
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED",
+          "sources": [
+            "netlang"
+          ],
+          "note": "Read with its surrounding paragraph and the source-scope notes. Conditional examples do not assert current availability, price or a universal rule."
+        },
+        {
+          "statement": "Check the individual title page and the playback menu rather than relying on an old social-media post or a catalogue listing for a different region.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "If you are introducing anime to relatives who are more comfortable in Hindi or a regional language, a dub may lower the barrier to entry.",
+          "disposition": "QUALIFIED_ANALYSIS_OR_POSSIBILITY",
+          "sources": [],
+          "note": "Editorial interpretation, preference, limitation or conditional possibility. Not presented as a survey, forecast or measured outcome."
+        },
+        {
+          "statement": "If you are discussing voice acting with friends, watching a key scene in the original and one dub can create a more interesting comparison than arguing in the abstract about which is superior.",
+          "disposition": "QUALIFIED_ANALYSIS_OR_POSSIBILITY",
+          "sources": [],
+          "note": "Editorial interpretation, preference, limitation or conditional possibility. Not presented as a survey, forecast or measured outcome."
+        },
+        {
+          "statement": "Record the audio track you want, the subtitle or caption language you need, the device you checked and the date.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "Crunchyroll’s Hindi guidance is specifically about checking Hindi options.",
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED",
+          "sources": [
+            "crunch"
+          ],
+          "note": "Read with its surrounding paragraph and the source-scope notes. Conditional examples do not assert current availability, price or a universal rule."
+        },
+        {
+          "statement": "Netflix’s language help likewise points readers to title and playback conditions.",
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED",
+          "sources": [
+            "netlang"
+          ],
+          "note": "Read with its surrounding paragraph and the source-scope notes. Conditional examples do not assert current availability, price or a universal rule."
+        },
+        {
+          "statement": "Verify each combination on the actual service rather than treating a platform’s multilingual marketing as a franchise-wide promise.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "To understand why two versions sound different, Netflix’s India dubbing guidelines provide a concrete production example: adaptation, performance and synchronisation receive separate attention.",
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED",
+          "sources": [
+            "dub"
+          ],
+          "note": "Read with its surrounding paragraph and the source-scope notes. Conditional examples do not assert current availability, price or a universal rule."
+        },
+        {
+          "statement": "Those are that provider’s instructions, not proof that every anime dub follows an identical process.",
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED",
+          "sources": [
+            "dub"
+          ],
+          "note": "Read with its surrounding paragraph and the source-scope notes. Conditional examples do not assert current availability, price or a universal rule."
+        }
+      ],
+      "additional_factual_checks": [
+        {
+          "passage_locator": "Closed captions can include sound cues",
+          "sources": [
+            "netplayer"
+          ],
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED"
+        }
+      ]
+    },
+    {
+      "slug": "how-anime-communities-are-taking-shape-across-indian-cities-online-fandom-to-local-meetups",
+      "reviewed_on": "2026-11-01",
+      "review_status": "REVIEWED_WITH_SCOPE_LIMITS",
+      "review_sha256": "259dff965776cfd735dc8fe0bbd4187a5e8e77386f993986fd428614719dfa7d",
+      "body_words": 1264,
+      "sources": [
+        "cosplay",
+        "rules"
+      ],
+      "claim_checks": [
+        "Organiser conduct guidance and Discord feature scoped to their own services.",
+        "Meetup example is hypothetical, not a claim of active IAC operations."
+      ],
+      "original_example_heading": "Publish a complete invitation before calling a meetup confirmed",
+      "statement_reviews": [
+        {
+          "statement": "Do not publish a venue or claim an event is confirmed before the organiser has secured it.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "Let people participate online if travel, cost or accessibility makes an in-person meetup difficult.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "A public café or other accessible venue can be simpler than a large paid event.",
+          "disposition": "QUALIFIED_ANALYSIS_OR_POSSIBILITY",
+          "sources": [],
+          "note": "Editorial interpretation, preference, limitation or conditional possibility. Not presented as a survey, forecast or measured outcome."
+        },
+        {
+          "statement": "Confirm permission, seating, costs, transport and any venue rules in advance.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "Share the final details only when they are confirmed, and provide a clear way to contact the organiser.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "For public meetups, have an organiser contact, agree on a basic safety plan and avoid pressuring anyone to share personal information.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "Community growth is measured by meaningful participation, member safety and repeat activity, not just follower counts.",
+          "disposition": "QUALIFIED_ANALYSIS_OR_POSSIBILITY",
+          "sources": [],
+          "note": "Editorial interpretation, preference, limitation or conditional possibility. Not presented as a survey, forecast or measured outcome."
+        },
+        {
+          "statement": "A clear event description should state the activity, venue area, start and end time, expected cost, age restrictions if applicable, and whether newcomers are welcome.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "Choose a public, accessible venue and avoid pressuring people to share phone numbers or personal social accounts.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "If the event involves minors, follow venue and organiser safeguarding rules and make supervision arrangements explicit.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "If a venue, materials, or refreshments cost money, explain the amount and how it will be used before collecting contributions.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "Offer a no-cost way to engage online when possible, and avoid making a paid purchase the price of belonging.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "Do not publish attendee photos or tag members without permission.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "For a hypothetical Hyderabad discussion group, an invitation should identify the actual organiser, agreed venue, start and finish times, activity, capacity and any contribution expected.",
+          "disposition": "EXPLICIT_HYPOTHETICAL",
+          "sources": [],
+          "note": "Invented example, not reported experience or a current quotation. Arithmetic checked where present."
+        },
+        {
+          "statement": "Offer a neutral meeting point and a contact route that the organiser can monitor.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "Comic Con India’s cosplay guidance provides an organiser example of asking before photos or touching; a smaller group should publish its own clear conduct expectations rather than imply it is covered by another event’s arrangements.",
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED",
+          "sources": [
+            "cosplay"
+          ],
+          "note": "Read with its surrounding paragraph and the source-scope notes. Conditional examples do not assert current availability, price or a universal rule."
+        },
+        {
+          "statement": "Do not describe a chapter, partnership, venue booking or public event as established until the responsible people have confirmed it.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        }
+      ],
+      "additional_factual_checks": [
+        {
+          "passage_locator": "its rules-screening feature",
+          "sources": [
+            "rules"
+          ],
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED"
+        }
+      ]
+    },
+    {
+      "slug": "how-to-start-an-anime-club-at-your-college-a-practical-plan-for-indian-student-communities",
+      "reviewed_on": "2026-11-01",
+      "review_status": "REVIEWED_WITH_SCOPE_LIMITS",
+      "review_sha256": "fccdddb79a69f1c7d5f84ece7128f0aa8d41df819a4a5d5ab7ebef1ca87a6294",
+      "body_words": 1112,
+      "sources": [
+        "law",
+        "netpublic",
+        "rules"
+      ],
+      "claim_checks": [
+        "Educational exception distinguished from provider terms and institutional permission.",
+        "Meeting agenda totals forty-five minutes and is an original example."
+      ],
+      "original_example_heading": "Prepare a handover before the founding members leave",
+      "statement_reviews": [
+        {
+          "statement": "A low-cost campus plan for finding members, organising inclusive activities, setting ground rules and checking screening permissions.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "Do not assume a personal streaming subscription permits public exhibition.",
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED",
+          "sources": [
+            "law",
+            "netpublic"
+          ],
+          "note": "Read with its surrounding paragraph and the source-scope notes. Conditional examples do not assert current availability, price or a universal rule."
+        },
+        {
+          "statement": "Before screening episodes in a classroom or auditorium, ask the institution and relevant rights holder or authorised distributor what permission is required.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "A private discussion about a watchlist is different from a public screening.",
+          "disposition": "QUALIFIED_ANALYSIS_OR_POSSIBILITY",
+          "sources": [],
+          "note": "Editorial interpretation, preference, limitation or conditional possibility. Not presented as a survey, forecast or measured outcome."
+        },
+        {
+          "statement": "Explain spoiler rules, avoid mocking dub or subtitle preferences, ask permission before posting participant photos and do not pressure members to buy merchandise.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "A personal streaming subscription should not be assumed to grant permission for a public exhibition.",
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED",
+          "sources": [
+            "law",
+            "netpublic"
+          ],
+          "note": "Read with its surrounding paragraph and the source-scope notes. Conditional examples do not assert current availability, price or a universal rule."
+        },
+        {
+          "statement": "If screening rights or campus permission are unclear, start with discussion, original presentations, drawing, or trivia instead.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "Choose an accessible venue and a time that does not clash with common class schedules.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "Do not make buying merchandise, joining a paid platform, or knowing a particular franchise a condition of membership.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "Ask permission before posting a photograph of another member, and never share private contact details or screenshots of personal conversations without consent.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "Provide a simple way to report a concern to an organiser.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "New members should be able to participate even if they have watched only one series or prefer a regional-language dub.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "Assign rotating roles for scheduling, venue booking, activity planning, moderation, and basic finance tracking.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "Launch checklist: confirm campus approval, validate interest, choose a low-cost format, publish clear rules, share organising work, and create a safe feedback route.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "After each meeting, write a short note with attendance in broad terms, the activity that worked best, any cost, and one change for next time.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "If the club uses a shared drive or messaging group, make clear who can access membership information and remove access when an organiser leaves.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "Section 52(1)(j) has educational-institution and audience conditions, while Netflix’s public-viewing terms impose their own restrictions.",
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED",
+          "sources": [
+            "law",
+            "netpublic"
+          ],
+          "note": "Read with its surrounding paragraph and the source-scope notes. Conditional examples do not assert current availability, price or a universal rule."
+        },
+        {
+          "statement": "At the end of the month, check whether a second organiser can use the operating note, whether announcements match what actually happens and whether students with different budgets can participate.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        }
+      ]
+    },
+    {
+      "slug": "how-to-start-drawing-anime-characters-a-beginners-practice-plan-for-indian-students",
+      "reviewed_on": "2026-11-01",
+      "review_status": "REVIEWED_WITH_SCOPE_LIMITS",
+      "review_sha256": "2c9aea491f9e49ebfb579d4914073c814feceb7ce282e7f67821d01e8f05757d",
+      "body_words": 1115,
+      "sources": [
+        "clip",
+        "clipfigure"
+      ],
+      "claim_checks": [
+        "Drawing construction examples supported by provider-authored lessons, with style-specific proportions.",
+        "Twenty-minute allocation checked; no guarantee of skill improvement by a date."
+      ],
+      "original_example_heading": "A twenty-minute character study you can compare next week",
+      "statement_reviews": [],
+      "additional_factual_checks": [
+        {
+          "passage_locator": "Clip Studio’s official beginner lesson",
+          "sources": [
+            "clip",
+            "clipfigure"
+          ],
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED"
+        }
+      ]
+    },
+    {
+      "slug": "learning-animation-in-india-skills-software-and-portfolio-projects-for-beginners",
+      "reviewed_on": "2026-11-01",
+      "review_status": "REVIEWED_WITH_SCOPE_LIMITS",
+      "review_sha256": "1130a45fff5318cdc2cd0360f2538d9b3a30f371f179545ab02192ff879ca2e9",
+      "body_words": 1089,
+      "sources": [
+        "animator",
+        "krita",
+        "blender",
+        "storyboard"
+      ],
+      "claim_checks": [
+        "Tool capabilities and role descriptions verified through official documentation.",
+        "Course and portfolio checks are advice; no employment or salary guarantee."
+      ],
+      "original_example_heading": "Show one revision clearly in a beginner portfolio",
+      "statement_reviews": [
+        {
+          "statement": "Check the current official product page for system requirements, licence terms and learning resources.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "Free or low-cost tools can be suitable for learning, but verify whether their terms fit commercial work if that becomes relevant.",
+          "disposition": "QUALIFIED_ANALYSIS_OR_POSSIBILITY",
+          "sources": [],
+          "note": "Editorial interpretation, preference, limitation or conditional possibility. Not presented as a survey, forecast or measured outcome."
+        },
+        {
+          "statement": "Compare course options by curriculum, instructor work, feedback quality, student outcomes and total cost, not just marketing claims.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "Before paying for a subscription or buying a powerful computer, identify the work you want to make and check the tool’s current system requirements, licence terms, export formats, and learning resources.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "Free or low-cost software can be sufficient for early exercises.",
+          "disposition": "QUALIFIED_ANALYSIS_OR_POSSIBILITY",
+          "sources": [],
+          "note": "Editorial interpretation, preference, limitation or conditional possibility. Not presented as a survey, forecast or measured outcome."
+        },
+        {
+          "statement": "If you use references, assets, music, or textures from others, follow their licence terms and keep a record of sources.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "Before paying for a course, check the syllabus, instructor work, student outcomes, total fees, refund terms, and whether feedback is included.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "They do not establish current Indian hiring demand, course placement rates or a guaranteed professional route.",
+          "disposition": "QUALIFIED_ANALYSIS_OR_POSSIBILITY",
+          "sources": [],
+          "note": "Editorial interpretation, preference, limitation or conditional possibility. Not presented as a survey, forecast or measured outcome."
+        }
+      ],
+      "additional_factual_checks": [
+        {
+          "passage_locator": "ScreenSkills distinguishes animation",
+          "sources": [
+            "animator",
+            "storyboard"
+          ],
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED"
+        }
+      ]
+    },
+    {
+      "slug": "manga-vs-anime-for-indian-readers-cost-availability-and-what-each-format-offers",
+      "reviewed_on": "2026-11-01",
+      "review_status": "REVIEWED_WITH_SCOPE_LIMITS",
+      "review_sha256": "f0770535d76113c21f1d892ed11fb7422bbcf641ffe97ef369700e208dd967a1",
+      "body_words": 1081,
+      "sources": [
+        "manga",
+        "silentmanga",
+        "silentfilm",
+        "law",
+        "netlicence"
+      ],
+      "claim_checks": [
+        "Publisher and studio sources identify editions, not Indian availability.",
+        "Hypothetical ₹1,920 and ₹1,950 totals checked.",
+        "Copyright and unauthorised distribution language kept conditional."
+      ],
+      "original_example_heading": "Compare the edition, the access model and the amount of story",
+      "statement_reviews": [
+        {
+          "statement": "Before buying a volume or starting a digital service, check the publisher or authorised retailer's catalogue, language, format and delivery terms.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "For print manga, include the cover price, delivery, import charges if applicable, and the shelf space needed for a growing collection.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "Anime streaming costs may recur monthly, and a particular season or film may be licensed separately.",
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED",
+          "sources": [
+            "netlicence"
+          ],
+          "note": "Read with its surrounding paragraph and the source-scope notes. Conditional examples do not assert current availability, price or a universal rule."
+        },
+        {
+          "statement": "Compare the total cost of the format you will actually use, not just the price of one volume against one month of streaming.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "A useful comparison table should record the exact title and volume or season, current Indian availability, language, total price, delivery or renewal terms, and whether the edition is complete.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "A fan translation or a file being easy to find does not by itself establish permission.",
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED",
+          "sources": [
+            "law"
+          ],
+          "note": "Read with its surrounding paragraph and the source-scope notes. Conditional examples do not assert current availability, price or a universal rule."
+        },
+        {
+          "statement": "Copyright questions depend on the specific use and applicable law; for India, consult the official Copyright Act and qualified legal guidance when the issue has significant consequences.",
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED",
+          "sources": [
+            "law"
+          ],
+          "note": "Read with its surrounding paragraph and the source-scope notes. Conditional examples do not assert current availability, price or a universal rule."
+        },
+        {
+          "statement": "Compare the portion of the story and the format you want before comparing a price.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "A publisher’s US product page can establish an edition’s identity without establishing its delivered price in India.",
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED",
+          "sources": [
+            "silentmanga"
+          ],
+          "note": "Read with its surrounding paragraph and the source-scope notes. Conditional examples do not assert current availability, price or a universal rule."
+        },
+        {
+          "statement": "For a hypothetical print budget, three volumes at ₹600 each plus ₹120 combined delivery total ₹1,920.",
+          "disposition": "EXPLICIT_HYPOTHETICAL",
+          "sources": [],
+          "note": "Invented example, not reported experience or a current quotation. Arithmetic checked where present."
+        },
+        {
+          "statement": "If another seller lists the same three editions at ₹650 each with no delivery charge, the total is ₹1,950.",
+          "disposition": "EXPLICIT_HYPOTHETICAL",
+          "sources": [],
+          "note": "Invented example, not reported experience or a current quotation. Arithmetic checked where present."
+        },
+        {
+          "statement": "The first is ₹30 less before any other applicable charges.",
+          "disposition": "EXPLICIT_HYPOTHETICAL",
+          "sources": [],
+          "note": "Invented example, not reported experience or a current quotation. Arithmetic checked where present."
+        }
+      ],
+      "additional_factual_checks": [
+        {
+          "passage_locator": "Kodansha’s A Silent Voice",
+          "sources": [
+            "silentmanga",
+            "silentfilm"
+          ],
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED"
+        },
+        {
+          "passage_locator": "MANGA Plus is SHUEISHA’s service",
+          "sources": [
+            "manga"
+          ],
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED"
+        }
+      ]
+    },
+    {
+      "slug": "new-to-anime-in-india-a-beginners-roadmap-based-on-your-interests-not-just-rankings",
+      "reviewed_on": "2026-11-01",
+      "review_status": "REVIEWED_WITH_SCOPE_LIMITS",
+      "review_sha256": "eb8da3660ec764b9e941182ccf62e723e9885ad7497be275c5e5ae7f69c4fbb2",
+      "body_words": 1115,
+      "sources": [
+        "netrate",
+        "netlang",
+        "crunch",
+        "netplayer"
+      ],
+      "claim_checks": [
+        "Provider ratings and language mechanisms sourced without prescribing a title for every audience.",
+        "First-week exercise and stop rule are editorial suggestions."
+      ],
+      "original_example_heading": "Use a stop rule as well as a shortlist",
+      "statement_reviews": [
+        {
+          "statement": "A beginner-friendly method for choosing anime by genre, episode commitment, language preference and legal availability instead of rankings alone.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "Language options and seasons can vary by title and region, so check the actual listing rather than relying on an old recommendation.",
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED",
+          "sources": [
+            "netlang"
+          ],
+          "note": "Read with its surrounding paragraph and the source-scope notes. Conditional examples do not assert current availability, price or a universal rule."
+        },
+        {
+          "statement": "Different viewers have different comfort levels, and no single dub or subtitle choice is the only legitimate way to enjoy anime.",
+          "disposition": "QUALIFIED_ANALYSIS_OR_POSSIBILITY",
+          "sources": [],
+          "note": "Editorial interpretation, preference, limitation or conditional possibility. Not presented as a survey, forecast or measured outcome."
+        },
+        {
+          "statement": "Write down the time you can realistically spare, the mood you want, and whether you can access the first episode legally with an audio or subtitle option you understand.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "Netflix’s maturity guidance explains where its ratings come from and how they relate to title content.",
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED",
+          "sources": [
+            "netrate"
+          ],
+          "note": "Read with its surrounding paragraph and the source-scope notes. Conditional examples do not assert current availability, price or a universal rule."
+        },
+        {
+          "statement": "A Hindi dub and English captions answer different needs, and a title’s available options should be checked in its own player.",
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED",
+          "sources": [
+            "netplayer"
+          ],
+          "note": "Read with its surrounding paragraph and the source-scope notes. Conditional examples do not assert current availability, price or a universal rule."
+        }
+      ]
+    },
+    {
+      "slug": "spoilers-fan-theories-and-online-debates-how-to-keep-anime-communities-welcoming",
+      "reviewed_on": "2026-11-01",
+      "review_status": "REVIEWED_WITH_SCOPE_LIMITS",
+      "review_sha256": "cc8b169fc449fdb1b50d68a8c4f9542e31c4b5cc4f183910ce5e525b4c9bf19d",
+      "body_words": 1115,
+      "sources": [
+        "spoilers",
+        "rules"
+      ],
+      "claim_checks": [
+        "Discord text, attachment and code-block behaviour checked against official support.",
+        "No confidentiality guarantee or universal platform rule asserted."
+      ],
+      "original_example_heading": "Test what a spoiler warning actually hides",
+      "statement_reviews": [
+        {
+          "statement": "When a thread is dedicated to a specific episode, say so in the title and keep details behind the agreed spoiler boundary where the platform supports it.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "If a release date, sequel, or adaptation has not been confirmed by the rights holder or distributor, say that it remains unconfirmed.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "For a factual release claim, look for a dated statement from the responsible rights holder or distributor.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "If the platform changes its controls, update the example rather than preserving instructions that no longer match the interface.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        }
+      ],
+      "additional_factual_checks": [
+        {
+          "passage_locator": "On Discord, text enclosed",
+          "sources": [
+            "spoilers"
+          ],
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED"
+        },
+        {
+          "passage_locator": "spoiler tags do not work inside code blocks",
+          "sources": [
+            "spoilers"
+          ],
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED"
+        },
+        {
+          "passage_locator": "Discord’s rules-screening feature",
+          "sources": [
+            "rules"
+          ],
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED"
+        }
+      ]
+    },
+    {
+      "slug": "subtitles-vs-dubs-how-indian-anime-viewers-can-choose-what-works-for-them",
+      "reviewed_on": "2026-11-01",
+      "review_status": "REVIEWED_WITH_SCOPE_LIMITS",
+      "review_sha256": "ec47dba45e89d77d2833c6e076e343accb54dd56babad6802b975f3423eb5242",
+      "body_words": 1080,
+      "sources": [
+        "netplayer",
+        "timing",
+        "dub",
+        "netlang"
+      ],
+      "claim_checks": [
+        "Caption and translation production distinctions sourced to provider documentation.",
+        "Viewing exercise makes no medical or measured comprehension claim."
+      ],
+      "original_example_heading": "Choose captions by the information you need",
+      "statement_reviews": [
+        {
+          "statement": "A practical comparison of subtitle reading, original audio and dubbed tracks, including language availability, accessibility and group viewing.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "Some viewers prefer original Japanese audio with subtitles; others enjoy Hindi, Tamil, Telugu or another available dub.",
+          "disposition": "QUALIFIED_ANALYSIS_OR_POSSIBILITY",
+          "sources": [],
+          "note": "Editorial interpretation, preference, limitation or conditional possibility. Not presented as a survey, forecast or measured outcome."
+        },
+        {
+          "statement": "A dub is an interpretation shaped by translation, casting, direction and timing.",
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED",
+          "sources": [
+            "dub"
+          ],
+          "note": "Read with its surrounding paragraph and the source-scope notes. Conditional examples do not assert current availability, price or a universal rule."
+        },
+        {
+          "statement": "When comparing versions, use one short scene to discuss whether the subtitles make the emotional meaning clear or whether the dub makes the dialogue easier to follow.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "The existence of a dub does not make a show less authentic, and choosing subtitles does not automatically mean someone is paying closer attention.",
+          "disposition": "QUALIFIED_ANALYSIS_OR_POSSIBILITY",
+          "sources": [],
+          "note": "Editorial interpretation, preference, limitation or conditional possibility. Not presented as a survey, forecast or measured outcome."
+        },
+        {
+          "statement": "For a rapid action scene, a viewer who reads slowly may miss a visual cue while finishing a subtitle line.",
+          "disposition": "QUALIFIED_ANALYSIS_OR_POSSIBILITY",
+          "sources": [],
+          "note": "Editorial interpretation, preference, limitation or conditional possibility. Not presented as a survey, forecast or measured outcome."
+        },
+        {
+          "statement": "For a quiet drama, a familiar-language dub may make subtle changes in delivery easier to follow.",
+          "disposition": "QUALIFIED_ANALYSIS_OR_POSSIBILITY",
+          "sources": [],
+          "note": "Editorial interpretation, preference, limitation or conditional possibility. Not presented as a survey, forecast or measured outcome."
+        },
+        {
+          "statement": "A dub script may need a shorter phrase to fit a character’s mouth movements.",
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED",
+          "sources": [
+            "dub"
+          ],
+          "note": "Read with its surrounding paragraph and the source-scope notes. Conditional examples do not assert current availability, price or a universal rule."
+        },
+        {
+          "statement": "A platform might have a Hindi dub for one season and not another, or a film may be licensed separately.",
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED",
+          "sources": [
+            "netlang"
+          ],
+          "note": "Read with its surrounding paragraph and the source-scope notes. Conditional examples do not assert current availability, price or a universal rule."
+        },
+        {
+          "statement": "Audio and subtitle menus can also change by device.",
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED",
+          "sources": [
+            "netlang"
+          ],
+          "note": "Read with its surrounding paragraph and the source-scope notes. Conditional examples do not assert current availability, price or a universal rule."
+        },
+        {
+          "statement": "If you are introducing anime to relatives who are more comfortable in Hindi or Tamil, a dub may help everyone follow the story without pausing to read.",
+          "disposition": "QUALIFIED_ANALYSIS_OR_POSSIBILITY",
+          "sources": [],
+          "note": "Editorial interpretation, preference, limitation or conditional possibility. Not presented as a survey, forecast or measured outcome."
+        },
+        {
+          "statement": "If you are studying voice acting, you might watch the original and then compare a dub to see how performers interpret the same emotional beat.",
+          "disposition": "QUALIFIED_ANALYSIS_OR_POSSIBILITY",
+          "sources": [],
+          "note": "Editorial interpretation, preference, limitation or conditional possibility. Not presented as a survey, forecast or measured outcome."
+        },
+        {
+          "statement": "Netflix’s playback help distinguishes available audio and subtitle options and identifies supported caption features.",
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED",
+          "sources": [
+            "netplayer"
+          ],
+          "note": "Read with its surrounding paragraph and the source-scope notes. Conditional examples do not assert current availability, price or a universal rule."
+        },
+        {
+          "statement": "Netflix’s subtitle timing guidance provides a concrete example of constraints involving speech, shot changes and reading speed.",
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED",
+          "sources": [
+            "timing"
+          ],
+          "note": "Read with its surrounding paragraph and the source-scope notes. Conditional examples do not assert current availability, price or a universal rule."
+        }
+      ]
+    },
+    {
+      "slug": "the-mentor-the-student-and-the-journey-what-anime-training-arcs-reveal-about-learning",
+      "reviewed_on": "2026-11-01",
+      "review_status": "REVIEWED_WITH_SCOPE_LIMITS",
+      "review_sha256": "89da6245c0f9ea674dca4bda4995a701f8242b8c1743cc34af82e607bfc746c3",
+      "body_words": 1149,
+      "sources": [
+        "iruka",
+        "narutoep",
+        "naruto"
+      ],
+      "claim_checks": [
+        "Iruka relationship context sourced to official material; no educational efficacy claim.",
+        "Practice example is hypothetical and limited to observable work."
+      ],
+      "original_example_heading": "Read Iruka’s support without turning fiction into a study",
+      "statement_reviews": [
+        {
+          "statement": "Anime sometimes makes growth look like a sudden breakthrough or suggests that determination can overcome every structural barrier.",
+          "disposition": "QUALIFIED_ANALYSIS_OR_POSSIBILITY",
+          "sources": [],
+          "note": "Editorial interpretation, preference, limitation or conditional possibility. Not presented as a survey, forecast or measured outcome."
+        }
+      ],
+      "additional_factual_checks": [
+        {
+          "passage_locator": "The official Naruto material",
+          "sources": [
+            "naruto",
+            "iruka"
+          ],
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED"
+        }
+      ]
+    },
+    {
+      "slug": "the-next-chapter-of-anime-in-india-language-access-local-creators-and-community-growth",
+      "reviewed_on": "2026-11-01",
+      "review_status": "REVIEWED_WITH_SCOPE_LIMITS",
+      "review_sha256": "618653074b086766e2af8bd3371010f07356e64f3dc7465f94b4c19063fff10d",
+      "body_words": 1106,
+      "sources": [
+        "pib",
+        "netlang"
+      ],
+      "claim_checks": [
+        "2022 policy material is dated context only.",
+        "Future direction remains editorial analysis without market-size or hiring claims."
+      ],
+      "original_example_heading": "Measure a smaller change before predicting a national shift",
+      "statement_reviews": [
+        {
+          "statement": "Language tracks, subtitles, device compatibility, subscription cost and regional availability all shape whether a fan can actually watch it.",
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED",
+          "sources": [
+            "netlang"
+          ],
+          "note": "Read with its surrounding paragraph and the source-scope notes. Conditional examples do not assert current availability, price or a universal rule."
+        },
+        {
+          "statement": "A useful discussion should separate licensing announcements from practical access.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "When evaluating a platform or release, check the exact title page and audio options.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "Avoid repeating a claim about a dub or release date unless it is confirmed by the distributor or rights holder.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "Respect privacy, avoid pressuring members to spend money and check venue and screening permissions before organising public events.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "These are areas to investigate, not proof that growth will happen automatically or at a specific rate.",
+          "disposition": "QUALIFIED_ANALYSIS_OR_POSSIBILITY",
+          "sources": [],
+          "note": "Editorial interpretation, preference, limitation or conditional possibility. Not presented as a survey, forecast or measured outcome."
+        },
+        {
+          "statement": "To make an evidence-based claim, identify a measurable indicator such as a confirmed release, a published programme, a documented hiring announcement or an official event listing.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "For creators, practical support includes crediting collaborators accurately, asking permission before using another person’s work, sharing process notes, and being clear about commissions or sponsorships.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "For audiences, support can mean attending a local event, purchasing directly from a maker when the terms are clear, sharing an original project with permission, or giving useful feedback instead of only chasing viral numbers.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "If you organise a meetup, publish the venue, costs, rules, and schedule clearly.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "A useful view of anime’s future in India considers more than one platform or viral trend.",
+          "disposition": "QUALIFIED_ANALYSIS_OR_POSSIBILITY",
+          "sources": [],
+          "note": "Editorial interpretation, preference, limitation or conditional possibility. Not presented as a survey, forecast or measured outcome."
+        },
+        {
+          "statement": "These examples require different evidence and should not be combined into a single unsupported growth statistic.",
+          "disposition": "QUALIFIED_ANALYSIS_OR_POSSIBILITY",
+          "sources": [],
+          "note": "Editorial interpretation, preference, limitation or conditional possibility. Not presented as a survey, forecast or measured outcome."
+        },
+        {
+          "statement": "The December 2022 PIB announcement records AVGC task-force recommendations.",
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED",
+          "sources": [
+            "pib"
+          ],
+          "note": "Read with its surrounding paragraph and the source-scope notes. Conditional examples do not assert current availability, price or a universal rule."
+        },
+        {
+          "statement": "Read it as a dated policy document, not confirmation that every proposed programme now exists or that every state has implemented the same approach.",
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED",
+          "sources": [
+            "pib"
+          ],
+          "note": "Read with its surrounding paragraph and the source-scope notes. Conditional examples do not assert current availability, price or a universal rule."
+        },
+        {
+          "statement": "Likewise, Netflix’s language help explains conditions that affect a viewer’s access; it does not measure the size of Indian anime fandom.",
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED",
+          "sources": [
+            "netlang"
+          ],
+          "note": "Read with its surrounding paragraph and the source-scope notes. Conditional examples do not assert current availability, price or a universal rule."
+        }
+      ]
+    },
+    {
+      "slug": "this-anime-scene-changed-how-fans-look-at-life",
+      "reviewed_on": "2026-11-01",
+      "review_status": "REVIEWED_WITH_SCOPE_LIMITS",
+      "review_sha256": "64ffd161a9b6061c88bfe0f3d8ff2215941988c281766298c68c39c51d463d24",
+      "body_words": 1195,
+      "sources": [
+        "silentfilm",
+        "silentgkids"
+      ],
+      "claim_checks": [
+        "Film premise supported by studio and distributor.",
+        "No invented scene detail, creator intent or measured life-change claim."
+      ],
+      "original_example_heading": "Start a discussion of A Silent Voice with a bounded claim",
+      "statement_reviews": [],
+      "additional_factual_checks": [
+        {
+          "passage_locator": "Kyoto Animation’s film page",
+          "sources": [
+            "silentfilm",
+            "silentgkids"
+          ],
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED"
+        }
+      ]
+    },
+    {
+      "slug": "what-makes-an-anime-community-last-lessons-in-belonging-participation-and-local-leadership",
+      "reviewed_on": "2026-11-01",
+      "review_status": "REVIEWED_WITH_SCOPE_LIMITS",
+      "review_sha256": "930593852a9db47bcba68ec6d8762ea3f5673e4a1af9405dba53b19511d1be8a",
+      "body_words": 1062,
+      "sources": [
+        "permissions",
+        "moderators"
+      ],
+      "claim_checks": [
+        "Discord Administrator scope verified; shared-password implication removed.",
+        "Community outcomes framed as recommendations, not research findings."
+      ],
+      "original_example_heading": "A handover that does not require sharing passwords",
+      "statement_reviews": [
+        {
+          "statement": "A repeatable format helps the group continue: a monthly discussion, a shared recommendation thread, a low-cost drawing prompt, or a regular new-member introduction.",
+          "disposition": "QUALIFIED_ANALYSIS_OR_POSSIBILITY",
+          "sources": [],
+          "note": "Editorial interpretation, preference, limitation or conditional possibility. Not presented as a survey, forecast or measured outcome."
+        },
+        {
+          "statement": "Document the basic steps, expected costs, and any venue or platform rules.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "If members contribute to venue hire or supplies, explain the amount, purpose, and process for handling leftover money.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "For serious concerns, use the platform’s reporting tools and follow the group’s agreed process.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "Keep recovery arrangements with the responsible owner and use the platform’s supported security controls.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "Record that decision so a new organiser does not feel obliged to revive every old activity.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        }
+      ],
+      "additional_factual_checks": [
+        {
+          "passage_locator": "Discord’s permissions guidance",
+          "sources": [
+            "permissions"
+          ],
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED"
+        },
+        {
+          "passage_locator": "Discord’s moderator guidance",
+          "sources": [
+            "moderators"
+          ],
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED"
+        }
+      ]
+    },
+    {
+      "slug": "when-anime-became-a-family-debate-how-indian-viewers-explain-their-favourite-shows-at-home",
+      "reviewed_on": "2026-11-01",
+      "review_status": "REVIEWED_WITH_SCOPE_LIMITS",
+      "review_sha256": "865484b67701b197885f0c4affb02aac13154c720474a450fe351a054763daf2",
+      "body_words": 1172,
+      "sources": [
+        "netrate",
+        "netparent"
+      ],
+      "claim_checks": [
+        "Netflix rating and profile controls verified; no universal age-suitability claim.",
+        "Family scenario explicitly hypothetical, not demographic evidence."
+      ],
+      "original_example_heading": "Turn a concern about content into a specific check",
+      "statement_reviews": [
+        {
+          "statement": "Age ratings and platform advisories can help, but check the title and episode context rather than assuming that an animated format means it is suitable for everyone.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "When a conversation gets heated, pause and return to the specific issue: suitability, time, cost or simply preference.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "One person may be comfortable with subtitles, while another prefers Hindi or a regional-language dub.",
+          "disposition": "QUALIFIED_ANALYSIS_OR_POSSIBILITY",
+          "sources": [],
+          "note": "Editorial interpretation, preference, limitation or conditional possibility. Not presented as a survey, forecast or measured outcome."
+        },
+        {
+          "statement": "If internet data or subscription costs are a concern, make those limits explicit too.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "For younger viewers, check the platform’s current age rating and the content information for the exact title and season.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "Netflix’s maturity guidance explains its ratings, and its parental-control help describes profile maturity levels and blocking individual titles.",
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED",
+          "sources": [
+            "netrate",
+            "netparent"
+          ],
+          "note": "Read with its surrounding paragraph and the source-scope notes. Conditional examples do not assert current availability, price or a universal rule."
+        }
+      ]
+    },
+    {
+      "slug": "when-the-hero-makes-the-wrong-choice-understanding-moral-dilemmas-in-anime-stories",
+      "reviewed_on": "2026-11-01",
+      "review_status": "REVIEWED_WITH_SCOPE_LIMITS",
+      "review_sha256": "ad4861c399c8cfb637dd174c5ee265eb3fbb92cf75647c7f9a90a4e2b146cac9",
+      "body_words": 1161,
+      "sources": [
+        "death",
+        "death1"
+      ],
+      "claim_checks": [
+        "Death Note opening setup sourced to publisher, without endorsing character actions.",
+        "Ethical lenses and conclusions presented as analysis, not verified authorial intent."
+      ],
+      "original_example_heading": "Use Death Note to separate a stated aim from its methods",
+      "statement_reviews": [
+        {
+          "statement": "The decision becomes meaningful when both options carry a cost and the story gives the audience enough information to understand why the character chooses.",
+          "disposition": "QUALIFIED_ANALYSIS_OR_POSSIBILITY",
+          "sources": [],
+          "note": "Editorial interpretation, preference, limitation or conditional possibility. Not presented as a survey, forecast or measured outcome."
+        }
+      ],
+      "additional_factual_checks": [
+        {
+          "passage_locator": "VIZ’s Death Note introduction",
+          "sources": [
+            "death",
+            "death1"
+          ],
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED"
+        }
+      ]
+    },
+    {
+      "slug": "where-to-watch-anime-legally-in-india-a-practical-guide-to-platforms-languages-and-availability",
+      "reviewed_on": "2026-11-01",
+      "review_status": "REVIEWED_WITH_SCOPE_LIMITS",
+      "review_sha256": "2d8117c05b7838d325bd4f26e5b998cb326dbadb683f1b5ddfd7ae32eef83ca0",
+      "body_words": 1184,
+      "sources": [
+        "netregion",
+        "netlang",
+        "crunch",
+        "netlicence",
+        "law"
+      ],
+      "claim_checks": [
+        "Catalogue and language variability checked against provider help.",
+        "No title availability, live price or guaranteed lawful source inferred from third-party lists."
+      ],
+      "original_example_heading": "Record what you verified and what remains unknown",
+      "statement_reviews": [
+        {
+          "statement": "How to verify Indian anime catalogues, language options, subscription costs and season availability before you start watching.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "Streaming rights are licensed for particular territories and periods.",
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED",
+          "sources": [
+            "netlicence",
+            "netregion"
+          ],
+          "note": "Read with its surrounding paragraph and the source-scope notes. Conditional examples do not assert current availability, price or a universal rule."
+        },
+        {
+          "statement": "A show may be available in one country but not another, and a catalogue can change when a licence begins, expires or moves between distributors.",
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED",
+          "sources": [
+            "netlicence",
+            "netregion"
+          ],
+          "note": "Read with its surrounding paragraph and the source-scope notes. Conditional examples do not assert current availability, price or a universal rule."
+        },
+        {
+          "statement": "If the title does not appear for your Indian account, do not assume that an overseas catalogue or similarly named page applies to you.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "A franchise may be split across services, so build a watchlist that records each title and its confirmed location rather than assuming one subscription covers everything.",
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED",
+          "sources": [
+            "netlicence",
+            "netregion"
+          ],
+          "note": "Read with its surrounding paragraph and the source-scope notes. Conditional examples do not assert current availability, price or a universal rule."
+        },
+        {
+          "statement": "Do not infer language options from a poster or from a platform's general support for multiple languages.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "Open the title and inspect the audio and subtitle menu on the device you will use.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "A dub announced in a trailer is not proof that every episode currently has that track.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "Check the tier needed for the title, billing period, renewal price, simultaneous streams, supported devices and download limits.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "An introductory offer may renew at a different price.",
+          "disposition": "QUALIFIED_ANALYSIS_OR_POSSIBILITY",
+          "sources": [],
+          "note": "Editorial interpretation, preference, limitation or conditional possibility. Not presented as a survey, forecast or measured outcome."
+        },
+        {
+          "statement": "This simple comparison makes the monthly cost clearer and helps avoid paying for a service that does not carry the series you wanted.",
+          "disposition": "QUALIFIED_ANALYSIS_OR_POSSIBILITY",
+          "sources": [],
+          "note": "Editorial interpretation, preference, limitation or conditional possibility. Not presented as a survey, forecast or measured outcome."
+        },
+        {
+          "statement": "Search each item separately instead of treating the franchise as one catalogue entry.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "Record the provider, season or film, preferred audio, subtitle options, required plan and the date checked.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "If one item is missing, compare the cost of a second service with the value you would actually get from it.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "If a title is missing, check legitimate distributors or the platform's support channel.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "A legal service will not necessarily carry every title or language at all times, and a missing listing should not be treated as permission to use an unauthorised copy.",
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED",
+          "sources": [
+            "law",
+            "netregion"
+          ],
+          "note": "Read with its surrounding paragraph and the source-scope notes. Conditional examples do not assert current availability, price or a universal rule."
+        },
+        {
+          "statement": "Begin with the official services you already use and verify the current Indian catalogue directly.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "You can check providers such as Crunchyroll , Netflix India , and Prime Video as starting points, but these links do not confirm that a particular anime is currently included in India.",
+          "disposition": "QUALIFIED_ANALYSIS_OR_POSSIBILITY",
+          "sources": [],
+          "note": "Editorial interpretation, preference, limitation or conditional possibility. Not presented as a survey, forecast or measured outcome."
+        },
+        {
+          "statement": "For free official uploads, use the rights holder or distributor’s verified channel and read the description for region or episode restrictions.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "Be cautious with sites that copy a service’s branding, ask you to install an unknown player, request account passwords, or promise every title without explaining licensing.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "Avoid sharing one-time passwords or reusing a streaming password on unfamiliar sites.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "If the title is missing, search the official distributor, publisher, or rights holder’s announcements for a confirmed Indian release or licence.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "If no official information is available, say that you could not verify current legal availability rather than guessing.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "A title’s presence on an unofficial site, a fan-made watch guide, or a catalogue for another country is not confirmation that it is licensed for Indian viewers.",
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED",
+          "sources": [
+            "law",
+            "netregion"
+          ],
+          "note": "Read with its surrounding paragraph and the source-scope notes. Conditional examples do not assert current availability, price or a universal rule."
+        },
+        {
+          "statement": "Reader-first rule: never promise that a platform has a title unless you checked the exact Indian listing and relevant season or language.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "This guide provides a repeatable verification method, not a real-time catalogue guarantee.",
+          "disposition": "QUALIFIED_ANALYSIS_OR_POSSIBILITY",
+          "sources": [],
+          "note": "Editorial interpretation, preference, limitation or conditional possibility. Not presented as a survey, forecast or measured outcome."
+        },
+        {
+          "statement": "“Listed in search results” is weaker than “episode list visible in my Indian account,” and neither automatically confirms a preferred dub on every device.",
+          "disposition": "QUALIFIED_ANALYSIS_OR_POSSIBILITY",
+          "sources": [],
+          "note": "Editorial interpretation, preference, limitation or conditional possibility. Not presented as a survey, forecast or measured outcome."
+        },
+        {
+          "statement": "Netflix’s country guidance and language help support these separate checks.",
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED",
+          "sources": [
+            "netlang",
+            "netregion"
+          ],
+          "note": "Read with its surrounding paragraph and the source-scope notes. Conditional examples do not assert current availability, price or a universal rule."
+        },
+        {
+          "statement": "This guide deliberately contains no current subscription quote or promise that a particular title is included today.",
+          "disposition": "QUALIFIED_ANALYSIS_OR_POSSIBILITY",
+          "sources": [],
+          "note": "Editorial interpretation, preference, limitation or conditional possibility. Not presented as a survey, forecast or measured outcome."
+        }
+      ]
+    },
+    {
+      "slug": "why-anime-underdogs-resonate-with-indian-audiences-effort-family-expectations-and-ambition",
+      "reviewed_on": "2026-11-01",
+      "review_status": "REVIEWED_WITH_SCOPE_LIMITS",
+      "review_sha256": "77f9092c295d95b34928dbbf48460e52ea61884b1a19cbd579a791f8d5b55a91",
+      "body_words": 1131,
+      "sources": [
+        "naruto",
+        "iruka"
+      ],
+      "claim_checks": [
+        "Naruto and Iruka context verified through official material.",
+        "No claim that all Indian viewers or families share the same pressure or reaction."
+      ],
+      "original_example_heading": "Locate the disadvantage before praising determination",
+      "statement_reviews": [
+        {
+          "statement": "Notice who gives feedback, who creates an opportunity, who pays a cost, and whose contribution goes unrecognised.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "Underdog stories resonate when they make growth visible and give setbacks meaning.",
+          "disposition": "QUALIFIED_ANALYSIS_OR_POSSIBILITY",
+          "sources": [],
+          "note": "Editorial interpretation, preference, limitation or conditional possibility. Not presented as a survey, forecast or measured outcome."
+        }
+      ],
+      "additional_factual_checks": [
+        {
+          "passage_locator": "Naruto’s official introduction",
+          "sources": [
+            "naruto",
+            "iruka"
+          ],
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED"
+        }
+      ]
+    },
+    {
+      "slug": "why-the-supporting-cast-matters-how-anime-builds-friendships-beyond-the-main-hero",
+      "reviewed_on": "2026-11-01",
+      "review_status": "REVIEWED_WITH_SCOPE_LIMITS",
+      "review_sha256": "0ae38b85a121b9660ca62e840d0122a01a090386d5fb60c55933824f939c6058",
+      "body_words": 1181,
+      "sources": [
+        "haikyu",
+        "haikyu2"
+      ],
+      "claim_checks": [
+        "Initial rivalry and developing combination supported by publisher descriptions.",
+        "Scene-analysis prompts are original interpretation, not invented scene descriptions."
+      ],
+      "original_example_heading": "Look at rivalry and cooperation in Haikyu!!",
+      "statement_reviews": [
+        {
+          "statement": "Compare characters by a stated criterion: growth, influence on the plot, thematic role or relationship development.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "Supporting characters often help the protagonist at a personal cost: they spend time, risk embarrassment, change a plan, or confront an uncomfortable truth.",
+          "disposition": "QUALIFIED_ANALYSIS_OR_POSSIBILITY",
+          "sources": [],
+          "note": "Editorial interpretation, preference, limitation or conditional possibility. Not presented as a survey, forecast or measured outcome."
+        }
+      ],
+      "additional_factual_checks": [
+        {
+          "passage_locator": "VIZ’s introduction places Hinata",
+          "sources": [
+            "haikyu",
+            "haikyu2"
+          ],
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED"
+        }
+      ]
+    },
+    {
+      "slug": "your-first-anime-convention-in-india-what-to-plan-before-you-go",
+      "reviewed_on": "2026-11-01",
+      "review_status": "REVIEWED_WITH_SCOPE_LIMITS",
+      "review_sha256": "e8c92ec985148299dbfff148df28eaee78180efd5a2d1415f32b95021542948e",
+      "body_words": 1126,
+      "sources": [
+        "eventfaq",
+        "eventterms"
+      ],
+      "claim_checks": [
+        "Comic Con rules explicitly organiser-specific and time-sensitive.",
+        "Hypothetical ₹1,750 essentials and ₹450 remainder checked."
+      ],
+      "original_example_heading": "Separate the organiser’s rules from your personal budget",
+      "statement_reviews": [
+        {
+          "statement": "Respect a no and do not touch costumes without permission.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "Check venue accessibility, seating, washrooms and crowd conditions that matter to you.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "If you need an accommodation, contact the organiser before the event rather than assuming it will be available.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "Follow venue staff instructions and use official help points if you lose something or feel unsafe.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "If something differs from the listing, document the issue and contact the organiser through the published channel.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "Use the organiser’s official website or verified social account to confirm the date, venue, ticket seller, refund terms, and event schedule.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "If travel or accommodation is involved, check the organiser’s latest announcements before booking non-refundable arrangements.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "Keep the confirmation and payment receipt accessible offline in case mobile data is unreliable at the venue.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "If you are travelling from another city, account for transport to the venue and the journey home.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "Compare an item’s price, condition, size, and seller information before buying.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "Review the current event policy for props, weapons replicas, large accessories, and costume changes.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "If you need to change clothes, check whether the venue provides a designated area rather than assuming a private space will be available.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "As a matter of respectful conduct, ask before touching a costume, posting an identifiable close-up or recording another person. Follow the event’s specific photography rules as well.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "Respect “no photos” requests and the venue’s photography rules.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "Check venue information for entry queues, accessible routes, seating, quiet areas, washrooms, food, and permitted bags.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "If you have accessibility needs, contact the organiser early to ask about the actual arrangements rather than relying on assumptions.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "Comic Con India’s 2026 FAQ asks attendees to get permission before photographing others and sets out practical entry conditions.",
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED",
+          "sources": [
+            "eventfaq"
+          ],
+          "note": "Read with its surrounding paragraph and the source-scope notes. Conditional examples do not assert current availability, price or a universal rule."
+        },
+        {
+          "statement": "Its terms and conditions cover the organiser’s own event arrangements.",
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED",
+          "sources": [
+            "eventterms"
+          ],
+          "note": "Read with its surrounding paragraph and the source-scope notes. Conditional examples do not assert current availability, price or a universal rule."
+        },
+        {
+          "statement": "For a hypothetical day trip, suppose the ticket allocation is ₹1,000, transport ₹300, food ₹250 and a contingency ₹200.",
+          "disposition": "EXPLICIT_HYPOTHETICAL",
+          "sources": [],
+          "note": "Invented example, not reported experience or a current quotation. Arithmetic checked where present."
+        },
+        {
+          "statement": "If your overall limit is ₹2,200, that leaves ₹450 for optional purchases.",
+          "disposition": "EXPLICIT_HYPOTHETICAL",
+          "sources": [],
+          "note": "Invented example, not reported experience or a current quotation. Arithmetic checked where present."
+        },
+        {
+          "statement": "A first convention plan works best when you know which details the organiser controls and which decisions remain yours.",
+          "disposition": "QUALIFIED_ANALYSIS_OR_POSSIBILITY",
+          "sources": [],
+          "note": "Editorial interpretation, preference, limitation or conditional possibility. Not presented as a survey, forecast or measured outcome."
+        }
+      ]
+    },
+    {
+      "slug": "your-first-cosplay-on-a-budget-planning-a-costume-with-materials-available-in-india",
+      "reviewed_on": "2026-11-01",
+      "review_status": "REVIEWED_WITH_SCOPE_LIMITS",
+      "review_sha256": "47be35e2e9e7344335183d6ed9950d4472889de0daa5b18adff5b461fae9f4b3",
+      "body_words": 1132,
+      "sources": [
+        "props",
+        "cosplay",
+        "law"
+      ],
+      "claim_checks": [
+        "Prop and consent guidance scoped to Comic Con pages.",
+        "Budget totals are hypothetical and checked; no universal material cost or permission claimed."
+      ],
+      "original_example_heading": "Make the recognisable part work before buying the rest",
+      "statement_reviews": [
+        {
+          "statement": "Cosplay accessories may be subject to venue rules, so check the event's current policy before building or travelling.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "If sharing online, credit collaborators and ask permission before posting other cosplayers.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "Rules vary by venue and event, so do not assume that an item allowed at one convention will be allowed at another.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "For a hypothetical budget, allocate ₹350 to fabric, ₹120 to fasteners, ₹180 to colour or finishing materials and ₹150 to delivery or local travel.",
+          "disposition": "EXPLICIT_HYPOTHETICAL",
+          "sources": [],
+          "note": "Invented example, not reported experience or a current quotation. Arithmetic checked where present."
+        },
+        {
+          "statement": "A ₹1,000 cap leaves ₹200 for mistakes or repairs.",
+          "disposition": "EXPLICIT_HYPOTHETICAL",
+          "sources": [],
+          "note": "Invented example, not reported experience or a current quotation. Arithmetic checked where present."
+        },
+        {
+          "statement": "Check the event’s prop policy while the design is still easy to simplify.",
+          "disposition": "ADVICE_OR_SCOPE_STATEMENT",
+          "sources": [],
+          "note": "Instruction to the reader or description of the guide’s scope, rather than an empirical assertion requiring independent proof."
+        },
+        {
+          "statement": "Pune Comic Con’s cosplay page provides an organiser-specific example of prop restrictions and inspection; permission at one event does not establish permission at another.",
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED",
+          "sources": [
+            "props"
+          ],
+          "note": "Read with its surrounding paragraph and the source-scope notes. Conditional examples do not assert current availability, price or a universal rule."
+        }
+      ],
+      "additional_factual_checks": [
+        {
+          "passage_locator": "Comic Con India also asks",
+          "sources": [
+            "cosplay"
+          ],
+          "disposition": "PRIMARY_SOURCE_SCOPE_CHECKED"
+        }
+      ]
+    }
+  ]
+}
