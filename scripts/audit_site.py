@@ -308,8 +308,16 @@ for url in missing_cards:
 # Built-page checks can inspect the real deployment artifacts.
 if __import__("os").environ.get("IAC_DEPLOY_BUILD") == "1":
     shell = ROOT / "site-shell.js"
-    if not shell.is_file() or "G-M4738D1ZND" not in shell.read_text(encoding="utf-8"):
-        errors.append("Shared GA4 loader missing.")
+    if not shell.is_file():
+        errors.append("Shared navigation script missing.")
+    else:
+        shell_js = shell.read_text(encoding="utf-8")
+        if any(token in shell_js for token in (
+            "pagead2.googlesyndication.com/pagead/js/adsbygoogle.js",
+            "googletagmanager.com/gtag/js",
+            "clarity.ms/tag/",
+        )):
+            errors.append("Shared navigation script must not inject extra analytics/advertising loaders; these belong once in the HTML head.")
     for url in sitemap_urls:
         route = url[len(DOMAIN):].strip("/")
         page = ROOT / route / "index.html" if route else ROOT / "index.html"
