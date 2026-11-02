@@ -7,6 +7,7 @@ import os
 import sys
 import time
 import xml.etree.ElementTree as ET
+from concurrent.futures import ThreadPoolExecutor
 
 BASE="https://indiananimeclub.com"
 NONCE=os.environ.get("GITHUB_RUN_ID") or str(int(time.time()))
@@ -47,10 +48,38 @@ if sitemap:
 ads=get("/ads.txt",True)
 if ads and "pub-7937216909291905" not in ads:
     errors.append("Public ads.txt does not contain the expected authorised publisher ID.")
+# Verify actual HTML tag parity for every canonical URL, not only GitHub source files.
+# Limited concurrency avoids aggressive traffic while surfacing stale cache/deploys.
+def verify_tracking_url(url):
+    if not url.startswith(BASE + "/"):
+        return f"Unknown sitemap domain: {url}"
+    html=get(url[len(BASE):],True)
+    if not html:
+        return f"Could not retrieve public canonical page: {url}"
+    head=html.split("</head>",1)[0]
+    checks={
+        "GA4 script":"https://www.googletagmanager.com/gtag/js?id=G-M4738D1ZND",
+        "GA4 initialization":"gtag('config','G-M4738D1ZND')",
+        "AdSense script":"https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7937216909291905",
+        "Microsoft Clarity loader":"https://www.clarity.ms/tag/",
+        "Clarity initialization":'"ywqdm8xkj7"',
+        "Canonical tracking block":"IAC_TRACKING_START",
+        "Canonical tracking end":"IAC_TRACKING_END"
+    }
+    for name,needle in checks.items():
+        if head.count(needle)!=1:
+            return f"{url}: {name} expected once, found {head.count(needle)}"
+    return None
+
+if sitemap and 'urls' in locals() and urls:
+    with ThreadPoolExecutor(max_workers=4) as pool:
+        for failure in pool.map(verify_tracking_url,urls):
+            if failure:errors.append(failure)
+
 if errors:
     print("LIVE CUSTOM-DOMAIN VERIFICATION FAILED:")
     for e in errors:print(" - "+e)
     print("Check whether Hostinger serves an older artifact, the GitHub Pages custom-domain/DNS configuration, or CDN cache. Do not assume successful GitHub Pages deployment updated the public domain.")
     sys.exit(1)
-print("Public custom domain passed editorial, archive, planner, sitemap and ads.txt release checks.")
+print(f"Public custom domain passed all {len(urls)} canonical page tracking checks, editorial navigation, planner, sitemap and ads.txt.")
 print("This is not an AdSense policy approval, independent content audit, or proof of regional CMP compliance.")
