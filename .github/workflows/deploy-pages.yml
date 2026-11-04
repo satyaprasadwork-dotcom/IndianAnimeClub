@@ -366,6 +366,40 @@ jobs:
         uses: actions/upload-pages-artifact@v4
         with:
           path: .
+      # A previous deployment stayed in updating_pages until the action timed out.
+      # Cancel ONLY that known stalled deployment ID before publishing this release.
+      - name: Clear known stalled Pages deployment
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          stale="067953e01f4c674e3a19a1f4baeaf3561d57b1c0"
+          api="https://api.github.com/repos/${GITHUB_REPOSITORY}/pages/deployments/${stale}"
+          status=$(curl -sS -L -X POST -o /tmp/iac-pages-cancel-response -w '%{http_code}' \
+            -H 'Accept: application/vnd.github+json' \
+            -H 'X-GitHub-Api-Version: 2022-11-28' \
+            -H "Authorization: Bearer ${GH_TOKEN}" \
+            "${api}/cancel")
+          case "${status}" in
+            204) echo "Canceled the previously stalled Pages deployment." ;;
+            404) echo "Old Pages deployment is no longer present." ;;
+            *) echo "::error::Cannot clear old Pages deployment: HTTP ${status}"; cat /tmp/iac-pages-cancel-response; exit 1 ;;
+          esac
+          for attempt in 1 2 3 4 5 6; do
+            status=$(curl -sS -L -o /tmp/iac-pages-status -w '%{http_code}' \
+              -H 'Accept: application/vnd.github+json' \
+              -H 'X-GitHub-Api-Version: 2022-11-28' \
+              -H "Authorization: Bearer ${GH_TOKEN}" "${api}")
+            if [[ "${status}" == "404" ]]; then break; fi
+            if [[ "${status}" != "200" ]]; then echo "Pages status HTTP ${status}"; break; fi
+            state=$(python3 -c "import json;print(json.load(open('/tmp/iac-pages-status')).get('status','unknown'))")
+            echo "Previous deployment status: ${state}"
+            if [[ "${state}" == "canceled" || "${state}" == "cancelled" || "${state}" == "failed" || "${state}" == "succeed" ]]; then break; fi
+            sleep 3
+          done
       - name: Deploy site
         id: deployment
         uses: actions/deploy-pages@v4
+        with:
+          timeout: 900000
