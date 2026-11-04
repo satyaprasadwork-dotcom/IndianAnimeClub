@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Validate datePublished/dateModified agree with visible article header dates."""
-from datetime import date
+from datetime import date, datetime
+from zoneinfo import ZoneInfo
 from pathlib import Path
 import json
 import re
@@ -37,7 +38,7 @@ for file in files:
         errors.append(f"{file.name}: Visible dates disagree with structured data")
     if modified<published:
         errors.append(f"{file.name}: Updated date precedes publication")
-    if modified>date.today():
+    if modified>datetime.now(ZoneInfo('Asia/Kolkata')).date():
         errors.append(f"{file.name}: Updated date is in the future")
 if errors:
     print("ARTICLE DATE AUDIT FAILED:")
