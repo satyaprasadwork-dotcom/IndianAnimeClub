@@ -1981,3 +1981,20 @@ html body:has(article.article) article.article > header.article-hero > figure.ar
     margin-top:20px !important;
   }
 }
+
+
+/* Keep the third-party Preferred Sources control aligned with the title/author
+   column, not stretched to the left edge of the full-bleed article header. */
+html body:has(article.article) article.article > header.article-hero > .iac-preferred-source {
+  box-sizing:border-box !important;
+  width:min(1120px,calc(100% - 40px)) !important;
+  max-width:1120px !important;
+  min-width:0 !important;
+  margin:16px auto 4px !important;
+  justify-content:flex-start !important;
+}
+@media(max-width:760px) {
+  html body:has(article.article) article.article > header.article-hero > .iac-preferred-source {
+    width:calc(100% - 30px) !important;
+  }
+}
