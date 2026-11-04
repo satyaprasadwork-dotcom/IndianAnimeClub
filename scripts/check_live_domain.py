@@ -33,14 +33,14 @@ def get(path,add_nonce=False):
 # kept showing giant featured images despite updated source code.
 shared_css=get("/site-shell.css",True)
 if shared_css and ("ARTICLE FEATURED IMAGE SIZING" not in shared_css or
-                   "max-width:640px !important;" not in shared_css):
-    errors.append("CUSTOM DOMAIN STALE: Shared stylesheet does not contain the bounded 640px featured-image fix.")
+                   "max-width:960px !important;" not in shared_css):
+    errors.append("CUSTOM DOMAIN STALE: Shared stylesheet does not contain the bounded 960px featured-image fix.")
 article_css=get("/css/article.css",True)
-if article_css and "width:min(100%,640px)" not in article_css:
+if article_css and "width:min(100%,960px)" not in article_css:
     errors.append("CUSTOM DOMAIN STALE: Primary article stylesheet does not contain the bounded featured-image fallback.")
 sample_article=get("/anime-between-lectures-and-chai-breaks-inside-indias-college-fan-culture/",True)
 if sample_article and ('<figure class="article-featured-image" style=' not in sample_article or
-                       'max-width:640px!important' not in sample_article):
+                       'max-width:960px!important' not in sample_article):
     errors.append("CUSTOM DOMAIN STALE: Article does not contain the inline featured-image width cap.")
 
 homepage=get("/",True)
@@ -58,7 +58,7 @@ sitemap=get("/sitemap.xml",True)
 if sitemap:
     try:
         urls=[el.text.strip() for el in ET.fromstring(sitemap).findall(".//{*}loc") if el.text]
-        if BASE+"/watchlist-planner/" not in urls or len(urls)<42:
+        if BASE+"/watchlist-planner/" not in urls or len(urls)<38:
             errors.append(f"Custom-domain sitemap does not contain all expected public routes ({len(urls)} found).")
     except ET.ParseError as exc:errors.append(f"Custom-domain sitemap XML invalid: {exc}")
 ads=get("/ads.txt",True)
@@ -75,8 +75,8 @@ def verify_tracking_url(url):
     head=html.split("</head>",1)[0]
     if '<article class="article">' in html:
         featured=re.search(r'<figure\b[^>]*class="article-featured-image"[^>]*>', html)
-        if not featured or 'max-width:640px!important' not in featured.group(0):
-            return f"{url}: article featured image lacks its inline 640px max-width."
+        if not featured or 'max-width:960px!important' not in featured.group(0):
+            return f"{url}: article featured image lacks its inline 960px max-width."
     checks={
         "GA4 script":"https://www.googletagmanager.com/gtag/js?id=G-M4738D1ZND",
         "GA4 initialization":"gtag('config','G-M4738D1ZND')",

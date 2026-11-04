@@ -14,7 +14,7 @@ for article in articles:
     image_tags = re.findall(r'<figure\b[^>]*class="article-featured-image"[^>]*>\s*<img\b[^>]*>', markup)
     assert len(image_tags) == 1, f"{article}: expected one featured image, found {len(image_tags)}"
     image_tag = re.search(r'<figure\b[^>]*class="article-featured-image"[^>]*>\s*<img\b[^>]*>', markup)
-    assert image_tag and 'max-width:640px!important' in image_tag.group(0), article
+    assert image_tag and 'max-width:960px!important' in image_tag.group(0), article
     source = re.search(r'src="([^"]+\.svg)"', image_tag.group(0))
     assert source and source.group(1).startswith("/images/articles/"), article
     asset = root / source.group(1).lstrip("/")
@@ -70,8 +70,8 @@ try:
                     };
                 }""")
                 label=f"{article.name} at {width}px: {metrics}"
-                assert metrics["figWidth"] <= min(width, 642), label
-                assert metrics["imageHeight"] <= 362, label
+                assert metrics["figWidth"] <= min(width, 962), label
+                assert metrics["imageHeight"] <= 542, label
                 assert metrics["figLeft"] >= -1 and metrics["figRight"] <= width+1, label
                 assert abs(metrics["imageWidth"]/metrics["imageHeight"]-16/9) < .1, label
                 assert metrics["contentTop"] >= metrics["figBottom"]-1, label

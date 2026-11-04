@@ -43,7 +43,7 @@ jobs:
       - name: Upload editorial review register for editor validation
         uses: actions/upload-artifact@v4
         with:
-          name: 31-article-editorial-claim-review
+          name: 27-article-editorial-claim-review
           path: |
             reports/editorial-review.md
             reports/claim-review.json

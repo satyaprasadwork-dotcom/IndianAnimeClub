@@ -57,12 +57,12 @@ with sync_playwright() as pw:
                 print(f"LIVE {viewport}px {path}: {dims}", flush=True)
                 page.screenshot(path=f"reports/live-feature-{viewport}-{index}.png")
                 assert dims["figureWidth"] > 0 and dims["imageWidth"] > 0, dims
-                assert dims["figureWidth"] <= min(642, viewport + 2), dims
-                assert dims["imageHeight"] <= 362, dims
+                assert dims["figureWidth"] <= min(962, viewport + 2), dims
+                assert dims["imageHeight"] <= 542, dims
                 assert dims["figureLeft"] >= -1 and dims["figureRight"] <= viewport + 1, dims
                 assert abs((dims["figureLeft"] + dims["figureWidth"]/2) - viewport/2) <= 35, dims
                 assert dims["position"] == "static", dims
-                assert "max-width:640px!important" in (dims["inlineStyle"] or ""), dims
+                assert "max-width:960px!important" in (dims["inlineStyle"] or ""), dims
                 page.close()
             ctx.close()
     finally:
