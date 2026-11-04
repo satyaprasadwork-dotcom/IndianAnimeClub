@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Include newly published source articles in the existing approved archive grid.
-Keeps the current 31 hand-designed cards unchanged; adds only missing articles.
+Keeps the current hand-designed cards unchanged; adds only missing articles.
 Runs on CI and deploy, so publication does not require manual archive markup.
 """
 from pathlib import Path

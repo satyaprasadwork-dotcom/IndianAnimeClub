@@ -20,6 +20,13 @@ RewriteRule ^leadership/?$ leadership.html [L]
 RewriteCond %{THE_REQUEST} \s/+articles/([^/?]+)\.html(?:[\s?]) [NC]
 RewriteRule ^articles/([^/]+)\.html$ /$1/ [R=301,L,NE]
 
+
+# Redirect four retired overlapping articles to retained, more useful guides.
+RewriteRule ^this-anime-scene-changed-how-fans-look-at-life/?$ /beyond-power-levels-how-to-analyse-anime-writing-worldbuilding-and-character-growth/ [R=301,L,NE]
+RewriteRule ^the-next-chapter-of-anime-in-india-language-access-local-creators-and-community-growth/?$ /could-india-build-a-bigger-animation-to-anime-pipeline-talent-training-and-industry-challenges/ [R=301,L,NE]
+RewriteRule ^festivals-food-and-family-exploring-everyday-cultural-details-in-anime-and-indian-life/?$ /when-anime-became-a-family-debate-how-indian-viewers-explain-their-favourite-shows-at-home/ [R=301,L,NE]
+RewriteRule ^how-anime-communities-are-taking-shape-across-indian-cities-online-fandom-to-local-meetups/?$ /what-makes-an-anime-community-last-lessons-in-belonging-participation-and-local-leadership/ [R=301,L,NE]
+
 # Serve the CURRENT flat article source for each canonical clean URL.
 # Do not exclude existing directories: older /slug/index.html folders can shadow
 # updated articles/slug.html after a hosting migration or stale deployment.

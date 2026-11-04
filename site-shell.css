@@ -1953,8 +1953,8 @@ html body:has(article.article) article.article > header.article-hero > figure.ar
   position:relative !important;
   display:block !important;
   float:none !important;
-  width:min(100%, 640px) !important;
-  max-width:640px !important;
+  width:min(100%, 960px) !important;
+  max-width:960px !important;
   min-width:0 !important;
   height:auto !important;
   max-height:none !important;
@@ -1971,7 +1971,7 @@ html body:has(article.article) article.article > header.article-hero > figure.ar
   width:100% !important;
   max-width:100% !important;
   height:auto !important;
-  max-height:360px !important;
+  max-height:540px !important;
   aspect-ratio:16 / 9 !important;
   object-fit:contain !important;
   transform:none !important;
@@ -1996,5 +1996,34 @@ html body:has(article.article) article.article > header.article-hero > .iac-pref
 @media(max-width:760px) {
   html body:has(article.article) article.article > header.article-hero > .iac-preferred-source {
     width:calc(100% - 30px) !important;
+  }
+}
+
+/* Editorial article header controls: retain the original author banner and
+   place Google's Preferred Sources button inside it, not at the viewport edge. */
+html body:has(article.article) article.article > header.article-hero > .author-box {
+  flex-wrap:wrap !important;
+  align-items:center !important;
+}
+html body:has(article.article) article.article > header.article-hero > .author-box > .iac-preferred-source {
+  position:static !important;
+  flex:0 0 auto !important;
+  width:auto !important;
+  max-width:100% !important;
+  min-height:40px !important;
+  margin:0 0 0 auto !important;
+  padding:0 !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:flex-end !important;
+  background:transparent !important;
+  border:0 !important;
+  box-shadow:none !important;
+}
+@media(max-width:850px){
+  html body:has(article.article) article.article > header.article-hero > .author-box > .iac-preferred-source {
+    flex-basis:100% !important;
+    margin:8px 0 0 !important;
+    justify-content:flex-start !important;
   }
 }

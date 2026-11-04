@@ -159,8 +159,8 @@ body:has(article.article) .article-featured-image img{display:block;width:100%;h
 body:has(article.article) article.article > header.article-hero > figure.article-featured-image {
   display:block;
   float:none;
-  width:min(100%,640px);
-  max-width:640px;
+  width:min(100%,960px);
+  max-width:960px;
   height:auto;
   margin:24px auto 0;
   padding:0;
@@ -173,7 +173,7 @@ body:has(article.article) article.article > header.article-hero > figure.article
   width:100%;
   max-width:100%;
   height:auto;
-  max-height:360px;
+  max-height:540px;
   aspect-ratio:16/9;
   object-fit:contain;
 }
