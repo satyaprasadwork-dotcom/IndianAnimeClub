@@ -1942,3 +1942,42 @@ html body nav.legacy-site-nav > .wrap {
     min-height:60px!important;
   }
 }
+
+
+/* ARTICLE FEATURED IMAGE SIZING — 2026-11-04
+   The generic 100% figure rule previously expanded a 1200x675 image to the
+   entire article header. Keep the original artwork and decorative frame, but
+   limit the displayed feature to one centered, responsive editorial image.
+   This intentionally affects no thumbnails, homepage images or other layouts. */
+html body:has(article.article) article.article > header.article-hero > figure.article-featured-image {
+  position:relative !important;
+  display:block !important;
+  float:none !important;
+  width:min(100%, 720px) !important;
+  max-width:720px !important;
+  min-width:0 !important;
+  height:auto !important;
+  max-height:none !important;
+  margin:24px auto 0 !important;
+  padding:0 !important;
+  box-sizing:border-box !important;
+  overflow:hidden !important;
+  transform:none !important;
+}
+html body:has(article.article) article.article > header.article-hero > figure.article-featured-image > img {
+  position:static !important;
+  display:block !important;
+  float:none !important;
+  width:100% !important;
+  max-width:100% !important;
+  height:auto !important;
+  max-height:405px !important;
+  aspect-ratio:16 / 9 !important;
+  object-fit:contain !important;
+  transform:none !important;
+}
+@media(max-width:700px) {
+  html body:has(article.article) article.article > header.article-hero > figure.article-featured-image {
+    margin-top:20px !important;
+  }
+}
