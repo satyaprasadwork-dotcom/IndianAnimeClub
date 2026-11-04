@@ -29,7 +29,7 @@ paths=[
   "/disclaimer/",
   "/leadership/",
   "/articles/",
-  "/articles/the-next-chapter-of-anime-in-india-language-access-local-creators-and-community-growth.html",
+  "/articles/beyond-power-levels-how-to-analyse-anime-writing-worldbuilding-and-character-growth.html",
 ]
 # Every article can bring its own legacy CSS. Check all of them, including flat
 # information-page sources used directly by Apache/LiteSpeed hosting.
@@ -100,7 +100,7 @@ try:
                     reference_appearance=appearance
                 elif appearance!=reference_appearance:
                     raise AssertionError(f"{path}: header styling differs from homepage: {appearance} != {reference_appearance}")
-                if path.endswith("the-next-chapter-of-anime-in-india-language-access-local-creators-and-community-growth.html"):
+                if path.startswith("/articles/") and path.endswith(".html"):
                     bad=page.locator("article.article > header.article-hero").evaluate(
                         "(el)=>el.firstChild?.nodeType===3 ? el.firstChild.textContent.trim() : ''")
                     if bad in ['">', '>"', '>']:
