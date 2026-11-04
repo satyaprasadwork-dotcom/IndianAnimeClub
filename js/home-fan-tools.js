@@ -58,6 +58,11 @@
       '<div class="iac-pick-list">'+g.titles.map(([title,why],i)=>'<div><b>'+(i+1)+'. '+esc(title)+'</b><p>'+esc(why)+'</p></div>').join('')+'</div><a class="iac-tools-action" href="'+guide+'">Verify viewing options in India ↗</a>');
     output.hidden=true;
   }
+  function genrePicker(){
+    const options=Object.entries(picks).map(([key,g])=>'<option value="'+key+'">'+esc(g.name)+'</option>').join('');
+    open("Choose your genre","Select a story mood to see three specific titles to investigate.",
+      '<div class="iac-tools-form"><label for="iac-pick-genre">Story genre</label><select id="iac-pick-genre">'+options+'</select><button type="button" class="iac-tools-action" data-iac-calc="genrePicker">Show genre picks</button></div>');
+  }
   function starter(){
     const options=Object.entries(picks).map(([key,g])=>'<option value="'+key+'">'+esc(g.name)+'</option>').join('');
     open("Find your next anime","Choose a story mood and viewing commitment. Get three specific titles to investigate.",
@@ -93,6 +98,14 @@
   fields.addEventListener("click",event=>{
     const key=event.target.closest("[data-iac-calc]")?.dataset.iacCalc;
     if(!key)return;
+    if(key==="genrePicker"){
+      const g=picks[clean("iac-pick-genre")];
+      if(g){
+        heading.textContent="Explore "+g.name;
+        intro.textContent=g.description+" These are examples, not a real-time catalogue.";
+        fields.innerHTML='<div class="iac-pick-list">'+g.titles.map(([title,why],i)=>'<div><b>'+(i+1)+'. '+esc(title)+'</b><p>'+esc(why)+'</p></div>').join('')+'</div><a class="iac-tools-action" href="'+guide+'">Verify viewing options in India ↗</a>';
+      }
+    }
     if(key==="starter"){
       const g=picks[clean("iac-starter-mood")]||picks.shonen;
       const pace={sample:"Try the opening episode and decide whether the tone works for you.",weekly:"Pick one title and schedule a few episodes each week.",binge:"Check its season and episode count before you commit."}[clean("iac-starter-time")];
@@ -121,7 +134,7 @@
       reveal((title?title+". ":"")+"Observation: "+observed+". Possible interpretation: "+reading+". Evidence to recheck: the scene's immediate context, camera or sound choices, and what happens next. Other readings may also fit.");
     }
   });
-  const tools={starter,prompt,cosplay,decisions,scene,genre:()=>genre("shonen")};
+  const tools={starter,prompt,cosplay,decisions,scene,genre:genrePicker};
   function activate(el,event){
     if(event){if(event.type==="keydown"&&!["Enter"," "].includes(event.key))return;if(event.type==="keydown")event.preventDefault();}
     const key=el.dataset.iacTool, genreKey=el.dataset.iacGenre;
