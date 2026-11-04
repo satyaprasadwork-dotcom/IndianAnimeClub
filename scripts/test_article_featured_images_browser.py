@@ -11,9 +11,9 @@ articles = sorted(p for p in (root / "articles").glob("*.html") if p.name != "in
 assert articles, "No article HTML files found."
 for article in articles:
     markup = article.read_text(encoding="utf-8")
-    image_tags = re.findall(r'<figure\\b[^>]*class="article-featured-image"[^>]*>\\s*<img\\b[^>]*>', markup)
+    image_tags = re.findall(r'<figure\b[^>]*class="article-featured-image"[^>]*>\s*<img\b[^>]*>', markup)
     assert len(image_tags) == 1, f"{article}: expected one featured image, found {len(image_tags)}"
-    image_tag = re.search(r'<figure\\b[^>]*class="article-featured-image"[^>]*>\\s*<img\\b[^>]*>', markup)
+    image_tag = re.search(r'<figure\b[^>]*class="article-featured-image"[^>]*>\s*<img\b[^>]*>', markup)
     assert image_tag and 'max-width:640px!important' in image_tag.group(0), article
     source = re.search(r'src="([^"]+\.svg)"', image_tag.group(0))
     assert source and source.group(1).startswith("/images/articles/"), article
