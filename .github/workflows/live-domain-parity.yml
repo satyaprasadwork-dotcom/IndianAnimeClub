@@ -12,7 +12,7 @@ jobs:
   live-parity:
     if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
-    timeout-minutes: 6
+    timeout-minutes: 12
     steps:
       - uses: actions/checkout@v6
       - uses: actions/setup-python@v6
@@ -20,3 +20,16 @@ jobs:
           python-version: "3.x"
       - name: Verify actual indiananimeclub.com HTML, article navigation, planner and sitemap
         run: python3 scripts/check_live_domain.py
+      - name: Install Chromium for live article rendering verification
+        run: |
+          python3 -m pip install 'playwright>=1.55,<2'
+          python3 -m playwright install --with-deps chromium
+      - name: Verify featured images render correctly on the live site
+        run: python3 scripts/test_live_article_featured_images_browser.py
+      - name: Save live article image screenshots for diagnosis
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: live-article-image-screenshots
+          path: reports/live-feature-*.png
+          if-no-files-found: ignore

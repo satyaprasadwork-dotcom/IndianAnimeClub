@@ -4,6 +4,7 @@ from html.parser import HTMLParser
 from urllib.request import urlopen, Request
 from urllib.error import HTTPError, URLError
 import os
+import re
 import sys
 import time
 import xml.etree.ElementTree as ET
@@ -38,8 +39,9 @@ article_css=get("/css/article.css",True)
 if article_css and "width:min(100%,640px)" not in article_css:
     errors.append("CUSTOM DOMAIN STALE: Primary article stylesheet does not contain the bounded featured-image fallback.")
 sample_article=get("/anime-between-lectures-and-chai-breaks-inside-indias-college-fan-culture/",True)
-if sample_article and '<figure class="article-featured-image">' not in sample_article:
-    errors.append("CUSTOM DOMAIN STALE: Article is missing the featured-image figure required by the updated layout.")
+if sample_article and ('<figure class="article-featured-image" style=' not in sample_article or
+                       'max-width:640px!important' not in sample_article):
+    errors.append("CUSTOM DOMAIN STALE: Article does not contain the inline featured-image width cap.")
 
 homepage=get("/",True)
 if homepage and ('id="featured-reading"' not in homepage or 'href="/watchlist-planner/"' not in homepage):
@@ -71,6 +73,10 @@ def verify_tracking_url(url):
     if not html:
         return f"Could not retrieve public canonical page: {url}"
     head=html.split("</head>",1)[0]
+    if '<article class="article">' in html:
+        featured=re.search(r'<figure\b[^>]*class="article-featured-image"[^>]*>', html)
+        if not featured or 'max-width:640px!important' not in featured.group(0):
+            return f"{url}: article featured image lacks its inline 640px max-width."
     checks={
         "GA4 script":"https://www.googletagmanager.com/gtag/js?id=G-M4738D1ZND",
         "GA4 initialization":"gtag('config','G-M4738D1ZND')",
