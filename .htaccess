@@ -20,9 +20,11 @@ RewriteRule ^leadership/?$ leadership.html [L]
 RewriteCond %{THE_REQUEST} \s/+articles/([^/?]+)\.html(?:[\s?]) [NC]
 RewriteRule ^articles/([^/]+)\.html$ /$1/ [R=301,L,NE]
 
-# Serve a flat article source file for a clean root-level article URL.
+# Serve the CURRENT flat article source for each canonical clean URL.
+# Do not exclude existing directories: older /slug/index.html folders can shadow
+# updated articles/slug.html after a hosting migration or stale deployment.
+# The article-source -f condition prevents unrelated routes being affected.
 RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_URI} ^/([^/]+)/?$
 RewriteCond %{DOCUMENT_ROOT}/articles/%1.html -f
 RewriteRule ^([^/]+)/?$ articles/$1.html [L]
@@ -34,6 +36,11 @@ RewriteRule ^([^/]+)/?$ articles/$1.html [L]
     Header set Cache-Control "no-cache, must-revalidate, max-age=0"
   </FilesMatch>
   <FilesMatch "^(sitemap|sitemap_index)\\.xml$">
+    Header set Cache-Control "no-cache, must-revalidate, max-age=0"
+  </FilesMatch>
+  # Article HTML is revalidated so CDN/browser caches cannot retain an old
+  # 1200px feature layout after the source has been updated.
+  <FilesMatch "\.html$">
     Header set Cache-Control "no-cache, must-revalidate, max-age=0"
   </FilesMatch>
 </IfModule>
