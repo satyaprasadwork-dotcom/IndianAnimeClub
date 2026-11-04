@@ -12,7 +12,13 @@ assert articles, "No article HTML files found."
 for article in articles:
     markup = article.read_text(encoding="utf-8")
     assert len(re.findall(r'<figure class="article-featured-image">', markup)) == 1, article
-    assert re.search(r'<figure class="article-featured-image"><img[^>]+>', markup), article
+    image_tag = re.search(r'<figure class="article-featured-image"><img[^>]+>', markup)
+    assert image_tag, article
+    source = re.search(r'src="([^"]+\.svg)"', image_tag.group(0))
+    assert source and source.group(1).startswith("/images/articles/"), article
+    asset = root / source.group(1).lstrip("/")
+    assert asset.is_file() and asset.stat().st_size > 200, f"{article}: missing featured image {asset}"
+
 
 class Handler(SimpleHTTPRequestHandler):
     def __init__(self, *args, **kwargs):
@@ -33,10 +39,10 @@ try:
                 page = ctx.new_page()
                 page.goto(f"http://127.0.0.1:{server.server_port}/{article.as_posix()}",
                           wait_until="domcontentloaded", timeout=25000)
-                page.wait_for_function("""() => {
-                    const image = document.querySelector('.article-featured-image img');
-                    return !!image && image.complete && image.naturalWidth > 0;
-                }""")
+                # Geometry can be measured before an SVG has decoded; intrinsic
+                # naturalWidth is not a reliable readiness signal for these SVGs.
+                # Every referenced source image is checked on disk above.
+                page.wait_for_selector('article.article > header.article-hero > figure.article-featured-image > img')
                 metrics = page.evaluate("""() => {
                     const figure = document.querySelector('article.article > .article-hero > .article-featured-image');
                     const img = figure.querySelector('img');
