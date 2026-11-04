@@ -26,10 +26,14 @@ jobs:
           python3 -m playwright install --with-deps chromium
       - name: Verify featured images render correctly on the live site
         run: python3 scripts/test_live_article_featured_images_browser.py
+      - name: Confirm actual live TOC scrolling and archive heading colour in Chromium
+        run: python3 scripts/test_live_article_toc_browser.py
       - name: Save live article image screenshots for diagnosis
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: live-article-image-screenshots
-          path: reports/live-feature-*.png
+          path: |
+            reports/live-feature-*.png
+            reports/live-toc-*.png
           if-no-files-found: ignore
