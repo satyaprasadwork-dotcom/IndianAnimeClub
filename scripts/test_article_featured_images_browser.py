@@ -11,9 +11,10 @@ articles = sorted(p for p in (root / "articles").glob("*.html") if p.name != "in
 assert articles, "No article HTML files found."
 for article in articles:
     markup = article.read_text(encoding="utf-8")
-    assert len(re.findall(r'<figure class="article-featured-image">', markup)) == 1, article
-    image_tag = re.search(r'<figure class="article-featured-image"><img[^>]+>', markup)
-    assert image_tag, article
+    image_tags = re.findall(r'<figure\\b[^>]*class="article-featured-image"[^>]*>\\s*<img\\b[^>]*>', markup)
+    assert len(image_tags) == 1, f"{article}: expected one featured image, found {len(image_tags)}"
+    image_tag = re.search(r'<figure\\b[^>]*class="article-featured-image"[^>]*>\\s*<img\\b[^>]*>', markup)
+    assert image_tag and 'max-width:640px!important' in image_tag.group(0), article
     source = re.search(r'src="([^"]+\.svg)"', image_tag.group(0))
     assert source and source.group(1).startswith("/images/articles/"), article
     asset = root / source.group(1).lstrip("/")
@@ -37,14 +38,21 @@ try:
             ctx.route("https://**/*", lambda route: route.abort())
             for article in samples:
                 page = ctx.new_page()
-                page.goto(f"http://127.0.0.1:{server.server_port}/{article.as_posix()}",
-                          wait_until="domcontentloaded", timeout=25000)
+                response = page.goto(f"http://127.0.0.1:{server.server_port}/{article.as_posix()}",
+                                     wait_until="domcontentloaded", timeout=25000)
+                assert response and response.status == 200, (
+                    f"{article}: expected HTTP 200, got {response.status if response else 'no response'}")
                 # Geometry can be measured before an SVG has decoded; intrinsic
                 # naturalWidth is not a reliable readiness signal for these SVGs.
                 # Every referenced source image is checked on disk above.
-                page.wait_for_selector('article.article > header.article-hero > figure.article-featured-image > img')
+                try:
+                    page.locator('figure.article-featured-image img').wait_for(state="attached", timeout=8000)
+                except Exception:
+                    print(f"DOM DIAGNOSTIC {article.name}: {page.url}")
+                    print(page.locator('body').inner_html()[:2000])
+                    raise
                 metrics = page.evaluate("""() => {
-                    const figure = document.querySelector('article.article > .article-hero > .article-featured-image');
+                    const figure = document.querySelector('figure.article-featured-image');
                     const img = figure.querySelector('img');
                     const content = document.querySelector('.article-reading-layout');
                     const f = figure.getBoundingClientRect();
@@ -54,7 +62,11 @@ try:
                         figWidth: f.width, figLeft: f.left, figRight: f.right,
                         figBottom: f.bottom, imageWidth: i.width, imageHeight: i.height,
                         contentTop: c.top, position: getComputedStyle(img).position,
-                        imgNaturalWidth: img.naturalWidth
+                        imgNaturalWidth: img.naturalWidth,
+                        figureParent:figure.parentElement?.className,
+                        inlineStyle:figure.getAttribute('style'),
+                        computedWidth:getComputedStyle(figure).width,
+                        loadedCss:[...document.styleSheets].map(s=>s.href).filter(Boolean)
                     };
                 }""")
                 label=f"{article.name} at {width}px: {metrics}"
