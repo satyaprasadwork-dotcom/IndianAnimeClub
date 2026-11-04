@@ -37,11 +37,9 @@ try:
         assert page.locator("[data-filter='rankings']").count()==0
         assert page.locator("[data-filter='recommendations']").count()==0
         page.locator("#pagination a",has_text="2").click()
-        assert visible()==15
+        assert visible()==12,("second page of 27 retained articles",visible())
         assert "page=2" in page.url
-        page.locator("#pagination a",has_text="3").click()
-        assert visible()==1,("last page",visible())
-        assert "page=3" in page.url
+        assert page.locator("#pagination a",has_text="3").count()==0, "Removed articles must not create an empty page 3"
         page.go_back(wait_until="domcontentloaded")
         assert visible()==15
         page.get_by_role("button",name="Characters",exact=True).click()
@@ -53,7 +51,7 @@ try:
         for slug in (
             "anime-between-lectures-and-chai-breaks-inside-indias-college-fan-culture",
             "where-to-watch-anime-legally-in-india-a-practical-guide-to-platforms-languages-and-availability",
-            "this-anime-scene-changed-how-fans-look-at-life",
+            "beyond-power-levels-how-to-analyse-anime-writing-worldbuilding-and-character-growth",
         ):
             raw=(ROOT/"articles"/(slug+".html")).read_text(encoding="utf-8")
             section=re.search(r'<section\b[^>]*class="sources"[^>]*>(.*?)</section>',raw,re.I|re.S)
