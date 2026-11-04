@@ -38,7 +38,7 @@ try:
             ctx.route("https://**/*", lambda route: route.abort())
             for article in samples:
                 page = ctx.new_page()
-                response = page.goto(f"http://127.0.0.1:{server.server_port}/{article.as_posix()}",
+                response = page.goto(f"http://127.0.0.1:{server.server_port}/{article.relative_to(root).as_posix()}",
                                      wait_until="domcontentloaded", timeout=25000)
                 assert response and response.status == 200, (
                     f"{article}: expected HTTP 200, got {response.status if response else 'no response'}")
