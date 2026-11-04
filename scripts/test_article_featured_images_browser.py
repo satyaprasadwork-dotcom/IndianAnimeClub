@@ -52,8 +52,8 @@ try:
                     };
                 }""")
                 label=f"{article.name} at {width}px: {metrics}"
-                assert metrics["figWidth"] <= min(width, 722), label
-                assert metrics["imageHeight"] <= 406, label
+                assert metrics["figWidth"] <= min(width, 642), label
+                assert metrics["imageHeight"] <= 362, label
                 assert metrics["figLeft"] >= -1 and metrics["figRight"] <= width+1, label
                 assert abs(metrics["imageWidth"]/metrics["imageHeight"]-16/9) < .1, label
                 assert metrics["contentTop"] >= metrics["figBottom"]-1, label
