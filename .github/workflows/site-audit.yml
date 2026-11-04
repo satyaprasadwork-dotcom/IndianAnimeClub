@@ -20,6 +20,8 @@ jobs:
         uses: actions/setup-python@v6
         with:
           python-version: "3.x"
+      - name: Enforce single approved public contact email
+        run: python3 scripts/check_contact_emails.py
       - name: Verify consistent tracking in all committed HTML pages
         run: python3 scripts/ensure_tracking.py --check
       - name: Enforce shared header and footer in committed HTML sources
