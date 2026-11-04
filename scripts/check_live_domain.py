@@ -27,6 +27,20 @@ def get(path,add_nonce=False):
         errors.append(f"{url} unavailable: {exc}")
         return ""
 
+# The published CSS, not only the repository or a completed Pages run, must
+# include the article-image containment fix. This catches stale CDN builds that
+# kept showing giant featured images despite updated source code.
+shared_css=get("/site-shell.css",True)
+if shared_css and ("ARTICLE FEATURED IMAGE SIZING" not in shared_css or
+                   "max-width:640px !important;" not in shared_css):
+    errors.append("CUSTOM DOMAIN STALE: Shared stylesheet does not contain the bounded 640px featured-image fix.")
+article_css=get("/css/article.css",True)
+if article_css and "width:min(100%,640px)" not in article_css:
+    errors.append("CUSTOM DOMAIN STALE: Primary article stylesheet does not contain the bounded featured-image fallback.")
+sample_article=get("/anime-between-lectures-and-chai-breaks-inside-indias-college-fan-culture/",True)
+if sample_article and '<figure class="article-featured-image">' not in sample_article:
+    errors.append("CUSTOM DOMAIN STALE: Article is missing the featured-image figure required by the updated layout.")
+
 homepage=get("/",True)
 if homepage and ('id="featured-reading"' not in homepage or 'href="/watchlist-planner/"' not in homepage):
     errors.append("CUSTOM DOMAIN STALE: Homepage is missing the editorial section or linked planner.")
