@@ -1,0 +1,31 @@
+/* Scopes interaction affordances to the three original homepage sections.
+   Their grid, typography, card sizes, positions, backgrounds and animation remain unchanged. */
+#about [data-iac-tool],#worlds [data-iac-genre]{cursor:pointer}
+#about [data-iac-tool]:focus-visible,#worlds [data-iac-genre]:focus-visible,
+#events [data-iac-tool]:focus-visible{outline:4px solid var(--fire);outline-offset:4px}
+.iac-tools-dialog{border:4px solid var(--ink);background:var(--bg);color:var(--ink);box-shadow:12px 12px 0 var(--fire);width:min(92vw,680px);max-height:88vh;overflow-y:auto;padding:0;margin:auto}
+.iac-tools-dialog::backdrop{background:rgba(3,16,31,.76)}
+.iac-tools-shell{padding:clamp(20px,4vw,34px);position:relative;font-family:var(--body)}
+.iac-tools-shell h2{font-size:clamp(25px,5vw,40px);line-height:1.15;margin:6px 44px 12px 0;font-family:var(--display)}
+.iac-tools-shell p{line-height:1.55}
+.iac-tools-eyebrow{font-size:12px;letter-spacing:.12em;font-weight:700;color:var(--tc)}
+.iac-tools-close{position:absolute;top:14px;right:14px;background:var(--sun);border:2px solid var(--ink);color:var(--dk);font-size:26px;font-weight:700;width:44px;height:44px;cursor:pointer}
+.iac-tools-form{display:grid;gap:11px;margin:20px 0}
+.iac-tools-form label{font-weight:700;margin-top:5px}
+.iac-tools-form select,.iac-tools-form input,.iac-tools-form textarea{font:inherit;background:#fff;color:#07182b;border:2px solid #07182b;border-radius:0;min-height:44px;width:100%;padding:10px}
+.iac-tools-form textarea{resize:vertical}
+.iac-tools-action{display:inline-block;align-self:start;text-align:center;margin-top:12px;padding:12px 16px;border:2px solid var(--ink);background:var(--sun);color:var(--dk);box-shadow:4px 4px 0 var(--fire);text-decoration:none;font:700 15px var(--body);cursor:pointer}
+.iac-pick-list{display:grid;gap:12px;margin:22px 0}
+.iac-pick-list>div{padding:12px 14px;border-left:4px solid var(--fire);background:var(--bg2)}
+.iac-pick-list p{margin:4px 0 0}
+#iac-tools-output:not([hidden]){margin-top:18px;padding:14px;background:var(--bg2);border:2px solid var(--ink);overflow-wrap:anywhere}
+#iac-tools-output p{margin:0 0 8px}
+#iac-tools-output p:last-child{margin-bottom:0}
+#iac-tools-output a{font-weight:700}
+.iac-tools-note{font-size:13px;color:var(--mute);margin:20px 0 0}
+.iac-tools-note[hidden],#iac-tools-output[hidden]{display:none}
+@media(max-width:480px){.iac-tools-dialog{max-height:92vh;box-shadow:5px 5px 0 var(--fire)}.iac-tools-shell{padding:20px}.iac-tools-shell h2{margin-right:36px}}
+@media(prefers-reduced-motion:reduce){.iac-tools-dialog *{scroll-behavior:auto}}
+/* The fifth panel is a native link, but retains exactly the original white-on-blue look. */
+#about a.iac-panel-link,#about a.iac-panel-link:visited,#about a.iac-panel-link:hover{text-decoration:none;color:#fff}
+#about a.iac-panel-link h3,#about a.iac-panel-link p{color:#fff}

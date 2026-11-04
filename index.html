@@ -247,6 +247,7 @@ section.oracle{padding-top:56px;padding-bottom:56px}
 <link rel="shortcut icon" href="/favicon.ico?v=2fdbac12188d">
 
 <link rel="stylesheet" href="/css/home-editorial.css?v=20261103">
+<link rel="stylesheet" href="/css/home-fan-tools.css?v=20261104">
 <!-- IAC_TRACKING_START: Google Analytics, AdSense, Microsoft Clarity -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-M4738D1ZND"></script>
 <script id="iac-ga4-init">
@@ -323,13 +324,13 @@ window.__iacClarityLoaded=true;
 
 <section id="about"><div class="wrap">
   <h2 class="rv">Your people are here</h2>
-  <p class="lead rv">A home for anime fans across India to share what they love, discover new favourites, and celebrate fandom together online.</p>
+  <p class="lead rv">Use these free fan tools to find a starting point, share a spoiler-safe question, or plan a creative project. No account needed.</p>
   <div class="panels">
-    <div class="panel p1 rv"><div class="big">FAN</div><h3>Every fan belongs</h3><p>Find a welcoming space whether you're new to anime or have loved it for years. Enjoy fandom without needing to be an expert.</p></div>
-    <div class="panel p2 rv"><div class="big">FIND</div><h3>Find your next favourite</h3><p>Discover new series, revisit favourite characters, and find recommendations that match your taste. Spend less time searching and more time watching.</p></div>
-    <div class="panel p3 rv"><div class="big">CHAT</div><h3>Talk anime</h3><p>Share your theories, favourite moments, and watchlist picks. Get fresh perspectives from people who love anime too.</p></div>
-    <div class="panel p4 rv"><div class="big">ART</div><h3>Fan creativity</h3><p>Explore the art, cosplay, edits, and collections fans create. Get inspired and celebrate the creativity behind the fandom.</p></div>
-    <div class="panel p5 rv"><div class="big">IN</div><h3>Made for India</h3><p>Discover anime with a community that understands India's fan culture. Help shape a space built around local interests and shared passion.</p></div>
+    <div class="panel p1 rv" role="button" tabindex="0" data-iac-tool="starter" aria-label="Open beginner anime finder"><div class="big">FAN</div><h3>Find your first anime</h3><p>Choose a mood and get three specific titles to explore. Tap to start.</p></div>
+    <div class="panel p2 rv" role="button" tabindex="0" data-iac-tool="genre" aria-label="Open genre discovery picks"><div class="big">FIND</div><h3>Explore a genre</h3><p>Discover titles that fit the stories you enjoy. Tap for ideas.</p></div>
+    <div class="panel p3 rv" role="button" tabindex="0" data-iac-tool="prompt" aria-label="Open spoiler-safe conversation prompt generator"><div class="big">CHAT</div><h3>Start a discussion</h3><p>Make a spoiler-safe question for your next anime chat.</p></div>
+    <div class="panel p4 rv" role="button" tabindex="0" data-iac-tool="cosplay" aria-label="Open cosplay budget calculator"><div class="big">ART</div><h3>Plan your first cosplay</h3><p>Check costume, prop and travel costs against your budget.</p></div>
+    <a class="panel p5 rv iac-panel-link" href="/watchlist-planner/" aria-label="Open anime watchlist time and budget planner"><div class="big">IN</div><h3>Plan your watch time</h3><p>Build a realistic weekly watchlist with an India-ready rupee budget.</p></a>
   </div>
 </div></section>
 
@@ -352,14 +353,14 @@ window.__iacClarityLoaded=true;
 
 <section class="worlds" id="worlds"><div class="wrap">
   <h2 class="rv">Pick your world</h2>
-  <p class="lead rv">Swipe through genres and find a story mood that fits you.</p>
+  <p class="lead rv">Select a genre card to see three editorial recommendations and why they might fit. Check legal availability in India before watching.</p>
   <div class="rail" id="rail" tabindex="0" aria-label="Genre cards, scroll sideways">
-    <article class="card" style="background:var(--fire)"><span class="k" aria-hidden="true">戦</span><h3>Shonen showdown</h3><p>Power-ups, rivals and a very loud last episode.</p></article>
-    <article class="card" style="background:var(--cyan)"><span class="k" aria-hidden="true">機</span><h3>Mecha madness</h3><p>Giant robots, bigger feelings.</p></article>
-    <article class="card" style="background:var(--lime)"><span class="k" aria-hidden="true">日</span><h3>Slice of life</h3><p>Chai, calm and quiet little moments.</p></article>
-    <article class="card" style="background:var(--sun)"><span class="k" aria-hidden="true">異</span><h3>Isekai escape</h3><p>Wake up in another world. Good luck.</p></article>
-    <article class="card" style="background:var(--blue);color:#fff"><span class="k" aria-hidden="true">技</span><h3>Sports hype</h3><p>Underdogs, buzzer beaters, shouting.</p></article>
-    <article class="card" style="background:#fff7ec"><span class="k" aria-hidden="true">怖</span><h3>Midnight horror</h3><p>Lights off. Group screams allowed.</p></article>
+    <article class="card" style="background:var(--fire)" role="button" tabindex="0" data-iac-genre="shonen" aria-label="Explore shonen anime recommendations"><span class="k" aria-hidden="true">戦</span><h3>Shonen showdown</h3><p>Rivals, choices and big moments. Select for picks.</p></article>
+    <article class="card" style="background:var(--cyan)" role="button" tabindex="0" data-iac-genre="mecha" aria-label="Explore mecha anime recommendations"><span class="k" aria-hidden="true">機</span><h3>Mecha madness</h3><p>Giant robots, bigger questions. Select for picks.</p></article>
+    <article class="card" style="background:var(--lime)" role="button" tabindex="0" data-iac-genre="slice" aria-label="Explore slice of life anime recommendations"><span class="k" aria-hidden="true">日</span><h3>Slice of life</h3><p>Quiet routines and friendships. Select for picks.</p></article>
+    <article class="card" style="background:var(--sun)" role="button" tabindex="0" data-iac-genre="isekai" aria-label="Explore isekai anime recommendations"><span class="k" aria-hidden="true">異</span><h3>Isekai escape</h3><p>A new world and unfamiliar rules. Select for picks.</p></article>
+    <article class="card" style="background:var(--blue);color:#fff" role="button" tabindex="0" data-iac-genre="sports" aria-label="Explore sports anime recommendations"><span class="k" aria-hidden="true">技</span><h3>Sports hype</h3><p>Underdogs and team spirit. Select for picks.</p></article>
+    <article class="card" style="background:#fff7ec" role="button" tabindex="0" data-iac-genre="horror" aria-label="Explore horror anime recommendations"><span class="k" aria-hidden="true">怖</span><h3>Midnight horror</h3><p>Unsettling mysteries. Check age guidance.</p></article>
   </div>
   <div class="railctl"><button id="pv" aria-label="Previous">&larr;</button><button id="nx" aria-label="Next">&rarr;</button></div>
 </div></section>
@@ -373,11 +374,11 @@ window.__iacClarityLoaded=true;
 
 <section class="worlds" id="events"><div class="wrap">
   <h2 class="rv">Find the right starting point</h2>
-  <p class="lead rv">Explore the published guides directly. These four paths start with a concrete question, not an empty category.</p>
-  <a class="ev rv" href="/when-the-hero-makes-the-wrong-choice-understanding-moral-dilemmas-in-anime-stories/"><div class="date"><b>01</b>CHARACTERS</div><div><h3>Why did the hero choose that?</h3><p>Read difficult character decisions through competing values, consequences and story context.</p></div><span class="tag">Character analysis ↗</span></a>
-  <a class="ev rv" href="/new-to-anime-in-india-a-beginners-roadmap-based-on-your-interests-not-just-rankings/"><div class="date"><b>02</b>BEGINNERS</div><div><h3>What should I watch first?</h3><p>Choose by mood, time, viewing language and availability rather than popularity alone.</p></div><span class="tag">Beginner roadmap ↗</span></a>
-  <a class="ev rv" href="/beyond-power-levels-how-to-analyse-anime-writing-worldbuilding-and-character-growth/"><div class="date"><b>03</b>STORY</div><div><h3>What makes the writing work?</h3><p>Compare character motivation, visual storytelling and worldbuilding with concrete examples.</p></div><span class="tag">Story analysis ↗</span></a>
-  <a class="ev rv" href="/your-first-cosplay-on-a-budget-planning-a-costume-with-materials-available-in-india/"><div class="date"><b>04</b>MAKE</div><div><h3>How do I plan my first cosplay?</h3><p>Start with a manageable costume, materials, fitting and a clear spending limit.</p></div><span class="tag">Cosplay guide ↗</span></a>
+  <p class="lead rv">Open a free interactive worksheet, finder or budget calculator. These tools work in your browser without an account.</p>
+  <a class="ev rv" data-iac-tool="decisions" href="/when-the-hero-makes-the-wrong-choice-understanding-moral-dilemmas-in-anime-stories/"><div class="date"><b>01</b>CHARACTERS</div><div><h3>Map a character's decision</h3><p>Compare a choice with an alternative using context, values and consequences.</p></div><span class="tag">Open decision mapper ↗</span></a>
+  <a class="ev rv" data-iac-tool="starter" href="/new-to-anime-in-india-a-beginners-roadmap-based-on-your-interests-not-just-rankings/"><div class="date"><b>02</b>BEGINNERS</div><div><h3>Find an anime that fits you</h3><p>Choose a mood and viewing commitment for three specific starting points.</p></div><span class="tag">Open anime finder ↗</span></a>
+  <a class="ev rv" data-iac-tool="scene" href="/beyond-power-levels-how-to-analyse-anime-writing-worldbuilding-and-character-growth/"><div class="date"><b>03</b>STORY</div><div><h3>Analyse a scene with evidence</h3><p>Build a short observation and interpretation worksheet for a scene.</p></div><span class="tag">Open scene worksheet ↗</span></a>
+  <a class="ev rv" data-iac-tool="cosplay" href="/your-first-cosplay-on-a-budget-planning-a-costume-with-materials-available-in-india/"><div class="date"><b>04</b>MAKE</div><div><h3>Check your cosplay budget</h3><p>Enter expected rupee costs and see what remains for a contingency.</p></div><span class="tag">Open budget calculator ↗</span></a>
 </div></section>
 
 <section id="chapters"><div class="wrap">
@@ -438,6 +439,7 @@ if($('#spin')&&sl)$('#spin').onclick=()=>{let n=0;sl.classList.add('spin');
 </script>
 <script src="/site-fixes.js?v=20261012-3" defer></script>
 <script src="/js/genre-mood.js" defer></script>
+<script src="/js/home-fan-tools.js?v=20261104" defer></script>
 <script src="/site-shell.js?v=6f090d139de1" defer></script>
 
 </body>
