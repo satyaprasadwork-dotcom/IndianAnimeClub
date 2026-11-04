@@ -28,6 +28,8 @@ jobs:
         run: python scripts/test_genre_browser.py
       - name: Verify shared shell in Chromium on multiple routes
         run: python scripts/test_shared_shell_browser.py
+      - name: Verify article featured images stay within their reading column on mobile and desktop
+        run: python scripts/test_article_featured_images_browser.py
       - name: Verify shareable archive navigation and editorial source integrity
         run: python scripts/test_archive_browser.py
       - name: Verify original watchlist planner arithmetic and mobile usability
