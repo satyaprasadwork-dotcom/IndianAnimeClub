@@ -35,10 +35,22 @@ shared_css=get("/site-shell.css",True)
 if shared_css and ("ARTICLE FEATURED IMAGE SIZING" not in shared_css or
                    "max-width:960px !important;" not in shared_css):
     errors.append("CUSTOM DOMAIN STALE: Shared stylesheet does not contain the bounded 960px featured-image fix.")
+if shared_css and "ARTICLE TOC SCROLL CONTAINMENT" not in shared_css:
+    errors.append("CUSTOM DOMAIN STALE: Public shared stylesheet lacks the article TOC scroll fix.")
 article_css=get("/css/article.css",True)
 if article_css and "width:min(100%,960px)" not in article_css:
     errors.append("CUSTOM DOMAIN STALE: Primary article stylesheet does not contain the bounded featured-image fallback.")
 sample_article=get("/anime-between-lectures-and-chai-breaks-inside-indias-college-fan-culture/",True)
+if sample_article:
+    article_ref=re.search(r'href="(/site-shell\.css\?v=[^"]+)"',sample_article)
+    if not article_ref:
+        errors.append("CUSTOM DOMAIN STALE: Published article is missing its versioned shared stylesheet.")
+    else:
+        if "v=20261104-header" in article_ref.group(1):
+            errors.append("CUSTOM DOMAIN STALE: Article HTML refers to the previous shared CSS version.")
+        loaded_css=get(article_ref.group(1))
+        if loaded_css and "ARTICLE TOC SCROLL CONTAINMENT" not in loaded_css:
+            errors.append("CUSTOM DOMAIN STALE: Article's actual versioned CSS lacks the TOC fix.")
 if sample_article and ('<figure class="article-featured-image" style=' not in sample_article or
                        'max-width:960px!important' not in sample_article):
     errors.append("CUSTOM DOMAIN STALE: Article does not contain the inline featured-image width cap.")
@@ -49,6 +61,18 @@ if homepage and ('id="featured-reading"' not in homepage or 'href="/watchlist-pl
 archive=get("/articles/",True)
 if archive and ('data-filter="rankings"' in archive or 'data-filter="recommendations"' in archive):
     errors.append("CUSTOM DOMAIN STALE: Archive still exposes empty Rankings/Recommendations filters.")
+if archive and '<p class="eyebrow" style="color:#07182b!important">Stories, analysis &amp; guides</p>' not in archive:
+    errors.append("CUSTOM DOMAIN STALE: Archive is missing the dark navy Stories, analysis & guides heading.")
+if archive:
+    css_ref=re.search(r'href="(/site-shell\.css\?v=[^"]+)"',archive)
+    if not css_ref:
+        errors.append("CUSTOM DOMAIN STALE: Archive is missing its versioned shared stylesheet reference.")
+    else:
+        if "v=9ff0c1af6f08" in css_ref.group(1):
+            errors.append("CUSTOM DOMAIN STALE: Archive still references the old shared CSS cache key.")
+        loaded_css=get(css_ref.group(1))
+        if loaded_css and "ARTICLE TOC SCROLL CONTAINMENT" not in loaded_css:
+            errors.append("CUSTOM DOMAIN STALE: Archive's actual versioned CSS lacks the TOC fix.")
 if archive and "history.pushState" not in archive:
     errors.append("CUSTOM DOMAIN STALE: Archive lacks shareable pagination script.")
 planner=get("/watchlist-planner/",True)
@@ -72,6 +96,11 @@ def verify_tracking_url(url):
     html=get(url[len(BASE):],True)
     if not html:
         return f"Could not retrieve public canonical page: {url}"
+    found_emails={email.lower() for email in re.findall(
+        r"[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}",html)}
+    unexpected=found_emails-{"satyaprasadwork@gmail.com"}
+    if unexpected:
+        return f"{url}: unexpected public email(s): {sorted(unexpected)}"
     head=html.split("</head>",1)[0]
     if '<article class="article">' in html:
         featured=re.search(r'<figure\b[^>]*class="article-featured-image"[^>]*>', html)
