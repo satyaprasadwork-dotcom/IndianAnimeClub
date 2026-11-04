@@ -1953,8 +1953,8 @@ html body:has(article.article) article.article > header.article-hero > figure.ar
   position:relative !important;
   display:block !important;
   float:none !important;
-  width:min(100%, 720px) !important;
-  max-width:720px !important;
+  width:min(100%, 640px) !important;
+  max-width:640px !important;
   min-width:0 !important;
   height:auto !important;
   max-height:none !important;
@@ -1971,7 +1971,7 @@ html body:has(article.article) article.article > header.article-hero > figure.ar
   width:100% !important;
   max-width:100% !important;
   height:auto !important;
-  max-height:405px !important;
+  max-height:360px !important;
   aspect-ratio:16 / 9 !important;
   object-fit:contain !important;
   transform:none !important;
