@@ -26,3 +26,6 @@
 .iac-tools-note[hidden],#iac-tools-output[hidden]{display:none}
 @media(max-width:480px){.iac-tools-dialog{max-height:92vh;box-shadow:5px 5px 0 var(--fire)}.iac-tools-shell{padding:20px}.iac-tools-shell h2{margin-right:36px}}
 @media(prefers-reduced-motion:reduce){.iac-tools-dialog *{scroll-behavior:auto}}
+/* The fifth panel is a native link, but retains exactly the original white-on-blue look. */
+#about a.iac-panel-link,#about a.iac-panel-link:visited,#about a.iac-panel-link:hover{text-decoration:none;color:#fff}
+#about a.iac-panel-link h3,#about a.iac-panel-link p{color:#fff}
