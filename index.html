@@ -230,6 +230,26 @@ body article.card[style*="--blue"]{background:#1f6fff!important;color:#fff!impor
 <meta name="twitter:description" content="A welcoming community for anime fans across India. Discover genres, explore anime culture, and connect with fellow fans.">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://indiananimeclub.com/#organization","name":"Indian Anime Club","url":"https://indiananimeclub.com/","description":"An independent India-focused anime fan community and editorial website.","sameAs":["https://instagram.com/indiananime.club","https://www.facebook.com/people/indiananimeclub/61582607151767/","https://chat.whatsapp.com/IOR7VBI25dW9ltnofX6Frz"],"email":"satyaprasadwork@gmail.com"},{"@type":"WebSite","@id":"https://indiananimeclub.com/#website","url":"https://indiananimeclub.com/","name":"Indian Anime Club","inLanguage":"en-IN","publisher":{"@id":"https://indiananimeclub.com/#organization"}},{"@type":"WebPage","@id":"https://indiananimeclub.com/#webpage","url":"https://indiananimeclub.com/","name":"Indian Anime Club | indiananimeclub.com","description":"India's anime community: screenings, cosplay, quiz nights and meetups in your city.","inLanguage":"en-IN","isPartOf":{"@id":"https://indiananimeclub.com/#website"},"about":{"@id":"https://indiananimeclub.com/#organization"}}]}</script>
 <style id="iac-home-spacing-fix">
+/* Keep labels inside the original orange number tiles at every viewport width. */
+#events .ev > .date {min-width:0;max-width:100%;overflow-wrap:normal;}
+#events .ev > .date .date-label {
+  display:block;
+  max-width:100%;
+  min-width:0;
+  font-family:var(--body);
+  font-size:clamp(10px,1.2vw,13px);
+  font-weight:800;
+  line-height:1.18;
+  letter-spacing:-.035em;
+  text-align:center;
+  white-space:normal;
+  overflow-wrap:anywhere;
+  hyphens:none;
+}
+@media(max-width:420px){
+  #events .ev > .date .date-label {font-size:10px;letter-spacing:-.045em;}
+}
+
 /* Tighten only the sections whose large 96px vertical padding creates excessive gaps. */
 #about,#worlds,#events,#chapters{padding-top:64px;padding-bottom:64px}
 section.oracle{padding-top:56px;padding-bottom:56px}
@@ -375,10 +395,10 @@ window.__iacClarityLoaded=true;
 <section class="worlds" id="events"><div class="wrap">
   <h2 class="rv">Find the right starting point</h2>
   <p class="lead rv">Open a free interactive worksheet, finder or budget calculator. These tools work in your browser without an account.</p>
-  <a class="ev rv" data-iac-tool="decisions" href="/when-the-hero-makes-the-wrong-choice-understanding-moral-dilemmas-in-anime-stories/"><div class="date"><b>01</b>CHARACTERS</div><div><h3>Map a character's decision</h3><p>Compare a choice with an alternative using context, values and consequences.</p></div><span class="tag">Open decision mapper ↗</span></a>
-  <a class="ev rv" data-iac-tool="starter" href="/new-to-anime-in-india-a-beginners-roadmap-based-on-your-interests-not-just-rankings/"><div class="date"><b>02</b>BEGINNERS</div><div><h3>Find an anime that fits you</h3><p>Choose a mood and viewing commitment for three specific starting points.</p></div><span class="tag">Open anime finder ↗</span></a>
-  <a class="ev rv" data-iac-tool="scene" href="/beyond-power-levels-how-to-analyse-anime-writing-worldbuilding-and-character-growth/"><div class="date"><b>03</b>STORY</div><div><h3>Analyse a scene with evidence</h3><p>Build a short observation and interpretation worksheet for a scene.</p></div><span class="tag">Open scene worksheet ↗</span></a>
-  <a class="ev rv" data-iac-tool="cosplay" href="/your-first-cosplay-on-a-budget-planning-a-costume-with-materials-available-in-india/"><div class="date"><b>04</b>MAKE</div><div><h3>Check your cosplay budget</h3><p>Enter expected rupee costs and see what remains for a contingency.</p></div><span class="tag">Open budget calculator ↗</span></a>
+  <a class="ev rv" data-iac-tool="decisions" href="/when-the-hero-makes-the-wrong-choice-understanding-moral-dilemmas-in-anime-stories/"><div class="date"><b>01</b><span class="date-label">CHAR<wbr>ACTERS</span></div><div><h3>Map a character's decision</h3><p>Compare a choice with an alternative using context, values and consequences.</p></div><span class="tag">Open decision mapper ↗</span></a>
+  <a class="ev rv" data-iac-tool="starter" href="/new-to-anime-in-india-a-beginners-roadmap-based-on-your-interests-not-just-rankings/"><div class="date"><b>02</b><span class="date-label">BEGIN<wbr>NERS</span></div><div><h3>Find an anime that fits you</h3><p>Choose a mood and viewing commitment for three specific starting points.</p></div><span class="tag">Open anime finder ↗</span></a>
+  <a class="ev rv" data-iac-tool="scene" href="/beyond-power-levels-how-to-analyse-anime-writing-worldbuilding-and-character-growth/"><div class="date"><b>03</b><span class="date-label">STORY</span></div><div><h3>Analyse a scene with evidence</h3><p>Build a short observation and interpretation worksheet for a scene.</p></div><span class="tag">Open scene worksheet ↗</span></a>
+  <a class="ev rv" data-iac-tool="cosplay" href="/your-first-cosplay-on-a-budget-planning-a-costume-with-materials-available-in-india/"><div class="date"><b>04</b><span class="date-label">MAKE</span></div><div><h3>Check your cosplay budget</h3><p>Enter expected rupee costs and see what remains for a contingency.</p></div><span class="tag">Open budget calculator ↗</span></a>
 </div></section>
 
 <section id="chapters"><div class="wrap">

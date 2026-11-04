@@ -153,3 +153,27 @@ body:has(article.article) .iac-footer-copy{width:100%;max-width:1000px;margin:22
 body:has(article.article) .article-featured-image{display:block;width:100%;margin:24px 0 0;overflow:hidden;border:2px solid var(--iac-ink);border-radius:18px;background:var(--iac-navy);box-shadow:6px 6px 0 var(--iac-ink);line-height:0;}
 body:has(article.article) .article-featured-image img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;}
 @media(max-width:700px){body:has(article.article) .article-featured-image{margin-top:20px;border-radius:14px;box-shadow:4px 4px 0 var(--iac-ink);}}
+
+/* Featured-image containment: keep editorial art inside its own centred column. Source pages and cached shared-shell variants should
+   never display the full 1200px source image as a page-wide banner. */
+body:has(article.article) article.article > header.article-hero > figure.article-featured-image {
+  display:block;
+  float:none;
+  width:min(100%,640px);
+  max-width:640px;
+  height:auto;
+  margin:24px auto 0;
+  padding:0;
+  box-sizing:border-box;
+  overflow:hidden;
+}
+body:has(article.article) article.article > header.article-hero > figure.article-featured-image > img {
+  display:block;
+  position:static;
+  width:100%;
+  max-width:100%;
+  height:auto;
+  max-height:360px;
+  aspect-ratio:16/9;
+  object-fit:contain;
+}
