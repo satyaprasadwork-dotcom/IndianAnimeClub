@@ -32,6 +32,8 @@ with sync_playwright() as pw:
                 try:
                     page.locator("figure.article-featured-image img").wait_for(
                         state="attached", timeout=10000)
+                    page.locator("header.article-hero .author-box > .iac-preferred-source").wait_for(
+                        state="attached", timeout=10000)
                 except Exception:
                     print("DOM summary:", page.locator("body").inner_html()[:1800])
                     raise
@@ -44,7 +46,15 @@ with sync_playwright() as pw:
                     const viewportWidth = document.documentElement.clientWidth;
                     const fs = getComputedStyle(f);
                     const istyle = getComputedStyle(i);
+                    const author = document.querySelector('header.article-hero .author-box');
+                    const preferred = author.querySelector(':scope > .iac-preferred-source');
+                    const abr = author.getBoundingClientRect();
+                    const pbr = preferred.getBoundingClientRect();
                     return {
+                        prefParent:preferred.parentElement.className,
+                        authorLeft:abr.left, authorRight:abr.right,
+                        preferredLeft:pbr.left, preferredRight:pbr.right,
+                        authorWrap:getComputedStyle(author).flexWrap,
                         viewportWidth,
                         figureWidth:fr.width, figureLeft:fr.left, figureRight:fr.right,
                         imageWidth:ir.width, imageHeight:ir.height,
@@ -63,6 +73,10 @@ with sync_playwright() as pw:
                 assert abs((dims["figureLeft"] + dims["figureWidth"]/2) - viewport/2) <= 35, dims
                 assert dims["position"] == "static", dims
                 assert "max-width:960px!important" in (dims["inlineStyle"] or ""), dims
+                assert "author-box" in dims["prefParent"], dims
+                assert dims["authorWrap"] == "wrap", dims
+                assert dims["preferredLeft"] >= dims["authorLeft"] - 2, dims
+                assert dims["preferredRight"] <= dims["authorRight"] + 2, dims
                 page.close()
             ctx.close()
     finally:
