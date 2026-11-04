@@ -5,6 +5,8 @@ from urllib.request import urlopen, Request
 from urllib.error import HTTPError, URLError
 import os
 import re
+from pathlib import Path
+from datetime import date
 import sys
 import time
 import xml.etree.ElementTree as ET
@@ -102,6 +104,19 @@ def verify_tracking_url(url):
     if unexpected:
         return f"{url}: unexpected public email(s): {sorted(unexpected)}"
     head=html.split("</head>",1)[0]
+    if '<article class="article">' in html:
+        article_slug=url[len(BASE):].strip("/")
+        local=Path(__file__).resolve().parents[1]/"articles"/f"{article_slug}.html"
+        if not local.is_file():
+            return f"{url}: live article missing matching source file"
+        expected_match=re.search(r'"dateModified":"(\d{4}-\d{2}-\d{2})"',local.read_text(encoding="utf-8"))
+        if not expected_match:
+            return f"{url}: local Article dateModified is missing"
+        expected_iso=expected_match.group(1)
+        stamp=date.fromisoformat(expected_iso)
+        human=f"Updated {stamp.day} {stamp.strftime('%B %Y')}"
+        if f'"dateModified":"{expected_iso}"' not in html or human not in html:
+            return f"{url}: stale article updated date; expected {expected_iso} and {human}."
     if '<article class="article">' in html:
         featured=re.search(r'<figure\b[^>]*class="article-featured-image"[^>]*>', html)
         if not featured or 'max-width:960px!important' not in featured.group(0):

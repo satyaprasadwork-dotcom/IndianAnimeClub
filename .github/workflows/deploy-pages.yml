@@ -31,6 +31,8 @@ jobs:
         run: python3 scripts/ensure_tracking.py --check
       - name: Enforce shared header and footer before build
         run: python3 scripts/validate_shared_shell.py
+      - name: Validate article publication and updated dates
+        run: python3 scripts/check_article_dates.py
       - name: Sync new article cards
         run: python3 scripts/sync_article_archive.py
       - name: Apply canonical shared logo, header and footer
