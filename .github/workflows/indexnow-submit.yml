@@ -1,0 +1,81 @@
+name: Submit Indian Anime Club URLs via IndexNow
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'd9f008f53d626b555b1c8e1e2da567d3.txt'
+      - '.github/workflows/indexnow-submit.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  submit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - name: Checkout website
+        uses: actions/checkout@v4
+
+      - name: Submit live sitemap URLs to IndexNow
+        env:
+          INDEXNOW_KEY: d9f008f53d626b555b1c8e1e2da567d3
+        run: |
+          python3 - <<'PY'
+          import json
+          import os
+          import time
+          import urllib.request
+          import urllib.error
+          from urllib.parse import urlparse
+          from xml.etree import ElementTree as ET
+
+          key = os.environ["INDEXNOW_KEY"]
+          domain = "indiananimeclub.com"
+          key_url = f"https://{domain}/{key}.txt"
+          sitemap_url = f"https://{domain}/sitemap.xml"
+          api = "https://api.indexnow.org/indexnow"
+
+          # Wait for GitHub Pages to publish the key and the current site.
+          # Only the live site's own canonical sitemap URLs are submitted.
+          for attempt in range(1, 37):
+              try:
+                  with urllib.request.urlopen(key_url, timeout=12) as response:
+                      published_key = response.read().decode("utf-8").strip()
+                  if published_key != key:
+                      raise RuntimeError("The live IndexNow ownership key is not published yet.")
+                  with urllib.request.urlopen(sitemap_url, timeout=12) as response:
+                      sitemap = response.read()
+                  root = ET.fromstring(sitemap)
+                  locs = ((element.text or "").strip() for element in root.iter() if element.tag.endswith("}loc") or element.tag == "loc")
+                  urls = sorted(set(u for u in locs if u and urlparse(u).scheme == "https" and urlparse(u).hostname == domain))
+                  if len(urls) < 38:
+                      raise RuntimeError(f"Only {len(urls)} live sitemap URLs; expected at least 38.")
+                  payload = {
+                      "host": domain,
+                      "key": key,
+                      "keyLocation": key_url,
+                      "urlList": urls,
+                  }
+                  req = urllib.request.Request(
+                      api,
+                      data=json.dumps(payload).encode("utf-8"),
+                      headers={"Content-Type": "application/json; charset=utf-8", "User-Agent": "IndianAnimeClub-IndexNow/1.0"},
+                      method="POST",
+                  )
+                  with urllib.request.urlopen(req, timeout=30) as response:
+                      status = response.status
+                      response_text = response.read().decode("utf-8", errors="replace")[:500]
+                  print(f"IndexNow status: HTTP {status}; URLs submitted: {len(urls)}; response: {response_text}")
+                  if status in (200, 202):
+                      print("IndexNow accepted the URL notification (indexing is not guaranteed).")
+                      break
+                  raise RuntimeError(f"Unexpected IndexNow response status {status}")
+              except (Exception) as exc:
+                  print(f"Attempt {attempt}/36 did not submit successfully: {exc}", flush=True)
+                  if attempt == 36:
+                      raise
+                  time.sleep(10)
+          PY
