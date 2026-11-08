@@ -120,7 +120,7 @@ for path in article_files:
         if not candidates and isinstance(candidate, dict):
             candidates = [candidate]
         for node in candidates:
-            if isinstance(node, dict) and node.get("@type") == "Article":
+            if isinstance(node, dict) and node.get("@type") in ("Article", "BlogPosting", "NewsArticle"):
                 article_schema = node
                 break
         if article_schema:
@@ -269,12 +269,21 @@ def _valid_json(value):
     except (json.JSONDecodeError, TypeError):
         return False
 
-if not any(
-    isinstance(json.loads(raw_schema), dict)
-    and json.loads(raw_schema).get("@type") == "CollectionPage"
-    for raw_schema in archive.schemas
-    if raw_schema.strip().startswith("{") and _valid_json(raw_schema)
-):
+def _has_schema_type(raw_schema, accepted_types):
+    if not _valid_json(raw_schema):
+        return False
+    document = json.loads(raw_schema)
+    if not isinstance(document, dict):
+        return False
+    nodes = document.get("@graph") or [document]
+    if not isinstance(nodes, list):
+        return False
+    return any(
+        isinstance(node, dict) and node.get("@type") in accepted_types
+        for node in nodes
+    )
+
+if not any(_has_schema_type(s, {"CollectionPage"}) for s in archive.schemas):
     errors.append("Article archive is missing valid CollectionPage structured data.")
 
 # Catch duplicate or malformed sitemap entries before publishing.
