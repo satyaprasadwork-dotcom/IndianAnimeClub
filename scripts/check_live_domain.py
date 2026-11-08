@@ -87,6 +87,25 @@ if sitemap:
         if BASE+"/watchlist-planner/" not in urls or len(urls)<38:
             errors.append(f"Custom-domain sitemap does not contain all expected public routes ({len(urls)} found).")
     except ET.ParseError as exc:errors.append(f"Custom-domain sitemap XML invalid: {exc}")
+# Confirm the public domain, not just GitHub, serves AI discovery instructions.
+llms=get("/llms.txt",True)
+if llms and ("# Indian Anime Club" not in llms or "## Selected editorial guides" not in llms):
+    errors.append("CUSTOM DOMAIN STALE: /llms.txt does not contain the new AI discovery guide.")
+robots=get("/robots.txt",True)
+if robots:
+    required_agents=("OAI-SearchBot", "GPTBot", "ChatGPT-User", "ClaudeBot",
+                     "PerplexityBot", "Google-Extended", "Applebot-Extended", "CCBot")
+    for agent in required_agents:
+        if f"User-agent: {agent}" not in robots:
+            errors.append(f"CUSTOM DOMAIN STALE: /robots.txt missing permission for {agent}.")
+if homepage and '"@id":"https://indiananimeclub.com/#website"' not in homepage:
+    errors.append("CUSTOM DOMAIN STALE: Homepage lacks the linked WebSite structured data.")
+if archive and '"@type":"CollectionPage"' not in archive:
+    errors.append("CUSTOM DOMAIN STALE: Archive lacks CollectionPage structured data.")
+if sample_article and ('"@type":"BlogPosting"' not in sample_article or
+                       'id="iac-article-breadcrumb"' not in sample_article):
+    errors.append("CUSTOM DOMAIN STALE: Article lacks BlogPosting or breadcrumb structured data.")
+
 ads=get("/ads.txt",True)
 if ads and "pub-7937216909291905" not in ads:
     errors.append("Public ads.txt does not contain the expected authorised publisher ID.")
