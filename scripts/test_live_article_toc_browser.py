@@ -42,7 +42,15 @@ with sync_playwright() as pw:
                       links:toc.querySelectorAll('ol li a').length};
                 }""")
                 print(f"LIVE TOC {width}px {path}: {before}",flush=True)
-                assert before["links"]>=8, (path,before)
+                # A short, legitimate article guide can contain fewer than eight sections.
+                # Validate real anchors and geometry instead of inventing sections to meet a quota.
+                assert before["links"]>=3, (path,before)
+                anchors=nav.evaluate("""toc => [...toc.querySelectorAll('ol li a')].map(a => {
+                    const href=a.getAttribute('href') || '';
+                    const id=href.startsWith('#') ? decodeURIComponent(href.slice(1)) : '';
+                    return {label:a.textContent.trim(),href,exists:!!(id && document.getElementById(id))};
+                })""")
+                assert all(a["label"] and a["exists"] for a in anchors),(path,anchors)
                 assert before["background"]=="rgb(237, 247, 250)",(path,before)
                 assert before["scrollWidth"] <= before["clientWidth"]+2,(path,before)
                 if width>760:
