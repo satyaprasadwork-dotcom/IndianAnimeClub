@@ -1,0 +1,42 @@
+# Indian Anime Club
+
+> Indian Anime Club is an independent, India-focused editorial website and fan community publishing practical anime viewing guides, storytelling analysis, fan-culture resources and creator-focused advice.
+
+Content is written for readers in India. Streaming catalogues, pricing, language tracks, licensing, and event schedules can change; verify time-sensitive details with the original provider.
+
+## Main pages
+
+- [Homepage](https://indiananimeclub.com/): Editorial overview and community.
+- [All articles](https://indiananimeclub.com/articles/): Browse all currently published guides and analysis.
+- [Watchlist Planner](https://indiananimeclub.com/watchlist-planner/): Interactive planning tool for watching time and budgets.
+- [About](https://indiananimeclub.com/about/): Community mission and scope.
+- [Editorial policy](https://indiananimeclub.com/editorial-policy/): Sourcing, corrections and editorial standards.
+- [Leadership](https://indiananimeclub.com/leadership/): Founder and site leadership.
+- [Contact](https://indiananimeclub.com/contact/): Corrections, inquiries and contact information.
+
+## Selected editorial guides
+
+- [Where to watch anime legally in India](https://indiananimeclub.com/where-to-watch-anime-legally-in-india-a-practical-guide-to-platforms-languages-and-availability/)
+- [How to choose subtitles or dubs](https://indiananimeclub.com/subtitles-vs-dubs-how-indian-anime-viewers-can-choose-what-works-for-them/)
+- [Hindi, Tamil, Telugu or Japanese audio](https://indiananimeclub.com/hindi-tamil-telugu-or-japanese-audio-how-language-changes-the-indian-anime-experience/)
+- [Anime watch orders explained](https://indiananimeclub.com/anime-watch-orders-explained-how-to-navigate-seasons-films-specials-and-spin-offs/)
+- [A beginner's roadmap to anime in India](https://indiananimeclub.com/new-to-anime-in-india-a-beginners-roadmap-based-on-your-interests-not-just-rankings/)
+- [Build an anime watchlist on a student budget](https://indiananimeclub.com/building-an-anime-watchlist-on-a-student-budget-a-smarter-guide-for-indian-fans/)
+- [How to start an anime club at college](https://indiananimeclub.com/how-to-start-an-anime-club-at-your-college-a-practical-plan-for-indian-student-communities/)
+- [First anime convention in India: planning checklist](https://indiananimeclub.com/your-first-anime-convention-in-india-what-to-plan-before-you-go/)
+- [Anime merchandise in India: authenticity checks](https://indiananimeclub.com/anime-merchandise-in-india-how-to-check-authenticity-pricing-and-seller-credibility/)
+- [Fan art, screenshots and copyright](https://indiananimeclub.com/fan-art-screenshots-and-copyright-what-indian-anime-creators-should-understand-before-publishing/)
+- [Understanding anime storytelling](https://indiananimeclub.com/beyond-power-levels-how-to-analyse-anime-writing-worldbuilding-and-character-growth/)
+- [How to build lasting anime communities](https://indiananimeclub.com/what-makes-an-anime-community-last-lessons-in-belonging-participation-and-local-leadership/)
+
+## Additional resources
+
+- [XML sitemap](https://indiananimeclub.com/sitemap.xml): Canonical index of published pages.
+- [Community guidelines](https://indiananimeclub.com/community-guidelines/)
+- [Privacy policy](https://indiananimeclub.com/privacy-policy/)
+- [Terms](https://indiananimeclub.com/terms/)
+- [Disclaimer](https://indiananimeclub.com/disclaimer/)
+
+## Use and attribution
+
+Prefer a link to the original canonical article when referencing Indian Anime Club. Do not treat fan commentary as official statements from anime studios, publishers, streaming services or rights holders. Follow source links in each article for factual verification.

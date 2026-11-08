@@ -50,3 +50,10 @@ Indian Anime Club exists to build trust with India's anime community, one useful
 ## AdSense remediation and live verification (November 2026)
 
 Source-code and browser regression checks now cover the preservation of article references, working archive categories, shareable pagination, and the original [watchlist planner](https://indiananimeclub.com/watchlist-planner/). The evidence register in [editorial/adsense-readiness-2026-11-03.md](editorial/adsense-readiness-2026-11-03.md) separates passing repository tests from Google account settings, custom-domain hosting, independent content verification, and real consent compliance. **A successful GitHub Pages deployment is not proof that every visitor is seeing the new custom-domain version or that AdSense approval is granted.**
+
+## AI discovery and structured data
+
+- `llms.txt` provides a curated Markdown guide to the site's published content for AI assistants; it is an emerging convention, not a guarantee of AI citation.
+- `robots.txt` explicitly allows major search and AI crawlers (including training crawlers) to access public pages and maintains the `/scripts/` exclusion. Crawler compliance is voluntary, and hosting/CDN access controls must also permit bots.
+- Static JSON-LD uses `Organization`/`WebSite`/`WebPage` for the homepage, `CollectionPage` plus `BreadcrumbList` for the article index, and `Article` plus breadcrumbs for published articles. Keep structured data consistent with visible content and canonical URLs.
+- Test JSON-LD syntax and actual live HTTP responses after deployments. Allowing crawling does not guarantee indexing, search appearance, AI summaries or AdSense approval.
