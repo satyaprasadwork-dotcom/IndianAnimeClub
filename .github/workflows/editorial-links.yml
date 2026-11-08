@@ -1,5 +1,11 @@
 name: Weekly editorial source link review
 on:
+  push:
+    branches: [main]
+    paths:
+      - 'articles/*.html'
+      - 'scripts/check_external_links.py'
+      - '.github/workflows/editorial-links.yml'
   schedule:
     - cron: '30 4 * * 1'
   workflow_dispatch:
