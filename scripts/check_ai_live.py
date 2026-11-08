@@ -11,13 +11,21 @@ from xml.etree import ElementTree as ET
 import json
 import re
 import sys
+import os
+import time
 
 BASE = "https://indiananimeclub.com"
 errors = []
 
 
 def get(path):
-    req = Request(BASE + path, headers={
+    # During deployments, bypass CDN TTLs to test the latest release artifact.
+    # The weekly scheduled monitor intentionally checks ordinary unbusted URLs.
+    cache_bust = (
+        "?iac_discovery=" + os.environ.get("GITHUB_RUN_ID", str(int(time.time())))
+        if os.environ.get("IAC_VERIFY_FRESH") == "1" else ""
+    )
+    req = Request(BASE + path + cache_bust, headers={
         "User-Agent": "IndianAnimeClubDiscoveryAudit/1.0",
         "Cache-Control": "no-cache",
     })
