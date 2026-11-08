@@ -1,0 +1,20 @@
+name: Weekly AI discovery reachability
+on:
+  schedule:
+    - cron: '15 4 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  discovery:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.x"
+      - name: Verify discoverability and schema on the public custom domain
+        run: python3 scripts/check_ai_live.py
