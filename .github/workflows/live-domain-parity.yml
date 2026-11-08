@@ -22,6 +22,8 @@ jobs:
           python-version: "3.x"
       - name: Verify actual indiananimeclub.com HTML, article navigation, planner and sitemap
         run: python3 scripts/check_live_domain.py
+      - name: Validate public crawler permissions and schema on all canonical pages
+        run: python3 scripts/check_ai_live.py
       - name: Install Chromium for live article rendering verification
         run: |
           python3 -m pip install 'playwright>=1.55,<2'
