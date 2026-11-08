@@ -52,5 +52,7 @@ jobs:
             reports/editorial-review.md
             reports/claim-review.json
           retention-days: 60
+      - name: Validate all AI discovery directives and structured data
+        run: python3 scripts/check_ai_discovery.py
       - name: Validate article SEO, images, sitemap and AdSense basics
         run: python3 scripts/audit_site.py

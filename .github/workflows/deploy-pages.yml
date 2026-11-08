@@ -343,6 +343,8 @@ jobs:
           PY
       - name: Generate sitemap from canonical page URLs
         run: python3 scripts/generate_sitemap.py
+      - name: Validate AI discovery directives and all article schemas
+        run: python3 scripts/check_ai_discovery.py
       - name: Run pre-deployment SEO and article integrity audit
         run: python3 scripts/audit_site.py
       - name: Install social preview renderer
