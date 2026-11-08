@@ -1,11 +1,9 @@
 name: Submit Indian Anime Club URLs via IndexNow
 
 on:
-  push:
-    branches: [main]
-    paths:
-      - 'd9f008f53d626b555b1c8e1e2da567d3.txt'
-      - '.github/workflows/indexnow-submit.yml'
+  workflow_run:
+    workflows: ["Deploy Indian Anime Club to GitHub Pages"]
+    types: [completed]
   workflow_dispatch:
 
 permissions:
@@ -13,6 +11,7 @@ permissions:
 
 jobs:
   submit:
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     timeout-minutes: 12
     steps:
