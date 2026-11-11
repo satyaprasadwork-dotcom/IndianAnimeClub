@@ -38,6 +38,8 @@ jobs:
         run: python scripts/test_home_labels_browser.py
       - name: Verify shareable archive navigation and editorial source integrity
         run: python scripts/test_archive_browser.py
+      - name: Verify mobile homepage to article to related-reading and privacy journey
+        run: python scripts/test_reading_journey_browser.py
       - name: Verify original watchlist planner arithmetic and mobile usability
         run: python scripts/test_planner_browser.py
       - name: Save browser screenshots
